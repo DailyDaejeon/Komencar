@@ -33,8 +33,6 @@ https://docs.google.com/spreadsheets/d/1N7dpt55lEjgBRNpb1RvTBGu16N35-yzskRAggzWs
 
 ## Gantt Chart
 
-## Gantt Chart
-
 ```mermaid
 gantt
     dateFormat  MM-DD
@@ -48,11 +46,11 @@ gantt
     프로토 타입     : 03-10, 3d
     Object Detection 공부	  :03-09, 4d
     데이터 추출			:03-10, 2d
-    데이터 라벨링				  :03-13, 7d
-    개발 환경 구성             :03-15, 2d
+    데이터 라벨링		:03-13, 7d
+    개발 환경 구성      :03-15, 2d
     
     개발
-    AI 모델 학습        : 03-17,03-31
+    AI 모델 학습        : 03-17, 03-31
     백엔드, 프론트 개발 : 03-17, 03-31
     
     마무리
