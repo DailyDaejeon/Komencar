@@ -66,8 +66,8 @@ gantt
 
 ### branch
 
-```
-master -> develop -> feature/
+```bash
+master -> develop -> feature/(BE,FE)-기능
 ```
 
 ### merge
@@ -75,6 +75,12 @@ master -> develop -> feature/
 ```
 Merge 하기 전 깃랩 Merge Request 이용.
 Merge 후 Branch 삭제.
+```
+
+### commit
+
+```bash
+지라이슈번호 커밋내용
 ```
 
 ## ERD
