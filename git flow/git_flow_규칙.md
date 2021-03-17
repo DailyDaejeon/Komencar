@@ -11,7 +11,136 @@
 >
 >Feature Branch Workflow보다 복잡하긴하지만, 대형 프로젝트에도 적용할 수 있는 강건한 작업 절차
 
-## [요약]
+## 순서
+
+1. develop branch생성 후 develop branch를 default branch로 설정
+2. 중앙 원격 저장소(origin)의 develop branch와 연결된 새로운 'develop' branch를 로컬 저장소에 연결
+
+```bash
+$ git checkout -b develop origin/develop
+```
+
+![image-20210317220423608](git_flow_규칙.assets/image-20210317220423608.png)
+
+3. 새로운 기능 개발을 위해 FEATURE branch를 만든다
+
+로컬 저장소에서 branch를 따고, 코드를 수정하고, 변경 내용을 커밋한다.
+이때, ‘master’ branch에서 기능 개발을 위한 브랜치를 따는 것이 아니라, ‘develop’ branch에서 따야한다.
+
+```bash
+$ git checkout -b [branch name] develop
+```
+
+![image-20210317221043429](git_flow_규칙.assets/image-20210317221043429.png)
+
+4. 커밋하기 전 최신상태를 업데이트한다
+
+```bash
+$ git pull origin develop
+```
+
+5. 로컬 저장소의 새로운 기능 브랜치를 중앙 원격 저장소(remote repository)에 푸시한다.
+
+- 새로 만든 브랜치(feature/login branch)에 새로운 기능에 대한 내용을 커밋한다.
+- 커밋을 완료했다면, 내가 작업한 내용을 포함한 브랜치(feature/login branch)를 중앙 원격 저장소에 올린다.
+
+```bash
+$ git commit -a -m "Write commit message"
+
+# 위의 명령어는 아래의 두 명령어를 합한 것
+$ git add . # 변경된 모든 파일을 스테이징 영역에 추가
+$ git add [some-file] # 스테이징 영역에 some-file 추가
+$ git commit -m "Write commit message" # local 작업폴더에 history 하나를 쌓는 것
+```
+
+```bash
+$ git push origin [branch name]
+```
+
+6. pull request를 한다
+
+- gitlab에서 create merge를 현재 브랜치에서 develop 브랜치로 pull request를 한다
+
+7. 로컬저장소의 develop branch에 중앙원격저장소(origin)의 최신 내용을 가져온다
+
+```bash
+$ git checkout develop
+$ git pull origin develop
+```
+
+8. 기능이 완성된 feature branch를 삭제한다.
+
+```bash
+$ git branch -d [기능브렌치]
+```
+
+9. 모든 기능 완성했을 때 배포하기
+
+- develop branch에서 버전에 대한 기능이 모두 구현되었으면 develop branch에서 그 작업에 대한 release branch를 생성 후 이동
+
+```bash
+$ git checkout -b release-버전 develop
+```
+
+- 이렇게 release 브랜치를 만드는 순간부터 배포 사이클이 시작된다.
+
+- release 브랜치에서는 배포를 위한 최종적인 버그 수정, 문서 추가 등 릴리스와 직접적으로 관련된 작업을 수행한다.
+
+- 직접적으로 관련된 작업들을 제외하고는 release 브랜치에 새로운 기능을 추가로 병합(merge)하지 않는다.
+
+- ‘release’ 브랜치에서 배포 가능한 상태가 되면(배포 준비가 완료되면),
+
+  - 배포 가능한 상태: 새로운 기능을 포함한 상태로 모든 기능이 정상적으로 동작 하는 상태
+
+  1. 팀이 풀 리퀘스트를 통한 코드 리뷰하는 방식을 사용한다면 release 브랜치를 그대로 중앙 원격 저장소에 올린 후 다른 팀원들의 확인을 거쳐 ‘master’와 ‘develop’ branch에 병합한다.
+     1. ‘master’ 브랜치에 병합한다. (이때, 병합한 커밋에 Release 버전 태그를 부여!)
+     2. 배포를 준비하는 동안 release 브랜치가 변경되었을 수 있으므로 배포 완료 후 ‘develop’ 브랜치에도 병합한다.
+  2. 작업했던 release 브랜치는 삭제한다. 이때, 다음 번 배포(Release)를 위한 개발 작업은 ‘develop’ 브랜치에서 계속 진행해 나간다.
+
+``` bash
+# pull request 이용하지 않는 경우(우린 이용함!)
+/* release 브랜치에서 배포 가능한 상태가 되면 */
+// 'master' 브랜치로 이동한다.
+$ git checkout master
+// 'master' 브랜치에 release-1.2 브랜치 내용을 병합(merge)한다.
+# --no-ff 옵션: 위의 추가 설명 참고
+$ git merge --no-ff release-1.2
+// 병합한 커밋에 Release 버전 태그를 부여한다.
+$ git tag -a 1.2
+// 'master' 브랜치를 중앙 원격 저장소에 올린다.
+$ git push origin master
+
+/* 'release' 브랜치의 변경 사항을 'develop' 브랜치에도 적용 */
+// 'develop' 브랜치로 이동한다.
+$ git checkout develop
+// 'develop' 브랜치에 release-1.2 브랜치 내용을 병합(merge)한다.
+$ git merge --no-ff release-1.2
+// 'develop' 브랜치를 중앙 원격 저장소에 올린다.
+$ git push origin develop
+
+// -d 옵션: release-1.2에 해당하는 브랜치를 삭제한다.
+$ git branch -d release-1.2
+```
+
+10. 버그 수정하기 
+
+- 배포한 버전에 긴급하게 수정을 해야 할 필요가 있을 경우, ‘master’ 브랜치에서 직접 브랜치(‘hotfix’ 브랜치)를 만들어 필요한 부분만을 수정한 후 다시 ‘master’브랜치에 병합하여 이를 배포해야 한다.
+
+```bash
+// release 브랜치(hotfix-1.2.1)를 'master' 브랜치(유일!)에서 분기
+$ git checkout -b hotfix-1.2.1 master
+
+/* ~ 문제가 되는 부분만을 빠르게 수정 ~ */
+git add .
+git commit -m'커밋메세지'
+git push origin hotfix-1.2.1
+```
+
+- 고친 hotfix 브랜치를 master에 pull request한다
+
+
+
+## [설명]
 
 ![image-20210315211940813](git_flow_규칙.assets/image-20210315211940813.png)
 
@@ -20,6 +149,12 @@
 > 메인 브랜치는 master 브랜치와 develop 브랜치 두 종류를 말합니다
 >
 > master 브랜치는 배포 가능한 상태만을 관리하는 브랜치를 말하며, develop브랜치는 다음에 배포할 것을 개발하는 브랜치입니다. 즉 develop 브랜치는 통합 브랜치의 역할을 하며, 평소에는 이 브랜치를 기반으로 개발을 진행합니다.
+
+### develop branch를 default branch로 설정
+
+> 'develop' branch를 default branch로 설정하는 이유?
+> 평소에는 ‘develop’ branch를 기반으로 개발을 진행하기 때문에
+> `$ git push origin some-feature`(내 로컬 저장소의 some-feature branch를 중앙 원격 저장소로 올리는 명령)를 한 후, GitLab 페이지에서 해당 some-feature branch에 대해 merge를 할 때 중앙 원격 저장소의 ‘master’ branch가 아닌 default로 설정되어 있는 ‘develop’에 병합하도록 설정하는 것이다.
 
 ### 2. 보조 브랜치(Feature branch)
 
@@ -34,15 +169,15 @@
 - 브런치 나오는 곳 : `develop`
 - 브런치가 들어가는 곳 : `develop`
 - 이름 지정 : `master`, `develop`, `release-*`, `hotfix-*`를 제외한 어떤 것이든 가능.
-
 - feature 브랜치를 생성할 때는 develop 브랜치에서부터 생성합니다. 그리고 꼭 브랜치를 생성하기 전에 develop 브랜치를 pull 받아야합니다. feature 브랜치는 아래와 같이 생성합니다.
+- 한 브랜치에서 파생되는 브랜치 만들기 `git checkout -b {새로운 로컬 Branch 이름} {원격 저장소 별칭}/{원격 Branch 이름}`
 
 ```bash
 git checkout -b 브랜치 이름 (해당 브랜치가 존재하지 않는다면 브랜치를 새로 만들면서 바로 그 브랜치로 이동합니다.)
-ex) git checkout -b feature/#1(기능 or 이슈번호)
+ex) git checkout -b feature/#1(기능 or 이슈번호) origin/develop
 
 git checkout 브랜치이름 (존재하는 브랜치가 있다면 그 브랜치로 이동합니다.)
-ex) git checkout feature/#1(기능 or 이슈번호) 
+ex) git checkout feature/#1(기능 or 이슈번호) develop
 ```
 
 
@@ -62,6 +197,25 @@ git push origin 브랜치 이름 (ex: feature/#1)
 여기서 중요하게 봐야 할 점은 위에 머지하는 브랜치와 머지되는 브랜치입니다. 
 
 **feature/#1브랜치를 develop 브랜치로 Merge해야됩니다**
+
+
+
+### 변동사항 pull 받기
+
+develop의변동사항을 pull 받기
+
+```bash
+git pull oigin develop
+```
+
+
+
+### 기능개발 완료시 master로 pull하기
+
+```bash
+git checkout master
+git pull origin develop
+```
 
 
 
