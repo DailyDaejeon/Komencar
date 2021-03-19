@@ -1,0 +1,20 @@
+item {
+    id: 1
+    name: 'avante'
+}
+item {
+    id: 2
+    name: 'grandeur'
+}
+item {
+    id: 3
+    name: 'kona'
+}
+item {
+    id: 4
+    name: 'palisade'
+}
+item {
+    id: 5
+    name: 'sonata'
+}
