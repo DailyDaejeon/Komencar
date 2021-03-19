@@ -1,4 +1,6 @@
 # ignore Folder
 images/
-custom_object_detection/
 *.xml
+*.zip
+backup/
+models/
