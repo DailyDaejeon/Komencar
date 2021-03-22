@@ -205,4 +205,180 @@ git push origin hotfix-1.2.1
 
 - 고친 hotfix 브랜치를 master에 pull request한다
 
+## Frontend Code Style Guide
+
+### 컴포넌트/ 인스턴스 옵션 순서
+
+1. **템플릿 의존성(Template Dependencies)** (템플릿에 이용되는 요소들을 지정하는 옵션)
+   - `components`
+2. **인터페이스(Interface)** (컴포넌트의 인터페이스를 지정하는 옵션)
+   - `props`/`propsData`
+3. **지역 상태(Local State)** (반응적인 지역 속성들을 설정하는 옵션)
+   - `data`
+   - `computed`
+4. **이벤트(Events)** (반응적인 이벤트에 의해 실행되는 콜백을 지정하는 옵션)
+   - `watch`
+   - 라이프사이클 이벤트 (호출 순서대로 정렬)
+     - `beforeCreate`
+     - `created`
+     - `beforeMount`
+     - `mounted`
+     - `beforeUpdate`
+     - `updated`
+     - `activated`
+     - `deactivated`
+     - `beforeDestroy`
+     - `destroyed`
+5. **비반응적 속성(Non-Reactive Properties)** (시스템의 반응성과 관계 없는 인스턴스 속성을 지정하는 옵션)
+   - `methods`
+
+
+
+### View와 Components 폴더 
+
+1. View폴더에는 기능별 컴포넌트들을 담을 메인 페이지만 넣기
+   - 싱글페이지 앞에는 `The`붙이기
+
+```sh
+views/
+|- user/(회원관리페이지)
+	|- SignupPage.vue
+	|- LoginPage.vue
+|- carSearch/(메인페이지)
+	|- CarSearchPage.vue
+	|- CarSearchDetailPage.vue
+|- TheAbout.vue
+|- TheMenu.vue
+```
+
+2. Components 폴더안에는 해당 기능 페이지의 컴포넌트들 모두 적기
+   - 한 페이지 안에 들어가는 기능은 `prefix(접두어)`를 같게 만들어라(또는 접두어 폴더안에 담아라) 
+
+```sh
+Components/
+|- common/(공통적으로 쓰일 컴포넌트들을 담는 폴더)
+|- user/(회원관리기능 폴더)
+	|- SignupForm.vue
+	|- LoginForm.vue
+|- carSearch/(자동차 찾기 관련 폴더)
+	|- CarImageCamera.vue(자동차 카메라로 이미지 업로드)
+	|- CarImageGallery.vue(자동차 앨범에서 이미지 업로드)
+```
+
+
+
+###  컴포넌트 이름
+
+1. 파스칼 케이스로 이름 설정한다. ex) `TodoItem`
+2. 첫 글자 대문자, 단어가 바뀌면 대문자
+
+
+
+### 컴포넌트 import
+
+```html
+<!-- In single-file components, string templates, and JSX -->
+<MyComponent/>
+```
+
+
+
+### props 규정
+
+- `HTML`과 `prop`는 둘다 파스칼케이스로 이름을 지정한다
+
+- default
+
+```js
+props: {
+    items: {
+      type: any,
+      required: true
+    }
+  },
+```
+
+- 예시
+
+```js
+props: {
+    items: {
+      type: Array as PropType<NewsItem[]>,
+      required: true
+    }
+},
+```
+
+
+
+### 다중 속성 엘리먼트
+
+```html
+<img
+  src="https://vuejs.org/images/logo.png"
+  alt="Vue Logo"
+>
+
+<MyComponent
+  foo="a"
+  bar="b"
+  baz="c"
+/>
+```
+
+
+
+### computed
+
+- 가독성 좋게! 단순한 계산된 값은 한줄로 표현
+
+
+
+### methods
+
+- 동사형, 기능을 명확하게 알 수 있도록 변수명을 정함
+
+
+
+### css/scss 
+
+- `index.scss` 파일로 `index.css`로 변환해서 관리
+
+#### 파일명
+
+```sh
+|- sass/
+	|- index.scss
+	|- abstracts/
+		|- _variables.scss
+		|- _mixins.scss(속성은 같은데 바꿀 값이 다를때 재사용할 수 있게 만듦)
+	|- base/(CSS의 기본적이고 기능적인 설정들)
+		|- _base.scss (기본 설정)
+		|- _animations.scss(animation)
+		|- _typo.scss(글자 text style)
+		|- _utilities.scss(자주 쓰는 margin 등을 따로 설정)
+	|- components/(버튼이나 메뉴같은 마우스 컨트롤 요소들,컴포넌트 별, element별)
+		|- _container.scss
+	|- layout/(html 요소별 나눔)
+		|- _header.scss
+		|- footer.scss
+```
+
+
+
+#### class명
+
+- 위에 큰 부모 밑에 아래 요소를 `__`(속성), `--`(수정)에 사용
+
+- 공통적으로 사용될 수 있는 css요소들은 `components`에 해당 요소 파일을 만들어 적고, 주석으로 설명 적기
+
+
+
+
+
+
+
 ## ERD
+
+
+
