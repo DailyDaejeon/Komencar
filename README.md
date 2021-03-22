@@ -372,6 +372,33 @@ props: {
 
 - 공통적으로 사용될 수 있는 css요소들은 `components`에 해당 요소 파일을 만들어 적고, 주석으로 설명 적기
 
+- 블록(block), 요소(element), 상태(modifier)로 구분하여 클래스 작성하며 엄격한 네이밍 규칙을 가진다.
+- block : 재사용 가능한 영역(header, footer, navigation…), 하나의 단어를 사용하되 길어질 경우 (-)를 사용
+
+```css
+.header { ... }
+.block { ... }
+```
+
+- element : 블록의 내부 구성을 표현, 두개의 underscores( _ )로 표기
+
+```css
+.header { ... }
+.header__link { ... }
+.header__tap { ... }
+.header__tap__item { ... }
+```
+
+- modifier : 요소의 상태를 표현, 두개의 hyphen(-)로 표기
+
+```css
+.header--hide { ... }
+.header__tap--big { ... }
+.header__tap--big { ... }
+```
+
+코드를 직관적으로 파악할수 있지만 이름이 길고 복잡해 질수 있다.
+
 
 
 
