@@ -2,7 +2,13 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "strict": true,
+    // 점차적으로 typescript적용
+    // "strict": true,
+    "strict": false,
+    // type을 적어도 any라고 줘야됨
+    // "noImplicitAny" : true,
+    // router의 에러를 해결하기 위함
+    // "allowJS":true,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
