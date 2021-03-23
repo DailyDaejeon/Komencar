@@ -1,16 +1,21 @@
 <template>
   <div id="app">
-    <LoginPage/>
+    <!-- <LoginPage/> -->
+    <CarSearch/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import LoginPage from './views/user/LoginPage.vue';
+import CarSearch from './views/carSearch/CarSearch.vue';
+// import LoginPage from './views/user/LoginPage.vue';
 
 export default Vue.extend({
-  components: { LoginPage },
   name: "App",
+  components: { 
+    // LoginPage, 
+    CarSearch 
+    },
 
 });
 </script>
