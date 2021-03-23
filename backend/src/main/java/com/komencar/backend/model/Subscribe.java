@@ -1,7 +1,5 @@
 package com.komencar.backend.model;
 
-import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity
