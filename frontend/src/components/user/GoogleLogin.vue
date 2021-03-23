@@ -7,10 +7,30 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable */
 import Vue from 'vue'
 export default Vue.extend({
   methods: {
     handleClickGetAuth(){
+      this.$gAuth.getAuthCode()
+      .then(authCode => {
+        //on success
+        console.log('Authcode',authCode)
+        return this.$http.post('http://your-backend-server.com/auth/google', { code: authCode, redirect_uri: 'postmessage' })
+      })
+      .then(response => {
+        //and then
+        console.log(response)
+        // this.handleClickSignIn()
+        // 만약 토큰이 없으면 signin하고,,,이건 api만든 뒤에 다시 확인 필요
+      })
+      .catch(error => {
+        //on fail do something
+        console.log(error)
+      })
+    },
+  
+  handleClickSignIn(){
       this.$gAuth.signIn()
     .then(GoogleUser => {
       //on success do something
