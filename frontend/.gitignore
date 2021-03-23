@@ -2,11 +2,8 @@
 node_modules
 /dist
 
-<<<<<<< HEAD
 # css 파일
 .css
-=======
->>>>>>> 195dafdae9287fdcc86cea3f94a2cb102b744cd8
 
 # local env files
 .env.local
