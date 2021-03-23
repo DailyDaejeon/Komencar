@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Object Detection API(Tensorflow1 ver.)
 
 ## ⭐참고⭐
@@ -1017,4 +1016,3 @@ item {
 [[Object Detection\] 1. Object Detection 논문 흐름 및 리뷰](https://nuggy875.tistory.com/20)
 
 [[Object Detection\] 2. R-CNN : 딥러닝을 이용한 첫 2-stage Detector](https://nuggy875.tistory.com/21)
->>>>>>> 195dafdae9287fdcc86cea3f94a2cb102b744cd8

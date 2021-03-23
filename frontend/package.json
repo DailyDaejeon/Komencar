@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-<<<<<<< HEAD
     "vue": "^2.6.11",
     "vue-google-oauth2": "^1.5.8",
     "vue-router": "^3.5.1",
@@ -17,11 +16,9 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
-=======
     "vue": "^2.6.11"
   },
   "devDependencies": {
->>>>>>> 195dafdae9287fdcc86cea3f94a2cb102b744cd8
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
