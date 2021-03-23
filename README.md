@@ -66,7 +66,7 @@ gantt
 ### branch
 
 ```bash
-master -> develop -> feature/(BE,FE)-기능
+master -> develop -> feature/기능-(BE or FE)
 ```
 
 ### merge
