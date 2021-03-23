@@ -1,4 +1,11 @@
 # ignore Folder
 images/
+<<<<<<< HEAD
+*.xml
+*.zip
+backup/
+models/
+=======
 custom_object_detection/
 *.xml
+>>>>>>> 195dafdae9287fdcc86cea3f94a2cb102b744cd8
