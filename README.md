@@ -11,7 +11,6 @@
 | 김채린 | 팀원 | 프론트엔드 |
 | 박수아 | 팀원 | 프론트엔드 |
 | 정혜림 | 팀원 | 프론트엔드 |
-| 정혜림 | 팀원 | 백엔드     |
 
 ## 프로젝트 개요
 
@@ -190,7 +189,7 @@ $ git push origin develop
 $ git branch -d release-1.2
 ```
 
-10. 버그 수정하기 
+10. 버그 수정하기
 
 - 배포한 버전에 긴급하게 수정을 해야 할 필요가 있을 경우, ‘master’ 브랜치에서 직접 브랜치(‘hotfix’ 브랜치)를 만들어 필요한 부분만을 수정한 후 다시 ‘master’브랜치에 병합하여 이를 배포해야 한다.
 
@@ -207,6 +206,7 @@ git push origin hotfix-1.2.1
 - 고친 hotfix 브랜치를 master에 pull request한다
 
 <<<<<<< HEAD
+
 ## Frontend Code Style Guide
 
 ### 컴포넌트/ 인스턴스 옵션 순서
@@ -234,9 +234,7 @@ git push origin hotfix-1.2.1
 5. **비반응적 속성(Non-Reactive Properties)** (시스템의 반응성과 관계 없는 인스턴스 속성을 지정하는 옵션)
    - `methods`
 
-
-
-### View와 Components 폴더 
+### View와 Components 폴더
 
 1. View폴더에는 기능별 컴포넌트들을 담을 메인 페이지만 넣기
    - 싱글페이지 앞에는 `The`붙이기
@@ -254,7 +252,7 @@ views/
 ```
 
 2. Components 폴더안에는 해당 기능 페이지의 컴포넌트들 모두 적기
-   - 한 페이지 안에 들어가는 기능은 `prefix(접두어)`를 같게 만들어라(또는 접두어 폴더안에 담아라) 
+   - 한 페이지 안에 들어가는 기능은 `prefix(접두어)`를 같게 만들어라(또는 접두어 폴더안에 담아라)
 
 ```sh
 Components/
@@ -267,23 +265,17 @@ Components/
 	|- CarImageGallery.vue(자동차 앨범에서 이미지 업로드)
 ```
 
-
-
-###  컴포넌트 이름
+### 컴포넌트 이름
 
 1. 파스칼 케이스로 이름 설정한다. ex) `TodoItem`
 2. 첫 글자 대문자, 단어가 바뀌면 대문자
-
-
 
 ### 컴포넌트 import
 
 ```html
 <!-- In single-file components, string templates, and JSX -->
-<MyComponent/>
+<MyComponent />
 ```
-
-
 
 ### props 규정
 
@@ -311,38 +303,23 @@ props: {
 },
 ```
 
-
-
 ### 다중 속성 엘리먼트
 
 ```html
-<img
-  src="https://vuejs.org/images/logo.png"
-  alt="Vue Logo"
->
+<img src="https://vuejs.org/images/logo.png" alt="Vue Logo" />
 
-<MyComponent
-  foo="a"
-  bar="b"
-  baz="c"
-/>
+<MyComponent foo="a" bar="b" baz="c" />
 ```
-
-
 
 ### computed
 
 - 가독성 좋게! 단순한 계산된 값은 한줄로 표현
 
-
-
 ### methods
 
 - 동사형, 기능을 명확하게 알 수 있도록 변수명을 정함
 
-
-
-### css/scss 
+### css/scss
 
 - `index.scss` 파일로 `index.css`로 변환해서 관리
 
@@ -366,8 +343,6 @@ props: {
 		|- footer.scss
 ```
 
-
-
 #### class명
 
 - 위에 큰 부모 밑에 아래 요소를 `__`(속성), `--`(수정)에 사용
@@ -378,38 +353,48 @@ props: {
 - block : 재사용 가능한 영역(header, footer, navigation…), 하나의 단어를 사용하되 길어질 경우 (-)를 사용
 
 ```css
-.header { ... }
-.block { ... }
+.header {
+  ...;
+}
+.block {
+  ...;
+}
 ```
 
-- element : 블록의 내부 구성을 표현, 두개의 underscores( _ )로 표기
+- element : 블록의 내부 구성을 표현, 두개의 underscores( \_ )로 표기
 
 ```css
-.header { ... }
-.header__link { ... }
-.header__tap { ... }
-.header__tap__item { ... }
+.header {
+  ...;
+}
+.header__link {
+  ...;
+}
+.header__tap {
+  ...;
+}
+.header__tap__item {
+  ...;
+}
 ```
 
 - modifier : 요소의 상태를 표현, 두개의 hyphen(-)로 표기
 
 ```css
-.header--hide { ... }
-.header__tap--big { ... }
-.header__tap--big { ... }
+.header--hide {
+  ...;
+}
+.header__tap--big {
+  ...;
+}
+.header__tap--big {
+  ...;
+}
 ```
 
 코드를 직관적으로 파악할수 있지만 이름이 길고 복잡해 질수 있다.
 
-
-
-
-
-
-
 ## ERD
-
-
 
 ## 프로젝트 설정
 
@@ -419,7 +404,6 @@ props: {
 
 ```json
 {
-
   "editor.quickSuggestions": {
     "strings": true
   },
@@ -433,28 +417,18 @@ props: {
       "mode": "auto"
     }
   ],
-  "eslint.validate": [
-    "javascript",
-    "typescript"
-  ],
+  "eslint.validate": ["javascript", "typescript"],
   "liveSassCompile.settings.formats": [
     {
       "format": "expanded",
       "extensionName": ".css",
       "savePath": "~/../css"
-    },
+    }
   ],
-  "liveSassCompile.settings.generateMap":false,
-  "liveSassCompile.settings.excludeList": [
-    "**/node_modules/**",
-    ".vscode/**"
-  ],
-  "liveSassCompile.settings.autoprefix": [
-    "> 1%",
-    "last 2 versions"
-  ]
+  "liveSassCompile.settings.generateMap": false,
+  "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"]
 }
-
 ```
 
 ## ERD

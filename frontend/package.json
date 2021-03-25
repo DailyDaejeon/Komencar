@@ -31,5 +31,5 @@
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
   },
-  "proxy":"https://openapi.naver.com"
+  "proxy": "https://openapi.naver.com"
 }
