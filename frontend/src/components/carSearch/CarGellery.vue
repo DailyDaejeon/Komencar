@@ -7,7 +7,7 @@
         type="file" 
         hidden 
         @change="onChangeImages" 
-        :v-model="userProfilePic" 
+        :v-model="carImagePic" 
         accept="image/jpeg,image/jpg">
         <button 
         type="button"
@@ -22,12 +22,13 @@
       ref="imageInput" 
       @change="onChangeImages"
       capture="camera">
+       -->
       <img 
       v-if="imageUrl"
       :src="imageUrl"
       width="100%" 
       alt="이미지">
-      </div> -->
+      <!-- </div> -->
     </div>
 </template>
 
@@ -38,6 +39,7 @@ export default Vue.extend({
   data() {
     return {
       imageUrl: null,
+      carImagePic:String,
     }
   },
 
@@ -57,7 +59,7 @@ export default Vue.extend({
     //       let imagePic = new FormData();
     //       let pic = "보낼 이미지 이름";
     //       let picDB = String(pic + '.jpg');
-    //       this.imagePic = picDB;
+    //       this.carImagePic = picDB;
     //       imagePic.append("profile", this.imageUrl, String(pic+'.jpg'))
     //       await API보내기(imagePic)
     //       .then(() => {
