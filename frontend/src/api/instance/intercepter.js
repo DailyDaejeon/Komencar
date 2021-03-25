@@ -3,7 +3,7 @@ import store from "@/store/index";
 function setRequestOptions(instance) {
   instance.interceptors.request.use(
     config => {
-      const token = store.getters["auth/token"];
+      const token = store.getters["auth-token"];
       config.headers.Authorization = token;
       return config;
     },

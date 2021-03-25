@@ -1,4 +1,5 @@
 import axios, { AxiosPromise } from "axios";
+import { instance } from '@/api/instance/index-instance'
 
 const api = {
   // 예시
@@ -30,15 +31,14 @@ const config = {
   }
 }
 
+function loginUser(userData): AxiosPromise<any[]> {
+    return instance.post('',userData);
+}
+
 function fetchNews(): AxiosPromise<NewsItem[]> {
   return axios.get(`${api.news}?query="제네시스"`,config);
 }
 
 
-// function fetchUser(id: any) {
-//   const url = `${api.user}${id}.json`;
-//   return axios.get(url);
-// }
 
-
-export { fetchNews };
+export { fetchNews, loginUser };

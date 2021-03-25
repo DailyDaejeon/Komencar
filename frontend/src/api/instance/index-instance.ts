@@ -18,7 +18,8 @@ function createWithAuth(url: string, options = {}) {
 // 예시
 // auth 필요없는 경우
 // const news = create(`${APP_BASE_URI}news/`);
+const instance = create(`${APP_BASE_URI}`)
 // auth 필요한 경우
 // const user = createWithAuth(`${APP_BASE_URI}user/`, options);
 
-// export { news, user };
+export { instance, create, createWithAuth };
