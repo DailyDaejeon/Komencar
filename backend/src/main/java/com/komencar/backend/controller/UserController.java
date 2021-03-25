@@ -3,10 +3,10 @@ package com.komencar.backend.controller;
 import com.komencar.backend.model.User;
 import com.komencar.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -21,13 +21,14 @@ public class UserController {
     }
 
 
-    @PostMapping("/login")
-    public boolean login(@RequestBody User user) {
-        boolean result = false;
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/login")
+    public User login(@AuthenticationPrincipal OAuth2User user) {
+        String u_email = user.getAttribute("email");
+        System.out.println(u_email);
+        User searchedUser  = userRepository.findByUsername(u_email);
 
-        User searchedUser  = userRepository.findByUsername(user.getU_email());
-        result = searchedUser.getU_password().equals(user.getU_password());
-
-        return result;
+        return searchedUser;
     }
+
 }
