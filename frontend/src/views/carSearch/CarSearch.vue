@@ -6,9 +6,9 @@
     <CarImages 
     imageMethod="camera"
     />
-    <CarImages
+    <!-- <CarImages
     imageMethod="gallery"
-    />
+    /> -->
   </div>
 
 </template>
