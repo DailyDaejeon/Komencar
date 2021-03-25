@@ -1,7 +1,10 @@
 <template>
   <div>
       <div class="container" id="scanIdCardPage">
+        <button @click="updateDeviceList">START</button>
       <div class="scanIdCardDiv">
+        <div id="videoList"></div>
+        {{myPreferredCameraDeviceId}}
               <div class="scanCardContainer" v-show="afterTakingPhoto">
                   <video ref="video" id="video"  autoplay></video>
                   <canvas ref="canvas" id="canvas" width="320" height="240" style="display: none;"></canvas>
@@ -24,7 +27,8 @@ export default Vue.extend({
     return {
       myPreferredCameraDeviceId: "" as any,
       afterTakingPhoto:false as boolean,
-      videoLabel: false as any
+      videoLabel: false as any,
+      front:false as boolean,
     }
     },
     methods: {
@@ -35,12 +39,15 @@ export default Vue.extend({
             console.log(device.kind + ": " + device.label +
                         " id = " + device.deviceId);
             // console.log('디바이스종류',device.kind, device)
+            this.myPreferredCameraDeviceId = device.kind;
             console.log('???',this.videoLabel)
             if (device.kind === "videoinput" && !this.videoLabel) {
               console.log('디바이스ID?',device.deviceId)
               this.videoLabel = device.label;
               // this.myPreferredCameraDeviceId = device.deviceId;
-              navigator.mediaDevices.getUserMedia({ video: { deviceId: device.deviceId } }).then(stream => {
+              const constraints = { video: { facingMode: (this.front? "user" : "environment") } };
+              // { video: { deviceId: device.deviceId } }
+              navigator.mediaDevices.getUserMedia(constraints).then(stream => {
                   // console.log('내디바이스',this.myPreferredCameraDeviceId)
                   console.log("내디바이스",stream)
                   document.querySelector('video').srcObject = stream;
@@ -83,7 +90,23 @@ export default Vue.extend({
         .catch(function(err) {
           console.log(err.name + ": " + err.message);
         });
-        }
+        },
+  updateDeviceList() {
+  const videoList = document.getElementById("videoList");
+  navigator.mediaDevices.enumerateDevices()
+  .then(function(devices) {
+    videoList.innerHTML = "";
+    devices.forEach((device) => {
+      const elem = document.createElement("li");
+      const [kind, type, direction] = device.kind.match(/(\w+)(input|output)/i);
+
+      elem.innerHTML = "<strong>" + device.label + "</strong> (" + direction + ")";
+      if (type === "video") {
+        videoList.appendChild(elem);
+      }
+    });
+  });
+}
     },
     mounted() {
       // this.findDeviseInfo();

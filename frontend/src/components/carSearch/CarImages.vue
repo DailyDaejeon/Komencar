@@ -8,7 +8,8 @@
         @change="onChangeImages" 
         :v-model="carImagePic" 
         accept="image/jpeg,image/jpg"
-        :capture="imageMethod">
+        >
+        <!-- :capture="imageMethod" -->
         <button 
         type="button"
         @click="onClickImageUpload">
