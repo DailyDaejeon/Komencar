@@ -2,47 +2,45 @@
     <div>
       <div>
         <input 
-        id="profile" 
         ref="imageInput" 
         type="file" 
         hidden 
         @change="onChangeImages" 
         :v-model="carImagePic" 
-        accept="image/jpeg,image/jpg">
+        accept="image/jpeg,image/jpg"
+        :capture="imageMethod">
         <button 
         type="button"
         @click="onClickImageUpload">
-          <i class="fas fa-camera-retro"></i> 이미지 가져오기
+          <i class="fas fa-camera-retro"></i> {{imageMethod}}로 이미지가져오기
         </button>
       </div>
-      <!-- <div>
-      <input 
-      type="file" 
-      accept="image/*" 
-      ref="imageInput" 
-      @change="onChangeImages"
-      capture="camera">
-       -->
-      <img 
-      v-if="imageUrl"
-      :src="imageUrl"
-      width="100%" 
-      alt="이미지">
-      <!-- </div> -->
-    </div>
+    <img 
+    v-if="imageUrl"
+    :src="imageUrl"
+    width="100%" 
+    alt="이미지">
+  </div>
+    
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
+  props :{
+    imageMethod :{
+      type : String,
+      required : true,
+      default:"camera"
+    }
+  },
   data() {
     return {
       imageUrl: null,
       carImagePic:String,
     }
   },
-
   methods: {
     onClickImageUpload() {
     this.$refs.imageInput.click();
