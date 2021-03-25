@@ -1,6 +1,7 @@
 # ignore Folder
-images/
 *.xml
 *.zip
 backup/
 models/
+
+# images/
