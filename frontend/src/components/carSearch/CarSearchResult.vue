@@ -1,8 +1,11 @@
 <template>
   <div class="container-fulid">
     <!-- 이미지 불러오기 -->
+    <!-- 자신이 촬영한 이미지를 올리는게 좋을지, 기본 모델 이미지를 올리는게 좋을지 고민 중 -->
     <div class="img-box">
-      <img :src="getImg()" width="200px" height="100%">
+      <img 
+        :src="getImg()" 
+      >
     </div>
 
     <!-- 정보 불러오기 -->
@@ -34,6 +37,7 @@ import Vue from 'vue'
 export default Vue.extend({
   data() {
     return {
+      // isAddToMyCar: false,
       myCarImg: '', //서버에서 받아온 이미지 주소 저장
       carModel: '', //차 모델 명
       carCost: '', //차 가격
@@ -43,9 +47,13 @@ export default Vue.extend({
     }
   },
   created() {
+    // this.fetchMyCar();
     this.fetchCarInfo();
   },
   methods: {
+    fetchMyCar(){
+      this.isAddToMyCar = true;
+    },
     fetchCarInfo(){ //차 정보 받아오는 메소드
       this.carModel = '현대 코나';
       this.carCost = '1962 ~ 2697(만원)';
@@ -56,6 +64,23 @@ export default Vue.extend({
     getImg(){ //내가 찍은 차 이미지 받아오는 메소드
       this.myCarImg = require('@/assets/images/testCar.jpg');
       return this.myCarImg;
+    },
+    addToMyCar(){
+      //내 계정 정보에 등록 여부를 보내주는 api 필요 => post...?
+      try {
+        // const result = await addToMyCar(this.carModel)
+        const result = 1;
+        if(result == 1) {
+          window.alert('관심 목록에 저장했습니다.');
+          // this.$router.push('interestCarList');
+        }else {
+          window.alert('관심 목록에 저장하던 중 오류가 발생했습니다.\n 잠시후 다시 시도해주세요.')
+        }
+      } catch (error) {
+        // console.log(error);
+        window.alert(error);
+        window.alert('관심 목록에 저장하던 중 오류가 발생했습니다.\n 잠시후 다시 시도해주세요.')
+      }
     }
   },
 })
