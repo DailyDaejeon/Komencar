@@ -12,7 +12,13 @@
         <button 
         type="button"
         @click="onClickImageUpload">
-          <i class="fas fa-camera-retro"></i> {{imageMethod}}로 이미지가져오기
+          <template v-if="imageMethod==='camera'">
+            <i class="fas fa-camera-retro"></i>
+          </template>
+          <template v-else>
+            <i class="fas fa-image"></i>
+          </template>
+          {{ imageMethod }}
         </button>
       </div>
     <img 
