@@ -1,14 +1,33 @@
 <template>
     <div>
+      <div>
+        <input 
+        id="profile" 
+        ref="imageInput" 
+        type="file" 
+        hidden 
+        @change="onChangeImages" 
+        :v-model="userProfilePic" 
+        accept="image/jpeg,image/jpg">
+        <button 
+        type="button"
+        @click="onClickImageUpload">
+          <i class="fas fa-camera-retro"></i> 이미지 가져오기
+        </button>
+      </div>
+      <!-- <div>
       <input 
       type="file" 
       accept="image/*" 
-      ref="imageInput" @change="onChangeImages">
+      ref="imageInput" 
+      @change="onChangeImages"
+      capture="camera">
       <img 
       v-if="imageUrl"
       :src="imageUrl"
       width="100%" 
       alt="이미지">
+      </div> -->
     </div>
 </template>
 
@@ -31,7 +50,32 @@ export default Vue.extend({
         const file = e.target.files[0]; // Get first index in files
         this.imageUrl = URL.createObjectURL(file); // Create File URL
         console.log('이미지 URL : ',this.imageUrl)
-    }
+        // this.sendImages();
+    },
+    // sendImages() {
+    //   if(this.imageUrl) {
+    //       let imagePic = new FormData();
+    //       let pic = "보낼 이미지 이름";
+    //       let picDB = String(pic + '.jpg');
+    //       this.imagePic = picDB;
+    //       imagePic.append("profile", this.imageUrl, String(pic+'.jpg'))
+    //       await API보내기(imagePic)
+    //       .then(() => {
+    //       })
+    //       .catch(() => {
+    //         this.$swal({
+    //           text: "프로필 사진을 업로드 하던 중 오류가 발생했습니다.",
+    //           customClass: {
+    //             container: 'swal2-container'
+    //           },
+    //           icon: 'warning',
+    //           timer: 1300,
+    //           showConfirmButton: false,
+    //         })
+    //         return false;
+    //       });
+    //     }
+//     }
   }
     
 })
