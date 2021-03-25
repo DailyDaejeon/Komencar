@@ -33,6 +33,13 @@ dependencies {
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
 	compile group: 'net.nurigo', name: 'javaSDK', version: '2.2'
+
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-client
+	implementation group: 'org.springframework.security', name: 'spring-security-oauth2-client', version: '5.4.5'
+
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-jose
+	implementation group: 'org.springframework.security', name: 'spring-security-oauth2-jose', version: '5.4.5'
+
 }
 
 test {
