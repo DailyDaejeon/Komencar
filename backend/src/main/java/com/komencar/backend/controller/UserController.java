@@ -25,8 +25,8 @@ public class UserController {
     @GetMapping("/login")
     public User login(@AuthenticationPrincipal OAuth2User user) {
         String u_email = user.getAttribute("email");
-        System.out.println(u_email);
-        User searchedUser  = userRepository.findByUsername(u_email);
+
+        User searchedUser  = userRepository.findByUserEmail(u_email);
 
         return searchedUser;
     }
