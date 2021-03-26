@@ -7,6 +7,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    @include mq('small-screen-1') {
+        // max-width: 90%;
+    }
+    @include mq('small-screen-2') {
+        
+    }
+    @include mq('small-screen-3') {
+        // width: 90%;
+    }
 }
 
 html {

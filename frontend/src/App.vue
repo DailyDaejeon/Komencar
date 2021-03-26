@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Nav/>
+    <h1>Komencar</h1>
     <main>
-    <!-- <div class="u-margin-top-big"></div> -->
     <router-view></router-view>
     </main>
   </div>

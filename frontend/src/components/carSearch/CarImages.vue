@@ -12,7 +12,9 @@
         <!-- :capture="imageMethod" -->
         <button 
         type="button"
-        @click="onClickImageUpload">
+        @click="onClickImageUpload"
+        class="imageupload-btn"
+        >
           <template v-if="imageMethod==='camera'">
             <i class="fas fa-camera-retro"></i>
           </template>
