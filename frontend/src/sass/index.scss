@@ -1,6 +1,7 @@
 @import 'base/base';
 @import 'base/typo';
 @import 'base/utilities';
+@import 'base/animations';
 
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
@@ -12,6 +13,7 @@
 
 @import 'components/carSearchResult';
 @import 'components/button';
+@import 'components/nav';
 @import 'components/form';
 @import 'components/input';
 @import 'components/user';

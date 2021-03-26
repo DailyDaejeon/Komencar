@@ -10,14 +10,17 @@ export default new VueRouter({
     {
       path: '/',
       name: 'Main',
-      // component: loadComponent('Main','Main'),
       component: () => import('@/views/carSearch/CarSearch.vue')
     },
     {
       path: '/carSearch/result',
-      name: 'carSearchResult',
-      // component: loadComponent('Main','Main'),
+      name: 'CarSearchResult',
       component: () => import('@/views/carSearch/CarSearchDetailPage.vue')
+    },
+    {
+      path: '/carInfo/news',
+      name: 'CarNews',
+      component: () => import('@/components/carInfo/CarNews.vue')
     },
   ]
 });

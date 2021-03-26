@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./routes/index";
 import store from "./store/index";
-// import '@/css/index.css'
+import '@/css/index.css'
 import GAuth from 'vue-google-oauth2'
 // import VueWebCam from "vue-web-cam";
 
