@@ -13,7 +13,7 @@
         <button 
         type="button"
         @click="onClickImageUpload"
-        class="imageupload-btn"
+        class="imageupload"
         >
           <template v-if="imageMethod==='camera'">
             <i class="fas fa-camera-retro"></i>
@@ -23,6 +23,11 @@
           </template>
           {{ imageMethod }}
         </button>
+        <CarImageBtn 
+        text="Upload" 
+        ref="zzUpload" 
+        @progress="moveProgress" @progress-finished="endProgress"/>
+
       </div>
     <img 
     v-if="imageUrl"
@@ -35,8 +40,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import CarImageBtn from '@/components/carSearch/CarImageBtn.vue'
 
 export default Vue.extend({
+  components:{
+    CarImageBtn
+  },
   props :{
     imageMethod :{
       type : String,
@@ -85,7 +94,28 @@ export default Vue.extend({
     //       });
     //     }
 //     }
+    moveProgress(progress = 0) {
+      console.log('3 moveProgress시작')
+      // 업로드 api로 바꾸기 그만큼 시간흐름
+      const progressTimeout = setTimeout(() => {
+        clearTimeout(progressTimeout);
+        
+        if (progress < 100) {
+          const newProgress = progress + 1;
+          this.$refs.zzUpload.moveProgress(newProgress);
+          this.moveProgress(newProgress);
+        }
+      }, 10);
+    },
+    endProgress() {
+      const endProgressTimeout = setTimeout(() => {
+        clearTimeout(endProgressTimeout);
+        
+        this.$refs.zzUpload.resetProgress();
+      }, 5000);
+    }
   }
+
     
 })
 </script>
