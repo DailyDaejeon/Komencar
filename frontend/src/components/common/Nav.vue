@@ -38,6 +38,16 @@
               스트리밍 서비스 확인
               </a>
           </li>
+          <li class="nav-item">
+              <a
+              href="#"
+              class="nav-link"
+              @click="alertExample"
+              >
+              <span><i class="fas fa-sign-in-alt"></i></span>
+              로그인
+              </a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -46,7 +56,30 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  
+  methods : {
+    alertExample() {
+      this.$swal({
+        // https://sweetalert2.github.io/#usage 여기서 사용법 참고
+        customClass: {
+          container: 'swal2-container' // class 적음 -> utilities에 적어둠, 커스텀 가능
+        },
+        title: 'alert 제목을 적으세요',
+        text: '로그인하러 가시겠습니까?',
+        // icon warning, error, success, info, and question 중 고름
+        icon: 'info',
+        // iconColor:'#ffffff',
+        // timer: 1300,
+        showConfirmButton: true,
+        confirmButtonText: 'OK',
+        showCancelButton: true,
+        cancelButtonText: 'Cancel'
+      }).then(()=>{
+        // 확인을 누른다면 로그인페이지로 이동
+        // this.$router.push('/');
+        window.location.reload();
+      })
+    }
+  }
 })
 </script>
 
