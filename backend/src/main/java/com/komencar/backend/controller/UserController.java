@@ -25,8 +25,18 @@ public class UserController {
     @GetMapping("/login")
     public User login(@AuthenticationPrincipal OAuth2User user) {
         String u_email = user.getAttribute("email");
+        String u_name = user.getAttribute("name");
+        System.out.println(u_email + " " + u_name);
 
         User searchedUser  = userRepository.findByUserEmail(u_email);
+
+        // 만약에 회원가입 되어 있지 않는 아이디라면
+        if(searchedUser == null) {
+            User insertUser = new User(u_email, u_name);
+            userRepository.save(insertUser);
+            searchedUser = insertUser;
+        }
+
 
         return searchedUser;
     }
