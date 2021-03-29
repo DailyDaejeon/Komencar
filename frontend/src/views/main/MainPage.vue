@@ -3,7 +3,7 @@
     <!-- 차량 분석 컴포넌트 -->
     <CarSearchResult />
     <!-- 차량 시세 차트 -->
-    <CarPrice />
+    <CarPrice :MaxCarPrice="MaxCarPrice" :MinCarPrice="MinCarPrice" />
     <!-- 차량 뉴스 -->
     <CarNews />
     <!-- 차량 굿즈 -->

@@ -1,0 +1,15 @@
+.chart-container {
+  position: relative;
+  margin: auto;
+  @include mq('small-screen-1') {
+      width: 100%;
+  }
+  @include mq('small-screen-2') {
+      width: 100%;
+      height: 50vh
+  }
+  @include mq('small-screen-3') {
+      width: 100%;
+      height: 60vh
+  }
+}
