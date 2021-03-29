@@ -1,7 +1,12 @@
 <template>
   <div>
     <h2>내차 예상시세</h2>
-    <canvas id="myChart"></canvas>
+    <p>{{ MinCarPrice }} ~ {{ MaxCarPrice }}</p>
+    <div
+      class="chart-container"
+    >
+      <canvas id="myChart"></canvas>
+    </div>
   </div>
 </template>
 
@@ -9,6 +14,16 @@
 import Vue from "vue";
 
 export default Vue.extend({
+  props: {
+    MinCarPrice: {
+      type: Number,
+      default: 0
+    },
+    MaxCarPrice: {
+      type: Number,
+      default: 100000000
+    }
+  },
   mounted() {
     const canvasElement = document.getElementById(
       "myChart"
@@ -18,12 +33,9 @@ export default Vue.extend({
     if (!ctx) {
       return;
     }
-    // 플러그인을 이용해 import를 하지않고 main.ts에 플러그인을 등록했으니 this.$_Chart로 사용할 수 있다
-    const chart = new this.$_Chart(ctx, {
-      // The type of chart we want to create
-      type: "line",
 
-      // The data for our dataset
+    const chart = new this.$_Chart(ctx, {
+      type: "line",
       data: {
         labels: [
           "January",
@@ -34,9 +46,10 @@ export default Vue.extend({
           "June",
           "July"
         ],
+        // datasets를 props로 받기
         datasets: [
           {
-            label: "My First dataset",
+            label: "2020년형 그랜저",
             backgroundColor: "rgb(255, 99, 132)",
             borderColor: "rgb(255, 99, 132)",
             data: [0, 10, 5, 2, 20, 30, 45]
@@ -44,8 +57,10 @@ export default Vue.extend({
         ]
       },
 
-      // Configuration options go here
-      options: {}
+      options: {
+        maintainAspectRatio:false,
+        aspectRatio:1,
+      }
     });
   }
 });
