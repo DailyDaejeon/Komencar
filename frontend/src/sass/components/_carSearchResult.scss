@@ -1,13 +1,14 @@
 //전체 페이지 설정
 .container-fulid {
-  background-color: darkgrey;
+  background-color: rgb(236, 236, 236);
 }
 
 // img div box
 .img-box {
-  width: 100%;
+  width: 30rem;
   height: 100%;
   background-color: gray;
+  text-align: center;
 
   & img {
     width: 200px;
