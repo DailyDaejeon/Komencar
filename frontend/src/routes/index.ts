@@ -11,21 +11,6 @@ export default new VueRouter({
       path: "/",
       name: "Main",
       component: () => import("@/views/carSearch/CarSearch.vue")
-    },
-    {
-      path: "/login",
-      name: "Login",
-      component: () => import("@/views/user/LoginPage.vue")
-    },
-    {
-      path: "/carSearch/result",
-      name: "CarSearchResult",
-      component: () => import("@/views/carSearch/CarSearchDetailPage.vue")
-    },
-    {
-      path: "/carInfo/news",
-      name: "CarNews",
-      component: () => import("@/components/carInfo/CarNews.vue")
     }
   ]
 });
