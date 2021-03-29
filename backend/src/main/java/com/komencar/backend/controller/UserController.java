@@ -31,4 +31,10 @@ public class UserController {
         return searchedUser;
     }
 
+    @GetMapping("/test")
+    public int test() {
+        int result = (int) userRepository.count();
+        return result;
+    }
+
 }
