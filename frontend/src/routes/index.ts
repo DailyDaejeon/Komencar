@@ -9,8 +9,13 @@ export default new VueRouter({
   routes: [
     {
       path: "/",
-      name: "Main",
+      name: "CarSearch",
       component: () => import("@/views/carSearch/CarSearch.vue")
+    },
+    {
+      path: "/main",
+      name: "Main",
+      component: () => import("@/views/main/MainPage.vue")
     }
   ]
 });
