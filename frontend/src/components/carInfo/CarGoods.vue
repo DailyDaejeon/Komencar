@@ -1,6 +1,6 @@
 <template>
   <div>
-    CarGoods
+    <h1>CarGoods</h1>
   </div>
 </template>
 

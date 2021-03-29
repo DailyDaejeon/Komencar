@@ -1,21 +1,35 @@
-//전체 페이지 설정
+// 전체 페이지 설정
 .container-fulid {
+  margin: 5rem 0;
   background-color: rgb(236, 236, 236);
-}
+  
+  // img div box
+    &__img-box {
+      background-color:	#c0c0c0;
+      text-align: center;
+    
+    img {
+      width: 90%;
+      margin: 1.5rem;
+    }
+    
+    // @media (width: 360px) {
+    // }
+    }
 
-// img div box
-.img-box {
-  width: 30rem;
-  height: 100%;
-  background-color: gray;
-  text-align: center;
+    &__car-info {
+      background-color: pink;
+      height: 15rem;
 
-  & img {
-    width: 200px;
-    height: 100%;
+      &-font {
+        background-color: #fff;
+      }
+    }
+
   }
 
-  @media (width: 360px) {
-  }
 
-}
+
+
+
+  
