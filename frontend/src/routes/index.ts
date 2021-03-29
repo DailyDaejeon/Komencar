@@ -8,19 +8,24 @@ export default new VueRouter({
   mode: "history",
   routes: [
     {
-      path: '/',
-      name: 'Main',
-      component: () => import('@/views/carSearch/CarSearch.vue')
+      path: "/",
+      name: "Main",
+      component: () => import("@/views/carSearch/CarSearch.vue")
     },
     {
-      path: '/carSearch/result',
-      name: 'CarSearchResult',
-      component: () => import('@/views/carSearch/CarSearchDetailPage.vue')
+      path: "/login",
+      name: "Login",
+      component: () => import("@/views/user/LoginPage.vue")
     },
     {
-      path: '/carInfo/news',
-      name: 'CarNews',
-      component: () => import('@/components/carInfo/CarNews.vue')
+      path: "/carSearch/result",
+      name: "CarSearchResult",
+      component: () => import("@/views/carSearch/CarSearchDetailPage.vue")
     },
+    {
+      path: "/carInfo/news",
+      name: "CarNews",
+      component: () => import("@/components/carInfo/CarNews.vue")
+    }
   ]
 });
