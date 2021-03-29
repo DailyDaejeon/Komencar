@@ -40,6 +40,9 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-jose
 	implementation group: 'org.springframework.security', name: 'spring-security-oauth2-jose', version: '5.4.5'
 
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
 }
 
 test {

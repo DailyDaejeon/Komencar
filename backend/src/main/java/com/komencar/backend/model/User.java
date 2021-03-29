@@ -22,4 +22,12 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Subscribe> SubscribeList = new ArrayList<>();
+
+
+    public User(){}
+
+    public User(String u_email, String u_name) {
+        this.u_email = u_email;
+        this.u_name = u_name;
+    }
 }
