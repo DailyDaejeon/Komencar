@@ -1,6 +1,6 @@
 <template>
-  <div class="news">
-    {{ news }}
+  <div>
+    {{ goods }}
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import Vue from "vue";
 export default Vue.extend({
   props: {
-    news: {
+    goods: {
       type: Object
     }
   }

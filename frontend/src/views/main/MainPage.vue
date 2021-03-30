@@ -5,14 +5,13 @@
     <!-- 차량 시세 차트 -->
     <CarPrice :MaxCarPrice="MaxCarPrice" :MinCarPrice="MinCarPrice" />
     <!-- 차량 뉴스 -->
-    <CarNews
-    :CarModelName="CarModelName"/>
+    <CarNews :CarModelName="CarModelName" />
     <!-- 차량 모델비교 -->
-    <CarModel/>
+    <CarModel />
     <!-- 차량 댓글 비교(텍스트마이닝 된다면) -->
     <!-- <CarReview/> -->
     <!-- 차량 굿즈 -->
-    <CarGoods />
+    <CarGoods :CarModelName="CarModelName" />
   </div>
 </template>
 
