@@ -4,6 +4,8 @@ spring:
     username: root
     password: b101root
     url : jdbc:mysql://localhost:3306/komencar?characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   security:
     oauth2:
       client:

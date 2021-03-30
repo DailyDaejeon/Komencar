@@ -43,6 +43,12 @@ dependencies {
 	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
 
+	// https://mvnrepository.com/artifact/com.h2database/h2
+	testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+
+	// https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
+	implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.4.10.Final'
+
 }
 
 test {
