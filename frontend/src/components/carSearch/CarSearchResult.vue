@@ -1,30 +1,55 @@
 <template>
-  <div class="container-fulid">
+  <div class="container-fluid">
     <!-- 이미지 불러오기 -->
     <!-- 자신이 촬영한 이미지를 올리는게 좋을지, 기본 모델 이미지를 올리는게 좋을지 고민 중 -->
-    <div class="container-fulid__img-box">
+    <div class="container-fluid__img-box">
       <img :src="getImg()" />
     </div>
+    <!-- 정보 불러오기-->
+    <table class="container-fluid__car-info">
+      <!-- <tbody> -->
+      <tr>
+        <th>모델</th>
+        <td>
+          <span>{{ carModel }}</span>
+        </td>
+      </tr>
+      <tr>
+        <th>출고가격</th>
+        <td>
+          <span>{{ carCost }}</span>
+        </td>
+      </tr>
+      <tr>
+        <th>연비</th>
+        <td>
+          <span>{{ carFE }}</span>
+        </td>
+      </tr>
+      <tr>
+        <th>제조사</th>
+        <td>
+          <span>{{ carMF }}</span>
+        </td>
+      </tr>
+      <tr>
+        <th>판매</th>
+        <td>
+          <span>{{ carSale }}</span>
+        </td>
+      </tr>
+    </table>
 
-    <!-- 정보 불러오기 -->
-    <div class="container-fulid__car-info">
-      <span class="container-fulid__car-info-font">
-        모델명 : {{ carModel }}<br />
-      </span>
-      <div>출고가격 : {{ carCost }}<br /></div>
-      <div>연비 : {{ carFE }}<br /></div>
-      <div>제조사 : {{ carMF }}<br /></div>
-      <div>판매 : {{ carSale }}<br /></div>
-    </div>
-
-    <div class="add-box" v-if="!isAddToMyCar">
-      <p>
-        {{ carModel }}을(를) '내 차량'으로 등록하고 코멘카에서 제공하는 더
-        풍부하고 많은 혜택을 즐겨보세요!
+    <div class="container-fluid__add-box" v-if="!isAddToMyCar">
+      <p class="container-fluid__add-box-desc">
+        <i class="fas fa-check"></i>{{ carModel }}을(를) '내 차량'으로 등록하고
+        코멘카에서 제공하는 더 풍부하고 많은 혜택을 즐겨보세요
       </p>
       <!-- 비회원 이용 시 -->
       <!-- <router-link :to="{name:'LoginPage'}">로그인 하러 가기</router-link> -->
-      <p class="goToLogin" v-if="!isLogin">로그인 하러 가기</p>
+      <p class="container-fluid__add-box-login" v-if="!isLogin">
+        <i class="fas fa-check"></i><U>로그인 하러 가기</U>
+      </p>
 
       <!-- 회원 이용 시 -->
       <!-- 내 차 미등록 시 -->
