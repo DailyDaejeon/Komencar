@@ -29,4 +29,7 @@ public class Model {
 
     @OneToMany(mappedBy = "model")
     private List<Subscribe> subscribeList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "model")
+    private List<Option> optionList = new ArrayList<>();
 }
