@@ -8,6 +8,11 @@ export default new VueRouter({
   mode: "history",
   routes: [
     {
+      path: "/member/login",
+      name: "Login",
+      component: () => import("@/views/user/LoginPage.vue")
+    },
+    {
       path: "/",
       name: "CarSearch",
       component: () => import("@/views/carSearch/CarSearch.vue")
