@@ -6,6 +6,11 @@ export interface UserInfo {
   u_name: string;
 }
 
+export interface SubListItem {
+  m_id: number;
+  m_name: string;
+}
+
 export interface ModelItem {
   m_id: number;
   m_manufacturer: string;
@@ -33,30 +38,30 @@ export interface ShopItem {
 
 const instance = setInterceptors();
 // member api
-function loginUser(): AxiosPromise<any[]> {
+function loginUser(): AxiosPromise<any> {
   return instance.post(`user/login`);
 }
 
-function logoutUser(): AxiosPromise<any[]> {
+function logoutUser(): AxiosPromise<any> {
   return instance.post(`user/logout`);
 }
 
-function deleteUser(): AxiosPromise<any[]> {
+function deleteUser(): AxiosPromise<any> {
   return instance.delete(`user/delete`);
 }
 
-function fetchUser(): AxiosPromise<any[]> {
+function fetchUser(): AxiosPromise<any> {
   return instance.get(`user/info`);
 }
 
 // subscribe api
-function addCar(modelId: number): AxiosPromise<any[]> {
+function addCar(modelId: number): AxiosPromise<any> {
   return instance.post(`mycar/add`, {
     m_id: modelId
   });
 }
 
-function deleteCar(modelId: number): AxiosPromise<any[]> {
+function deleteCar(modelId: number): AxiosPromise<any> {
   return instance.delete(`mycar/delte`, {
     params: {
       m_id: modelId
@@ -69,7 +74,7 @@ function fetchCars(): AxiosPromise<any[]> {
 }
 
 // model api
-function fetchModel(modelId: number): AxiosPromise<any[]> {
+function fetchModel(modelId: number): AxiosPromise<any> {
   return instance.get(`model`, {
     params: {
       m_id: modelId
