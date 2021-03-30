@@ -23,7 +23,7 @@ public class UserController {
     private JwtService jwtService;
 
     @PreAuthorize("isAuthenticated()")
-    @GetMapping("/login")
+    @PostMapping("/login")
     public User login(@AuthenticationPrincipal OAuth2User user, HttpServletResponse response) {
         String u_email = user.getAttribute("email");
         String u_name = user.getAttribute("name");
