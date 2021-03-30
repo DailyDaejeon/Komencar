@@ -4,11 +4,20 @@ import lombok.Data;
 
 @Data
 public class News {
-    private long news_id;
-    private String news_title;
-    private String news_description;
-    private String news_date;
-    private String news_company;
+    private String title;
+    private String description;
+    private String pubDate;
+    private String originallink;
+    private String link;
 
+    public News() {
+    }
 
+    public News(String title, String description, String pubDate, String originallink, String link) {
+        this.title = title;
+        this.description = description;
+        this.pubDate = pubDate;
+        this.originallink = originallink;
+        this.link = link;
+    }
 }
