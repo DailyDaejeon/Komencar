@@ -1,12 +1,12 @@
 import { ActionContext } from "vuex";
 import { Mutations, MutationTypes } from "./mutations";
 import { RootState } from "./state";
-import { loginUser } from '@/api/index'
+import { loginUser } from "@/api/index";
 
 enum ActionTypes {
   // 예시
   // FETCH_NEWS = "FETCH_NEWS"
-  LOGIN = "LOGIN",
+  LOGIN = "LOGIN"
 }
 
 type MyActionContext = {
@@ -24,11 +24,11 @@ const actions = {
   //   return data;
   // }
   async [ActionTypes.LOGIN](context: MyActionContext, payload?: any) {
-    const { data } = await loginUser(payload);
-    if (data['auth-token']) {
-      context.commit(MutationTypes.SET_TOKEN, data['auth-token']);
+    const { data } = await loginUser();
+    if (data["auth-token"]) {
+      context.commit(MutationTypes.SET_TOKEN, data["auth-token"]);
     } else {
-      console.log('LOGIN ERROR')
+      console.log("LOGIN ERROR");
     }
     return data;
   }

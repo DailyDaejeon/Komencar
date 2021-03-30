@@ -43,7 +43,12 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { logoutUser, fetchCars } from "@/api/index";
+
 export default Vue.extend({
+  created() {
+    // fetchCars();
+  },
   methods: {
     alertExample() {
       this.$swal({
@@ -64,7 +69,7 @@ export default Vue.extend({
       }).then(() => {
         // 확인을 누른다면 로그인페이지로 이동
         this.$router.push({ name: "Login" });
-        window.location.reload();
+        // window.location.reload();
       });
     }
   }
