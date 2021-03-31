@@ -39,7 +39,7 @@ export interface ShopItem {
 const instance = setInterceptors();
 // member api
 function loginUser(): AxiosPromise<any> {
-  return instance.post(`user/login`);
+  return instance.get(`user/login/callback`);
 }
 
 function logoutUser(): AxiosPromise<any> {
@@ -75,11 +75,15 @@ function fetchCars(): AxiosPromise<any[]> {
 
 // model api
 function fetchModel(modelId: number): AxiosPromise<any> {
-  return instance.get(`model`, {
+  return instance.get(`model/info`, {
     params: {
       m_id: modelId
     }
   });
+}
+
+function searchModel(): AxiosPromise<any[]> {
+  return instance.get(`model/list`);
 }
 
 // etc
@@ -104,6 +108,7 @@ export {
   deleteCar,
   fetchCars,
   fetchModel,
+  searchModel,
   fetchNews,
   fetchShops
 };

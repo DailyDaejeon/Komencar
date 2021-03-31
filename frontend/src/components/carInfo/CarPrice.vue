@@ -2,9 +2,7 @@
   <div>
     <h2>내차 예상시세</h2>
     <p>{{ MinCarPrice }} ~ {{ MaxCarPrice }}</p>
-    <div
-      class="chart-container"
-    >
+    <div class="chart-container">
       <canvas id="myChart"></canvas>
     </div>
   </div>
@@ -17,12 +15,19 @@ export default Vue.extend({
   props: {
     MinCarPrice: {
       type: Number,
-      default: 0
+      default: 33550000
     },
     MaxCarPrice: {
       type: Number,
-      default: 100000000
+      default: 41850000
     }
+  },
+  data() {
+    return {
+      chartLabel: ["Premium", "Premium Choice", "Exclusive", "Calligraphy"],
+      modelName: "the new grandeur",
+      carPrice: [33550000, 34300000, 37500000, 41850000]
+    };
   },
   mounted() {
     const canvasElement = document.getElementById(
@@ -37,29 +42,21 @@ export default Vue.extend({
     const chart = new this.$_Chart(ctx, {
       type: "line",
       data: {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July"
-        ],
+        labels: this.chartLabel,
         // datasets를 props로 받기
         datasets: [
           {
-            label: "2020년형 그랜저",
+            label: this.modelName,
             backgroundColor: "rgb(255, 99, 132)",
             borderColor: "rgb(255, 99, 132)",
-            data: [0, 10, 5, 2, 20, 30, 45]
+            data: this.carPrice
           }
         ]
       },
 
       options: {
-        maintainAspectRatio:false,
-        aspectRatio:1,
+        maintainAspectRatio: false,
+        aspectRatio: 1
       }
     });
   }
