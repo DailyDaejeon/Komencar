@@ -2,6 +2,8 @@ package com.komencar.backend.interceptor;
 
 
 import com.komencar.backend.service.JwtService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -16,8 +18,12 @@ public class JwtInterceptor implements HandlerInterceptor {
     @Autowired
     private JwtService jwtService;
 
+    public static final Logger logger = LoggerFactory.getLogger(JwtInterceptor.class);
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
+        logger.info(request.getMethod() + " : " + request.getServletPath());
 
         String jwtToken = request.getHeader("auth-token");
 
