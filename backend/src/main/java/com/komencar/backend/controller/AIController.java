@@ -30,7 +30,7 @@ import java.io.ByteArrayOutputStream;
 public class AIController {
 
     private static PythonInterpreter intpre;
-    @PostMapping("/picture")
+    @GetMapping("/picture")
     public String predictPicture(@RequestParam("picture") MultipartFile carimg, HttpServletRequest request) {
         String pythonPath = "/home/ubuntu/AI/models/research/object_detection/model_predict.py";
         String[] command = new String[2];
