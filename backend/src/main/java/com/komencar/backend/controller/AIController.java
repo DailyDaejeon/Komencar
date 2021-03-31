@@ -31,7 +31,7 @@ public class AIController {
 
     private static PythonInterpreter intpre;
     @GetMapping("/picture")
-    public String predictPicture(@RequestParam("picture") MultipartFile carimg, HttpServletRequest request) {
+    public String predictPicture(HttpServletRequest request) {
         String pythonPath = "/home/ubuntu/AI/models/research/object_detection/model_predict.py";
         String[] command = new String[2];
         command[0] = "python";
