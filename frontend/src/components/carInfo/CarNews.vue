@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <h1>{{ CarModelName }}의 최신 정보를 확인해보세요</h1>
+  <div class="box">
+    <div class="box__title">NEWS</div>
+    <div class="box__subtitle">
+      {{ CarModelName }}의 최신 정보를 확인해보세요
+    </div>
     <div v-for="(news, index) in newsData" :key="index">
       <CarNewsItem :news="news" />
     </div>

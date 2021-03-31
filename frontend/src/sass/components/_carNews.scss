@@ -1,0 +1,42 @@
+.box {
+    padding: 1rem;
+    margin: 4rem 0;
+    background-color:$color-main-grey-2;
+
+    &__title {
+        color: $color-main-navy;
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin: 1rem;
+    }
+
+    &__subtitle {
+        font-size: 1.9rem;
+        margin: 1rem;
+    }
+}
+
+.newsItem {
+    background-color: $color-main-grey-1;
+    padding: 1rem;
+    margin: 0.5rem;
+
+    &__title {
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    &__desc {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    &__more {
+        font-size: 1.5rem;
+        display: inline-block;
+        color: $color-grey-dark;
+        text-decoration: underline;
+        
+    }
+}
