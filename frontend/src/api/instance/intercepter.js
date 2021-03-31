@@ -13,8 +13,8 @@ export function setInterceptors() {
   });
   instance.interceptors.request.use(
     config => {
-      console.log("request config: ", config);
       const token = store.state.token;
+      console.log("request config: ", config, token);
       if (token) {
         config.headers.Authorization = token;
       }
@@ -23,28 +23,28 @@ export function setInterceptors() {
     error => {
       console.error("request error : ", error);
 
-      const token = error.response.headers.authorization;
-      if (token) {
-        store.commit("SET_TOKEN", token);
-      }
+      // const token = error.response.headers.authorization;
+      // if (token) {
+      //   store.commit("SET_TOKEN", token);
+      // }
       return Promise.reject(error.response);
     }
   );
   instance.interceptors.response.use(
     config => {
       console.log("response config: ", config);
-      const token = config.headers.authorization;
-      if (token) {
-        store.commit("SET_TOKEN", token);
-      }
+      // const token = config.headers.authorization;
+      // if (token) {
+      //   store.commit("SET_TOKEN", token);
+      // }
       return config;
     },
     error => {
       console.error("response error : ", error);
-      const token = error.response.headers.authorization;
-      if (token) {
-        store.commit("SET_TOKEN", token);
-      }
+      // const token = error.response.headers.authorization;
+      // if (token) {
+      //   store.commit("SET_TOKEN", token);
+      // }
       return Promise.reject(error.response);
     }
   );
