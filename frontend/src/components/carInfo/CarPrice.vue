@@ -50,9 +50,9 @@ export default Vue.extend({
             showLine: true,
             label: this.modelName,
             backgroundColor: "rgba(255, 99, 132, 0)",
-            borderColor: "rgb(40, 75, 99)",
+            borderColor: "rgb(31, 156, 253)",
             data: this.carPrice,
-            pointBackgroundColor: "rgb(40, 75, 99)"
+            pointBackgroundColor: "rgb(31, 156, 253)"
           }
         ]
       },
@@ -87,7 +87,7 @@ export default Vue.extend({
                 color: "black"
               },
               scaleLabel: {
-                display: true,
+                display: false,
                 labelString: "Options",
                 fontColor: "black"
               }
