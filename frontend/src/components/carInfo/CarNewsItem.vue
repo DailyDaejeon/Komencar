@@ -7,21 +7,20 @@
 </template>
 
 <script lang="ts">
-import { createLogger } from "node_modules/vuex/types";
+// import { createLogger } from "node_modules/vuex/types";
 import Vue from "vue";
 export default Vue.extend({
   props: {
     news: {
       type: Object
     }
-  },
-  methods: {
-    goNewsLink() {
-    //   const newsLink = this.news.link;
-
-
-    // }
   }
+  // methods: {
+  //   goNewsLink() {
+  //   //   const newsLink = this.news.link;
+
+  //   // }
+  // }
 });
 </script>
 
