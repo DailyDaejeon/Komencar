@@ -39,7 +39,7 @@ export interface ShopItem {
 const instance = setInterceptors();
 // member api
 function loginUser(): AxiosPromise<any> {
-  return instance.get(`user/login/callback`);
+  return instance.get(`user/login`);
 }
 
 function logoutUser(): AxiosPromise<any> {

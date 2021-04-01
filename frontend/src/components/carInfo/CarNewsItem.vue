@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-// import { createLogger } from "node_modules/vuex/types";
+
 import Vue from "vue";
 export default Vue.extend({
   props: {
