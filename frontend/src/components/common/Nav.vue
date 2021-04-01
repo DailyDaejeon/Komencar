@@ -30,12 +30,6 @@
             스트리밍 서비스 확인
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" @click="alertExample">
-            <span><i class="fas fa-sign-in-alt"></i></span>
-            로그인
-          </a>
-        </li>
       </ul>
     </div>
   </nav>
@@ -43,12 +37,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { logoutUser, fetchCars } from "@/api/index";
 
 export default Vue.extend({
-  created() {
-    // fetchCars();
-  },
   methods: {
     alertExample() {
       this.$swal({
