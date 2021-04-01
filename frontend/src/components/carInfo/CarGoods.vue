@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <h1>{{ CarModelName }}의 굿즈를 확인보세여</h1>
+  <div class="box">
+    <div class="box__title">GOODS</div>
+    <div class="box__subtitle">
+      {{ CarModelName }} 에 어울리는 굿즈를 쇼핑해보세요
+    </div>
     <div v-for="(goods, index) in goodsData" :key="index">
       <CarGoodsItem :goods="goods" />
     </div>

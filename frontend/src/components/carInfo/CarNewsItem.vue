@@ -14,15 +14,13 @@ export default Vue.extend({
     news: {
       type: Object
     }
-  },
-  methods: {
-    goNewsLink() {
-    //   const newsLink = this.news.link;
-
-
-    // }
-    }
   }
+  // methods: {
+  //   goNewsLink() {
+  //   //   const newsLink = this.news.link;
+
+  //   // }
+  // }
 });
 </script>
 
