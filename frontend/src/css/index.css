@@ -1558,3 +1558,9 @@ main::after {
     height: 60vh;
   }
 }
+
+.price__typo {
+  color: #1f9cfd;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
