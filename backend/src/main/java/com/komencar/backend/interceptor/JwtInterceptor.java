@@ -25,6 +25,10 @@ public class JwtInterceptor implements HandlerInterceptor {
 
         logger.info(request.getMethod() + " : " + request.getServletPath());
 
+        if (request.getMethod().equals("OPTIONS")) {
+            return true;
+        }
+
         String jwtToken = request.getHeader("auth-token");
 
         if(jwtToken != null && jwtToken.length() > 0){
