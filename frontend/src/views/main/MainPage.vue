@@ -4,10 +4,12 @@
     <CarSearchResult />
     <!-- 차량 시세 차트 -->
     <CarPrice :MaxCarPrice="MaxCarPrice" :MinCarPrice="MinCarPrice" />
-    <!-- 차량 뉴스 -->
-    <CarNews :CarModelName="CarModelName" />
+    <!-- 차량 비교 차트 -->
+    <CarCompare />
     <!-- 차량 모델비교 -->
     <CarModel />
+    <!-- 차량 뉴스 -->
+    <CarNews :CarModelName="CarModelName" />
     <!-- 차량 댓글 비교(텍스트마이닝 된다면) -->
     <!-- <CarReview/> -->
     <!-- 차량 굿즈 -->
@@ -22,9 +24,17 @@ import CarNews from "@/components/carInfo/CarNews.vue";
 import CarGoods from "@/components/carInfo/CarGoods.vue";
 import CarPrice from "@/components/carInfo/CarPrice.vue";
 import CarModel from "@/components/carInfo/CarModel.vue";
+import CarCompare from "@/components/carInfo/CarCompare.vue";
 
 export default Vue.extend({
-  components: { CarSearchResult, CarNews, CarGoods, CarPrice, CarModel }
+  components: {
+    CarSearchResult,
+    CarNews,
+    CarGoods,
+    CarPrice,
+    CarModel,
+    CarCompare
+  }
 });
 </script>
 
