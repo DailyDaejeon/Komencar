@@ -13,10 +13,10 @@ public class Segment {
     @Id
     @Column(name = "s_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long s_id;
+    private long id;
 
     @Column(name = "s_name")
-    private String s_name;
+    private String name;
 
 //    @OneToMany(mappedBy = "segment")
 //    private List<Model> modelList = new ArrayList<>();
