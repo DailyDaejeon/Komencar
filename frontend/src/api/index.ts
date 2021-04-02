@@ -19,6 +19,12 @@ export interface ModelItem {
   m_effciency: number;
 }
 
+export interface ModelOptionItem {
+  o_id: number;
+  o_name: string;
+  o_price: number;
+}
+
 export interface NewsItem {
   title: string;
   originallink: string;

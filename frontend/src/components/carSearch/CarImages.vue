@@ -42,7 +42,8 @@ export default Vue.extend({
       carImagePic: String,
       modelId: Number,
       modelDetailId: Number,
-      modelName: String
+      modelName: String,
+      modelDetailName: String
     };
   },
   methods: {
@@ -70,6 +71,7 @@ export default Vue.extend({
             this.modelId = res.data.m_id;
             this.modelDetailId = res.data.md_id;
             this.modelName = res.data.m_name;
+            this.modelDetailName = res.data.md_name;
           })
           .catch(() => {
             this.$swal({
@@ -109,7 +111,8 @@ export default Vue.extend({
         params: {
           m_id: this.modelId,
           md_id: this.modelDetailId,
-          m_name: this.modelName
+          m_name: this.modelName,
+          md_name: this.modelDetailName
         }
       });
     }

@@ -15,6 +15,10 @@ export default Vue.extend({
   props: {
     allOptions: {
       type: Array
+    },
+    mdName: {
+      type: String,
+      default: "the new grandeur"
     }
   },
   data() {
@@ -23,6 +27,9 @@ export default Vue.extend({
       modelName: "the new grandeur",
       carPrice: [33550000, 34300000, 37500000, 41850000]
     };
+  },
+  created() {
+    this.getDataSet();
   },
   mounted() {
     const canvasElement = document.getElementById(
@@ -43,7 +50,7 @@ export default Vue.extend({
         datasets: [
           {
             showLine: true,
-            label: this.modelName,
+            label: this.mdName,
             backgroundColor: "rgba(255, 99, 132, 0)",
             borderColor: "rgb(31, 156, 253)",
             data: this.carPrice,
@@ -114,6 +121,14 @@ export default Vue.extend({
         }
       }
     });
+  },
+  methods: {
+    getDataSet() {
+      this.allOptions.forEach(option => {
+        this.chartLabel.push(option.o_name);
+        this.carPrice.push(option.o_price);
+      });
+    }
   }
 });
 </script>

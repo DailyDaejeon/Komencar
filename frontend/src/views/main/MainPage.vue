@@ -3,7 +3,7 @@
     <!-- 차량 분석 컴포넌트 -->
     <CarSearchResult :modelInfo="modelInfo" />
     <!-- 차량 시세 차트 -->
-    <CarPrice :allOptions="allOptions" />
+    <CarPrice :allOptions="allOptions" :mdName="md_name" />
     <!-- 차량 비교 차트 -->
     <CarCompare :latestModel="latestModel" :modelInfo="modelInfo" />
     <!-- 차량 모델비교(가격) -->
@@ -50,6 +50,10 @@ export default Vue.extend({
     m_name: {
       type: String,
       default: "grandeur"
+    },
+    md_name: {
+      type: String,
+      default: "the new grandeur"
     }
   },
   data() {
