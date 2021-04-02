@@ -13,13 +13,13 @@ public class Model {
     @Id
     @Column(name = "m_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long m_id;
+    private long id;
 
     @Column(name = "m_name")
-    private String m_name;
+    private String name;
 
     @Column(name = "m_manufacturer")
-    private String m_manufacturer;
+    private String manufacturer;
 
     @ManyToOne
     @JoinColumn(name = "s_id")
