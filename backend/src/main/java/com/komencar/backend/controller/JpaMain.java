@@ -28,7 +28,7 @@ public class JpaMain {
         emf.close();
     }
 
-    public static void logic(EntityManager em){
+    public static void logic(EntityManager em) {
 
     }
 }

@@ -3,15 +3,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: b101root
-    url : jdbc:mysql://localhost:3306/komencar?characterEncoding=UTF-8&serverTimezone=UTC
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: 52473472981-ulqqrkcnqhbidk0lu5cdcpat479t2aib.apps.googleusercontent.com
-            client-secret : CVWYCyF2idFFSTsc1gsmgklH
+    url: jdbc:mysql://localhost:3306/komencar?characterEncoding=UTF-8&serverTimezone=UTC
+
 server:
   port: 8081

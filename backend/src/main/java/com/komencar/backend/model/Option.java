@@ -11,13 +11,17 @@ public class Option {
     @Id
     @Column(name = "o_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int o_id;
+    private long o_id;
 
     @Column(name = "o_name")
     private String o_name;
 
+    @Column(name = "o_price")
+    private int o_price;
+
     @ManyToOne
-    @JoinColumn(name = "m_id")
-    private Model model;
+    @JoinColumn(name = "md_id")
+    private Model_Detail model_detail;
+
 
 }

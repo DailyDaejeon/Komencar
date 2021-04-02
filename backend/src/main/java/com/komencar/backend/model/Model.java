@@ -11,25 +11,21 @@ import java.util.List;
 public class Model {
 
     @Id
-    @Column(name="m_id")
+    @Column(name = "m_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long m_id;
+    private long m_id;
 
-    @Column(name="m_manufacturer")
-    private String m_manufacturer;
-
-    @Column(name="m_name")
+    @Column(name = "m_name")
     private String m_name;
 
-    @Column(name="m_price")
-    private String m_price;
+    @Column(name = "m_manufacturer")
+    private String m_manufacturer;
 
-    @Column(name="m_efficiency")
-    private double m_efficiency;
+    @ManyToOne
+    @JoinColumn(name = "s_id")
+    private Segment segment;
 
-    @OneToMany(mappedBy = "model")
-    private List<Subscribe> subscribeList = new ArrayList<>();
+//    @OneToMany(mappedBy = "model")
+//    private List<Model_Detail> modelDetailList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "model")
-    private List<Option> optionList = new ArrayList<>();
 }
