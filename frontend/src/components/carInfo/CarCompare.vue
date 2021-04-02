@@ -14,7 +14,7 @@ export default Vue.extend({
   props: {},
   data() {
     return {
-      chartLabel: ["연비", "배기량", "가격", "승차인원"],
+      chartLabel: ["연비", "배기량", "가격"],
       modelName: "the new grandeur",
       carPrice: [33550000, 34300000, 37500000, 41850000]
     };
@@ -37,8 +37,8 @@ export default Vue.extend({
         // datasets를 props로 받기
         datasets: [
           {
-            label: "My First Dataset",
-            data: [65, 59, 90, 81],
+            label: "제일 최신 자동차",
+            data: [65, 59, 90],
             fill: true,
             backgroundColor: "rgba(255, 99, 132, 0.2)",
             borderColor: "rgb(255, 99, 132)",
@@ -48,15 +48,15 @@ export default Vue.extend({
             pointHoverBorderColor: "rgb(255, 99, 132)"
           },
           {
-            label: "My Second Dataset",
-            data: [28, 48, 40, 19],
+            label: "the new grandeur",
+            data: [28, 48, 40],
             fill: true,
             backgroundColor: "rgba(54, 162, 235, 0.2)",
-            borderColor: "rgb(54, 162, 235)",
-            pointBackgroundColor: "rgb(54, 162, 235)",
+            borderColor: "rgb(31, 156, 253)",
+            pointBackgroundColor: "rgb(31, 156, 253)",
             pointBorderColor: "#fff",
             pointHoverBackgroundColor: "#fff",
-            pointHoverBorderColor: "rgb(54, 162, 235)"
+            pointHoverBorderColor: "rgb(31, 156, 253)"
           }
         ]
       },
