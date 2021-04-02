@@ -11,11 +11,11 @@
     <!-- 차량 모델비교(차체크기) -->
     <CarModel :CompareCar="sameSegmentCar" />
     <!-- 차량 뉴스 -->
-    <CarNews :carNews="carNews" />
+    <CarNews :newsData="carNews" />
     <!-- 차량 댓글 비교(텍스트마이닝 된다면) -->
     <!-- <CarReview/> -->
     <!-- 차량 굿즈 -->
-    <CarGoods :carGoods="carGoods" />
+    <CarGoods :goodsData="carGoods" />
   </div>
 </template>
 
