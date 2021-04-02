@@ -63,6 +63,11 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
+  props: {
+    modelInfo: {
+      type: Array || Object
+    }
+  },
   data() {
     return {
       // isAddToMyCar: false,

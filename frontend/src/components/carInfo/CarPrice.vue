@@ -13,13 +13,8 @@ import Vue from "vue";
 
 export default Vue.extend({
   props: {
-    MinCarPrice: {
-      type: Number,
-      default: 33550000
-    },
-    MaxCarPrice: {
-      type: Number,
-      default: 41850000
+    allOptions: {
+      type: Array
     }
   },
   data() {

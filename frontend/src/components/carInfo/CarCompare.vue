@@ -11,7 +11,14 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  props: {},
+  props: {
+    latestModel: {
+      type: Object
+    },
+    modelInfo: {
+      type: Object || Array
+    }
+  },
   data() {
     return {
       chartLabel: ["연비", "배기량", "가격"],
