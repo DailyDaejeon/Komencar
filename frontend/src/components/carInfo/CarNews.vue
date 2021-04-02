@@ -18,9 +18,9 @@ import CarNewsItem from "@/components/carInfo/CarNewsItem.vue";
 export default Vue.extend({
   components: { CarNewsItem },
   props: {
-    carNews: {
-      type: Array
-    }
+    // newsData: {
+    //   type: Array
+    // }
   },
   data() {
     return {
