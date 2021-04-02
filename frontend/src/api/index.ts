@@ -74,7 +74,7 @@ function fetchCars(): AxiosPromise<any[]> {
 }
 
 // model api
-function searchModelImg(imagePic: string): AxiosPromise<any> {
+function searchModelImg(imagePic: any): AxiosPromise<any> {
   return instance.get(`model/search_pic`, {
     params: {
       file: imagePic
