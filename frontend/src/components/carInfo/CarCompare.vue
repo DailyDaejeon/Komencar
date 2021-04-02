@@ -44,8 +44,12 @@ export default Vue.extend({
         // datasets를 props로 받기
         datasets: [
           {
-            label: "제일 최신 자동차",
-            data: [65, 59, 90],
+            label: this.latestModel.md_name,
+            data: [
+              this.latestModel.md_efficiency,
+              this.latestModel.md_exhaust,
+              this.latestModel.optionList.o_price
+            ],
             fill: true,
             backgroundColor: "rgba(255, 99, 132, 0.2)",
             borderColor: "rgb(255, 99, 132)",
@@ -55,8 +59,12 @@ export default Vue.extend({
             pointHoverBorderColor: "rgb(255, 99, 132)"
           },
           {
-            label: "the new grandeur",
-            data: [28, 48, 40],
+            label: this.modelInfo.m_name,
+            data: [
+              this.modelInfo.m_efficiency,
+              this.modelInfo.md_exhaust,
+              this.modelInfo.m_price
+            ],
             fill: true,
             backgroundColor: "rgba(54, 162, 235, 0.2)",
             borderColor: "rgb(31, 156, 253)",
