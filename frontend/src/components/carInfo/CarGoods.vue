@@ -18,9 +18,8 @@ import CarGoodsItem from "@/components/carInfo/CarGoodsItem.vue";
 export default Vue.extend({
   components: { CarGoodsItem },
   props: {
-    CarModelName: {
-      type: String,
-      default: "grandeur"
+    carGoods: {
+      type: Array
     }
   },
   data() {

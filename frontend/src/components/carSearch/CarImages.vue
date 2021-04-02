@@ -39,7 +39,10 @@ export default Vue.extend({
   data() {
     return {
       imageUrl: null,
-      carImagePic: String
+      carImagePic: String,
+      modelId: Number,
+      modelDetailId: Number,
+      modelName: String
     };
   },
   methods: {
@@ -64,6 +67,9 @@ export default Vue.extend({
         searchModelImg(imagePic)
           .then(res => {
             console.log(res);
+            this.modelId = res.data.m_id;
+            this.modelDetailId = res.data.md_id;
+            this.modelName = res.data.m_name;
           })
           .catch(() => {
             this.$swal({
@@ -98,7 +104,14 @@ export default Vue.extend({
 
         this.$refs.zzUpload.resetProgress();
       }, 1000);
-      this.$router.push({ name: "Main" });
+      this.$router.push({
+        name: "Main",
+        params: {
+          m_id: this.modelId,
+          md_id: this.modelDetailId,
+          m_name: this.modelName
+        }
+      });
     }
   }
 });
