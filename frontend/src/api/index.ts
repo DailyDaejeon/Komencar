@@ -74,6 +74,42 @@ function fetchCars(): AxiosPromise<any[]> {
 }
 
 // model api
+function searchModelImg(imagePic: string): AxiosPromise<any> {
+  return instance.get(`model/search_pic`, {
+    params: {
+      file: imagePic
+    }
+  });
+}
+
+function fetchAllCars(): AxiosPromise<any[]> {
+  return instance.get(`model/all_list`);
+}
+
+function fetchAllOptions(modelId: number): AxiosPromise<any[]> {
+  return instance.get(`model/option_list`, {
+    params: {
+      md_id: modelId
+    }
+  });
+}
+
+function fetchLatest(modelId: number): AxiosPromise<any> {
+  return instance.get(`model/latest_model`, {
+    params: {
+      m_id: modelId
+    }
+  });
+}
+
+function searchCar(keyWord: string): AxiosPromise<any[]> {
+  return instance.get(`model/search_list`, {
+    params: {
+      keyword: keyWord
+    }
+  });
+}
+
 function fetchModel(modelId: number): AxiosPromise<any> {
   return instance.get(`model/info`, {
     params: {
@@ -82,21 +118,17 @@ function fetchModel(modelId: number): AxiosPromise<any> {
   });
 }
 
-function searchModel(): AxiosPromise<any[]> {
-  return instance.get(`model/list`);
-}
-
 //가격 비교 api
 function fetchPriceCompare(modelId: number): AxiosPromise<any[]> {
   return instance.get(`model/similar_price`, {
-    params: { m_id: modelId }
+    params: { md_id: modelId }
   });
 }
 
 //사이즈 비교 api
 function fetchSizeCompare(modelId: number): AxiosPromise<any[]> {
   return instance.get(`model/same_segment`, {
-    params: { m_id: modelId }
+    params: { md_id: modelId }
   });
 }
 
@@ -121,8 +153,12 @@ export {
   addCar,
   deleteCar,
   fetchCars,
+  fetchAllCars,
+  fetchAllOptions,
+  fetchLatest,
   fetchModel,
-  searchModel,
+  searchModelImg,
+  searchCar,
   fetchNews,
   fetchShops,
   fetchPriceCompare,
