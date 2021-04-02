@@ -86,6 +86,20 @@ function searchModel(): AxiosPromise<any[]> {
   return instance.get(`model/list`);
 }
 
+//가격 비교 api
+function fetchPriceCompare(modelId: number): AxiosPromise<any[]> {
+  return instance.get(`model/similar_price`, {
+    params: { m_id: modelId }
+  });
+}
+
+//사이즈 비교 api
+function fetchSizeCompare(modelId: number): AxiosPromise<any[]> {
+  return instance.get(`model/same_segment`, {
+    params: { m_id: modelId }
+  });
+}
+
 // etc
 function fetchNews(words: string): AxiosPromise<any[]> {
   return instance.get(`news/${words}`, {
@@ -110,5 +124,7 @@ export {
   fetchModel,
   searchModel,
   fetchNews,
-  fetchShops
+  fetchShops,
+  fetchPriceCompare,
+  fetchSizeCompare
 };

@@ -20,7 +20,8 @@ export default new VueRouter({
     {
       path: "/main",
       name: "Main",
-      component: () => import("@/views/main/MainPage.vue")
+      component: () => import("@/views/main/MainPage.vue"),
+      props: true
     }
   ]
 });
