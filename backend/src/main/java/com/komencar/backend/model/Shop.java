@@ -11,7 +11,8 @@ public class Shop {
     private String hprice;
     private String mallName;
 
-    public Shop(){}
+    public Shop() {
+    }
 
     public Shop(String title, String link, String image, String lprice, String hprice, String mallName) {
         this.title = title;
