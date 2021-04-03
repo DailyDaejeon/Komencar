@@ -8,8 +8,13 @@
     <div class="nav-body">
       <ul class="nav-list">
         <li class="nav-item">
-          <a href="#" class="nav-link">
-            <span><i class="fas fa-car"></i></span>내 차 관리
+          <a @click="goSearch()" class="nav-link">
+            <span><i class="fas fa-search"></i></span>차 검색하기
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <span><i class="fas fa-car"></i></span>차 세부정보
           </a>
         </li>
         <li class="nav-item">
@@ -27,7 +32,7 @@
         <li class="nav-item">
           <a class="nav-link">
             <span><i class="fas fa-share-alt"></i></span>
-            스트리밍 서비스 확인
+            스트리밍 서비스
           </a>
         </li>
       </ul>
@@ -40,6 +45,10 @@ import Vue from "vue";
 
 export default Vue.extend({
   methods: {
+    goSearch() {
+      this.$router.push({ name: "ModelSearchPage" });
+      window.location.reload();
+    },
     alertExample() {
       this.$swal({
         // https://sweetalert2.github.io/#usage 여기서 사용법 참고

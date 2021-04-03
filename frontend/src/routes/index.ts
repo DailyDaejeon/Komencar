@@ -22,6 +22,12 @@ export default new VueRouter({
       name: "Main",
       component: () => import("@/views/main/MainPage.vue"),
       props: true
+    },
+    {
+      path: "/search",
+      name: "ModelSearchPage",
+      component: () => import("@/views/carSearch/ModelSearchPage.vue"),
+      props: true
     }
   ]
 });
