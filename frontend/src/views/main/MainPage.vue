@@ -11,7 +11,7 @@
     <!-- 차량 모델비교(차체크기) -->
     <CarModel :CompareCar="sameSegmentCar" />
     <!-- 차량 뉴스 -->
-    <CarNews :newsData="carNews" />
+    <CarNews :newsData="carNews" id="CarNewsInfo" />
     <!-- 차량 댓글 비교(텍스트마이닝 된다면) -->
     <!-- <CarReview/> -->
     <!-- 차량 굿즈 -->
