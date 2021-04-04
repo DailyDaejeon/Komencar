@@ -8,7 +8,7 @@
     <div class="nav-body">
       <ul class="nav-list">
         <li class="nav-item">
-          <a @click="goSearch()" class="nav-link">
+          <a @click="goSearch" class="nav-link">
             <span><i class="fas fa-search"></i></span>차 검색하기
           </a>
         </li>
