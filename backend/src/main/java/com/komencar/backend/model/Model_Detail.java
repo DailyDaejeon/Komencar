@@ -17,7 +17,7 @@ public class Model_Detail {
     @Id
     @Column(name = "md_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @Column(name = "md_name")
     private String name;
