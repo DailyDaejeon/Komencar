@@ -1,19 +1,19 @@
 <template>
   <div>
     <div>
-      <input
-        ref="imageInput"
-        type="file"
-        hidden
-        @change="onChangeImages"
-        :v-model="carImagePic"
-        accept="image/jpeg,image/jpg"
-      />
-      <button type="button" @click="onClickImageUpload" class="imageupload">
+      <!-- <button type="button" @click="onClickImageUpload" class="imageupload">
         <i class="fas fa-camera-retro"></i>
         Camera
-      </button>
-      <div @click="onClickImageUpload">
+      </button> -->
+      <div class="camera-button-div" @click="onClickImageUpload">
+        <input
+          ref="imageInput"
+          type="file"
+          hidden
+          @change="onChangeImages"
+          :v-model="carImagePic"
+          accept="image/jpeg,image/jpg"
+        />
         <CarImageBtn
           text="Camera"
           ref="zzUpload"
