@@ -15,6 +15,7 @@
                   <div class="search__finder__icon" ref="icon"></div>
                   <input
                     class="search__finder__input"
+                    placeholder="검색어를 입력해주세요."
                     @focus="addActiveClass"
                     @blur="removeActiveClass"
                     type="text"
