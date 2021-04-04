@@ -8,7 +8,7 @@
 .search {
   // border-style: solid;
   // border-color: #292929;
-  min-height: 35vh;
+  height: 35vh;
   width: 100%;
   padding: 0;
   position: relative;
@@ -17,7 +17,10 @@
   position: absolute;
   // background-image: url("../../assets/images/bg_visual_cloud.jpg");
   background-image: url("https://deepsense.ai/wp-content/uploads/2019/04/With-your-head-in-the-clouds-%E2%80%93-how-to-harness-the-power-of-artificial-intelligence.jpg");
-  background-size: cover;
+  // background-size: 100vh;
+  width: 100%;
+  height: 35vh;
+  // min-height: 10vh;
   opacity: 0.5;
   // background-position:50%;
   top: 0px;
@@ -61,6 +64,7 @@
   }
   &__form {
     transition: all 0.5s;
+    width: 70vw;
     // position: absolute;
     // top: 20%;
     // transform: translateY(-20%);
@@ -159,6 +163,21 @@
 
       @at-root .active & {
         transform: translateY(-5px);
+      }
+    }
+  }
+  &__result {
+    position: relative;
+    background-color: #f6f5f2;
+    padding: 4rem 1rem 0;
+    &__typo {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      &-blue {
+        color: $color-blue-1;
+      }
+      &-small {
+        font-size: 1rem;
       }
     }
   }
