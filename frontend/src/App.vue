@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <Nav />
-    <h1>Komencar</h1>
+    <h1 class="LOGO">KOMENCAR</h1>
+    <div class="Logo__sign">
+      <span class="Logo__fast-flicker">KO</span>MEN<span class="Logo__flicker"
+        >C</span
+      >AR
+    </div>
     <main>
       <router-view></router-view>
     </main>

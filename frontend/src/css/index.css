@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Lato:100,300|Nanum+Gothic:400,700,800&subset=korean");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css?family=Titan+One");
 * {
   margin: 0;
   padding: 0;
@@ -15,11 +16,6 @@ html {
 body {
   padding: 3rem;
   font-family: 'Nanum Gothic', sans-serif;
-}
-
-h1 {
-  font-size: 10vw;
-  font-weight: bold;
 }
 
 h2 {
@@ -157,13 +153,312 @@ main::after {
   clear: both;
 }
 
+.LOGO {
+  font-size: 10vw;
+  font-family: 'Titan One',cursive;
+  font-weight: 700;
+  background: linear-gradient(45deg, #002C5E, #1f9cfd, #a8d8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@font-face {
+  font-family: Clip;
+  src: url("https://acupoftee.github.io/fonts/Clip.ttf");
+}
+
+.Logo__sign {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  width: 50vw;
+  background-image: radial-gradient(ellipse 50% 35% at 50% 50%, #002C5E, transparent);
+  letter-spacing: 2;
+  left: 50%;
+  top: 50%;
+  font-family: "Clip";
+  text-transform: uppercase;
+  font-size: 10vw;
+  color: #d6eaff;
+  text-shadow: 0 0 0.6rem #d6eaff, 0 0 1.5rem #002C5E, -0.2rem 0.1rem 1rem #002C5E, 0.2rem 0.1rem 1rem #002C5E, 0 -0.5rem 2rem #002C5E, 0 0.5rem 3rem #002C5E;
+  -webkit-animation: shine 2s forwards, flicker 3s infinite;
+          animation: shine 2s forwards, flicker 3s infinite;
+}
+
+.Logo__sign__fast-flicker {
+  -webkit-animation: shine 2s forwards, blink 10s 1s infinite;
+          animation: shine 2s forwards, blink 10s 1s infinite;
+}
+
+.Logo__sign__flicker {
+  -webkit-animation: shine 2s forwards, blink 3s 2s infinite;
+          animation: shine 2s forwards, blink 3s 2s infinite;
+}
+
+@-webkit-keyframes blink {
+  0%,
+  22%,
+  36%,
+  75% {
+    color: #d6eaff;
+    text-shadow: 0 0 0.6rem #d6eaff, 0 0 1.5rem #002C5E, -0.2rem 0.1rem 1rem #002C5E, 0.2rem 0.1rem 1rem #002C5E, 0 -0.5rem 2rem #002C5E, 0 0.5rem 3rem #002C5E;
+  }
+  28%,
+  33% {
+    color: #002C5E;
+    text-shadow: none;
+  }
+  82%,
+  97% {
+    color: #002C5E;
+    text-shadow: none;
+  }
+}
+
+@keyframes blink {
+  0%,
+  22%,
+  36%,
+  75% {
+    color: #d6eaff;
+    text-shadow: 0 0 0.6rem #d6eaff, 0 0 1.5rem #002C5E, -0.2rem 0.1rem 1rem #002C5E, 0.2rem 0.1rem 1rem #002C5E, 0 -0.5rem 2rem #002C5E, 0 0.5rem 3rem #002C5E;
+  }
+  28%,
+  33% {
+    color: #002C5E;
+    text-shadow: none;
+  }
+  82%,
+  97% {
+    color: #002C5E;
+    text-shadow: none;
+  }
+}
+
+@-webkit-keyframes shine {
+  0% {
+    color: #002C5E;
+    text-shadow: none;
+  }
+  100% {
+    color: #d6eaff;
+    text-shadow: 0 0 0.6rem #d6eaff, 0 0 1.5rem #002C5E, -0.2rem 0.1rem 1rem #002C5E, 0.2rem 0.1rem 1rem #002C5E, 0 -0.5rem 2rem #002C5E, 0 0.5rem 3rem #002C5E;
+  }
+}
+
+@keyframes shine {
+  0% {
+    color: #002C5E;
+    text-shadow: none;
+  }
+  100% {
+    color: #d6eaff;
+    text-shadow: 0 0 0.6rem #d6eaff, 0 0 1.5rem #002C5E, -0.2rem 0.1rem 1rem #002C5E, 0.2rem 0.1rem 1rem #002C5E, 0 -0.5rem 2rem #002C5E, 0 0.5rem 3rem #002C5E;
+  }
+}
+
+@-webkit-keyframes flicker {
+  from {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.9;
+  }
+  6% {
+    opacity: 0.85;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  11% {
+    opacity: 0.922;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  14% {
+    opacity: 0.95;
+  }
+  16% {
+    opacity: 0.98;
+  }
+  17% {
+    opacity: 0.9;
+  }
+  19% {
+    opacity: 0.93;
+  }
+  20% {
+    opacity: 0.99;
+  }
+  24% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0.94;
+  }
+  28% {
+    opacity: 0.98;
+  }
+  37% {
+    opacity: 0.93;
+  }
+  38% {
+    opacity: 0.5;
+  }
+  39% {
+    opacity: 0.96;
+  }
+  42% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 0.97;
+  }
+  46% {
+    opacity: 0.94;
+  }
+  56% {
+    opacity: 0.9;
+  }
+  58% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.99;
+  }
+  68% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  72% {
+    opacity: 0.95;
+  }
+  93% {
+    opacity: 0.93;
+  }
+  95% {
+    opacity: 0.95;
+  }
+  97% {
+    opacity: 0.93;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+  from {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.9;
+  }
+  6% {
+    opacity: 0.85;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  11% {
+    opacity: 0.922;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  14% {
+    opacity: 0.95;
+  }
+  16% {
+    opacity: 0.98;
+  }
+  17% {
+    opacity: 0.9;
+  }
+  19% {
+    opacity: 0.93;
+  }
+  20% {
+    opacity: 0.99;
+  }
+  24% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0.94;
+  }
+  28% {
+    opacity: 0.98;
+  }
+  37% {
+    opacity: 0.93;
+  }
+  38% {
+    opacity: 0.5;
+  }
+  39% {
+    opacity: 0.96;
+  }
+  42% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 0.97;
+  }
+  46% {
+    opacity: 0.94;
+  }
+  56% {
+    opacity: 0.9;
+  }
+  58% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.99;
+  }
+  68% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  72% {
+    opacity: 0.95;
+  }
+  93% {
+    opacity: 0.93;
+  }
+  95% {
+    opacity: 0.95;
+  }
+  97% {
+    opacity: 0.93;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .container-fluid {
   margin: 5rem 0;
   background-color: #ececec;
 }
 
 .container-fluid__img-box {
-  background-color: #284B63;
+  background-color: #002C5E;
   text-align: center;
 }
 
@@ -216,7 +511,7 @@ main::after {
 }
 
 .box__title {
-  color: #284B63;
+  color: #002C5E;
   font-weight: 700;
   font-size: 2.5rem;
   margin: 1rem;
@@ -351,7 +646,7 @@ main::after {
 }
 
 .nav-button {
-  background-color: #c4e3ff;
+  background-color: #fff;
   width: 5rem;
   height: 4rem;
   position: fixed;
@@ -365,7 +660,7 @@ main::after {
 }
 
 .nav-bg {
-  background-image: radial-gradient(#285a91, #1f9cfd);
+  background-image: radial-gradient(#002C5E, #1f9cfd);
   width: 5rem;
   height: 4rem;
   position: fixed;
@@ -405,7 +700,7 @@ main::after {
 .nav-icon, .nav-icon::before, .nav-icon::after {
   width: 3rem;
   height: 2px;
-  background-color: #333;
+  background-color: #002C5E;
   display: inline-block;
 }
 
@@ -471,7 +766,7 @@ main::after {
 }
 
 .nav-link:hover {
-  color: #285a91;
+  color: #002C5E;
   background-position: 100%;
   -webkit-transform: translateX(1rem);
           transform: translateX(1rem);
@@ -506,13 +801,15 @@ main::after {
   font-family: inherit;
   font-size: 32px;
   font-weight: bold;
-  background-color: #2f8aff;
+  background-color: #002C5E;
   width: 250px;
   height: 100px;
   border: none;
   cursor: pointer;
   outline: none;
   border-radius: 20% / 50%;
+  -webkit-box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   -webkit-transition: color 750ms ease-in-out, font-size 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55), background-color 750ms ease-in-out, width 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55), height 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55), border-radius 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55);
   transition: color 750ms ease-in-out, font-size 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55), background-color 750ms ease-in-out, width 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55), height 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55), border-radius 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55);
 }
@@ -527,7 +824,7 @@ main::after {
 
 .zz-button.active {
   font-size: 18px;
-  background-color: #085dc9;
+  background-color: #1f9cfd;
   width: 175px;
   height: 175px;
   border-radius: 50%;
@@ -537,9 +834,28 @@ main::after {
   font-size: 48px;
 }
 
+.zz-button-progress-done {
+  color: transparent;
+  background-color: #1f9cfd;
+  position: relative;
+}
+
+.zz-button-progress-done:before {
+  content: '';
+  width: 0px;
+  height: 0px;
+  display: block;
+}
+
+.zz-button:hover {
+  background: #002C5E;
+  background: -webkit-gradient(linear, left bottom, left top, from(#002C5E), to(#1f9cfd));
+  background: linear-gradient(0deg, #002C5E 0%, #1f9cfd 100%);
+}
+
 .zz-button[zz-button-progress='0'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#2f8aff), color-stop(0%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 0%, #085dc9 0%);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#002C5E), color-stop(0%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 0%, #1f9cfd 0%);
 }
 
 .zz-button[zz-button-progress='0']:after {
@@ -547,8 +863,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='1'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(1%, #2f8aff), color-stop(1%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 1%, #085dc9 1%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(1%, #002C5E), color-stop(1%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 1%, #1f9cfd 1%);
 }
 
 .zz-button[zz-button-progress='1']:after {
@@ -556,8 +872,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='2'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(2%, #2f8aff), color-stop(2%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 2%, #085dc9 2%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(2%, #002C5E), color-stop(2%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 2%, #1f9cfd 2%);
 }
 
 .zz-button[zz-button-progress='2']:after {
@@ -565,8 +881,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='3'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(3%, #2f8aff), color-stop(3%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 3%, #085dc9 3%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(3%, #002C5E), color-stop(3%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 3%, #1f9cfd 3%);
 }
 
 .zz-button[zz-button-progress='3']:after {
@@ -574,8 +890,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='4'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(4%, #2f8aff), color-stop(4%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 4%, #085dc9 4%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(4%, #002C5E), color-stop(4%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 4%, #1f9cfd 4%);
 }
 
 .zz-button[zz-button-progress='4']:after {
@@ -583,8 +899,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='5'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(5%, #2f8aff), color-stop(5%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 5%, #085dc9 5%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(5%, #002C5E), color-stop(5%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 5%, #1f9cfd 5%);
 }
 
 .zz-button[zz-button-progress='5']:after {
@@ -592,8 +908,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='6'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(6%, #2f8aff), color-stop(6%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 6%, #085dc9 6%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(6%, #002C5E), color-stop(6%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 6%, #1f9cfd 6%);
 }
 
 .zz-button[zz-button-progress='6']:after {
@@ -601,8 +917,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='7'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(7%, #2f8aff), color-stop(7%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 7%, #085dc9 7%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(7%, #002C5E), color-stop(7%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 7%, #1f9cfd 7%);
 }
 
 .zz-button[zz-button-progress='7']:after {
@@ -610,8 +926,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='8'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(8%, #2f8aff), color-stop(8%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 8%, #085dc9 8%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(8%, #002C5E), color-stop(8%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 8%, #1f9cfd 8%);
 }
 
 .zz-button[zz-button-progress='8']:after {
@@ -619,8 +935,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='9'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(9%, #2f8aff), color-stop(9%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 9%, #085dc9 9%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(9%, #002C5E), color-stop(9%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 9%, #1f9cfd 9%);
 }
 
 .zz-button[zz-button-progress='9']:after {
@@ -628,8 +944,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='10'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(10%, #2f8aff), color-stop(10%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 10%, #085dc9 10%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(10%, #002C5E), color-stop(10%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 10%, #1f9cfd 10%);
 }
 
 .zz-button[zz-button-progress='10']:after {
@@ -637,8 +953,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='11'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(11%, #2f8aff), color-stop(11%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 11%, #085dc9 11%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(11%, #002C5E), color-stop(11%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 11%, #1f9cfd 11%);
 }
 
 .zz-button[zz-button-progress='11']:after {
@@ -646,8 +962,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='12'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(12%, #2f8aff), color-stop(12%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 12%, #085dc9 12%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(12%, #002C5E), color-stop(12%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 12%, #1f9cfd 12%);
 }
 
 .zz-button[zz-button-progress='12']:after {
@@ -655,8 +971,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='13'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(13%, #2f8aff), color-stop(13%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 13%, #085dc9 13%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(13%, #002C5E), color-stop(13%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 13%, #1f9cfd 13%);
 }
 
 .zz-button[zz-button-progress='13']:after {
@@ -664,8 +980,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='14'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(14%, #2f8aff), color-stop(14%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 14%, #085dc9 14%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(14%, #002C5E), color-stop(14%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 14%, #1f9cfd 14%);
 }
 
 .zz-button[zz-button-progress='14']:after {
@@ -673,8 +989,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='15'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(15%, #2f8aff), color-stop(15%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 15%, #085dc9 15%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(15%, #002C5E), color-stop(15%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 15%, #1f9cfd 15%);
 }
 
 .zz-button[zz-button-progress='15']:after {
@@ -682,8 +998,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='16'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(16%, #2f8aff), color-stop(16%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 16%, #085dc9 16%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(16%, #002C5E), color-stop(16%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 16%, #1f9cfd 16%);
 }
 
 .zz-button[zz-button-progress='16']:after {
@@ -691,8 +1007,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='17'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(17%, #2f8aff), color-stop(17%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 17%, #085dc9 17%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(17%, #002C5E), color-stop(17%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 17%, #1f9cfd 17%);
 }
 
 .zz-button[zz-button-progress='17']:after {
@@ -700,8 +1016,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='18'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(18%, #2f8aff), color-stop(18%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 18%, #085dc9 18%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(18%, #002C5E), color-stop(18%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 18%, #1f9cfd 18%);
 }
 
 .zz-button[zz-button-progress='18']:after {
@@ -709,8 +1025,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='19'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(19%, #2f8aff), color-stop(19%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 19%, #085dc9 19%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(19%, #002C5E), color-stop(19%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 19%, #1f9cfd 19%);
 }
 
 .zz-button[zz-button-progress='19']:after {
@@ -718,8 +1034,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='20'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(20%, #2f8aff), color-stop(20%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 20%, #085dc9 20%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(20%, #002C5E), color-stop(20%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 20%, #1f9cfd 20%);
 }
 
 .zz-button[zz-button-progress='20']:after {
@@ -727,8 +1043,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='21'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(21%, #2f8aff), color-stop(21%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 21%, #085dc9 21%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(21%, #002C5E), color-stop(21%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 21%, #1f9cfd 21%);
 }
 
 .zz-button[zz-button-progress='21']:after {
@@ -736,8 +1052,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='22'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(22%, #2f8aff), color-stop(22%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 22%, #085dc9 22%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(22%, #002C5E), color-stop(22%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 22%, #1f9cfd 22%);
 }
 
 .zz-button[zz-button-progress='22']:after {
@@ -745,8 +1061,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='23'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(23%, #2f8aff), color-stop(23%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 23%, #085dc9 23%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(23%, #002C5E), color-stop(23%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 23%, #1f9cfd 23%);
 }
 
 .zz-button[zz-button-progress='23']:after {
@@ -754,8 +1070,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='24'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(24%, #2f8aff), color-stop(24%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 24%, #085dc9 24%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(24%, #002C5E), color-stop(24%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 24%, #1f9cfd 24%);
 }
 
 .zz-button[zz-button-progress='24']:after {
@@ -763,8 +1079,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='25'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(25%, #2f8aff), color-stop(25%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 25%, #085dc9 25%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(25%, #002C5E), color-stop(25%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 25%, #1f9cfd 25%);
 }
 
 .zz-button[zz-button-progress='25']:after {
@@ -772,8 +1088,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='26'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(26%, #2f8aff), color-stop(26%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 26%, #085dc9 26%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(26%, #002C5E), color-stop(26%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 26%, #1f9cfd 26%);
 }
 
 .zz-button[zz-button-progress='26']:after {
@@ -781,8 +1097,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='27'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(27%, #2f8aff), color-stop(27%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 27%, #085dc9 27%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(27%, #002C5E), color-stop(27%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 27%, #1f9cfd 27%);
 }
 
 .zz-button[zz-button-progress='27']:after {
@@ -790,8 +1106,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='28'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(28%, #2f8aff), color-stop(28%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 28%, #085dc9 28%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(28%, #002C5E), color-stop(28%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 28%, #1f9cfd 28%);
 }
 
 .zz-button[zz-button-progress='28']:after {
@@ -799,8 +1115,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='29'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(29%, #2f8aff), color-stop(29%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 29%, #085dc9 29%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(29%, #002C5E), color-stop(29%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 29%, #1f9cfd 29%);
 }
 
 .zz-button[zz-button-progress='29']:after {
@@ -808,8 +1124,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='30'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(30%, #2f8aff), color-stop(30%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 30%, #085dc9 30%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(30%, #002C5E), color-stop(30%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 30%, #1f9cfd 30%);
 }
 
 .zz-button[zz-button-progress='30']:after {
@@ -817,8 +1133,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='31'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(31%, #2f8aff), color-stop(31%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 31%, #085dc9 31%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(31%, #002C5E), color-stop(31%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 31%, #1f9cfd 31%);
 }
 
 .zz-button[zz-button-progress='31']:after {
@@ -826,8 +1142,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='32'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(32%, #2f8aff), color-stop(32%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 32%, #085dc9 32%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(32%, #002C5E), color-stop(32%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 32%, #1f9cfd 32%);
 }
 
 .zz-button[zz-button-progress='32']:after {
@@ -835,8 +1151,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='33'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(33%, #2f8aff), color-stop(33%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 33%, #085dc9 33%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(33%, #002C5E), color-stop(33%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 33%, #1f9cfd 33%);
 }
 
 .zz-button[zz-button-progress='33']:after {
@@ -844,8 +1160,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='34'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(34%, #2f8aff), color-stop(34%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 34%, #085dc9 34%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(34%, #002C5E), color-stop(34%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 34%, #1f9cfd 34%);
 }
 
 .zz-button[zz-button-progress='34']:after {
@@ -853,8 +1169,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='35'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(35%, #2f8aff), color-stop(35%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 35%, #085dc9 35%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(35%, #002C5E), color-stop(35%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 35%, #1f9cfd 35%);
 }
 
 .zz-button[zz-button-progress='35']:after {
@@ -862,8 +1178,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='36'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(36%, #2f8aff), color-stop(36%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 36%, #085dc9 36%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(36%, #002C5E), color-stop(36%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 36%, #1f9cfd 36%);
 }
 
 .zz-button[zz-button-progress='36']:after {
@@ -871,8 +1187,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='37'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(37%, #2f8aff), color-stop(37%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 37%, #085dc9 37%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(37%, #002C5E), color-stop(37%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 37%, #1f9cfd 37%);
 }
 
 .zz-button[zz-button-progress='37']:after {
@@ -880,8 +1196,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='38'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(38%, #2f8aff), color-stop(38%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 38%, #085dc9 38%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(38%, #002C5E), color-stop(38%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 38%, #1f9cfd 38%);
 }
 
 .zz-button[zz-button-progress='38']:after {
@@ -889,8 +1205,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='39'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(39%, #2f8aff), color-stop(39%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 39%, #085dc9 39%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(39%, #002C5E), color-stop(39%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 39%, #1f9cfd 39%);
 }
 
 .zz-button[zz-button-progress='39']:after {
@@ -898,8 +1214,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='40'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(40%, #2f8aff), color-stop(40%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 40%, #085dc9 40%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(40%, #002C5E), color-stop(40%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 40%, #1f9cfd 40%);
 }
 
 .zz-button[zz-button-progress='40']:after {
@@ -907,8 +1223,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='41'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(41%, #2f8aff), color-stop(41%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 41%, #085dc9 41%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(41%, #002C5E), color-stop(41%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 41%, #1f9cfd 41%);
 }
 
 .zz-button[zz-button-progress='41']:after {
@@ -916,8 +1232,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='42'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(42%, #2f8aff), color-stop(42%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 42%, #085dc9 42%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(42%, #002C5E), color-stop(42%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 42%, #1f9cfd 42%);
 }
 
 .zz-button[zz-button-progress='42']:after {
@@ -925,8 +1241,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='43'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(43%, #2f8aff), color-stop(43%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 43%, #085dc9 43%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(43%, #002C5E), color-stop(43%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 43%, #1f9cfd 43%);
 }
 
 .zz-button[zz-button-progress='43']:after {
@@ -934,8 +1250,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='44'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(44%, #2f8aff), color-stop(44%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 44%, #085dc9 44%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(44%, #002C5E), color-stop(44%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 44%, #1f9cfd 44%);
 }
 
 .zz-button[zz-button-progress='44']:after {
@@ -943,8 +1259,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='45'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(45%, #2f8aff), color-stop(45%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 45%, #085dc9 45%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(45%, #002C5E), color-stop(45%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 45%, #1f9cfd 45%);
 }
 
 .zz-button[zz-button-progress='45']:after {
@@ -952,8 +1268,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='46'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(46%, #2f8aff), color-stop(46%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 46%, #085dc9 46%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(46%, #002C5E), color-stop(46%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 46%, #1f9cfd 46%);
 }
 
 .zz-button[zz-button-progress='46']:after {
@@ -961,8 +1277,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='47'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(47%, #2f8aff), color-stop(47%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 47%, #085dc9 47%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(47%, #002C5E), color-stop(47%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 47%, #1f9cfd 47%);
 }
 
 .zz-button[zz-button-progress='47']:after {
@@ -970,8 +1286,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='48'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(48%, #2f8aff), color-stop(48%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 48%, #085dc9 48%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(48%, #002C5E), color-stop(48%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 48%, #1f9cfd 48%);
 }
 
 .zz-button[zz-button-progress='48']:after {
@@ -979,8 +1295,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='49'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(49%, #2f8aff), color-stop(49%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 49%, #085dc9 49%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(49%, #002C5E), color-stop(49%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 49%, #1f9cfd 49%);
 }
 
 .zz-button[zz-button-progress='49']:after {
@@ -988,8 +1304,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='50'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #2f8aff), color-stop(50%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 50%, #085dc9 50%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #002C5E), color-stop(50%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 50%, #1f9cfd 50%);
 }
 
 .zz-button[zz-button-progress='50']:after {
@@ -997,8 +1313,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='51'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(51%, #2f8aff), color-stop(51%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 51%, #085dc9 51%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(51%, #002C5E), color-stop(51%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 51%, #1f9cfd 51%);
 }
 
 .zz-button[zz-button-progress='51']:after {
@@ -1006,8 +1322,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='52'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(52%, #2f8aff), color-stop(52%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 52%, #085dc9 52%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(52%, #002C5E), color-stop(52%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 52%, #1f9cfd 52%);
 }
 
 .zz-button[zz-button-progress='52']:after {
@@ -1015,8 +1331,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='53'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(53%, #2f8aff), color-stop(53%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 53%, #085dc9 53%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(53%, #002C5E), color-stop(53%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 53%, #1f9cfd 53%);
 }
 
 .zz-button[zz-button-progress='53']:after {
@@ -1024,8 +1340,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='54'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(54%, #2f8aff), color-stop(54%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 54%, #085dc9 54%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(54%, #002C5E), color-stop(54%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 54%, #1f9cfd 54%);
 }
 
 .zz-button[zz-button-progress='54']:after {
@@ -1033,8 +1349,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='55'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(55%, #2f8aff), color-stop(55%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 55%, #085dc9 55%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(55%, #002C5E), color-stop(55%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 55%, #1f9cfd 55%);
 }
 
 .zz-button[zz-button-progress='55']:after {
@@ -1042,8 +1358,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='56'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(56%, #2f8aff), color-stop(56%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 56%, #085dc9 56%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(56%, #002C5E), color-stop(56%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 56%, #1f9cfd 56%);
 }
 
 .zz-button[zz-button-progress='56']:after {
@@ -1051,8 +1367,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='57'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(57%, #2f8aff), color-stop(57%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 57%, #085dc9 57%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(57%, #002C5E), color-stop(57%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 57%, #1f9cfd 57%);
 }
 
 .zz-button[zz-button-progress='57']:after {
@@ -1060,8 +1376,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='58'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(58%, #2f8aff), color-stop(58%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 58%, #085dc9 58%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(58%, #002C5E), color-stop(58%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 58%, #1f9cfd 58%);
 }
 
 .zz-button[zz-button-progress='58']:after {
@@ -1069,8 +1385,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='59'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(59%, #2f8aff), color-stop(59%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 59%, #085dc9 59%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(59%, #002C5E), color-stop(59%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 59%, #1f9cfd 59%);
 }
 
 .zz-button[zz-button-progress='59']:after {
@@ -1078,8 +1394,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='60'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(60%, #2f8aff), color-stop(60%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 60%, #085dc9 60%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(60%, #002C5E), color-stop(60%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 60%, #1f9cfd 60%);
 }
 
 .zz-button[zz-button-progress='60']:after {
@@ -1087,8 +1403,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='61'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(61%, #2f8aff), color-stop(61%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 61%, #085dc9 61%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(61%, #002C5E), color-stop(61%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 61%, #1f9cfd 61%);
 }
 
 .zz-button[zz-button-progress='61']:after {
@@ -1096,8 +1412,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='62'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(62%, #2f8aff), color-stop(62%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 62%, #085dc9 62%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(62%, #002C5E), color-stop(62%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 62%, #1f9cfd 62%);
 }
 
 .zz-button[zz-button-progress='62']:after {
@@ -1105,8 +1421,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='63'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(63%, #2f8aff), color-stop(63%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 63%, #085dc9 63%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(63%, #002C5E), color-stop(63%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 63%, #1f9cfd 63%);
 }
 
 .zz-button[zz-button-progress='63']:after {
@@ -1114,8 +1430,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='64'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(64%, #2f8aff), color-stop(64%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 64%, #085dc9 64%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(64%, #002C5E), color-stop(64%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 64%, #1f9cfd 64%);
 }
 
 .zz-button[zz-button-progress='64']:after {
@@ -1123,8 +1439,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='65'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(65%, #2f8aff), color-stop(65%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 65%, #085dc9 65%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(65%, #002C5E), color-stop(65%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 65%, #1f9cfd 65%);
 }
 
 .zz-button[zz-button-progress='65']:after {
@@ -1132,8 +1448,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='66'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(66%, #2f8aff), color-stop(66%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 66%, #085dc9 66%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(66%, #002C5E), color-stop(66%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 66%, #1f9cfd 66%);
 }
 
 .zz-button[zz-button-progress='66']:after {
@@ -1141,8 +1457,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='67'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(67%, #2f8aff), color-stop(67%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 67%, #085dc9 67%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(67%, #002C5E), color-stop(67%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 67%, #1f9cfd 67%);
 }
 
 .zz-button[zz-button-progress='67']:after {
@@ -1150,8 +1466,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='68'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(68%, #2f8aff), color-stop(68%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 68%, #085dc9 68%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(68%, #002C5E), color-stop(68%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 68%, #1f9cfd 68%);
 }
 
 .zz-button[zz-button-progress='68']:after {
@@ -1159,8 +1475,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='69'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(69%, #2f8aff), color-stop(69%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 69%, #085dc9 69%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(69%, #002C5E), color-stop(69%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 69%, #1f9cfd 69%);
 }
 
 .zz-button[zz-button-progress='69']:after {
@@ -1168,8 +1484,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='70'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(70%, #2f8aff), color-stop(70%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 70%, #085dc9 70%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(70%, #002C5E), color-stop(70%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 70%, #1f9cfd 70%);
 }
 
 .zz-button[zz-button-progress='70']:after {
@@ -1177,8 +1493,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='71'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(71%, #2f8aff), color-stop(71%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 71%, #085dc9 71%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(71%, #002C5E), color-stop(71%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 71%, #1f9cfd 71%);
 }
 
 .zz-button[zz-button-progress='71']:after {
@@ -1186,8 +1502,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='72'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(72%, #2f8aff), color-stop(72%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 72%, #085dc9 72%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(72%, #002C5E), color-stop(72%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 72%, #1f9cfd 72%);
 }
 
 .zz-button[zz-button-progress='72']:after {
@@ -1195,8 +1511,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='73'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(73%, #2f8aff), color-stop(73%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 73%, #085dc9 73%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(73%, #002C5E), color-stop(73%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 73%, #1f9cfd 73%);
 }
 
 .zz-button[zz-button-progress='73']:after {
@@ -1204,8 +1520,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='74'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(74%, #2f8aff), color-stop(74%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 74%, #085dc9 74%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(74%, #002C5E), color-stop(74%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 74%, #1f9cfd 74%);
 }
 
 .zz-button[zz-button-progress='74']:after {
@@ -1213,8 +1529,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='75'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(75%, #2f8aff), color-stop(75%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 75%, #085dc9 75%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(75%, #002C5E), color-stop(75%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 75%, #1f9cfd 75%);
 }
 
 .zz-button[zz-button-progress='75']:after {
@@ -1222,8 +1538,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='76'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(76%, #2f8aff), color-stop(76%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 76%, #085dc9 76%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(76%, #002C5E), color-stop(76%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 76%, #1f9cfd 76%);
 }
 
 .zz-button[zz-button-progress='76']:after {
@@ -1231,8 +1547,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='77'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(77%, #2f8aff), color-stop(77%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 77%, #085dc9 77%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(77%, #002C5E), color-stop(77%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 77%, #1f9cfd 77%);
 }
 
 .zz-button[zz-button-progress='77']:after {
@@ -1240,8 +1556,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='78'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(78%, #2f8aff), color-stop(78%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 78%, #085dc9 78%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(78%, #002C5E), color-stop(78%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 78%, #1f9cfd 78%);
 }
 
 .zz-button[zz-button-progress='78']:after {
@@ -1249,8 +1565,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='79'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(79%, #2f8aff), color-stop(79%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 79%, #085dc9 79%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(79%, #002C5E), color-stop(79%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 79%, #1f9cfd 79%);
 }
 
 .zz-button[zz-button-progress='79']:after {
@@ -1258,8 +1574,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='80'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(80%, #2f8aff), color-stop(80%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 80%, #085dc9 80%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(80%, #002C5E), color-stop(80%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 80%, #1f9cfd 80%);
 }
 
 .zz-button[zz-button-progress='80']:after {
@@ -1267,8 +1583,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='81'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(81%, #2f8aff), color-stop(81%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 81%, #085dc9 81%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(81%, #002C5E), color-stop(81%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 81%, #1f9cfd 81%);
 }
 
 .zz-button[zz-button-progress='81']:after {
@@ -1276,8 +1592,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='82'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(82%, #2f8aff), color-stop(82%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 82%, #085dc9 82%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(82%, #002C5E), color-stop(82%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 82%, #1f9cfd 82%);
 }
 
 .zz-button[zz-button-progress='82']:after {
@@ -1285,8 +1601,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='83'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(83%, #2f8aff), color-stop(83%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 83%, #085dc9 83%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(83%, #002C5E), color-stop(83%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 83%, #1f9cfd 83%);
 }
 
 .zz-button[zz-button-progress='83']:after {
@@ -1294,8 +1610,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='84'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(84%, #2f8aff), color-stop(84%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 84%, #085dc9 84%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(84%, #002C5E), color-stop(84%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 84%, #1f9cfd 84%);
 }
 
 .zz-button[zz-button-progress='84']:after {
@@ -1303,8 +1619,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='85'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(85%, #2f8aff), color-stop(85%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 85%, #085dc9 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(85%, #002C5E), color-stop(85%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 85%, #1f9cfd 85%);
 }
 
 .zz-button[zz-button-progress='85']:after {
@@ -1312,8 +1628,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='86'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(86%, #2f8aff), color-stop(86%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 86%, #085dc9 86%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(86%, #002C5E), color-stop(86%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 86%, #1f9cfd 86%);
 }
 
 .zz-button[zz-button-progress='86']:after {
@@ -1321,8 +1637,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='87'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(87%, #2f8aff), color-stop(87%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 87%, #085dc9 87%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(87%, #002C5E), color-stop(87%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 87%, #1f9cfd 87%);
 }
 
 .zz-button[zz-button-progress='87']:after {
@@ -1330,8 +1646,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='88'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(88%, #2f8aff), color-stop(88%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 88%, #085dc9 88%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(88%, #002C5E), color-stop(88%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 88%, #1f9cfd 88%);
 }
 
 .zz-button[zz-button-progress='88']:after {
@@ -1339,8 +1655,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='89'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(89%, #2f8aff), color-stop(89%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 89%, #085dc9 89%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(89%, #002C5E), color-stop(89%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 89%, #1f9cfd 89%);
 }
 
 .zz-button[zz-button-progress='89']:after {
@@ -1348,8 +1664,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='90'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(90%, #2f8aff), color-stop(90%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 90%, #085dc9 90%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(90%, #002C5E), color-stop(90%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 90%, #1f9cfd 90%);
 }
 
 .zz-button[zz-button-progress='90']:after {
@@ -1357,8 +1673,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='91'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(91%, #2f8aff), color-stop(91%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 91%, #085dc9 91%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(91%, #002C5E), color-stop(91%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 91%, #1f9cfd 91%);
 }
 
 .zz-button[zz-button-progress='91']:after {
@@ -1366,8 +1682,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='92'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(92%, #2f8aff), color-stop(92%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 92%, #085dc9 92%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(92%, #002C5E), color-stop(92%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 92%, #1f9cfd 92%);
 }
 
 .zz-button[zz-button-progress='92']:after {
@@ -1375,8 +1691,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='93'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(93%, #2f8aff), color-stop(93%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 93%, #085dc9 93%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(93%, #002C5E), color-stop(93%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 93%, #1f9cfd 93%);
 }
 
 .zz-button[zz-button-progress='93']:after {
@@ -1384,8 +1700,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='94'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(94%, #2f8aff), color-stop(94%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 94%, #085dc9 94%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(94%, #002C5E), color-stop(94%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 94%, #1f9cfd 94%);
 }
 
 .zz-button[zz-button-progress='94']:after {
@@ -1393,8 +1709,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='95'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(95%, #2f8aff), color-stop(95%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 95%, #085dc9 95%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(95%, #002C5E), color-stop(95%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 95%, #1f9cfd 95%);
 }
 
 .zz-button[zz-button-progress='95']:after {
@@ -1402,8 +1718,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='96'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(96%, #2f8aff), color-stop(96%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 96%, #085dc9 96%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(96%, #002C5E), color-stop(96%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 96%, #1f9cfd 96%);
 }
 
 .zz-button[zz-button-progress='96']:after {
@@ -1411,8 +1727,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='97'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(97%, #2f8aff), color-stop(97%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 97%, #085dc9 97%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(97%, #002C5E), color-stop(97%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 97%, #1f9cfd 97%);
 }
 
 .zz-button[zz-button-progress='97']:after {
@@ -1420,8 +1736,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='98'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(98%, #2f8aff), color-stop(98%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 98%, #085dc9 98%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(98%, #002C5E), color-stop(98%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 98%, #1f9cfd 98%);
 }
 
 .zz-button[zz-button-progress='98']:after {
@@ -1429,8 +1745,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='99'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(99%, #2f8aff), color-stop(99%, #085dc9));
-  background-image: linear-gradient(to top, #2f8aff 99%, #085dc9 99%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(99%, #002C5E), color-stop(99%, #1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 99%, #1f9cfd 99%);
 }
 
 .zz-button[zz-button-progress='99']:after {
@@ -1438,8 +1754,8 @@ main::after {
 }
 
 .zz-button[zz-button-progress='100'] {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(100%, #2f8aff), to(#085dc9));
-  background-image: linear-gradient(to top, #2f8aff 100%, #085dc9 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(100%, #002C5E), to(#1f9cfd));
+  background-image: linear-gradient(to top, #002C5E 100%, #1f9cfd 100%);
 }
 
 .zz-button[zz-button-progress='100']:after {
@@ -1495,19 +1811,6 @@ main::after {
     -webkit-transform: scale(1);
             transform: scale(1);
   }
-}
-
-.zz-button-progress-done {
-  color: transparent;
-  background-color: #52b500;
-  position: relative;
-}
-
-.zz-button-progress-done:before {
-  content: '';
-  width: 0px;
-  height: 0px;
-  display: block;
 }
 
 .zz-button-progress-done.zz-button-progress-done-active:before {
@@ -1583,7 +1886,7 @@ main::after {
 }
 
 .price__typo {
-  color: #284B63;
+  color: #002C5E;
   font-size: 2.5rem;
   font-weight: bold;
 }

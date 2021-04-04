@@ -12,7 +12,7 @@
     @transitionend="progressTransitionEndEvent"
     @animationend="progressAnimationEndEvent"
   >
-    <i class="fas fa-camera-retro"></i> {{ this.text }}
+    <span> <i class="fas fa-camera-retro"></i> {{ this.text }} </span>
   </button>
 </template>
 
