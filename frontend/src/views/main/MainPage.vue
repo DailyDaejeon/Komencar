@@ -7,8 +7,10 @@
     <!-- 차량 비교 차트 -->
     <CarCompare :latestModel="latestModel" :modelInfo="modelInfo" />
     <!-- 차량 모델비교(가격) -->
+    <h1>가격 비교</h1>
     <CarModel :CompareCar="similarPriceCar" />
     <!-- 차량 모델비교(차체크기) -->
+    <h1>크기</h1>
     <CarModel :CompareCar="sameSegmentCar" />
     <!-- 차량 뉴스 -->
     <CarNews :newsData="carNews" id="CarNewsInfo" />
