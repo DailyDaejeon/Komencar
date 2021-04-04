@@ -34,6 +34,20 @@ public class ModelController {
     public Optional<Model_Detail> getModelDetail(@PathVariable int md_id){
         return modelDetailRepository.findById(md_id);
     }
+    @GetMapping("/similar_price/{md_id}")
+    public List<Model_Detail> findModelDetailByPriceBetween(@PathVariable int md_id){
+        Optional<Model_Detail> m_detail = modelDetailRepository.findById(md_id);
+        int price = m_detail.get().getOptionList().get(0).getPrice();
+        System.out.println(price);
+
+//        return modelDetailRepository.
+        return null;
+    }
+
+    @GetMapping("/same_segment/{md_id}")
+    public List<Model_Detail> findModelDetailBySameSegment(@PathVariable int md_id){
+        return null;
+    }
 
 
 }
