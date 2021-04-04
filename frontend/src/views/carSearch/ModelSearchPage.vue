@@ -19,6 +19,7 @@
         </div>
       </form>
     </div>
+    <!-- 검색한 결과가 v-for로 돌려 보이게 만듦 -->
   </div>
 </template>
 <script lang="ts">
