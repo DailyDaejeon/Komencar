@@ -9,6 +9,6 @@ import java.util.List;
 @Component
 public interface OptionRepository extends JpaRepository<Option, Long> {
 
-    List<Option> findByModelDetail_Id(long md_id);
+    List<Option> findByModelDetail_Id(int md_id);
 
 }

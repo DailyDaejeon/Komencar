@@ -5,11 +5,10 @@ import com.komencar.backend.model.Option;
 import com.komencar.backend.repository.ModelDetailRepository;
 import com.komencar.backend.repository.OptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/model")
@@ -29,5 +28,12 @@ public class ModelController {
     }
 
     @GetMapping("/option_list")
-    public List<Option> optionListByMd_Id(long md_id){ return optionRepository.findByModelDetail_Id(md_id); }
+    public List<Option> optionListByMd_Id(int md_id){ return optionRepository.findByModelDetail_Id(md_id); }
+
+    @GetMapping("/info/{md_id}")
+    public Optional<Model_Detail> getModelDetail(@PathVariable int md_id){
+        return modelDetailRepository.findById(md_id);
+    }
+
+
 }
