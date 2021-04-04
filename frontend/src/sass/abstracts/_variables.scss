@@ -1,11 +1,13 @@
 // 변수
-$color-primary: #285a91;
+// $color-primary: #285a91;
+$color-primary: #002C5E;
 $color-secondary: #1f9cfd;
 $color-white: #fff;
 $color-navy-dark: #333745;
 $color-red:#e53935;
 
-$color-blue-1: #a8d8ff;
+// $color-blue-1: #a8d8ff;
+$color-blue-1: #007FA8;
 $color-blue-2: #c1e1ff;
 $color-blue-3: #d6eaff;
 $color-blue-dark: #3f4a56;
@@ -15,13 +17,17 @@ $color-grey-dark: #474747;
 
 $color-main-grey-1: #D9D9D9;
 $color-main-grey-2: rgb(236, 236, 236);
-$color-main-navy: #284B63;
+// $color-main-navy: #284B63;
+$color-main-navy: #002C5E;
 
 // carImgBtn 변수
 $base-color: white;
-$bg-full: #2f8aff;
-$bg-empty: #085dc9;
-$bg-done: #52b500;
+$bg-full: #002C5E;
+// $bg-full: #2f8aff;
+$bg-empty: #1f9cfd;
+// $bg-empty: #085dc9;
+$bg-done: #1f9cfd;
+// $bg-done: #52b500;
 $default-font-size-label: 32px;
 $default-width: 250px;
 $default-height: 100px;

@@ -22,32 +22,48 @@
   cursor: pointer;
   outline: none;
   border-radius: 20% / 50%;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
   transition: color $animation-time ease-in-out,
     font-size $animation-time $animation-style,
     background-color $animation-time ease-in-out,
     width $animation-time $animation-style,
     height $animation-time $animation-style,
     border-radius $animation-time $animation-style;
-}
-
-.zz-button:after {
+  &:after {
   content: '0%';
   font-size: 0;
   display: block;
   transition: font-size $animation-time ease-in-out;
 }
-
-.zz-button.active {
-  font-size: $active-font-size-label;
-  background-color: $bg-empty;
-  width: $active-width-height;
-  height: $active-width-height;
-  border-radius: 50%;
+  &.active {
+    font-size: $active-font-size-label;
+    background-color: $bg-empty;
+    width: $active-width-height;
+    height: $active-width-height;
+    border-radius: 50%;
+    &:after {
+    font-size: $active-font-size-progress;
+    }
+  }
+    &-progress-done {
+      color: transparent;
+      background-color: $bg-done;
+      position: relative;
+      &:before {
+      content: '';
+      width: 0px;
+      height: 0px;
+      display: block;
+    }
+  }
+  &:hover {
+  background: $color-main-navy;
+  background: linear-gradient(0deg,  $color-main-navy 0%, $color-secondary 100%);
+  }
 }
 
-.zz-button.active:after {
-  font-size: $active-font-size-progress;
-}
 
 @for $i from 0 through 100 {
   .zz-button[zz-button-progress='#{$i}'] {
@@ -69,19 +85,6 @@
   75%  { transform: scale(0.9); }
   90%  { transform: scale(1.05) }
   100% { transform: scale(1); }
-}
-
-.zz-button-progress-done {
-  color: transparent;
-  background-color: $bg-done;
-  position: relative;
-}
-
-.zz-button-progress-done:before {
-  content: '';
-  width: 0px;
-  height: 0px;
-  display: block;
 }
 
 .zz-button-progress-done.zz-button-progress-done-active:before {
