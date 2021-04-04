@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box box-CarModel">
     <div v-for="(compareCar, index) in CompareCar" :key="index">
       <CarModelItem :compareCar="compareCar" />
     </div>
