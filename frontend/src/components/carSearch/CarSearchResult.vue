@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <!-- 이미지 불러오기 -->
-    <!-- 자신이 촬영한 이미지를 올리는게 좋을지, 기본 모델 이미지를 올리는게 좋을지 고민 중 -->
+
     <div class="container-fluid__img-box">
       <img :src="getImg()" />
     </div>
@@ -39,24 +39,6 @@
         </td>
       </tr>
     </table>
-
-    <div class="container-fluid__add-box" v-if="!isAddToMyCar">
-      <p class="container-fluid__add-box-desc">
-        <i class="fas fa-check"></i>{{ carModel }}을(를) '내 차량'으로 등록하고
-        코멘카에서 제공하는 더 풍부하고 많은 혜택을 즐겨보세요
-      </p>
-      <!-- 비회원 이용 시 -->
-      <!-- <router-link :to="{name:'LoginPage'}">로그인 하러 가기</router-link> -->
-      <p class="container-fluid__add-box-login" v-if="!isLogin">
-        <i class="fas fa-check"></i><U>로그인 하러 가기</U>
-      </p>
-
-      <!-- 회원 이용 시 -->
-      <!-- 내 차 미등록 시 -->
-      <!-- <p @click="addToMyCar">내 차로 등록하기</p> -->
-      <p class="addToMyCar" v-else>내 차로 등록하기</p>
-    </div>
-    <div class="add-box-tail"></div>
   </div>
 </template>
 

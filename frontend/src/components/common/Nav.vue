@@ -13,26 +13,26 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">
+          <a @click="goId" href="#carSearchResult" class="nav-link">
             <span><i class="fas fa-car"></i></span>차 세부정보
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">
+          <a @click="goId" href="#carCompare" class="nav-link">
+            <span><i class="fas fa-share-alt"></i></span>
+            차 모델 비교
+          </a>
+        </li>
+        <li class="nav-item">
+          <a @click="goId" href="#carNewsInfo" class="nav-link">
             <span><i class="far fa-newspaper"></i></span>
             뉴스/정보 보기
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">
+          <a @click="goId" href="#carGoodsInfo" class="nav-link">
             <span><i class="fas fa-shopping-cart"></i></span>
             추천 굿즈
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">
-            <span><i class="fas fa-share-alt"></i></span>
-            스트리밍 서비스
           </a>
         </li>
       </ul>
@@ -45,6 +45,10 @@ import Vue from "vue";
 
 export default Vue.extend({
   methods: {
+    goId() {
+      const bg = document.querySelector(".nav-checkbox") as HTMLInputElement;
+      bg.checked = false;
+    },
     goSearch() {
       this.$router.push({ name: "ModelSearchPage" });
       const bg = document.querySelector(".nav-checkbox") as HTMLInputElement;

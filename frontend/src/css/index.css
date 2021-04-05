@@ -154,6 +154,7 @@ main::after {
 }
 
 .LOGO {
+  cursor: pointer;
   font-size: 10vw;
   font-family: 'Titan One',cursive;
   font-weight: 700;
@@ -782,8 +783,30 @@ main::after {
   left: 0;
 }
 
-.carSearchDescrip {
-  margin-top: 5vh;
+.carSearch {
+  position: relative;
+  top: 20vh;
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  .carSearch__descrip {
+    text-align: center;
+    font-size: 4.5rem;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 899px) {
+  .carSearch__descrip {
+    text-align: center;
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .carSearch__descrip {
+    text-align: justify;
+    font-size: 3.5rem;
+  }
 }
 
 .camera-button-div {
@@ -803,7 +826,7 @@ main::after {
   font-weight: bold;
   background-color: #002C5E;
   width: 250px;
-  height: 100px;
+  height: 70px;
   border: none;
   cursor: pointer;
   outline: none;
@@ -1820,7 +1843,7 @@ main::after {
   border-top: none;
   border-right: none;
   position: absolute;
-  top: 50px;
+  top: 35px;
   left: 100px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -1901,7 +1924,6 @@ main::after {
 .search:before {
   content: "";
   position: absolute;
-  background-image: url("https://deepsense.ai/wp-content/uploads/2019/04/With-your-head-in-the-clouds-%E2%80%93-how-to-harness-the-power-of-artificial-intelligence.jpg");
   width: 100%;
   height: 35vh;
   opacity: 0.5;
@@ -1955,10 +1977,11 @@ main::after {
 .search__form {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  width: 70vw;
+  width: 75vw;
 }
 
 .search__finder {
+  top: 5vh;
   border: 1px solid #fff;
   background-color: #f6f5f0;
   border-radius: 15px;
@@ -2083,6 +2106,7 @@ main::after {
 
 .search__result {
   position: relative;
+  top: 5vh;
   background-color: #f6f5f2;
   padding: 4rem 1rem 0;
 }

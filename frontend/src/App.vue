@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <Nav />
-    <h1 class="LOGO">KOMENCAR</h1>
-    <div class="Logo__sign">
+    <h1 class="LOGO" @click="goImgSearch">KOMENCAR</h1>
+    <!-- <div class="Logo__sign">
       <span class="Logo__fast-flicker">KO</span>MEN<span class="Logo__flicker"
         >C</span
       >AR
-    </div>
+    </div> -->
     <main>
       <router-view></router-view>
     </main>
@@ -19,7 +19,12 @@ import Nav from "@/components/common/Nav.vue";
 
 export default Vue.extend({
   components: { Nav },
-  name: "App"
+  name: "App",
+  methods: {
+    goImgSearch() {
+      this.$router.push({ name: "CarSearch" });
+    }
+  }
 });
 </script>
 

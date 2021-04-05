@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2>내차 예상시세</h2>
+    <h2>차 예상시세</h2>
     <p class="price__typo">{{ MinCarPrice }} ~ {{ MaxCarPrice }}</p>
     <div class="chart-container">
-      <canvas id="myChart"></canvas>
+      <canvas id="myPriceChart"></canvas>
     </div>
   </div>
 </template>
@@ -33,7 +33,7 @@ export default Vue.extend({
   },
   mounted() {
     const canvasElement = document.getElementById(
-      "myChart"
+      "myPriceChart"
     ) as HTMLCanvasElement;
     const ctx = canvasElement.getContext("2d");
     // null값처리
