@@ -81,8 +81,10 @@ public class AIController {
         executor.setStreamHandler(pumpStreamHandler);
         int result = executor.execute(commandLine);
         System.out.println("result: " + result);
-        System.out.println("output: " + outputStream.toString());
-        return outputStream.toString();
+        System.out.println("output: " + outputStream.toString().split("----")[1]);
+
+        return outputStream.toString().split("----")[1];
+//        return outputStream.toString();
     }
 
 
