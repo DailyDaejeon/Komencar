@@ -33,8 +33,9 @@ $dark: #000;
 }
 
 .item-box {
-    display: flex;
+    @include mq {display: flex}
 }
+
 
 // each item in gallery
 .gallery .item {
@@ -122,18 +123,20 @@ $dark: #000;
   padding-left:1rem;
   position:relative;
   color:lighten($color-navy-dark, 50%);
-  display: inline-block;
+//   display: inline-block;
   
   // add some spacing at given breakpoint
-  @include tablet {padding-top:1rem;}
+  @include tablet {
+      padding-top:1rem;}
   
   .caption__desc {
-    position:relative;
-    margin-bottom:1rem;
-    font-weight:400;
-    font-size:1rem;
-    text-transform:uppercase;
-    letter-spacing:1px;
+        position:relative;
+        margin-bottom:1rem;
+        font-weight:400;
+        font-size:1rem;
+        text-transform:uppercase;
+        letter-spacing:1px;
+
 
 
     &__title {

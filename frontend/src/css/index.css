@@ -2654,7 +2654,6 @@ main::after {
   padding-left: 1rem;
   position: relative;
   color: #b1b6c6;
-  display: inline-block;
 }
 
 @media (max-width: 40rem) {
