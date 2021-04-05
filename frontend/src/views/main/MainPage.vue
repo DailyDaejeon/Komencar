@@ -1,24 +1,22 @@
 <template>
   <div>
     <!-- 차량 분석 컴포넌트 -->
-    <CarSearchResult :modelInfo="modelInfo" />
+    <CarSearchResult id="carSearchResult" :modelInfo="modelInfo" />
     <!-- 차량 시세 차트 -->
     <CarPrice :allOptions="allOptions" :mdName="md_name" />
     <!-- 차량 비교 차트 -->
     <CarCompare :latestModel="latestModel" :modelInfo="modelInfo" />
     <!-- 차량 모델비교(가격) -->
-    <h1>동급모델</h1>
+    <h1 id="carCompare">동급모델</h1>
     <div class="model-title">#가격</div>
     <CarModel :CompareCar="similarPriceCar" />
     <!-- 차량 모델비교(차체크기) -->
     <div class="model-title">#크기</div>
     <CarModel :CompareCar="sameSegmentCar" />
     <!-- 차량 뉴스 -->
-    <CarNews :newsData="carNews" id="CarNewsInfo" />
-    <!-- 차량 댓글 비교(텍스트마이닝 된다면) -->
-    <!-- <CarReview/> -->
+    <CarNews :newsData="carNews" id="carNewsInfo" />
     <!-- 차량 굿즈 -->
-    <CarGoods :goodsData="carGoods" />
+    <CarGoods id="carGoodsInfo" :goodsData="carGoods" />
   </div>
 </template>
 
