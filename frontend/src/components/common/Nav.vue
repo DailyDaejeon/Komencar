@@ -47,7 +47,8 @@ export default Vue.extend({
   methods: {
     goSearch() {
       this.$router.push({ name: "ModelSearchPage" });
-      window.location.reload();
+      const bg = document.querySelector(".nav-checkbox") as HTMLInputElement;
+      bg.checked = false;
     },
     alertExample() {
       this.$swal({
