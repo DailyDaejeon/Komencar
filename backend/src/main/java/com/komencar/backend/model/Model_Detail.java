@@ -43,4 +43,5 @@ public class Model_Detail {
     @OneToMany(mappedBy = "modelDetail")
     @JsonManagedReference
     private List<Option> optionList = new ArrayList<>();
+
 }
