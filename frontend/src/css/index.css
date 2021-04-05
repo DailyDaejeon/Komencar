@@ -154,6 +154,7 @@ main::after {
 }
 
 .LOGO {
+  cursor: pointer;
   font-size: 10vw;
   font-family: 'Titan One',cursive;
   font-weight: 700;
@@ -787,8 +788,25 @@ main::after {
   top: 20vh;
 }
 
-.carSearch__descrip {
-  font-size: 3rem;
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  .carSearch__descrip {
+    text-align: center;
+    font-size: 4.5rem;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 899px) {
+  .carSearch__descrip {
+    text-align: center;
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .carSearch__descrip {
+    text-align: justify;
+    font-size: 3.5rem;
+  }
 }
 
 .camera-button-div {
