@@ -16,7 +16,7 @@ export default Vue.extend({
       type: Object
     },
     modelInfo: {
-      type: Object || Array
+      type: Object
     }
   },
   data() {
@@ -35,7 +35,8 @@ export default Vue.extend({
     if (!ctx) {
       return;
     }
-
+    console.log("latestModel : ", this.latestModel);
+    console.log("modelInfo : ", this.modelInfo);
     const chart = new this.$_Chart(ctx, {
       type: "radar",
       fill: false,
@@ -44,11 +45,13 @@ export default Vue.extend({
         // datasets를 props로 받기
         datasets: [
           {
-            label: this.latestModel.md_name,
+            label: this.latestModel.name,
             data: [
-              this.latestModel.md_efficiency,
-              this.latestModel.md_exhaust,
-              this.latestModel.optionList.o_price
+              this.latestModel.efficiency,
+              this.latestModel.exhaust,
+              this.latestModel.optionList[
+                this.latestModel.optionList.length - 1
+              ].price
             ],
             fill: true,
             backgroundColor: "rgba(255, 99, 132, 0.2)",
@@ -59,11 +62,11 @@ export default Vue.extend({
             pointHoverBorderColor: "rgb(255, 99, 132)"
           },
           {
-            label: this.modelInfo.m_name,
+            label: this.modelInfo.name,
             data: [
-              this.modelInfo.m_efficiency,
-              this.modelInfo.md_exhaust,
-              this.modelInfo.m_price
+              this.modelInfo.efficiency,
+              this.modelInfo.exhaust,
+              this.modelInfo.optionList[0].price
             ],
             fill: true,
             backgroundColor: "rgba(54, 162, 235, 0.2)",

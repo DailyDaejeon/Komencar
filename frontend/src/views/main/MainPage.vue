@@ -3,7 +3,7 @@
     <!-- 차량 분석 컴포넌트 -->
     <CarSearchResult id="carSearchResult" :modelInfo="modelInfo" />
     <!-- 차량 시세 차트 -->
-    <CarPrice :allOptions="allOptions" :mdName="md_name" />
+    <CarPrice :allOptions="allOptions" :mdName="m_name" />
     <!-- 차량 비교 차트 -->
     <CarCompare :latestModel="latestModel" :modelInfo="modelInfo" />
     <!-- 차량 모델비교(가격) -->
@@ -40,26 +40,15 @@ import {
 
 export default Vue.extend({
   props: {
-    m_id: {
-      type: Number,
-      default: 0
-    },
-    md_id: {
-      type: Number,
-      default: 0
-    },
-    m_name: {
-      type: String,
-      default: "grandeur"
-    },
-    md_name: {
-      type: String,
-      default: "the new grandeur"
+    modelInfo: {
+      type: Object
     }
   },
   data() {
     return {
-      modelInfo: Object,
+      m_id: 1 as number,
+      md_id: Number,
+      m_name: String,
       allOptions: Array,
       latestModel: Object,
       similarPriceCar: Object,
@@ -78,7 +67,7 @@ export default Vue.extend({
   },
   created() {
     this.getModelInfo();
-    this.getCarAllOptions();
+    // this.getCarAllOptions();
     this.getLatestModel();
     this.getSimilarPriceModel();
     this.getSameSegmentModel();
@@ -87,11 +76,15 @@ export default Vue.extend({
   },
   methods: {
     async getModelInfo() {
-      const { data } = await fetchModel(this.m_id);
-      this.modelInfo = data;
+      // const { data } = await fetchModel(this.m_id);
+      // this.modelInfo = data;
+      console.log("this.modelInfo : ", this.modelInfo);
+      this.md_id = this.modelInfo.id;
+      this.m_name = this.modelInfo.name;
+      this.allOptions = this.modelInfo.optionList;
     },
     async getCarAllOptions() {
-      const { data } = await fetchAllOptions(this.m_id);
+      const { data } = await fetchAllOptions(this.md_id);
       this.allOptions = data;
     },
     async getLatestModel() {

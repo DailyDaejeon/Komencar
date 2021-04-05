@@ -29,7 +29,7 @@
 <script lang="ts">
 import Vue from "vue";
 import CarImageBtn from "@/components/carSearch/CarImageBtn.vue";
-import { searchModelImg } from "@/api/index";
+import { searchModelImg, findModelId } from "@/api/index";
 
 export default Vue.extend({
   components: {
@@ -43,7 +43,8 @@ export default Vue.extend({
       modelId: Number,
       modelDetailId: Number,
       modelName: String,
-      modelDetailName: String
+      modelDetailName: String,
+      imagefile: null
     };
   },
   methods: {
@@ -53,25 +54,26 @@ export default Vue.extend({
     onChangeImages(e) {
       console.log(e.target.files);
       const file = e.target.files[0]; // Get first index in files
+      this.imagefile = file;
       this.imageUrl = URL.createObjectURL(file); // Create File URL
       console.log("이미지 URL : ", this.imageUrl);
       this.sendImages();
     },
     sendImages() {
-      if (this.imageUrl) {
-        this.$refs.zzUpload.progressClickEvent();
+      if (this.imagefile) {
+        // this.$refs.zzUpload.progressClickEvent();
         const imagePic = new FormData();
-        const pic = "보낼 이미지 이름";
-        const picDB = String(pic + ".jpg");
-        this.carImagePic = picDB;
-        imagePic.append("profile", this.imageUrl, String(pic + ".jpg"));
+        imagePic.append("file", this.imagefile, String(".jpg"));
         searchModelImg(imagePic)
           .then(res => {
-            console.log(res);
-            this.modelId = res.data.m_id;
-            this.modelDetailId = res.data.md_id;
-            this.modelName = res.data.m_name;
-            this.modelDetailName = res.data.md_name;
+            console.log("너는 무슨 자동차니 ? ", res.data);
+            findModelId(res.data).then(res => {
+              console.log("제 정보는용", res.data);
+              this.$router.push({
+                name: "Main",
+                params: { modelInfo: res.data }
+              });
+            });
           })
           .catch(() => {
             this.$swal({

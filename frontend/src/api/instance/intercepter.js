@@ -14,7 +14,7 @@ export function setInterceptors() {
   instance.interceptors.request.use(
     config => {
       const token = store.state.token;
-      console.log("request config: ", config, token);
+      // console.log("request config: ", config, token);
       if (token) {
         config.headers.Authorization = token;
       }
@@ -32,7 +32,7 @@ export function setInterceptors() {
   );
   instance.interceptors.response.use(
     config => {
-      console.log("response config: ", config);
+      // console.log("response config: ", config);
       // const token = config.headers.authorization;
       // if (token) {
       //   store.commit("SET_TOKEN", token);

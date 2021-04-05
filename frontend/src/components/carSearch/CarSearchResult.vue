@@ -3,7 +3,7 @@
     <!-- 이미지 불러오기 -->
 
     <div class="container-fluid__img-box">
-      <img :src="getImg()" />
+      <img :src="getImg(modelInfo.name)" />
     </div>
     <!-- 정보 불러오기-->
     <table class="container-fluid__car-info">
@@ -11,31 +11,42 @@
       <tr>
         <th>모델</th>
         <td>
-          <span>{{ carModel }}</span>
+          <span>{{ modelInfo.name }}</span>
         </td>
       </tr>
       <tr>
         <th>출고가격</th>
         <td>
-          <span>{{ carCost }}</span>
+          <span
+            >{{ modelInfo.optionList[0].price }} ~
+            {{
+              modelInfo.optionList[modelInfo.optionList.length - 1].price
+            }}</span
+          >
         </td>
       </tr>
       <tr>
         <th>연비</th>
         <td>
-          <span>{{ carFE }}</span>
+          <span>{{ modelInfo.effciency }}</span>
+        </td>
+      </tr>
+      <tr>
+        <th>연료</th>
+        <td>
+          <span>{{ modelInfo.fuel.name }} {{ modelInfo.exhaust }}cc</span>
+        </td>
+      </tr>
+      <tr>
+        <th>승차인원</th>
+        <td>
+          <span>{{ modelInfo.max_person }}명</span>
         </td>
       </tr>
       <tr>
         <th>제조사</th>
         <td>
-          <span>{{ carMF }}</span>
-        </td>
-      </tr>
-      <tr>
-        <th>판매</th>
-        <td>
-          <span>{{ carSale }}</span>
+          <span>현대자동차</span>
         </td>
       </tr>
     </table>
@@ -47,39 +58,22 @@ import Vue from "vue";
 export default Vue.extend({
   props: {
     modelInfo: {
-      type: Array || Object
+      type: Object
     }
   },
   data() {
     return {
-      // isAddToMyCar: false,
-      myCarImg: "", //서버에서 받아온 이미지 주소 저장
-      carModel: "", //차 모델 명
-      carCost: "", //차 가격
-      carFE: "", //차 연비
       carMF: "", //차 제조사
       carSale: "" //차 판매국
     };
   },
-  created() {
-    // this.fetchMyCar();
-    this.fetchCarInfo();
-  },
   methods: {
-    fetchMyCar() {
-      this.isAddToMyCar = true;
-    },
-    fetchCarInfo() {
-      //차 정보 받아오는 메소드
-      this.carModel = "현대 코나";
-      this.carCost = "1962 ~ 2697(만원)";
-      this.carFE = "10.0 ~ 18.6km/ℓ";
-      this.carMF = "현대자동차";
-      this.carSale = "국내출시";
-    },
-    getImg() {
+    getImg(mName) {
       //내가 찍은 차 이미지 받아오는 메소드
-      this.myCarImg = require("@/assets/images/testCar.jpg");
+      let name = mName.split(" ");
+      name = name.join("_");
+      console.log(name);
+      this.myCarImg = require(`@/assets/images/cars/${name}.jpg`);
       return this.myCarImg;
     },
     addToMyCar() {
