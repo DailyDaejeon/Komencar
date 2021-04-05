@@ -1,32 +1,28 @@
 <template>
   <div>
-    <div class="search">
+    <!-- <div class="search">
       <div class="search__div">
-        <h1 class="search__text">Search</h1>
-        <div class="search__container">
-          <form
-            autocomplete="off"
-            @submit.prevent="goSearch"
-            class="search__form"
-          >
-            <div class="search__finder">
-              <div class="search__finder__outer">
-                <div class="search__finder__inner">
-                  <div class="search__finder__icon" ref="icon"></div>
-                  <input
-                    class="search__finder__input"
-                    placeholder="검색어를 입력해주세요."
-                    @focus="addActiveClass"
-                    @blur="removeActiveClass"
-                    type="text"
-                    name="q"
-                  />
-                </div>
-              </div>
+        <h1 class="search__text">Search</h1> -->
+    <div class="search__container">
+      <form autocomplete="off" @submit.prevent="goSearch" class="search__form">
+        <div class="search__finder">
+          <div class="search__finder__outer">
+            <div class="search__finder__inner">
+              <div class="search__finder__icon" ref="icon"></div>
+              <input
+                class="search__finder__input"
+                placeholder="검색어를 입력해주세요."
+                @focus="addActiveClass"
+                @blur="removeActiveClass"
+                type="text"
+                name="q"
+              />
             </div>
-          </form>
+          </div>
         </div>
-      </div>
+      </form>
+      <!-- </div>
+      </div> -->
     </div>
     <!-- 검색한 결과가 v-for로 돌려 보이게 만듦 -->
     <div class="search__result">
