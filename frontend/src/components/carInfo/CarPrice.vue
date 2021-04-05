@@ -124,10 +124,12 @@ export default Vue.extend({
   },
   methods: {
     getDataSet() {
-      this.allOptions.forEach(option => {
-        this.chartLabel.push(option.o_name);
-        this.carPrice.push(option.o_price);
-      });
+      if (!this.chartLabel && !this.carPrice) {
+        this.allOptions.forEach(option => {
+          this.chartLabel.push(option.name);
+          this.carPrice.push(option.price);
+        });
+      }
     }
   }
 });

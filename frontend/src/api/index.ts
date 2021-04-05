@@ -1,4 +1,4 @@
-import { AxiosPromise } from "axios";
+import axios, { AxiosPromise } from "axios";
 import { setInterceptors } from "@/api/instance/intercepter.js";
 
 export interface UserInfo {
@@ -81,21 +81,31 @@ function fetchCars(): AxiosPromise<any[]> {
 
 // model api
 function searchModelImg(imagePic: any): AxiosPromise<any> {
-  return instance.get(`model/search_pic`, {
-    params: {
-      file: imagePic
+  return axios.post(
+    `
+http://j4b101.p.ssafy.io:9000/predict/picture`,
+    imagePic,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data"
+        // "Access-Control-Allow-Origin": "*"
+      }
     }
-  });
+  );
+}
+
+function findModelId(modelName: string): AxiosPromise<any> {
+  return instance.get(`model/search/${modelName}`);
 }
 
 function fetchAllCars(): AxiosPromise<any[]> {
   return instance.get(`model/all_list`);
 }
 
-function fetchAllOptions(modelId: number): AxiosPromise<any[]> {
+function fetchAllOptions(modelDetailId: number): AxiosPromise<any[]> {
   return instance.get(`model/option_list`, {
     params: {
-      md_id: modelId
+      md_id: modelDetailId
     }
   });
 }
@@ -116,39 +126,27 @@ function searchCar(keyWord: string): AxiosPromise<any[]> {
   });
 }
 
-function fetchModel(modelId: number): AxiosPromise<any> {
-  return instance.get(`model/info`, {
-    params: {
-      m_id: modelId
-    }
-  });
+function fetchModel(modelDetailId: number): AxiosPromise<any> {
+  return instance.get(`model/info/${modelDetailId}`);
 }
 
 //가격 비교 api
 function fetchPriceCompare(modelId: number): AxiosPromise<any[]> {
-  return instance.get(`model/similar_price`, {
-    params: { md_id: modelId }
-  });
+  return instance.get(`model/similar_price/${modelId}`);
 }
 
 //사이즈 비교 api
 function fetchSizeCompare(modelId: number): AxiosPromise<any[]> {
-  return instance.get(`model/same_segment`, {
-    params: { md_id: modelId }
-  });
+  return instance.get(`model/same_segment/${modelId}`);
 }
 
 // etc
 function fetchNews(words: string): AxiosPromise<any[]> {
-  return instance.get(`news/${words}`, {
-    params: { m_name: words }
-  });
+  return instance.get(`news/${words}`);
 }
 
 function fetchShops(words: string): AxiosPromise<any[]> {
-  return instance.get(`shop/${words}`, {
-    params: { m_name: words }
-  });
+  return instance.get(`shop/${words}`);
 }
 
 export {
@@ -159,6 +157,7 @@ export {
   addCar,
   deleteCar,
   fetchCars,
+  findModelId,
   fetchAllCars,
   fetchAllOptions,
   fetchLatest,
