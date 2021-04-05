@@ -37,7 +37,7 @@ public class AIController {
             @ApiImplicitParam(name = "file", value = "jpg file", dataType = "file", required = true),
     })
     @PostMapping("/picture")
-    public String predictPicture(@RequestBody MultipartFile file, HttpServletRequest request) {
+    public String predictPicture(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
 
         String pic_path = "test_images/"+file_name+"_"+file.getOriginalFilename();
         File targetFile = new File(pic_path);
@@ -53,7 +53,7 @@ public class AIController {
         file_name++;
 
         String pythonPath = "model_predict.py";
-        String[] command = new String[2];
+        String[] command = new String[3];
         command[0] = "python";
         command[1] = pythonPath;
         command[2] = "--path="+pic_path;
