@@ -1,5 +1,6 @@
 package com.komencar.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,7 +26,17 @@ public class Model {
     @JoinColumn(name = "s_id")
     private Segment segment;
 
-//    @OneToMany(mappedBy = "model")
-//    private List<Model_Detail> modelDetailList = new ArrayList<>();
+    @OneToMany(mappedBy = "model")
+    @JsonManagedReference
+    private List<Model_Detail> modelDetailList = new ArrayList<>();
 
+    public Model(){}
+
+    public Model(long id, String name, String manufacturer, Segment segment, List<Model_Detail> modelDetailList) {
+        this.id = id;
+        this.name = name;
+        this.manufacturer = manufacturer;
+        this.segment = segment;
+        this.modelDetailList = modelDetailList;
+    }
 }
