@@ -32,15 +32,16 @@ public class AIController {
 
     private static long file_name = 1;
 
-    @ApiOperation(value = " Poster 업로드", notes = "vod,vod episode 등록과 같이 파일 등록")
+    @ApiOperation(value = " 차 사진 업로드", notes = "차 사진 업로드")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "posterfile", value = "jpg file", dataType = "file", required = true),
+            @ApiImplicitParam(name = "file", value = "jpg file", dataType = "file", required = true),
     })
     @PostMapping("/picture")
     public String predictPicture(@RequestBody MultipartFile file, HttpServletRequest request) {
 
         String pic_path = "test_images/"+file_name+"_"+file.getOriginalFilename();
         File targetFile = new File(pic_path);
+        System.out.println(pic_path);
         try {
             InputStream fileStream = file.getInputStream();
             FileUtils.copyInputStreamToFile(fileStream, targetFile);
