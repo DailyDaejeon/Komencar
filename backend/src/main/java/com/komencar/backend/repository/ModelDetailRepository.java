@@ -9,5 +9,6 @@ import java.util.List;
 
 @Component
 public interface ModelDetailRepository extends JpaRepository<Model_Detail, Integer> {
+    Model_Detail findModel_DetailByName(String md_name);
     List<Model_Detail> findByModel_id(long m_id);
 }
