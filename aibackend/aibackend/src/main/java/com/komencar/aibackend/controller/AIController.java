@@ -37,7 +37,7 @@ public class AIController {
             @ApiImplicitParam(name = "posterfile", value = "jpg file", dataType = "file", required = true),
     })
     @PostMapping("/picture")
-    public String predictPicture(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+    public String predictPicture(@RequestBody MultipartFile file, HttpServletRequest request) {
 
         String pic_path = "test_images/"+file_name+"_"+file.getOriginalFilename();
         File targetFile = new File(pic_path);
