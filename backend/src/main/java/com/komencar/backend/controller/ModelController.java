@@ -37,7 +37,13 @@ public class ModelController {
     public List<Option> optionListByMd_Id(int md_id){ return optionRepository.findByModelDetail_Id(md_id); }
 
     @GetMapping("/latest_model")
-    public List<Model_Detail> modelDetailListByM_Id(int m_id){ return modelDetailRepository.findByModel_id(m_id); }
+    public Model_Detail modelDetailListByM_Id(int m_id){
+
+        List<Model_Detail> modelDetailList = modelDetailRepository.findByModel_id(m_id);
+        Model_Detail result = modelDetailList.get(modelDetailList.size() - 1);
+
+        return result;
+    }
 
     @GetMapping("/search_list")
     public List<Model> modelListByKeyword(String keyword) {return modelRepository.findByNameLike("%"+keyword+"%");}
