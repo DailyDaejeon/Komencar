@@ -1,12 +1,15 @@
 package com.komencar.backend.controller;
 
+import com.komencar.backend.model.Model;
 import com.komencar.backend.model.Model_Detail;
 import com.komencar.backend.model.Option;
 import com.komencar.backend.repository.ModelDetailRepository;
+import com.komencar.backend.repository.ModelRepository;
 import com.komencar.backend.repository.OptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +23,9 @@ public class ModelController {
     @Autowired
     OptionRepository optionRepository;
 
+    @Autowired
+    ModelRepository modelRepository;
+
 
 
     @GetMapping("/all_list")
@@ -30,24 +36,71 @@ public class ModelController {
     @GetMapping("/option_list")
     public List<Option> optionListByMd_Id(int md_id){ return optionRepository.findByModelDetail_Id(md_id); }
 
+    @GetMapping("/latest_model")
+    public List<Model_Detail> modelDetailListByM_Id(int m_id){ return modelDetailRepository.findByModel_id(m_id); }
+
+    @GetMapping("/search_list")
+    public List<Model> modelListByKeyword(String keyword) {return modelRepository.findByNameLike("%"+keyword+"%");}
+
     @GetMapping("/info/{md_id}")
     public Optional<Model_Detail> getModelDetail(@PathVariable int md_id){
         return modelDetailRepository.findById(md_id);
     }
-    @GetMapping("/similar_price/{md_id}")
-    public List<Model_Detail> findModelDetailByPriceBetween(@PathVariable int md_id){
-        Optional<Model_Detail> m_detail = modelDetailRepository.findById(md_id);
-        int price = m_detail.get().getOptionList().get(0).getPrice();
-        System.out.println(price);
 
-//        return modelDetailRepository.
-        return null;
+    @GetMapping("/similar_price/{md_id}")
+    public List<Model> findModelDetailByPriceBetween(@PathVariable int md_id){
+
+        int price = modelDetailRepository.findById(md_id).get().getOptionList().get(0).getPrice();
+
+        List<Model> tempModelList = modelRepository.findAll();
+        List<Model> resultModelList = new ArrayList<>();
+
+        for(Model model : tempModelList) {
+            List<Model_Detail> tempModelDetailList = model.getModelDetailList();
+            List<Model_Detail> resultModelDetailList = new ArrayList<>();
+
+            Model_Detail resultModelDetail = tempModelDetailList.get(tempModelDetailList.size() - 1);
+
+            List<Option> resultOptionList = new ArrayList<>();
+            resultOptionList.add(resultModelDetail.getOptionList().get(0));
+            resultModelDetail.setOptionList(resultOptionList);
+
+            int currPrice = resultOptionList.get(0).getPrice();
+            if(currPrice < price - 10000000 || currPrice > price + 10000000) continue;
+
+            resultModelDetailList.add(resultModelDetail);
+            Model resultModel = new Model(model.getId(), model.getName(), model.getManufacturer(), model.getSegment(), resultModelDetailList);
+
+            resultModelList.add(resultModel);
+        }
+
+        return resultModelList;
     }
 
     @GetMapping("/same_segment/{md_id}")
-    public List<Model_Detail> findModelDetailBySameSegment(@PathVariable int md_id){
-        return null;
+    public List<Model> findModelDetailBySameSegment(@PathVariable int md_id){
+
+        long s_id =  modelDetailRepository.findById(md_id).get().getModel().getSegment().getId();
+
+        List<Model> tempModelList = modelRepository.findBySegment_Id(s_id);
+        List<Model> resultModelList = new ArrayList<>();
+
+        for(Model model : tempModelList) {
+            List<Model_Detail> tempModelDetailList = model.getModelDetailList();
+            List<Model_Detail> resultModelDetailList = new ArrayList<>();
+
+            Model_Detail resultModelDetail = tempModelDetailList.get(tempModelDetailList.size() - 1);
+
+            List<Option> resultOptionList = new ArrayList<>();
+            resultOptionList.add(resultModelDetail.getOptionList().get(0));
+            resultModelDetail.setOptionList(resultOptionList);
+
+            resultModelDetailList.add(resultModelDetail);
+            Model resultModel = new Model(model.getId(), model.getName(), model.getManufacturer(), model.getSegment(), resultModelDetailList);
+
+            resultModelList.add(resultModel);
+        }
+
+        return resultModelList;
     }
-
-
 }
