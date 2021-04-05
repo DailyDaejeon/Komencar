@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2 class="carSearchDescrip">
+  <div class="carSearch">
+    <h2 class="carSearch__descrip">
       눈 앞의 차를 카메라로 찍어보고, 시세를 확인해보세요.
     </h2>
     <CarImages />

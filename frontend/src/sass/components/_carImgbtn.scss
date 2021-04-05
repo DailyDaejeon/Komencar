@@ -1,5 +1,9 @@
-.carSearchDescrip {
-  margin-top: 5vh;
+.carSearch {
+  position: relative;
+  top:20vh;
+ &__descrip {
+  font-size: 3rem;
+  }
 }
 
 .camera-button-div {
