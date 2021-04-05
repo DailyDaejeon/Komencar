@@ -44,10 +44,13 @@ public class ModelController {
 
         return result;
     }
-
     @GetMapping("/search_list")
     public List<Model> modelListByKeyword(String keyword) {return modelRepository.findByNameLike("%"+keyword+"%");}
 
+    @GetMapping("/search/{md_name}")
+    public Model_Detail getModelDetailByName(@PathVariable String md_name){
+        return modelDetailRepository.findModel_DetailByName(md_name);
+    }
     @GetMapping("/info/{md_id}")
     public Optional<Model_Detail> getModelDetail(@PathVariable int md_id){
         return modelDetailRepository.findById(md_id);
