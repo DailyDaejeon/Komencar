@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div class="center">
-      <a class="pushme"> <span class="inner">출시가</span></a>
-    </div>
-    <!-- <h2>차 예상시세</h2> -->
+    <a class="pushme"> <span class="inner">출시가</span></a>
     <p class="price__typo">
       {{ lowPrice | comma }} ~ {{ highPrice | comma }} 만원
     </p>
