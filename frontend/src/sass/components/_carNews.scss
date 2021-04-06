@@ -11,15 +11,19 @@
     }
 
     &__subtitle {
-        font-size: 1.9rem;
+        font-size: 1.7rem;
         margin: 1rem;
     }
 }
 
 .newsItem {
-    background-color: $color-main-grey-1;
+    // background-color: $color-main-grey-1;
+    background-color: $color-white;
     padding: 1rem;
-    margin: 0.5rem;
+    margin: 0.8rem;
+    // border: 1rem;
+    border-radius: 1rem;
+    // border-color: $color-grey-dark;
 
     &__title {
         font-size: 1.7rem;
