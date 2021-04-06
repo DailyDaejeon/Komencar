@@ -42,8 +42,7 @@ export default Vue.extend({
     handleResize() {
       // this.width = this.$refs.newsItem.clientWidth;
       this.width = document.getElementById('newsItem').clientWidth;
-      console.log("this is width  : ",this.width);
-
+      
       if(this.width < 185){
         this.description = this.news.description.substr(0,30)+"...";
       }

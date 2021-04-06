@@ -3,7 +3,7 @@
     <div class="card__img">
       <img :src="this.goods.image" alt="굿즈이미지" width="150px" />
     </div>
-    <div class="card__title" v-html="goods.title"></div>
+    <div class="card__title" v-html="setGoodsTitle()"></div>
     <div class="card__details">최저 {{ goods.lprice }}원</div>
     <!-- </ul> -->
     <div class="card__buy-button">
@@ -22,6 +22,15 @@ export default Vue.extend({
     goods: {
       type: Object
     }
-  }
+  },
+  methods: {
+    setGoodsTitle(){
+      if(this.goods.title.length > 28) {
+        return this.goods.title.substr(0,27)+"...";
+      }else {
+        return this.goods.title;
+      }
+    } 
+  },
 });
 </script>
