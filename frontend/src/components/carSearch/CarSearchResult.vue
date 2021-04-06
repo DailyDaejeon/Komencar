@@ -17,12 +17,10 @@
       <tr>
         <th>출고가격</th>
         <td>
-          <span
-            >{{ modelInfo.optionList[0].price }} ~
-            {{
-              modelInfo.optionList[modelInfo.optionList.length - 1].price
-            }}</span
-          >
+          <span>
+            {{ lowPrice | comma }} ~
+            {{ highPrice | comma }}(만원)
+          </span>
         </td>
       </tr>
       <tr>
@@ -64,8 +62,19 @@ export default Vue.extend({
   data() {
     return {
       carMF: "", //차 제조사
-      carSale: "" //차 판매국
+      carSale: "", //차 판매국
+      lowPrice: 0,
+      highPrice: 0,
     };
+  },
+  filters: {
+    comma(value) {
+      const num = new Number(value);
+      return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
+    }
+  },
+  created() {
+    this.setPrice();
   },
   methods: {
     getImg(mName) {
@@ -94,6 +103,13 @@ export default Vue.extend({
           "관심 목록에 저장하던 중 오류가 발생했습니다.\n 잠시후 다시 시도해주세요."
         );
       }
+    },
+    setPrice() {
+      const low = this.modelInfo.optionList[0].price;
+      const high = this.modelInfo.optionList[this.modelInfo.optionList.length - 1].price;
+
+      this.lowPrice = low / 10000;
+      this.highPrice = high / 10000;
     }
   }
 });
