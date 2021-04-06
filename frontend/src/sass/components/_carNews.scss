@@ -6,36 +6,45 @@
     &__title {
         color: $color-main-navy;
         font-weight: 700;
-        font-size: 3.2rem;
-        margin: 1rem;
+        font-size: 4rem;
+        margin: 1rem 0rem 1rem 1rem;
+        display: inline-block;
 
         @include mq('small-screen-1') {
-            font-size: 3.2rem;
+            // margin-right: 0rem;
+            font-size: 4rem;
         }
-
+        
         @include mq('small-screen-2') {
-            font-size: 2.7rem;
+            // margin-right: 0rem;
+            // display: inline-block;
+            font-size: 3.5rem;
         }
 
         @include mq('small-screen-3') {
-            font-size: 2.2rem;
+            margin-right: 1rem;
+            display: block;
+            font-size: 2.5rem;
         }
     }
 
     &__subtitle {
-        font-size: 2.8rem;
-        margin: 1.7rem;
+        color: $color-grey-dark;
+        font-size: 2.3rem;
+        margin: 1rem 1rem 1.5rem 1rem;
+        display: inline-block;
 
         @include mq('small-screen-1') {
-            font-size: 2.8rem;
+            font-size: 2.3rem;
         }
-
+        
         @include mq('small-screen-2') {
-            font-size: 2.1rem;
+            font-size: 1.7rem;
         }
 
         @include mq('small-screen-3') {
-            font-size: 1.7rem;
+            display: block;
+            font-size: 1.3rem;
         }
     }
 
@@ -47,41 +56,41 @@
     background-color: $color-white;
     padding: 1rem;
     margin: 0.8rem;
-    border: 0.1rem solid $color-grey-dark;
+    border: 0.1rem solid $color-primary;
     border-radius: 1rem;
-    
+
     &__title {
         font-size: 1.5rem;
         font-weight: 700;
         margin-bottom: 1rem;
-
+        
         @include mq('small-screen-1') {
-            font-size: 2.6rem;
+            font-size: 1.7rem;
         }
-
+        
         @include mq('small-screen-2') {
-            font-size: 1.9rem;
+            font-size: 1.5rem;
         }
 
         @include mq('small-screen-3') {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
     }
 
     &__desc {
         font-size: 1.5rem;
         margin: 1rem 0;
-        
-        @include mq('small-screen-1') {
-            font-size: 2.6rem;
-        }
 
+        @include mq('small-screen-1') {
+            font-size: 1.5rem;
+        }
+        
         @include mq('small-screen-2') {
-            font-size: 1.9rem;
+            font-size: 1.3rem;
         }
 
         @include mq('small-screen-3') {
-            font-size: 1.6rem;
+            font-size: 1.1rem;
         }
     }
 
@@ -92,15 +101,15 @@
         text-decoration: underline;
         
         @include mq('small-screen-1') {
-            font-size: 2.6rem;
+            font-size: 1.5rem;
         }
-
+        
         @include mq('small-screen-2') {
-            font-size: 1.9rem;
+            font-size: 1.3rem;
         }
 
         @include mq('small-screen-3') {
-            font-size: 1.6rem;
+            font-size: 1.1rem;
         }
     }
 }
