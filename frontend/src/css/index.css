@@ -2773,7 +2773,7 @@ main::after {
   .item-box {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    background-color: #F6F3EB;
+    background-color: #ECECEC;
     border-radius: 2rem;
     height: 52vh;
   }
@@ -2932,12 +2932,12 @@ main::after {
 }
 
 .pushme .inner {
-  background: #F6F3EB;
+  background: #ECECEC;
   font-family: "Open Sans", sans-serif;
   color: #002C5E;
   font-size: 2rem;
   display: inline-block;
-  background-color: #F6F3EB;
+  background-color: #ECECEC;
   border-radius: 0.6em;
   border: 0.3em solid #002C5E;
   padding: 1rem;

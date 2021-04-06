@@ -35,7 +35,7 @@ $dark: #000;
 .item-box {
    @include tablet{
      flex-wrap: wrap;
-     background-color: #F6F3EB;
+     background-color:#ECECEC;
      border-radius: 2rem;
      height: 52vh;
    }
@@ -164,7 +164,8 @@ $dark: #000;
 
 // 메인페이지 - 모델비교 
 
-$back: #F6F3EB;
+// $back: #F6F3EB;
+$back:#ECECEC;
 $sans: 'Open Sans', sans-serif;
 
 .pushme{
@@ -176,12 +177,12 @@ $sans: 'Open Sans', sans-serif;
   margin: 1.3rem 0;
   // margin: 1em;
   .inner{
-    background: #F6F3EB;
+    background: $back;
     font-family: "Open Sans", sans-serif;
     color: $color-main-navy;
     font-size: 2rem;
     display: inline-block;
-    background-color: #F6F3EB;
+    background-color: $back;
     border-radius: 0.6em;
     border: 0.3em solid $color-main-navy;
     padding: 1rem;
