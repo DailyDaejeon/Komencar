@@ -13,11 +13,13 @@
       :modelInfo="modelInfo.modelDetailList[0]"
     />
     <!-- 차량 모델비교(가격) -->
-    <h1 id="carCompare">동급모델</h1>
-    <div class="model-title">#가격</div>
+    <div class="center">
+      <a class="pushme"> <span class="inner">모델비교</span></a>
+    </div>
+    <div class="model-title">가격대가 비슷한 모델</div>
     <CarModel :CompareCars="similarPriceCar" />
     <!-- 차량 모델비교(차체크기) -->
-    <div class="model-title">#크기</div>
+    <div class="model-title">차종이 비슷한 모델</div>
     <CarModel :CompareCars="sameSegmentCar" />
     <!-- 차량 뉴스 -->
     <CarNews :newsData="carNews" id="carNewsInfo" :CarModelName="m_name" />
