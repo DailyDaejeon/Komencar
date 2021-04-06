@@ -70,7 +70,10 @@ export default Vue.extend({
             findModelId(res.data).then(res => {
               console.log("제 정보는용", res.data);
               this.$store.commit("MODEL_INFO", res.data);
+              this.$store.commit("MODEL_NAME", res.data.name);
               this.$store.dispatch("FETCH_LATEST", res.data.id);
+              this.$store.dispatch("SIMILAR_PRICE", res.data.id);
+              this.$store.dispatch("SAME_SEGMENT", res.data.id);
 
               this.$router.push({
                 name: "Main",

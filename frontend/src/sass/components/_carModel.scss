@@ -33,7 +33,9 @@ $dark: #000;
 }
 
 .item-box {
-    display: flex;
+   @include tablet{
+     flex-wrap: wrap;
+   }
 }
 
 // each item in gallery

@@ -1,7 +1,7 @@
 <template>
   <div class="item-box">
     <div class="img-wrap">
-      <!-- <img :src="this.compareCar.m_image" alt="" /> -->
+      <img :src="getImg(compareCar.modelDetailList[0].name)" alt="" />
     </div>
     <div class="caption">
       <div class="caption__desc">
@@ -27,8 +27,13 @@ export default Vue.extend({
       type: Object
     }
   },
-  created() {
-    console.log("compareCar : !!", this.compareCar);
+  methods: {
+    getImg(mName) {
+      //내가 찍은 차 이미지 받아오는 메소드
+      let name = mName.split(" ");
+      name = name.join("_");
+      return require(`@/assets/images/cars/${name}.jpg`);
+    }
   }
 });
 </script>
