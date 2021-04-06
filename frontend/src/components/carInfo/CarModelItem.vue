@@ -9,8 +9,10 @@
           {{ compareCar.name }} {{ compareCar.modelDetailList[0].name }}
         </div>
         <div class="caption__desc__detail">
-          가격 : {{ compareCar.modelDetailList[0].optionList[0].price
-          }}<br />연비 :
+          가격 :
+          {{
+            compareCar.modelDetailList[0].optionList[0].price / 10000
+          }}만원<br />연비 :
           {{ compareCar.modelDetailList[0].effciency }}
         </div>
       </div>
