@@ -1,5 +1,5 @@
 <template>
-  <div class="newsItem">
+  <div class="newsItem" ref="newsItem">
     <div class="newsItem__title" v-html="news.title"></div>
     <div class="newsItem__desc" v-html="description"></div> <!-- {{ news.description }} -->
     <a :href="this.news.link" class="newsItem__more">원문보기</a>
@@ -42,21 +42,19 @@ export default Vue.extend({
     //   if(this.description.length >  )
     // }
     handleResize(event) {
-        this.width = window.innerWidth;
-        console.log("this is news : ",this.news);
+        // this.width = window.innerWidth;
+        this.width = this.$refs.newsItem.innerWidth;
+        console.log("this is width : ",this.width);
         if(this.width < 300){
           this.description = this.news.description.substr(0,30)+"...";
-        }
-        else if(this.width > 300 && this.width < 600){
+        } else if(this.width > 300 && this.width < 600){  //모바일 기기
           this.description = this.news.description.substr(0,66)+"...";
-        } //모바일 기기
-        else if(this.width > 600 && this.width < 1080) {
+        } else if(this.width > 600 && this.width < 1080) { //태블릿 기기
           this.title = this.news.title;
           this.description = this.news.description.substr(0,120)+"...";
-        } //태블릿 기기
-        else if(this.width > 1080) {
+        } else if(this.width > 1080) { //웹 화면
           this.description = this.news.description;
-        } //웹 화면
+        }
     }
   }
 });
