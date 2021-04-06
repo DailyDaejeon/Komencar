@@ -33,8 +33,10 @@ public class ModelController {
         return modelDetailRepository.findAll();
     }
 
+
     @GetMapping("/option_list")
     public List<Option> optionListByMd_Id(int md_id){ return optionRepository.findByModelDetail_Id(md_id); }
+
 
     @GetMapping("/latest_model")
     public Model_Detail modelDetailListByM_Id(int m_id){
@@ -44,17 +46,30 @@ public class ModelController {
 
         return result;
     }
+
+
     @GetMapping("/search_list")
     public List<Model> modelListByKeyword(String keyword) {return modelRepository.findByNameLike("%"+keyword+"%");}
 
+
     @GetMapping("/search/{md_name}")
-    public Model_Detail getModelDetailByName(@PathVariable String md_name){
-        return modelDetailRepository.findModel_DetailByName(md_name);
+    public Model getModelDetailByName(@PathVariable String md_name){
+        Model_Detail resultModelDetail =  modelDetailRepository.findModel_DetailByName(md_name);
+        Model resultModel = resultModelDetail.getModel();
+
+        List<Model_Detail> resultModelDetailList = new ArrayList<>();
+        resultModelDetailList.add(resultModelDetail);
+        resultModel.setModelDetailList(resultModelDetailList);
+
+        return resultModel;
     }
+
+
     @GetMapping("/info/{md_id}")
     public Optional<Model_Detail> getModelDetail(@PathVariable int md_id){
         return modelDetailRepository.findById(md_id);
     }
+
 
     @GetMapping("/similar_price/{md_id}")
     public List<Model> findModelDetailByPriceBetween(@PathVariable int md_id){
@@ -85,6 +100,7 @@ public class ModelController {
 
         return resultModelList;
     }
+
 
     @GetMapping("/same_segment/{md_id}")
     public List<Model> findModelDetailBySameSegment(@PathVariable int md_id){
