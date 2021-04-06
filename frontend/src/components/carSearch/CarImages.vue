@@ -72,6 +72,8 @@ export default Vue.extend({
               this.$store.commit("MODEL_INFO", res.data);
               this.$store.commit("MODEL_NAME", res.data.name);
               this.$store.dispatch("FETCH_LATEST", res.data.id);
+              this.$store.dispatch("SIMILAR_PRICE", res.data.id);
+              this.$store.dispatch("SAME_SEGMENT", res.data.id);
 
               this.$router.push({
                 name: "Main",
