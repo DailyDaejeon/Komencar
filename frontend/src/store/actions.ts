@@ -1,12 +1,13 @@
 import { ActionContext } from "vuex";
 import { Mutations, MutationTypes } from "./mutations";
 import { RootState } from "./state";
-import { loginUser } from "@/api/index";
+import { fetchLatest, loginUser } from "@/api/index";
 
 enum ActionTypes {
   // 예시
   // FETCH_NEWS = "FETCH_NEWS"
-  LOGIN = "LOGIN"
+  LOGIN = "LOGIN",
+  FETCH_LATEST = "FETCH_LATEST"
 }
 
 type MyActionContext = {
@@ -29,6 +30,15 @@ const actions = {
       context.commit(MutationTypes.SET_TOKEN, data["auth-token"]);
     } else {
       console.log("LOGIN ERROR");
+    }
+    return data;
+  },
+  async [ActionTypes.FETCH_LATEST](context: MyActionContext, payload?: any) {
+    const { data } = await fetchLatest(payload);
+    if (data) {
+      context.commit(MutationTypes.LATEST_MODEL, data);
+    } else {
+      console.log("LATEST_MODEL ERROR");
     }
     return data;
   }

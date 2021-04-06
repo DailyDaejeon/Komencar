@@ -8,7 +8,9 @@ const state = {
   userInfo:
     sessionStorage.getItem("auth-token") === null
       ? {}
-      : jwtDecode(sessionStorage.getItem("auth-token"))
+      : jwtDecode(sessionStorage.getItem("auth-token")),
+  modelInfo: sessionStorage.getItem("model-info") || null,
+  latestModel: sessionStorage.getItem("latest-model") || null
 };
 
 // node_modules/vuex/types/vue.d.ts 삭제
