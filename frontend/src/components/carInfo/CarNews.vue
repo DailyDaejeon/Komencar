@@ -7,6 +7,9 @@
     <div v-for="(news, index) in newsData" :key="index">
       <CarNewsItem :news="news" />
     </div>
+    <!-- <div class="box__addNewsButton" v-if="isShowButton">
+      <button @click="addNews">더보기</button>
+    </div> -->
   </div>
 </template>
 
@@ -42,8 +45,23 @@ export default Vue.extend({
       //     pubDate: "2021.03.25 08:01" as string
       //   }
       // ]
-      newsList: Array
+      newsList: Array,
+      isShowButton: true,
     };
-  }
+  },
+  methods: {
+    // defaultNews(){
+    //   const list = [];
+    //   console.log("this is news item : ",this.newsData)
+    //   for (let i = 0; i < 2; i++) {
+    //     list.push(this.newsData[i]);
+    //   }
+    //   this.newsList = list;
+    // },
+    // addNews(){
+    //   this.isShowButton = false;
+    //   this.newsList = this.newsData;
+    // }
+  },
 });
 </script>
