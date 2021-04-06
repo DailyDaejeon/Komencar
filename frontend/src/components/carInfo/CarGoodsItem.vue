@@ -7,10 +7,14 @@
     <div class="card__details">최저 {{ goods.lprice }}원</div>
     <!-- </ul> -->
     <div class="card__buy-button">
-      <span class="card__buy-button__text"
-        >최저가 사러가기<span class="card__buy-button__icon"
-          ><i class="fas fa-shopping-cart"></i></span
-      ></span>
+      <a :href="this.goods.link">
+        <span class="card__buy-button__text">
+          최저가 사러가기
+          <span class="card__buy-button__icon">
+            <i class="fas fa-shopping-cart"></i>
+          </span>
+        </span>
+      </a>
     </div>
   </div>
 </template>
