@@ -27,31 +27,23 @@ export default Vue.extend({
   data() {
     return {
       // newsData: [
-        //   {
-          //     title: "현대차 7세대 그랜저, 2022년 대형차급으로 복귀" as string,
+      //   {
+      //     title: "현대차 7세대 그랜저, 2022년 대형차급으로 복귀" as string,
       //     originallink: "https://www.hankyung.com/car/article/2021032596012" as string,
       //     link: "https://www.hankyung.com/car/article/2021032596012" as string,
       //     description: "현대자동차가 그랜저의 지위를 준대형에서 대형 세단으로 격상할 전망이다. 1세대 '각 그랜저' 시절 성공의 상징으로 불렸던 플래그십 세단의 옛명성을 되찾는다는 계획이다." as string,
       //     pubDate: "2021.03.25 08:01" as string
       //   },
       //   {
-        //     title: "현대차 7세대 그랜저, 2022년 대형차급으로 복귀" as string,
+      //     title: "현대차 7세대 그랜저, 2022년 대형차급으로 복귀" as string,
       //     originallink: "https://www.hankyung.com/car/article/2021032596012" as string,
       //     link: "https://www.hankyung.com/car/article/2021032596012" as string,
       //     description: "현대자동차가 그랜저의 지위를 준대형에서 대형 세단으로 격상할 전망이다. 1세대 '각 그랜저' 시절 성공의 상징으로 불렸던 플래그십 세단의 옛명성을 되찾는다는 계획이다." as string,
       //     pubDate: "2021.03.25 08:01" as string
       //   }
       // ]
-      newsList:Array,
+      newsList: Array
     };
-  },
-  created() {
-    this.defaultNews();
-  },
-  methods: {
-    defaultNews(){
-
-    }
-  },
+  }
 });
 </script>
