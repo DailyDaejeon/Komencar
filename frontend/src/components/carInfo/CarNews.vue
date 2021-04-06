@@ -12,7 +12,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { fetchNews } from "@/api/index";
 import CarNewsItem from "@/components/carInfo/CarNewsItem.vue";
 
 export default Vue.extend({
@@ -20,6 +19,9 @@ export default Vue.extend({
   props: {
     newsData: {
       type: Array
+    },
+    CarModelName: {
+      type: String
     }
   },
   data() {
@@ -41,15 +43,6 @@ export default Vue.extend({
       //   }
       // ]
     };
-  },
-  created() {
-    // this.getNews();
-  },
-  methods: {
-    // async getNews() {
-    //   const response = await fetchNews(this.CarModelName);
-    //   this.newsData = response.data;
-    // }
   }
 });
 </script>

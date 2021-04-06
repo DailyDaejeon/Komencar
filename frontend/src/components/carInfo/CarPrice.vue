@@ -1,7 +1,9 @@
 <template>
   <div>
     <h2>차 예상시세</h2>
-    <p class="price__typo">{{ MinCarPrice }} ~ {{ MaxCarPrice }}</p>
+    <p class="price__typo">
+      {{ allOptions[0].price }} ~ {{ allOptions[allOptions.length - 1].price }}
+    </p>
     <div class="chart-container">
       <canvas id="myPriceChart"></canvas>
     </div>

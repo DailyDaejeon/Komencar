@@ -35,8 +35,8 @@ export default Vue.extend({
     if (!ctx) {
       return;
     }
-    console.log("latestModel : ", this.latestModel);
-    console.log("modelInfo : ", this.modelInfo);
+    console.log("여긴차트 latestModel : ", this.latestModel);
+    console.log("여긴 차트 modelInfo : ", this.modelInfo);
     const chart = new this.$_Chart(ctx, {
       type: "radar",
       fill: false,

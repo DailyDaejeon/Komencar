@@ -1,14 +1,17 @@
 <template>
   <div class="item-box">
     <div class="img-wrap">
-      <img :src="this.compareCar.m_image" alt="" />
+      <!-- <img :src="this.compareCar.m_image" alt="" /> -->
     </div>
     <div class="caption">
       <div class="caption__desc">
-        <div class="caption__desc__title">{{ compareCar.m_name }}</div>
+        <div class="caption__desc__title">
+          {{ compareCar.name }} {{ compareCar.modelDetailList[0].name }}
+        </div>
         <div class="caption__desc__detail">
-          가격 : {{ compareCar.m_price }}<br />연비 :
-          {{ compareCar.m_effciency }}
+          가격 : {{ compareCar.modelDetailList[0].optionList[0].price
+          }}<br />연비 :
+          {{ compareCar.modelDetailList[0].effciency }}
         </div>
       </div>
       <a class="caption__desc__button" href="#">See details</a>
