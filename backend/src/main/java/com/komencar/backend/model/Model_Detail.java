@@ -29,6 +29,7 @@ public class Model_Detail {
     @Column(name = "md_max_person")
     private int max_person;
 
+
     @ManyToOne
     @JoinColumn(name = "f_id")
     private Fuel fuel;
