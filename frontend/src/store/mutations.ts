@@ -6,7 +6,8 @@ enum MutationTypes {
   SET_TOKEN = "SET_TOKEN",
   LOGOUT = "LOGOUT",
   MODEL_INFO = "MODEL_INFO",
-  LATEST_MODEL = "LATEST_MODEL"
+  LATEST_MODEL = "LATEST_MODEL",
+  MODEL_NAME = "MODEL_NAME"
 }
 
 const mutations = {
@@ -29,6 +30,10 @@ const mutations = {
   async [MutationTypes.LATEST_MODEL](state: RootState, modelInfo: any) {
     state.latestModel = modelInfo;
     sessionStorage.setItem("latest-model", JSON.stringify(modelInfo));
+  },
+  async [MutationTypes.MODEL_NAME](state: RootState, modelname: string) {
+    state.modelName = modelname;
+    sessionStorage.setItem("model_name", JSON.stringify(modelname));
   }
 };
 
