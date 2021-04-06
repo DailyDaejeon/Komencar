@@ -9,8 +9,9 @@ const state = {
     sessionStorage.getItem("auth-token") === null
       ? {}
       : jwtDecode(sessionStorage.getItem("auth-token")),
-  modelInfo: sessionStorage.getItem("model-info") || null,
-  latestModel: sessionStorage.getItem("latest-model") || null
+  modelInfo: JSON.parse(sessionStorage.getItem("model-info")) || {},
+  latestModel: JSON.parse(sessionStorage.getItem("latest-model")) || {},
+  modelName: JSON.parse(sessionStorage.getItem("model_name")) || ""
 };
 
 // node_modules/vuex/types/vue.d.ts 삭제

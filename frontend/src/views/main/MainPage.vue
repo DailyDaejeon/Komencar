@@ -49,7 +49,9 @@ export default Vue.extend({
   props: {
     modelInfo: {
       type: Object,
-      default: store.state.modelInfo || null
+      default:
+        // JSON.parse(window.sessionStorage.getItem("model-info")) ||
+        store.state.modelInfo || null
     }
   },
   data() {
@@ -57,10 +59,11 @@ export default Vue.extend({
       m_id: Number,
       md_id: Number,
       m_name: String,
-      md_name: String,
+      md_name: this.$store.state.modelName || "",
       allOptions: (this.modelInfo.modelDetailList[0].optionList as any) || null,
-      latestModel:
-        (JSON.parse(this.$store.state.latestModel) as object) || null,
+      // // ||
+      //         JSON.parse(window.sessionStorage.getItem("latest-model"))
+      latestModel: this.$store.state.latestModel || null,
       similarPriceCar: Object,
       sameSegmentCar: Object,
       carNews: Array,

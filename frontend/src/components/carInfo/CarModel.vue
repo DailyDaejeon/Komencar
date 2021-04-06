@@ -18,6 +18,9 @@ export default Vue.extend({
       type: Array
     }
   },
+  mounted() {
+    console.log("CompareCars : ", this.CompareCars);
+  },
   data() {
     return {
       //   CompareCar: [
