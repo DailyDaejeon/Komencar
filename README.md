@@ -88,6 +88,45 @@ gantt
     %%section 기타
 ```
 
+## ERD
+
+![komencar-erd](README.assets/komencar-erd.png)
+
+## 프로젝트 설정
+
+### Frontend
+
+- `settings.json`
+
+```json
+{
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.suggest.insertMode": "replace",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "eslint.validate": ["javascript", "typescript"],
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "~/../css"
+    }
+  ],
+  "liveSassCompile.settings.generateMap": false,
+  "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"]
+}
+```
+
 ## Git Rule
 
 ### branch
@@ -418,44 +457,3 @@ props: {
 ```
 
 코드를 직관적으로 파악할수 있지만 이름이 길고 복잡해 질수 있다.
-
-## ERD
-
-## 프로젝트 설정
-
-### Frontend
-
-- `settings.json`
-
-```json
-{
-  "editor.quickSuggestions": {
-    "strings": true
-  },
-  "editor.suggest.insertMode": "replace",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.alwaysShowStatus": true,
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ],
-  "eslint.validate": ["javascript", "typescript"],
-  "liveSassCompile.settings.formats": [
-    {
-      "format": "expanded",
-      "extensionName": ".css",
-      "savePath": "~/../css"
-    }
-  ],
-  "liveSassCompile.settings.generateMap": false,
-  "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
-  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"]
-}
-```
-
-## ERD
-
-![komencar-erd](README.assets/komencar-erd.png)
