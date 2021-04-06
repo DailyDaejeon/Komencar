@@ -1,3 +1,7 @@
+.chart {
+    margin-bottom: 5rem;
+}
+
 .chart-container {
   position: relative;
   margin: auto;
@@ -10,6 +14,6 @@
   }
   @include mq('small-screen-3') {
       width: 100%;
-      height: 60vh
+      height: 40vh
   }
 }

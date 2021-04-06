@@ -6,7 +6,7 @@
       :modelInfo="modelInfo.modelDetailList[0]"
     />
     <!-- 차량 시세 차트 -->
-    <CarPrice :allOptions="allOptions" :mdName="md_name" />
+    <CarPrice :allOptions="allOptions" :mdName="md_name" class="chart"/>
     <!-- 차량 비교 차트 -->
     <CarCompare
       :latestModel="latestModel"
