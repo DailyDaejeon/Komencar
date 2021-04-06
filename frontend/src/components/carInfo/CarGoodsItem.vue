@@ -3,7 +3,7 @@
     <div class="card__img">
       <img :src="this.goods.image" alt="굿즈이미지" width="150px" />
     </div>
-    <div class="card__title">{{ goods.title }}</div>
+    <div class="card__title" v-html="goods.title"></div>
     <div class="card__details">최저 {{ goods.lprice }}원</div>
     <!-- </ul> -->
     <div class="card__buy-button">
