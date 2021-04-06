@@ -32,16 +32,18 @@
             '<span class="search__result__typo-blue"> {{ keyword }}</span
             >'에 대한 검사 결과가
             <span class="search__result__typo-blue"
-              >'전체'에서 {{ searchResult.length }}건</span
+              >'전체'에서 {{ searchItemCnts }}건</span
             >이 검색되었습니다.</strong
           ></span
         >
-        <ul>
-          <li v-for="(search, index) in searchResult" :key="index">
-            {{ search }}
-          </li>
+        <div v-for="(model, mindex) in searchResult" :key="mindex">
+          {{ model.name }}
+          <div v-for="(search, index) in model.modelDetailList" :key="index">
+            <img :src="getImg(search.name)" alt="" />
+            {{ search.name }}
+          </div>
           <hr />
-        </ul>
+        </div>
       </template>
       <template v-else>
         <span class="search__result__typo"
@@ -73,7 +75,23 @@ export default Vue.extend({
       }
     };
   },
+  computed: {
+    searchItemCnts() {
+      let length = 0;
+      for (let i = 0; i < this.searchResult.length; i++) {
+        length += this.searchResult[i].modelDetailList.length;
+      }
+      return length;
+    }
+  },
   methods: {
+    getImg(mName) {
+      //내가 찍은 차 이미지 받아오는 메소드
+      let name = mName.split(" ");
+      name = name.join("_");
+      console.log(name, "이미지");
+      return require(`@/assets/images/cars/${name}.jpg`);
+    },
     goSearch() {
       const input = document.querySelector(
         ".search__finder__input"
