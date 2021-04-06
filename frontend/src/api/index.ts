@@ -82,8 +82,7 @@ function fetchCars(): AxiosPromise<any[]> {
 // model api
 function searchModelImg(imagePic: any): AxiosPromise<any> {
   return axios.post(
-    `
-http://j4b101.p.ssafy.io:9000/predict/picture`,
+    `https://j4b101.p.ssafy.io/predict/picture`,
     imagePic,
     {
       headers: {

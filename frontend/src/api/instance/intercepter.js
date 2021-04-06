@@ -3,7 +3,7 @@ import store from "@/store/index";
 
 export function setInterceptors() {
   const instance = axios.create({
-    baseURL: "http://j4b101.p.ssafy.io:8081/"
+    baseURL: "https://j4b101.p.ssafy.io/api/"
     // CORS 방지코드
     // headers: {
     //   // Authorization: store.state.token
