@@ -36,11 +36,31 @@
             >이 검색되었습니다.</strong
           ></span
         >
-        <div v-for="(model, mindex) in searchResult" :key="mindex">
-          {{ model.name }}
+        <div
+          v-for="(model, mindex) in searchResult"
+          :key="mindex"
+          class="search__result__div"
+        >
+          <h2 class="search__result__model">{{ model.name }}</h2>
           <div v-for="(search, index) in model.modelDetailList" :key="index">
-            <img :src="getImg(search.name)" alt="" />
-            {{ search.name }}
+            <img
+              :src="getImg(search.name)"
+              alt=""
+              class="search__result__model__img"
+            />
+            <span>{{ search.name }}</span>
+            <p>
+              가격 :
+              {{ search.optionList[0].price / 10000 }}만원~
+              {{
+                search.optionList[search.optionList.length - 1].price / 10000
+              }}만원
+            </p>
+            <p v-if="search.effciency">연비 : {{ search.effciency }}</p>
+            <p>
+              엔진 : {{ search.fuel.name }}
+              <span v-if="search.exhaust"> {{ search.exhaust }}cc</span>
+            </p>
           </div>
           <hr />
         </div>
@@ -66,12 +86,14 @@ export default Vue.extend({
   data() {
     return {
       keyword: {
-        type: String,
-        default: ""
+        type: String
       },
       searchResult: {
-        type: Array,
-        default: []
+        type: Array
+      },
+      isValid: {
+        type: Boolean,
+        default: false
       }
     };
   },
@@ -92,7 +114,7 @@ export default Vue.extend({
       console.log(name, "이미지");
       return require(`@/assets/images/cars/${name}.jpg`);
     },
-    goSearch() {
+    async goSearch() {
       const input = document.querySelector(
         ".search__finder__input"
       ) as HTMLInputElement;
@@ -104,9 +126,10 @@ export default Vue.extend({
       input.disabled = true;
       this.keyword = input.value;
       console.log("KEYWORD : ", this.keyword);
-      searchCar(this.keyword).then(res => {
+      await searchCar(this.keyword).then(res => {
         console.log(res);
         this.searchResult = res.data;
+        this.isValid = true;
         finder.classList.remove("processing");
         input.disabled = false;
         if (input.value.length > 0) {
