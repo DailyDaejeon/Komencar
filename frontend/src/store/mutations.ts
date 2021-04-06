@@ -4,7 +4,9 @@ import { logoutUser } from "@/api/index";
 
 enum MutationTypes {
   SET_TOKEN = "SET_TOKEN",
-  LOGOUT = "LOGOUT"
+  LOGOUT = "LOGOUT",
+  MODEL_INFO = "MODEL_INFO",
+  LATEST_MODEL = "LATEST_MODEL"
 }
 
 const mutations = {
@@ -19,6 +21,14 @@ const mutations = {
     state.token = "";
     state.isLogin = false;
     sessionStorage.clear();
+  },
+  async [MutationTypes.MODEL_INFO](state: RootState, modelInfo: any) {
+    state.modelInfo = modelInfo;
+    sessionStorage.setItem("model-info", JSON.stringify(modelInfo));
+  },
+  async [MutationTypes.LATEST_MODEL](state: RootState, modelInfo: any) {
+    state.latestModel = modelInfo;
+    sessionStorage.setItem("latest-model", JSON.stringify(modelInfo));
   }
 };
 

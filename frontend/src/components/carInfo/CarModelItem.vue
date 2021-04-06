@@ -26,6 +26,9 @@ export default Vue.extend({
     compareCar: {
       type: Object
     }
+  },
+  created() {
+    console.log("compareCar : !!", this.compareCar);
   }
 });
 </script>

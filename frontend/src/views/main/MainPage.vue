@@ -8,10 +8,10 @@
     <!-- 차량 시세 차트 -->
     <CarPrice :allOptions="allOptions" :mdName="md_name" />
     <!-- 차량 비교 차트 -->
-    <!-- <CarCompare
+    <CarCompare
       :latestModel="latestModel"
       :modelInfo="modelInfo.modelDetailList[0]"
-    /> -->
+    />
     <!-- 차량 모델비교(가격) -->
     <h1 id="carCompare">동급모델</h1>
     <div class="model-title">#가격</div>
@@ -33,7 +33,8 @@ import CarNews from "@/components/carInfo/CarNews.vue";
 import CarGoods from "@/components/carInfo/CarGoods.vue";
 import CarPrice from "@/components/carInfo/CarPrice.vue";
 import CarModel from "@/components/carInfo/CarModel.vue";
-// import CarCompare from "@/components/carInfo/CarCompare.vue";
+import store from "@/store/index";
+import CarCompare from "@/components/carInfo/CarCompare.vue";
 import {
   // fetchModel,
   fetchAllOptions,
@@ -47,7 +48,8 @@ import {
 export default Vue.extend({
   props: {
     modelInfo: {
-      type: Object
+      type: Object,
+      default: store.state.modelInfo || null
     }
   },
   data() {
@@ -56,8 +58,9 @@ export default Vue.extend({
       md_id: Number,
       m_name: String,
       md_name: String,
-      allOptions: Array,
-      latestModel: Object,
+      allOptions: (this.modelInfo.modelDetailList[0].optionList as any) || null,
+      latestModel:
+        (JSON.parse(this.$store.state.latestModel) as object) || null,
       similarPriceCar: Object,
       sameSegmentCar: Object,
       carNews: Array,
@@ -69,8 +72,8 @@ export default Vue.extend({
     CarNews,
     CarGoods,
     CarPrice,
-    CarModel
-    // CarCompare
+    CarModel,
+    CarCompare
   },
   created() {
     this.getModelInfo();
@@ -79,13 +82,13 @@ export default Vue.extend({
   methods: {
     getModelInfo() {
       // const { data } = await fetchModel(this.m_id);
-      // this.modelInfo = data;
       console.log("this.modelInfo : ", this.modelInfo);
       this.m_id = this.modelInfo.id;
       this.md_id = this.modelInfo.modelDetailList[0].id;
       this.m_name = this.modelInfo.name;
       this.md_name = this.modelInfo.modelDetailList[0].name;
       this.allOptions = this.modelInfo.modelDetailList[0].optionList;
+      console.log(this.m_id, this.md_id);
       // this.getLatestModel();
       this.getSimilarPriceModel();
       this.getSameSegmentModel();
@@ -93,31 +96,33 @@ export default Vue.extend({
       this.getCarGoods();
     },
     async getCarAllOptions() {
-      const { data } = await fetchAllOptions(this.md_id);
+      const { data } = await fetchAllOptions(
+        this.modelInfo.modelDetailList[0].id
+      );
       this.allOptions = data;
     },
     async getLatestModel() {
-      const { data } = await fetchLatest(this.m_id);
+      const { data } = await fetchLatest(this.modelInfo.id);
       this.latestModel = data;
       console.log("latestModel : ", this.latestModel);
     },
     async getSimilarPriceModel() {
-      const { data } = await fetchPriceCompare(this.m_id);
+      const { data } = await fetchPriceCompare(this.modelInfo.id);
       this.similarPriceCar = data;
       console.log("similarPriceCar : ", this.similarPriceCar);
     },
     async getSameSegmentModel() {
-      const { data } = await fetchSizeCompare(this.m_id);
+      const { data } = await fetchSizeCompare(this.modelInfo.id);
       this.sameSegmentCar = data;
       console.log("sameSegmentCar : ", this.sameSegmentCar);
     },
     async getCarNews() {
-      const { data } = await fetchNews(this.m_name);
+      const { data } = await fetchNews(this.modelInfo.name);
       this.carNews = data;
       console.log("carNews : ", this.carNews);
     },
     async getCarGoods() {
-      const { data } = await fetchShops(this.m_name);
+      const { data } = await fetchShops(this.modelInfo.name);
       this.carGoods = data;
       console.log("carGoods : ", this.carGoods);
     }

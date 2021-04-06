@@ -69,6 +69,9 @@ export default Vue.extend({
             console.log("너는 무슨 자동차니 ? ", res.data);
             findModelId(res.data).then(res => {
               console.log("제 정보는용", res.data);
+              this.$store.commit("MODEL_INFO", res.data);
+              this.$store.dispatch("FETCH_LATEST", res.data.id);
+
               this.$router.push({
                 name: "Main",
                 params: { modelInfo: res.data }
