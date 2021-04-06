@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h2>차 예상시세</h2>
+    <div class="center">
+      <a class="pushme"> <span class="inner">출시가</span></a>
+    </div>
+    <!-- <h2>차 예상시세</h2> -->
     <p class="price__typo">
       {{ allOptions[0].price }} ~ {{ allOptions[allOptions.length - 1].price }}
     </p>
