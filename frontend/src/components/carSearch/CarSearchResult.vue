@@ -72,9 +72,7 @@ export default Vue.extend({
       //내가 찍은 차 이미지 받아오는 메소드
       let name = mName.split(" ");
       name = name.join("_");
-      console.log(name);
-      this.myCarImg = require(`@/assets/images/cars/${name}.jpg`);
-      return this.myCarImg;
+      return require(`@/assets/images/cars/${name}.jpg`);
     },
     addToMyCar() {
       //내 계정 정보에 등록 여부를 보내주는 api 필요 => post...?

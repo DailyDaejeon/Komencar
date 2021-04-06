@@ -15,10 +15,10 @@
     <!-- 차량 모델비교(가격) -->
     <h1 id="carCompare">동급모델</h1>
     <div class="model-title">#가격</div>
-    <CarModel :CompareCar="similarPriceCar" />
+    <CarModel :CompareCars="similarPriceCar" />
     <!-- 차량 모델비교(차체크기) -->
     <div class="model-title">#크기</div>
-    <CarModel :CompareCar="sameSegmentCar" />
+    <CarModel :CompareCars="sameSegmentCar" />
     <!-- 차량 뉴스 -->
     <CarNews :newsData="carNews" id="carNewsInfo" :CarModelName="m_name" />
     <!-- 차량 굿즈 -->
@@ -61,11 +61,9 @@ export default Vue.extend({
       m_name: String,
       md_name: this.$store.state.modelName || "",
       allOptions: (this.modelInfo.modelDetailList[0].optionList as any) || null,
-      // // ||
-      //         JSON.parse(window.sessionStorage.getItem("latest-model"))
       latestModel: this.$store.state.latestModel || null,
-      similarPriceCar: Object,
-      sameSegmentCar: Object,
+      similarPriceCar: this.$store.state.similarModel || {},
+      sameSegmentCar: this.$store.state.sameSegment || {},
       carNews: Array,
       carGoods: Array
     };

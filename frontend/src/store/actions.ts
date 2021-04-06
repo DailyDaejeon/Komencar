@@ -1,13 +1,20 @@
 import { ActionContext } from "vuex";
 import { Mutations, MutationTypes } from "./mutations";
 import { RootState } from "./state";
-import { fetchLatest, loginUser } from "@/api/index";
+import {
+  fetchLatest,
+  loginUser,
+  fetchPriceCompare,
+  fetchSizeCompare
+} from "@/api/index";
 
 enum ActionTypes {
   // 예시
   // FETCH_NEWS = "FETCH_NEWS"
   LOGIN = "LOGIN",
-  FETCH_LATEST = "FETCH_LATEST"
+  FETCH_LATEST = "FETCH_LATEST",
+  SIMILAR_PRICE = "SIMILAR_PRICE",
+  SAME_SEGMENT = "SAME_SEGMENT"
 }
 
 type MyActionContext = {
@@ -39,6 +46,24 @@ const actions = {
       context.commit(MutationTypes.LATEST_MODEL, data);
     } else {
       console.log("LATEST_MODEL ERROR");
+    }
+    return data;
+  },
+  async [ActionTypes.SIMILAR_PRICE](context: MyActionContext, payload?: any) {
+    const { data } = await fetchPriceCompare(payload);
+    if (data) {
+      context.commit(MutationTypes.SIMILAR_MODEL, data);
+    } else {
+      console.log("SIMILAR_MODEL ERROR");
+    }
+    return data;
+  },
+  async [ActionTypes.SAME_SEGMENT](context: MyActionContext, payload?: any) {
+    const { data } = await fetchSizeCompare(payload);
+    if (data) {
+      context.commit(MutationTypes.SAME_SEGMENT_MODEL, data);
+    } else {
+      console.log("SAME_SEGMENT_MODEL ERROR");
     }
     return data;
   }
