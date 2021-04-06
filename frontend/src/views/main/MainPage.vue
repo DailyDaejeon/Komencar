@@ -22,7 +22,7 @@
     <div class="model-title">차종이 비슷한 모델</div>
     <CarModel :CompareCars="sameSegmentCar" />
     <!-- 차량 뉴스 -->
-    <CarNews :newsData="carNews" id="carNewsInfo" :CarModelName="m_name" />
+    <CarNews id="carNewsInfo" :defaultNewsData="carDefaultNews" :addNewsData="carAddNews" :CarModelName="m_name" /> <!-- :newsData="carNews"  -->
     <!-- 차량 굿즈 -->
     <CarGoods id="carGoodsInfo" :goodsData="carGoods" :CarModelName="m_name" />
   </div>
@@ -66,7 +66,9 @@ export default Vue.extend({
       latestModel: this.$store.state.latestModel || null,
       similarPriceCar: this.$store.state.similarModel || {},
       sameSegmentCar: this.$store.state.sameSegment || {},
-      carNews: Array,
+      // carNews: Array,
+      carDefaultNews: Array,
+      carAddNews: Array,
       carGoods: Array
     };
   },
@@ -121,8 +123,19 @@ export default Vue.extend({
     },
     async getCarNews() {
       const { data } = await fetchNews(this.modelInfo.name);
-      this.carNews = data;
-      console.log("carNews : ", this.carNews);
+      const dList = [];
+      const aList = [];
+      for (let i = 0; i < data.length; i++) {
+        if(i<2) {
+          dList.push(data[i]);
+        }else {
+          aList.push(data[i]);
+        }
+      }
+      // this.carNews = data;
+      // console.log("carNews : ", this.carNews);
+      this.carDefaultNews = dList;
+      this.carAddNews = aList;
     },
     async getCarGoods() {
       const { data } = await fetchShops(this.modelInfo.name);
