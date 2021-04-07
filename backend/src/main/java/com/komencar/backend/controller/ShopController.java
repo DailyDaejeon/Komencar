@@ -25,7 +25,7 @@ public class ShopController {
         String clientSecret = "n8SuPodTFM";//애플리케이션 클라이언트 시크릿값";
         ArrayList<Shop> shop = new ArrayList<>();
         try {
-            String text = URLEncoder.encode(m_name + "굿즈", "UTF-8"); //검색어";
+            String text = URLEncoder.encode("현대 "+m_name + " 굿즈", "UTF-8"); //검색어";
             String apiURL = "https://openapi.naver.com/v1/search/shop.json?query=" + text + "&display=10&start=1&sort=date"; // 뉴스의 json 결과
 
             URL url = new URL(apiURL);
