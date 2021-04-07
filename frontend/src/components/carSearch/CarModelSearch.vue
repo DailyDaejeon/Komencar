@@ -67,11 +67,11 @@
                       | comma
                   }}만원 
                 </p>
-                <p class="search__result__model__detail"> | </p>
+                <p class="search__result__model__detail divLine"> | </p>
                 <p class="search__result__model__detail" v-if="search.effciency">
                   연비 : {{ search.effciency }} km/ℓ
                 </p>
-                <p class="search__result__model__detail" v-if="search.effciency"> | </p>
+                <p class="search__result__model__detail divLine" v-if="search.effciency"> | </p>
                 <p class="search__result__model__detail">
                   엔진 : {{ search.fuel.name }}
                   <span v-if="search.exhaust"> {{ search.exhaust }}cc</span>
