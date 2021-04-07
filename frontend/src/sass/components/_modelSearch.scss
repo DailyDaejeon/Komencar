@@ -249,15 +249,16 @@
         display: inline-block;
 
         @include mq('small-screen-1') {
-          width: 30vh;
+          width: 23vh;
         }
         
         @include mq('small-screen-2') {
-          width: 20vh;
+          width: 25vh;
         }
   
         @include mq('small-screen-3') {
-          width: 50vh;
+          width: 40vh;
+          margin: auto;
           display: block;
         }
       }
@@ -273,12 +274,18 @@
         }
         
         @include mq('small-screen-2') {
-          bottom: 4vh;
+          bottom: 8vh;
         }
   
         @include mq('small-screen-3') {
           bottom: 3vh;
           margin: 0;
+        }
+ 
+        & .divLine {
+          @include mq('small-screen-2') {
+            display: none;
+          }
         }
       }
 
@@ -312,9 +319,10 @@
         }
         
         @include mq('small-screen-2') {
-          margin: 1.4vw 0.4vw 0 0;
+          margin: 0.4vw 0.4vw 0 0;
           font-size: 1.4vw;
           font-weight: 600;
+          display: block;
         }
   
         @include mq('small-screen-3') {
@@ -393,7 +401,7 @@
         }
   
         @include mq('small-screen-3') {
-          width: 38rem;
+          width: 79vw;
           margin: auto;
           text-align: center;
         }
