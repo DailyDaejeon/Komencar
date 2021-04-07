@@ -3024,7 +3024,13 @@ main::after {
   padding-left: 2rem;
 }
 
-@media (max-width: 40rem) {
+.item-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 700px) {
   .item-box {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -3055,7 +3061,7 @@ main::after {
       flex-wrap: wrap;
 }
 
-@media (max-width: 40rem) {
+@media screen and (max-width: 700px) {
   .gallery .item {
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -3138,9 +3144,11 @@ main::after {
   position: relative;
   color: #b1b6c6;
   display: inline-block;
+  margin-top: 3rem;
+  width: 100%;
 }
 
-@media (max-width: 40rem) {
+@media screen and (max-width: 700px) {
   .gallery .item .caption {
     padding-top: 1rem;
   }
@@ -3157,7 +3165,7 @@ main::after {
 
 .gallery .item .caption .caption__desc__title {
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 1rem;
   color: #002C5E;
 }
@@ -3165,6 +3173,8 @@ main::after {
 .gallery .item .caption .caption__desc__detail {
   font-size: 2rem;
   margin-bottom: 2.5rem;
+  color: #474747;
+  font-weight: 700;
 }
 
 .gallery .item .caption .caption__desc__button {
@@ -3176,6 +3186,7 @@ main::after {
   color: #002C5E;
   border: 1px solid #002C5E;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .pushme {
@@ -3222,6 +3233,179 @@ main::after {
   color: #002C5E;
   font-family: "Open Sans", sans-serif;
   margin-top: 1.5rem;
+}
+
+.mid {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: -1.5rem;
+}
+
+.mid__text {
+  margin: 3rem 0 1rem 0;
+  font-size: 1.8rem;
+}
+
+.mid__text__icon {
+  margin-left: 0.5rem;
+}
+
+/* Switch starts here */
+.rocker {
+  display: inline-block;
+  position: relative;
+  /*
+  SIZE OF SWITCH
+  ==============
+  All sizes are in em - therefore
+  changing the font-size here
+  will change the size of the switch.
+  See .rocker-small below as example.
+  */
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #888;
+  width: 7em;
+  height: 4em;
+  overflow: hidden;
+  border-bottom: 0.5em solid #eee;
+}
+
+.rocker-small {
+  font-size: 0.75em;
+  /* Sizes the switch */
+  margin: 1em;
+}
+
+.rocker::before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #999;
+  border: 0.5em solid #eee;
+  border-bottom: 0;
+}
+
+.rocker input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-left,
+.switch-right {
+  cursor: pointer;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 2.5em;
+  width: 3em;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.switch-left {
+  height: 2.4em;
+  width: 2.75em;
+  left: 0.85em;
+  bottom: 0.4em;
+  background-color: #ddd;
+  -webkit-transform: rotate(15deg) skewX(15deg);
+          transform: rotate(15deg) skewX(15deg);
+}
+
+.switch-right {
+  right: 0.5em;
+  bottom: 0;
+  background-color: #bd5757;
+  color: #fff;
+}
+
+.switch-left::before,
+.switch-right::before {
+  content: "";
+  position: absolute;
+  width: 0.4em;
+  height: 2.45em;
+  bottom: -0.45em;
+  background-color: #ccc;
+  -webkit-transform: skewY(-65deg);
+          transform: skewY(-65deg);
+}
+
+.switch-left::before {
+  left: -0.4em;
+}
+
+.switch-right::before {
+  right: -0.375em;
+  background-color: transparent;
+  -webkit-transform: skewY(65deg);
+          transform: skewY(65deg);
+}
+
+input:checked + .switch-left {
+  background-color: #0084d0;
+  color: #fff;
+  bottom: 0px;
+  left: 0.5em;
+  height: 2.5em;
+  width: 3em;
+  -webkit-transform: rotate(0deg) skewX(0deg);
+          transform: rotate(0deg) skewX(0deg);
+}
+
+input:checked + .switch-left::before {
+  background-color: transparent;
+  width: 3.0833em;
+}
+
+input:checked + .switch-left + .switch-right {
+  background-color: #ddd;
+  color: #888;
+  bottom: 0.4em;
+  right: 0.8em;
+  height: 2.4em;
+  width: 2.75em;
+  -webkit-transform: rotate(-15deg) skewX(-15deg);
+          transform: rotate(-15deg) skewX(-15deg);
+}
+
+input:checked + .switch-left + .switch-right::before {
+  background-color: #ccc;
+}
+
+/* Keyboard Users */
+input:focus + .switch-left {
+  color: #333;
+}
+
+input:checked:focus + .switch-left {
+  color: #fff;
+}
+
+input:focus + .switch-left + .switch-right {
+  color: #fff;
+}
+
+input:checked:focus + .switch-left + .switch-right {
+  color: #333;
 }
 
 .spinner__container {
