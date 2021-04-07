@@ -75,41 +75,81 @@
     padding: 8px;
     box-shadow: 9px 9px 16px rgba(189, 189, 189, 0.6),
       -9px -9px 16px rgba(255, 255, 255, 0.5);
+    
     &__outer {
-    display: flex;
-    width: 100%;
-    padding: 1.5rem 2rem;
-    border-radius: 10px;
-    box-shadow: inset 10px 10px 15px -10px #c3c3c3,
-      inset -10px -10px 15px -10px #ffffff;
+      display: flex;
+      width: 100%;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      box-shadow: inset 10px 10px 15px -10px #c3c3c3,
+        inset -10px -10px 15px -10px #ffffff;
+
+      @include mq('small-screen-1') {
+        padding: 1.5rem 2rem;
+      }
+      
+      @include mq('small-screen-2') {
+        padding: 1.5rem 2rem;
+      }
+
+      @include mq('small-screen-3') {
+        padding: 1rem 2rem;
+      }
     }
+
     &__inner {
       display: flex;
       align-items: center;
       position: relative;
       flex: 1;
     }
+
     &__form {
       flex: 1;
       height: calc(100% + 3rem);
     }
+
     &__input {
       width:100%;
       height: calc(100% + 3rem);
       border: none;
       background-color: transparent;
       outline: none;
-      font-size: 1.5rem;
+      font-size: 2.3rem;
       letter-spacing: 0.75px;
+      
+      @include mq('small-screen-2') {
+        font-size: 1.9rem;
+      }
+
+      @include mq('small-screen-3') {
+        font-size: 1.5rem;
+      }
     }
+
     &__icon {
       width: 40px;
       height: 40px;
-      margin-right: 1rem;
+      margin-right: 2rem;
       transition: all 0.2s;
       box-shadow: inset 0 0 0 20px #292929;
       border-radius: 50%;
       position: relative;
+
+      // @include mq('small-screen-1') {
+      //   width: 40px;
+      //   height: 40px;
+      // }
+      
+      // @include mq('small-screen-2') {
+      //   width: 40px;
+      //   height: 40px;
+      // }
+
+      @include mq('small-screen-3') {
+        width: 30px;
+        height: 30px;
+      }
 
       &:after,
       &:before {
@@ -135,6 +175,25 @@
         @at-root .active & {
           border-width: 10px;
           background-color: #f6f5f0;
+
+          @include mq('small-screen-3') {
+            border-width: 5px;
+          }
+        }
+
+        // @include mq('small-screen-1') {
+        //   width: 40px;
+        //   height: 40px;
+        // }
+        
+        // @include mq('small-screen-2') {
+        //   width: 40px;
+        //   height: 40px;
+        // }
+  
+        @include mq('small-screen-3') {
+          width: 10px;
+          height: 10px;
         }
       }
 
@@ -152,6 +211,15 @@
           background-color: #292929;
           width: 6px;
           transform: rotateZ(45deg) translate(-50%, 25px);
+
+          @include mq('small-screen-3') {
+            transform: rotateZ(45deg) translate(-50%, 17px)
+          }
+        }
+
+        @include mq('small-screen-3') {
+          top: 49%;
+          left: 13px;
         }
       }
 
@@ -163,6 +231,10 @@
 
       @at-root .active & {
         transform: translateY(-5px);
+
+        @include mq('small-screen-3') {
+          transform: translateY(-1px);
+        }
       }
     }
   }
@@ -299,7 +371,7 @@
         }
         
         @include mq('small-screen-2') {
-          font-size: 3vw;
+          font-size: 2vw;
         }
   
         @include mq('small-screen-3') {
