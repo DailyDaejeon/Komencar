@@ -25,7 +25,7 @@
       </div> -->
     </div>
     <!-- 검색한 결과가 v-for로 돌려 보이게 만듦 -->
-    <div class="search__result">
+    <div class="search__result" v-if="isGetKeyword">
       <template v-if="searchResult[0]">
         <span class="search__result__typo"
           ><strong>
@@ -94,7 +94,8 @@ export default Vue.extend({
       isValid: {
         type: Boolean,
         default: false
-      }
+      },
+      isGetKeyword: false
     };
   },
   computed: {
@@ -135,6 +136,7 @@ export default Vue.extend({
         if (input.value.length > 0) {
           finder.classList.add("active");
         }
+        this.isGetKeyword = true;
       });
     },
     addActiveClass() {
