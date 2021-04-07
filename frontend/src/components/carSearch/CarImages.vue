@@ -22,7 +22,7 @@
         />
       </div>
     </div>
-    <img v-if="imageUrl" :src="imageUrl" width="100%" alt="이미지" />
+    <!-- <img v-if="imageUrl" :src="imageUrl" width="100%" alt="이미지" /> -->
   </div>
 </template>
 
@@ -96,8 +96,9 @@ export default Vue.extend({
                   icon: "warning",
                   timer: 1300,
                   showConfirmButton: false
+                }).then(() => {
+                  window.location.reload();
                 });
-                window.location.reload();
               });
           })
           .catch(() => {
@@ -110,8 +111,9 @@ export default Vue.extend({
               icon: "warning",
               timer: 1300,
               showConfirmButton: false
+            }).then(() => {
+              window.location.reload();
             });
-            window.location.reload();
           });
       }
     },
