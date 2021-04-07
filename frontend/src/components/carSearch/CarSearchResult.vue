@@ -17,10 +17,7 @@
       <tr>
         <th>출고가격</th>
         <td>
-          <span>
-            {{ lowPrice | comma }} ~
-            {{ highPrice | comma }}(만원)
-          </span>
+          <span> {{ lowPrice | comma }} ~ {{ highPrice | comma }}(만원) </span>
         </td>
       </tr>
       <tr>
@@ -64,13 +61,13 @@ export default Vue.extend({
       carMF: "", //차 제조사
       carSale: "", //차 판매국
       lowPrice: 0,
-      highPrice: 0,
+      highPrice: 0
     };
   },
   filters: {
     comma(value) {
       const num = new Number(value);
-      return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
+      return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,");
     }
   },
   created() {
@@ -106,7 +103,9 @@ export default Vue.extend({
     },
     setPrice() {
       const low = this.modelInfo.optionList[0].price;
-      const high = this.modelInfo.optionList[this.modelInfo.optionList.length - 1].price;
+      const high = this.modelInfo.optionList[
+        this.modelInfo.optionList.length - 1
+      ].price;
 
       this.lowPrice = low / 10000;
       this.highPrice = high / 10000;
