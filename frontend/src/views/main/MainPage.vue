@@ -50,6 +50,7 @@ import {
   fetchNews,
   fetchShops
 } from "@/api/index";
+import bus from "@/utils/bus";
 
 export default Vue.extend({
   props: {
@@ -93,19 +94,10 @@ export default Vue.extend({
     this.getModelInfo();
     // this.getCarAllOptions();
   },
-  watch: {
-    $route(to, from) {
-      console.log("이건?", to, from);
-      console.log(this.reload, this.$route.params.reload, "?????");
-      if (to.path != from.path) {
-        window.location.reload();
-        window.scrollTo(0, 0);
-      }
-    }
-  },
   methods: {
     goReload() {
       if (this.$route.params.reload) {
+        bus.$emit("on:progress");
         window.location.reload();
         window.scrollTo(0, 0);
       }
@@ -166,6 +158,7 @@ export default Vue.extend({
       const { data } = await fetchShops(this.modelInfo.name);
       this.carGoods = data;
       console.log("carGoods : ", this.carGoods);
+      bus.$emit("off:progress");
     }
   }
 });

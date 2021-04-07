@@ -94,6 +94,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { findModelId, searchCar } from "@/api/index";
+import bus from "@/utils/bus";
 
 export default Vue.extend({
   data() {
@@ -128,6 +129,7 @@ export default Vue.extend({
   },
   methods: {
     goDetail(mName) {
+      bus.$emit("on:progress");
       findModelId(mName)
         .then(res => {
           console.log("제 정보는용", res.data);
@@ -138,6 +140,7 @@ export default Vue.extend({
           this.$store.dispatch("SAME_SEGMENT", res.data.id);
         })
         .then(() => {
+          bus.$emit("on:progress");
           this.$router.push({
             name: "Main",
             params: {
@@ -154,6 +157,7 @@ export default Vue.extend({
       return require(`@/assets/images/cars/${name}.jpg`);
     },
     async goSearch() {
+      bus.$emit("on:progress");
       const input = document.querySelector(
         ".search__finder__input"
       ) as HTMLInputElement;
@@ -175,6 +179,7 @@ export default Vue.extend({
           finder.classList.add("active");
         }
         this.isGetKeyword = true;
+        bus.$emit("off:progress");
       });
     },
     addActiveClass() {

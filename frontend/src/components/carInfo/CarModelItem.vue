@@ -28,6 +28,7 @@
 
 <script lang="ts">
 import { findModelId } from "@/api";
+import bus from "@/utils/bus";
 import Vue from "vue";
 export default Vue.extend({
   props: {
@@ -43,6 +44,7 @@ export default Vue.extend({
       return require(`@/assets/images/cars/${name}.jpg`);
     },
     goDetail(mName) {
+      bus.$emit("on:progress");
       findModelId(mName)
         .then(res => {
           console.log("제 정보는용", res.data);

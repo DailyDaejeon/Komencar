@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <spinner :loading="loading"></spinner>
     <Nav v-if="isShow" />
     <h1 v-if="isShow" class="LOGO" @click="goImgSearch">KOMENCAR</h1>
     <!-- <div class="Logo__sign">
@@ -16,13 +17,16 @@
 <script lang="ts">
 import Vue from "vue";
 import Nav from "@/components/common/Nav.vue";
+import Spinner from "@/components/common/Spinner.vue";
+import bus from "@/utils/bus";
 
 export default Vue.extend({
-  components: { Nav },
+  components: { Nav, Spinner },
   name: "App",
   data() {
     return {
-      isShow: true as boolean
+      isShow: true as boolean,
+      loading: false
     };
   },
   watch: {
@@ -37,7 +41,17 @@ export default Vue.extend({
   methods: {
     goImgSearch() {
       this.$router.push({ name: "CarSearch" });
+    },
+    onProgress() {
+      this.loading = true;
+    },
+    offProgress() {
+      this.loading = false;
     }
+  },
+  async created() {
+    bus.$on("on:progress", this.onProgress);
+    bus.$on("off:progress", this.offProgress);
   }
 });
 </script>
