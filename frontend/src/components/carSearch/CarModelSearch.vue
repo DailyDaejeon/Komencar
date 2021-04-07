@@ -41,26 +41,27 @@
           :key="mindex"
           class="search__result__div"
         >
-          <h2 class="search__result__model">{{ model.name }}</h2>
-          <div v-for="(search, index) in model.modelDetailList" :key="index">
+          <!-- <h2 class="search__result__model">{{ model.name }}</h2> -->
+          <div v-for="(search, index) in model.modelDetailList" :key="index" class="search__result__div__item">
             <img
               :src="getImg(search.name)"
               alt=""
               class="search__result__model__img"
             />
-            <span>{{ search.name }}</span>
-            <p>
-              가격 :
-              {{ search.optionList[0].price / 10000 }}만원~
-              {{
-                search.optionList[search.optionList.length - 1].price / 10000
-              }}만원
-            </p>
-            <p v-if="search.effciency">연비 : {{ search.effciency }}</p>
-            <p>
-              엔진 : {{ search.fuel.name }}
-              <span v-if="search.exhaust"> {{ search.exhaust }}cc</span>
-            </p>
+            <div>
+              <p class="search__result__model__title">모델 : {{ search.name }}</span>
+              <p class="search__result__model__detail">
+                가격 :
+                {{ (search.optionList[0].price / 10000) | comma }}만원~
+                {{
+                  (search.optionList[search.optionList.length - 1].price / 10000) | comma
+                }}만원
+              </p>
+              <p class="search__result__model__detail" v-if="search.effciency">연비 : {{ search.effciency }}</p>
+              <p class="search__result__model__detail">엔진 : {{ search.fuel.name }}
+                <span v-if="search.exhaust"> {{ search.exhaust }}cc</span>
+              </p>
+            </div>
           </div>
           <hr />
         </div>
@@ -97,6 +98,12 @@ export default Vue.extend({
       },
       isGetKeyword: false
     };
+  },
+  filters: {
+    comma(value) {
+      const num = new Number(value);
+      return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
+    }
   },
   computed: {
     searchItemCnts() {
