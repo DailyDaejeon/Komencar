@@ -42,23 +42,35 @@
           class="search__result__div"
         >
           <!-- <h2 class="search__result__model">{{ model.name }}</h2> -->
-          <div v-for="(search, index) in model.modelDetailList" :key="index" class="search__result__div__item">
+          <div
+            v-for="(search, index) in model.modelDetailList"
+            :key="index"
+            class="search__result__div__item"
+          >
             <img
               :src="getImg(search.name)"
               alt=""
               class="search__result__model__img"
+              @click="goDetail(search.name)"
             />
             <div>
-              <p class="search__result__model__title">모델 : {{ search.name }}</span>
+              <p class="search__result__model__title">
+                모델 : {{ search.name }}
+              </p>
               <p class="search__result__model__detail">
                 가격 :
                 {{ (search.optionList[0].price / 10000) | comma }}만원~
                 {{
-                  (search.optionList[search.optionList.length - 1].price / 10000) | comma
+                  (search.optionList[search.optionList.length - 1].price /
+                    10000)
+                    | comma
                 }}만원
               </p>
-              <p class="search__result__model__detail" v-if="search.effciency">연비 : {{ search.effciency }}</p>
-              <p class="search__result__model__detail">엔진 : {{ search.fuel.name }}
+              <p class="search__result__model__detail" v-if="search.effciency">
+                연비 : {{ search.effciency }}
+              </p>
+              <p class="search__result__model__detail">
+                엔진 : {{ search.fuel.name }}
                 <span v-if="search.exhaust"> {{ search.exhaust }}cc</span>
               </p>
             </div>
@@ -81,7 +93,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { searchCar } from "@/api/index";
+import { findModelId, searchCar } from "@/api/index";
 
 export default Vue.extend({
   data() {
@@ -102,7 +114,7 @@ export default Vue.extend({
   filters: {
     comma(value) {
       const num = new Number(value);
-      return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
+      return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,");
     }
   },
   computed: {
@@ -115,6 +127,25 @@ export default Vue.extend({
     }
   },
   methods: {
+    goDetail(mName) {
+      findModelId(mName)
+        .then(res => {
+          console.log("제 정보는용", res.data);
+          this.$store.commit("MODEL_INFO", res.data);
+          this.$store.commit("MODEL_NAME", res.data.name);
+          this.$store.dispatch("FETCH_LATEST", res.data.id);
+          this.$store.dispatch("SIMILAR_PRICE", res.data.id);
+          this.$store.dispatch("SAME_SEGMENT", res.data.id);
+        })
+        .then(() => {
+          this.$router.push({
+            name: "Main",
+            params: {
+              reload: true
+            }
+          });
+        });
+    },
     getImg(mName) {
       //내가 찍은 차 이미지 받아오는 메소드
       let name = mName.split(" ");

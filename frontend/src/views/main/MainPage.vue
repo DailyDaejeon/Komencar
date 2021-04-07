@@ -6,7 +6,7 @@
       :modelInfo="modelInfo.modelDetailList[0]"
     />
     <!-- 차량 시세 차트 -->
-    <CarPrice :allOptions="allOptions" :mdName="md_name" class="chart"/>
+    <CarPrice :allOptions="allOptions" :mdName="md_name" class="chart" />
     <!-- 차량 비교 차트 -->
     <CarCompare
       :latestModel="latestModel"
@@ -20,7 +20,13 @@
     <div class="model-title">#차종이 비슷한 모델</div>
     <CarModel :CompareCars="sameSegmentCar" />
     <!-- 차량 뉴스 -->
-    <CarNews id="carNewsInfo" :defaultNewsData="carDefaultNews" :addNewsData="carAddNews" :CarModelName="m_name" /> <!-- :newsData="carNews"  -->
+    <CarNews
+      id="carNewsInfo"
+      :defaultNewsData="carDefaultNews"
+      :addNewsData="carAddNews"
+      :CarModelName="m_name"
+    />
+    <!-- :newsData="carNews"  -->
     <!-- 차량 굿즈 -->
     <CarGoods id="carGoodsInfo" :goodsData="carGoods" :CarModelName="m_name" />
   </div>
@@ -52,6 +58,10 @@ export default Vue.extend({
       default:
         // JSON.parse(window.sessionStorage.getItem("model-info")) ||
         store.state.modelInfo || null
+    },
+    reload: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -79,10 +89,27 @@ export default Vue.extend({
     CarCompare
   },
   created() {
+    this.goReload();
     this.getModelInfo();
     // this.getCarAllOptions();
   },
+  watch: {
+    $route(to, from) {
+      console.log("이건?", to, from);
+      console.log(this.reload, this.$route.params.reload, "?????");
+      if (to.path != from.path) {
+        window.location.reload();
+        window.scrollTo(0, 0);
+      }
+    }
+  },
   methods: {
+    goReload() {
+      if (this.$route.params.reload) {
+        window.location.reload();
+        window.scrollTo(0, 0);
+      }
+    },
     getModelInfo() {
       // const { data } = await fetchModel(this.m_id);
       console.log("this.modelInfo : ", this.modelInfo);
@@ -124,9 +151,9 @@ export default Vue.extend({
       const dList = [];
       const aList = [];
       for (let i = 0; i < data.length; i++) {
-        if(i<2) {
+        if (i < 2) {
           dList.push(data[i]);
-        }else {
+        } else {
           aList.push(data[i]);
         }
       }
