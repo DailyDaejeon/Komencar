@@ -18,7 +18,7 @@
               </div>
               <div class="arrow_box">
                 <div class="arrow_box_left">
-                  이거 얼마야?<img
+                  이거 얼마예요?<img
                     src="../../assets/images/thinking.png"
                     alt=""
                     class="arrow_box__icon"
