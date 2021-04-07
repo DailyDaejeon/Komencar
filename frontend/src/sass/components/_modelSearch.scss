@@ -245,7 +245,7 @@
       padding-top: 2rem;
 
       &__img {
-        width: 40vh;
+        width: 17vw;
         display: inline-block;
 
         @include mq('small-screen-1') {
@@ -266,7 +266,7 @@
       &__item {
         display: inline-block;
         position: relative;
-        bottom: 8rem;
+        bottom: 5vw;
         margin: 0 0 0 3.5rem;
 
         @include mq('small-screen-1') {
@@ -368,6 +368,7 @@
           background: none;
           font-size: 2.4rem;
           color: $color-white;
+          cursor: pointer;
 
           @include mq('small-screen-1') {
             font-size: 2rem;
