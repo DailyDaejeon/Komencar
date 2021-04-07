@@ -16,12 +16,18 @@
           {{ compareCar.modelDetailList[0].effciency }}
         </div>
       </div>
-      <a class="caption__desc__button" href="#">See details</a>
+      <div
+        class="caption__desc__button"
+        @click="goDetail(compareCar.modelDetailList[0].name)"
+      >
+        See details
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import { findModelId } from "@/api";
 import Vue from "vue";
 export default Vue.extend({
   props: {
@@ -35,6 +41,21 @@ export default Vue.extend({
       let name = mName.split(" ");
       name = name.join("_");
       return require(`@/assets/images/cars/${name}.jpg`);
+    },
+    goDetail(mName) {
+      findModelId(mName)
+        .then(res => {
+          console.log("제 정보는용", res.data);
+          this.$store.commit("MODEL_INFO", res.data);
+          this.$store.commit("MODEL_NAME", res.data.name);
+          this.$store.dispatch("FETCH_LATEST", res.data.id);
+          this.$store.dispatch("SIMILAR_PRICE", res.data.id);
+          this.$store.dispatch("SAME_SEGMENT", res.data.id);
+        })
+        .then(() => {
+          window.location.reload();
+          window.scrollTo(0, 0);
+        });
     }
   }
 });
