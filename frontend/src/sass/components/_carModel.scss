@@ -38,8 +38,8 @@ $dark: #000;
    @include mq('small-screen-3'){
      flex-wrap: wrap;
      background-color:#ECECEC;
+      background-color: #F5F5F5;
      border-radius: 2rem;
-     height: 52vh;
    }
 }
 
@@ -131,6 +131,7 @@ $dark: #000;
   // add some spacing at given breakpoint
   @include mq('small-screen-3'){
     padding-top:1rem;
+    margin-top: 0;
   }
   
   .caption__desc {
@@ -213,7 +214,11 @@ $sans: 'Open Sans', sans-serif;
   font-weight: 700;
   color: $color-main-navy;
   font-family: "Open Sans", sans-serif;
-  margin-top: 1.5rem
+  margin-top: 1.5rem;
+
+  @include mq('small-screen-3') {
+    font-size: 2rem;
+  }
 }
 
 // // SEE DETAIL 버튼 보러가기
@@ -223,13 +228,16 @@ $sans: 'Open Sans', sans-serif;
   align-items: center;
   justify-content: center;
   margin-top: -1.5rem;
+  
   &__text {
     margin: 3rem 0 1rem 0;
     font-size: 1.8rem;
-
-
     &__icon {
       margin-left: 0.5rem;
+    }
+
+    @include mq('small-screen-3') {
+      display: none;
     }
   }
 }

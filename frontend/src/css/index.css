@@ -3039,8 +3039,8 @@ main::after {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     background-color: #ECECEC;
+    background-color: #F5F5F5;
     border-radius: 2rem;
-    height: 52vh;
   }
 }
 
@@ -3155,6 +3155,7 @@ main::after {
 @media screen and (max-width: 700px) {
   .gallery .item .caption {
     padding-top: 1rem;
+    margin-top: 0;
   }
 }
 
@@ -3239,6 +3240,12 @@ main::after {
   margin-top: 1.5rem;
 }
 
+@media screen and (max-width: 700px) {
+  .model-title {
+    font-size: 2rem;
+  }
+}
+
 .mid {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -3256,6 +3263,12 @@ main::after {
 
 .mid__text__icon {
   margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 700px) {
+  .mid__text {
+    display: none;
+  }
 }
 
 /* Switch starts here */
