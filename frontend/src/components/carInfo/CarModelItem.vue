@@ -16,11 +16,22 @@
           {{ compareCar.modelDetailList[0].effciency }}
         </div>
       </div>
-      <div
-        class="caption__desc__button"
-        @click="goDetail(compareCar.modelDetailList[0].name)"
-      >
-        See details
+
+      <div class="mid">
+        <div class="mid__text">
+          자세한 정보가 궁금하다면 버튼을 클릭해주세요<span
+            class="mid__text__icon"
+            ><i class="fas fa-long-arrow-alt-down"></i
+          ></span>
+        </div>
+        <label class="rocker">
+          <input
+            type="checkbox"
+            @click="goDetail(compareCar.modelDetailList[0].name)"
+          />
+          <span class="switch-left">ON</span>
+          <span class="switch-right">Off</span>
+        </label>
       </div>
     </div>
   </div>
@@ -44,21 +55,26 @@ export default Vue.extend({
       return require(`@/assets/images/cars/${name}.jpg`);
     },
     goDetail(mName) {
-      bus.$emit("on:progress");
-      findModelId(mName)
-        .then(res => {
-          console.log("제 정보는용", res.data);
-          this.$store.commit("MODEL_INFO", res.data);
-          this.$store.commit("MODEL_NAME", res.data.name);
-          this.$store.dispatch("FETCH_LATEST", res.data.id);
-          this.$store.dispatch("SIMILAR_PRICE", res.data.id);
-          this.$store.dispatch("SAME_SEGMENT", res.data.id);
-        })
-        .then(() => {
-          window.location.reload();
-          window.scrollTo(0, 0);
-        });
+      setTimeout(() => {
+        bus.$emit("on:progress");
+        findModelId(mName)
+          .then(res => {
+            console.log("제 정보는용", res.data);
+            this.$store.commit("MODEL_INFO", res.data);
+            this.$store.commit("MODEL_NAME", res.data.name);
+            this.$store.dispatch("FETCH_LATEST", res.data.id);
+            this.$store.dispatch("SIMILAR_PRICE", res.data.id);
+            this.$store.dispatch("SAME_SEGMENT", res.data.id);
+          })
+          .then(() => {
+            window.location.reload();
+            window.scrollTo(0, 0);
+          });
+      }, 500);
     }
+    // gotoDetail() {
+    //   this.$router.push({ name: "Home" });
+    // }
   }
 });
 </script>
