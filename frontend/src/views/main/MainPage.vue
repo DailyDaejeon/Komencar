@@ -6,21 +6,21 @@
       :modelInfo="modelInfo.modelDetailList[0]"
     />
     <!-- 차량 시세 차트 -->
-    <CarPrice :allOptions="allOptions" :mdName="md_name" />
+    <CarPrice :allOptions="allOptions" :mdName="md_name" class="chart"/>
     <!-- 차량 비교 차트 -->
     <CarCompare
       :latestModel="latestModel"
       :modelInfo="modelInfo.modelDetailList[0]"
     />
     <!-- 차량 모델비교(가격) -->
-    <h1 id="carCompare">동급모델</h1>
-    <div class="model-title">#가격</div>
+    <a class="pushme"> <span class="inner">모델비교</span></a>
+    <div class="model-title">#가격대가 비슷한 모델</div>
     <CarModel :CompareCars="similarPriceCar" />
     <!-- 차량 모델비교(차체크기) -->
-    <div class="model-title">#크기</div>
+    <div class="model-title">#차종이 비슷한 모델</div>
     <CarModel :CompareCars="sameSegmentCar" />
     <!-- 차량 뉴스 -->
-    <CarNews :newsData="carNews" id="carNewsInfo" :CarModelName="m_name" />
+    <CarNews id="carNewsInfo" :defaultNewsData="carDefaultNews" :addNewsData="carAddNews" :CarModelName="m_name" /> <!-- :newsData="carNews"  -->
     <!-- 차량 굿즈 -->
     <CarGoods id="carGoodsInfo" :goodsData="carGoods" :CarModelName="m_name" />
   </div>
@@ -64,7 +64,9 @@ export default Vue.extend({
       latestModel: this.$store.state.latestModel || null,
       similarPriceCar: this.$store.state.similarModel || {},
       sameSegmentCar: this.$store.state.sameSegment || {},
-      carNews: Array,
+      // carNews: Array,
+      carDefaultNews: Array,
+      carAddNews: Array,
       carGoods: Array
     };
   },
@@ -119,8 +121,19 @@ export default Vue.extend({
     },
     async getCarNews() {
       const { data } = await fetchNews(this.modelInfo.name);
-      this.carNews = data;
-      console.log("carNews : ", this.carNews);
+      const dList = [];
+      const aList = [];
+      for (let i = 0; i < data.length; i++) {
+        if(i<2) {
+          dList.push(data[i]);
+        }else {
+          aList.push(data[i]);
+        }
+      }
+      // this.carNews = data;
+      // console.log("carNews : ", this.carNews);
+      this.carDefaultNews = dList;
+      this.carAddNews = aList;
     },
     async getCarGoods() {
       const { data } = await fetchShops(this.modelInfo.name);

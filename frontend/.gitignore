@@ -4,6 +4,7 @@ node_modules
 
 # css 파일
 *.css
+.map
 
 # local env files
 .env.local

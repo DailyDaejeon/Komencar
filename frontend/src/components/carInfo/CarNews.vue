@@ -4,8 +4,16 @@
     <div class="box__subtitle">
       {{ CarModelName }}의 최신 정보를 확인해보세요
     </div>
-    <div v-for="(news, index) in newsData" :key="index">
+    <div v-for="(news, index) in defaultNewsData" :key="index">
       <CarNewsItem :news="news" />
+    </div>
+    <div class="box__addButtonBox" @click="addNews" v-if="isShowButton">
+      <div class="box__addButton">더보기</div>
+    </div>
+    <div v-if="!isShowButton">
+      <div v-for="(news, index) in addNewsData" :key="index">
+        <CarNewsItem :news="news" />
+      </div>
     </div>
   </div>
 </template>
@@ -17,7 +25,13 @@ import CarNewsItem from "@/components/carInfo/CarNewsItem.vue";
 export default Vue.extend({
   components: { CarNewsItem },
   props: {
-    newsData: {
+    // newsData: {
+    //   type: Array
+    // },
+    defaultNewsData: {
+      type: Array
+    },
+    addNewsData: {
       type: Array
     },
     CarModelName: {
@@ -42,8 +56,22 @@ export default Vue.extend({
       //     pubDate: "2021.03.25 08:01" as string
       //   }
       // ]
-      newsList: Array
+      newsList: Array,
+      isShowButton: true,
     };
-  }
+  },
+  methods: {
+    // defaultNews(){
+    //   const list = [];
+    //   for (let i = 0; i < 2; i++) {
+    //     list.push(this.newsData[i]);
+    //   }
+    //   console.log("this is news list : ", list)
+    //   this.newsList = list;
+    // },
+    addNews(){
+      this.isShowButton = false;
+    }
+  },
 });
 </script>

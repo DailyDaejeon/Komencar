@@ -33,7 +33,12 @@ $dark: #000;
 }
 
 .item-box {
-    display: flex;
+   @include tablet{
+     flex-wrap: wrap;
+     background-color:#ECECEC;
+     border-radius: 2rem;
+     height: 52vh;
+   }
 }
 
 // each item in gallery
@@ -102,15 +107,10 @@ $dark: #000;
     height:auto;
     padding:1.5rem;
     border-radius:50%;
-    background-color:lighten($color-navy-dark, 90%);
-    background-image:radial-gradient(lighten($color-navy-dark, 90%), lighten($dark, 80%) 80%);
+    background-color:$color-main-navy;
     background-size:120% 120%;
     background-position:0 0;
     background-repeat:no-repeat;
-    box-shadow:
-      inset 2px 2px 5px lighten($color-navy-dark, 70%),
-      2px 2px 15px lighten($color-navy-dark, 90%),
-      inset 15px 15px 50px rgba($color-navy-dark, 0.1);
   }
 }
 
@@ -140,6 +140,7 @@ $dark: #000;
         font-size: 3rem;
         font-weight: 700;
         margin-bottom: 1rem;
+        color: $color-main-navy;
     }
 
     &__detail {
@@ -158,4 +159,50 @@ $dark: #000;
         letter-spacing:1px;
     }
   }
+}
+
+
+// 메인페이지 - 모델비교 
+
+// $back: #F6F3EB;
+$back:#ECECEC;
+$sans: 'Open Sans', sans-serif;
+
+.pushme{
+  // position: relative;
+  font-weight: 700;
+  background-color: $color-main-navy;
+  border-radius: 1.3rem;
+  display: inline-block;
+  margin: 1.3rem 0;
+  // margin: 1em;
+  .inner{
+    background: $back;
+    font-family: "Open Sans", sans-serif;
+    color: $color-main-navy;
+    font-size: 2rem;
+    display: inline-block;
+    background-color: $back;
+    border-radius: 0.6em;
+    border: 0.3em solid $color-main-navy;
+    padding: 1rem;
+    cursor: pointer;
+    transform: translate3d(0.5em, -0.5em, 0);
+    transition: transform 240ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-delay: 220ms;
+  }
+  &:active, &.click{
+    .inner{
+      transform: translate3d(0, 0, 0);
+      transition: transform 120ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    }
+  }  
+}
+
+.model-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $color-main-navy;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 1.5rem
 }

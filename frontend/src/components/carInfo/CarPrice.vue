@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2>차 예상시세</h2>
+    <a class="pushme"> <span class="inner">출시가</span></a>
     <p class="price__typo">
-      {{ allOptions[0].price }} ~ {{ allOptions[allOptions.length - 1].price }}
+      {{ lowPrice | comma }} ~ {{ highPrice | comma }} 만원
     </p>
     <div class="chart-container">
       <canvas id="myPriceChart"></canvas>
@@ -27,11 +27,20 @@ export default Vue.extend({
     return {
       chartLabel: ["Premium", "Premium Choice", "Exclusive", "Calligraphy"],
       modelName: "the new grandeur",
-      carPrice: [33550000, 34300000, 37500000, 41850000]
+      carPrice: [33550000, 34300000, 37500000, 41850000],
+      lowPrice: 0,
+      highPrice: 0,
     };
+  },
+  filters: {
+    comma(value) {
+      const num = new Number(value);
+      return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
+    }
   },
   created() {
     this.getDataSet();
+    this.setPrice();
   },
   mounted() {
     const canvasElement = document.getElementById(
@@ -60,7 +69,6 @@ export default Vue.extend({
           }
         ]
       },
-
       options: {
         tooltips: {
           mode: "index",
@@ -132,6 +140,13 @@ export default Vue.extend({
           this.carPrice.push(option.price);
         });
       }
+    },
+    setPrice() {
+      const low = this.allOptions[0].price;
+      const high = this.allOptions[this.allOptions.length - 1].price;
+
+      this.lowPrice = low / 10000;
+      this.highPrice = high / 10000;
     }
   }
 });

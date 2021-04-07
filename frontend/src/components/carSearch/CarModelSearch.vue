@@ -25,23 +25,45 @@
       </div> -->
     </div>
     <!-- 검색한 결과가 v-for로 돌려 보이게 만듦 -->
-    <div class="search__result">
+    <div class="search__result" v-if="isGetKeyword">
       <template v-if="searchResult[0]">
         <span class="search__result__typo"
           ><strong>
             '<span class="search__result__typo-blue"> {{ keyword }}</span
             >'에 대한 검사 결과가
             <span class="search__result__typo-blue"
-              >'전체'에서 {{ searchResult.length }}건</span
+              >'전체'에서 {{ searchItemCnts }}건</span
             >이 검색되었습니다.</strong
           ></span
         >
-        <ul>
-          <li v-for="(search, index) in searchResult" :key="index">
-            {{ search }}
-          </li>
+        <div
+          v-for="(model, mindex) in searchResult"
+          :key="mindex"
+          class="search__result__div"
+        >
+          <h2 class="search__result__model">{{ model.name }}</h2>
+          <div v-for="(search, index) in model.modelDetailList" :key="index">
+            <img
+              :src="getImg(search.name)"
+              alt=""
+              class="search__result__model__img"
+            />
+            <span>{{ search.name }}</span>
+            <p>
+              가격 :
+              {{ search.optionList[0].price / 10000 }}만원~
+              {{
+                search.optionList[search.optionList.length - 1].price / 10000
+              }}만원
+            </p>
+            <p v-if="search.effciency">연비 : {{ search.effciency }}</p>
+            <p>
+              엔진 : {{ search.fuel.name }}
+              <span v-if="search.exhaust"> {{ search.exhaust }}cc</span>
+            </p>
+          </div>
           <hr />
-        </ul>
+        </div>
       </template>
       <template v-else>
         <span class="search__result__typo"
@@ -64,17 +86,36 @@ export default Vue.extend({
   data() {
     return {
       keyword: {
-        type: String,
-        default: ""
+        type: String
       },
       searchResult: {
-        type: Array,
-        default: []
-      }
+        type: Array
+      },
+      isValid: {
+        type: Boolean,
+        default: false
+      },
+      isGetKeyword: false
     };
   },
+  computed: {
+    searchItemCnts() {
+      let length = 0;
+      for (let i = 0; i < this.searchResult.length; i++) {
+        length += this.searchResult[i].modelDetailList.length;
+      }
+      return length;
+    }
+  },
   methods: {
-    goSearch() {
+    getImg(mName) {
+      //내가 찍은 차 이미지 받아오는 메소드
+      let name = mName.split(" ");
+      name = name.join("_");
+      console.log(name, "이미지");
+      return require(`@/assets/images/cars/${name}.jpg`);
+    },
+    async goSearch() {
       const input = document.querySelector(
         ".search__finder__input"
       ) as HTMLInputElement;
@@ -86,14 +127,16 @@ export default Vue.extend({
       input.disabled = true;
       this.keyword = input.value;
       console.log("KEYWORD : ", this.keyword);
-      searchCar(this.keyword).then(res => {
+      await searchCar(this.keyword).then(res => {
         console.log(res);
         this.searchResult = res.data;
+        this.isValid = true;
         finder.classList.remove("processing");
         input.disabled = false;
         if (input.value.length > 0) {
           finder.classList.add("active");
         }
+        this.isGetKeyword = true;
       });
     },
     addActiveClass() {

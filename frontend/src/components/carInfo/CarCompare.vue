@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>최신 모델과 비교</h2>
+    <a class="pushme"> <span class="inner">최신 모델과 비교</span></a>
     <div class="chart-container">
       <canvas id="myCompareChart"></canvas>
     </div>

@@ -3,14 +3,18 @@
     <div class="card__img">
       <img :src="this.goods.image" alt="굿즈이미지" width="150px" />
     </div>
-    <div class="card__title">{{ goods.title }}</div>
-    <div class="card__details">최저 {{ goods.lprice }}원</div>
+    <div class="card__title" v-html="setGoodsTitle()"></div>
+    <div class="card__details">최저 {{ goods.lprice | comma }}원</div>
     <!-- </ul> -->
     <div class="card__buy-button">
-      <span class="card__buy-button__text"
-        >최저가 사러가기<span class="card__buy-button__icon"
-          ><i class="fas fa-shopping-cart"></i></span
-      ></span>
+      <a :href="this.goods.link">
+        <span class="card__buy-button__text">
+          최저가 사러가기
+          <span class="card__buy-button__icon">
+            <i class="fas fa-shopping-cart"></i>
+          </span>
+        </span>
+      </a>
     </div>
   </div>
 </template>
@@ -22,6 +26,21 @@ export default Vue.extend({
     goods: {
       type: Object
     }
-  }
+  },
+  filters: {
+    comma(value) {
+      const num = new Number(value);
+      return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
+    }
+  },
+  methods: {
+    setGoodsTitle(){
+      if(this.goods.title.length > 28) {
+        return this.goods.title.substr(0,27)+"...";
+      }else {
+        return this.goods.title;
+      }
+    } 
+  },
 });
 </script>

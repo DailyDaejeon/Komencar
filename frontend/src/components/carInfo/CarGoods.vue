@@ -4,7 +4,7 @@
     <div class="box__subtitle">
       {{ CarModelName }} 에 어울리는 굿즈를 쇼핑해보세요
     </div>
-    <div v-for="(goods, index) in goodsData" :key="index">
+    <div v-for="(goods, index) in goodsData" :key="index" class="box__goodsBox">
       <CarGoodsItem :goods="goods" />
     </div>
   </div>
