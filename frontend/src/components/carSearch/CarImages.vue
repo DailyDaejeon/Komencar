@@ -44,7 +44,8 @@ export default Vue.extend({
       modelDetailId: Number,
       modelName: String,
       modelDetailName: String,
-      imagefile: null
+      imagefile: null,
+      endLoading: false
     };
   },
   methods: {
@@ -61,27 +62,44 @@ export default Vue.extend({
     },
     sendImages() {
       if (this.imagefile) {
-        // this.$refs.zzUpload.progressClickEvent();
+        this.$refs.zzUpload.progressClickEvent();
         const imagePic = new FormData();
         imagePic.append("file", this.imagefile, String(".jpg"));
         searchModelImg(imagePic)
           .then(res => {
             console.log("너는 무슨 자동차니 ? ", res.data);
-            findModelId(res.data).then(res => {
-              console.log("제 정보는용", res.data);
-              this.$store.commit("MODEL_INFO", res.data);
-              this.$store.commit("MODEL_NAME", res.data.name);
-              this.$store.dispatch("FETCH_LATEST", res.data.id);
-              this.$store.dispatch("SIMILAR_PRICE", res.data.id);
-              this.$store.dispatch("SAME_SEGMENT", res.data.id);
-
-              this.$router.push({
-                name: "Main",
-                params: { modelInfo: res.data }
+            findModelId(res.data)
+              .then(res => {
+                this.endLoading = true;
+                console.log("제 정보는용", res.data);
+                this.$store.commit("MODEL_INFO", res.data);
+                this.$store.commit("MODEL_NAME", res.data.name);
+                this.$store.dispatch("FETCH_LATEST", res.data.id);
+                this.$store.dispatch("SIMILAR_PRICE", res.data.id);
+                this.$store.dispatch("SAME_SEGMENT", res.data.id);
+                setTimeout(() => {
+                  this.$router.push({
+                    name: "Main",
+                    params: { modelInfo: res.data }
+                  });
+                }, 3000);
+              })
+              .catch(() => {
+                this.endLoading = true;
+                this.$swal({
+                  text: "사진을 업로드 하던 중 오류가 발생했습니다.",
+                  customClass: {
+                    container: "swal2-container"
+                  },
+                  icon: "warning",
+                  timer: 1300,
+                  showConfirmButton: false
+                });
+                window.location.reload();
               });
-            });
           })
           .catch(() => {
+            this.endLoading = true;
             this.$swal({
               text: "사진을 업로드 하던 중 오류가 발생했습니다.",
               customClass: {
@@ -91,38 +109,43 @@ export default Vue.extend({
               timer: 1300,
               showConfirmButton: false
             });
+            window.location.reload();
+
             return false;
           });
       }
     },
     moveProgress(progress = 0) {
-      console.log("3 moveProgress시작", progress);
+      // console.log("3 moveProgress시작", progress);
       // 업로드 api로 바꾸기 그만큼 시간흐름
       const progressTimeout = setTimeout(() => {
         clearTimeout(progressTimeout);
 
-        if (progress < 100) {
+        // if (progress < 100) {
+        if (!this.endLoading) {
           const newProgress = progress + 1;
           this.$refs.zzUpload.moveProgress(newProgress);
           this.moveProgress(newProgress);
+        } else {
+          this.$refs.zzUpload.moveProgress("finish");
         }
-      }, 10);
+      }, 100);
     },
     endProgress() {
       const endProgressTimeout = setTimeout(() => {
         clearTimeout(endProgressTimeout);
 
         this.$refs.zzUpload.resetProgress();
-      }, 1000);
-      this.$router.push({
-        name: "Main",
-        params: {
-          m_id: this.modelId,
-          md_id: this.modelDetailId,
-          m_name: this.modelName,
-          md_name: this.modelDetailName
-        }
-      });
+      }, 500);
+      // this.$router.push({
+      //   name: "Main",
+      //   params: {
+      //     m_id: this.modelId,
+      //     md_id: this.modelDetailId,
+      //     m_name: this.modelName,
+      //     md_name: this.modelDetailName
+      //   }
+      // });
     }
   }
 });
