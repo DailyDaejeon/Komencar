@@ -9,11 +9,12 @@
     <CarPrice :allOptions="allOptions" :mdName="md_name" class="chart" />
     <!-- 차량 비교 차트 -->
     <CarCompare
+      id="carSearchResult"
       :latestModel="latestModel"
       :modelInfo="modelInfo.modelDetailList[0]"
     />
     <!-- 차량 모델비교(가격) -->
-    <a class="pushme"> <span class="inner">모델비교</span></a>
+    <a class="pushme" id="carCompare"> <span class="inner">모델비교</span></a>
     <div class="model-title">#가격대가 비슷한 모델</div>
     <CarModel :CompareCars="similarPriceCar" />
     <!-- 차량 모델비교(차체크기) -->
@@ -55,7 +56,7 @@ import bus from "@/utils/bus";
 export default Vue.extend({
   props: {
     modelInfo: {
-      type: Object,
+      type: Object || Function,
       default:
         // JSON.parse(window.sessionStorage.getItem("model-info")) ||
         store.state.modelInfo || null
@@ -100,6 +101,14 @@ export default Vue.extend({
         bus.$emit("on:progress");
         window.location.reload();
         window.scrollTo(0, 0);
+      } else if (this.$route.params.goid) {
+        bus.$emit("on:progress");
+        window.location.reload();
+        document.getElementById(this.$route.params.goid).scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "start"
+        });
       }
     },
     getModelInfo() {
