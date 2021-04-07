@@ -2,13 +2,27 @@
 
 .LOGO {
   cursor: pointer;
-	font-size:10vw;
+	font-size:5rem;
+  // font-size: 10vw;
 	// letter-spacing: 6px;
 	font-family:'Titan One',cursive;
   font-weight: 700;
-	background: linear-gradient(45deg,#002C5E,#1f9cfd,#a8d8ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+	background: linear-gradient(60deg,#002C5E,#1f9cfd,#a8d8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @include mq('small-screen-1') {
+    font-size:4rem;
+  }
+  
+  @include mq('small-screen-2') {
+    font-size:3rem;
+  }
+
+  @include mq('small-screen-3') {
+    font-size:2rem;
+  }
+  
 }
 
 @font-face {
