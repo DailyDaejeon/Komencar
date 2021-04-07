@@ -6,45 +6,47 @@
       <img :src="getImg(modelInfo.name)" />
     </div>
     <!-- 정보 불러오기-->
-    <table class="container-fluid__car-info">
-      <!-- <tbody> -->
-      <tr>
-        <th>모델</th>
-        <td>
-          <span>{{ modelInfo.name }}</span>
-        </td>
-      </tr>
-      <tr>
-        <th>출고가격</th>
-        <td>
-          <span> {{ lowPrice | comma }} ~ {{ highPrice | comma }}(만원) </span>
-        </td>
-      </tr>
-      <tr>
-        <th>연비</th>
-        <td>
-          <span>{{ modelInfo.effciency }}km/L</span>
-        </td>
-      </tr>
-      <tr>
-        <th>연료</th>
-        <td>
-          <span>{{ modelInfo.fuel.name }} {{ modelInfo.exhaust }}cc</span>
-        </td>
-      </tr>
-      <tr>
-        <th>승차인원</th>
-        <td>
-          <span>{{ modelInfo.max_person }}명</span>
-        </td>
-      </tr>
-      <tr>
-        <th>제조사</th>
-        <td>
-          <span>현대자동차</span>
-        </td>
-      </tr>
-    </table>
+    <div class="container-fluid__car-info-box">
+      <table class="container-fluid__car-info">
+        <!-- <tbody> -->
+        <tr>
+          <th>모델</th>
+          <td>
+            <span>{{ modelInfo.name }}</span>
+          </td>
+        </tr>
+        <tr>
+          <th>출고가격</th>
+          <td>
+            <span> {{ lowPrice | comma }} ~ {{ highPrice | comma }}(만원) </span>
+          </td>
+        </tr>
+        <tr>
+          <th>연비</th>
+          <td>
+            <span>{{ modelInfo.effciency }}km/L</span>
+          </td>
+        </tr>
+        <tr>
+          <th>연료</th>
+          <td>
+            <span>{{ modelInfo.fuel.name }} {{ modelInfo.exhaust }}cc</span>
+          </td>
+        </tr>
+        <tr>
+          <th>승차인원</th>
+          <td>
+            <span>{{ modelInfo.max_person }}명</span>
+          </td>
+        </tr>
+        <tr>
+          <th>제조사</th>
+          <td>
+            <span>현대자동차</span>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 
