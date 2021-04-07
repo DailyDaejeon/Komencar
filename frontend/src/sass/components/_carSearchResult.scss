@@ -3,6 +3,10 @@
   margin: 5rem 0;
   background-color: $color-main-grey-2;
   line-height: 50px;
+
+  @include mq('small-screen-3') {
+    line-height: 30px;
+  }
   
   // img div box
     &__img-box {
@@ -46,6 +50,11 @@
         padding: 0.5rem;
         font-size: 2rem;
         text-align: center;
+
+        @include mq('small-screen-3') {
+          width: 30%;
+          font-size: 1.8rem;
+        }
       }
       td {
         width: 50%;
@@ -55,8 +64,13 @@
         display: inline-block;
         margin-left: 30px;
         color: black;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 2rem;
+
+        @include mq('small-screen-3') {
+          font-size: 1.8rem;
+          
+        }
       }
     }
   }
