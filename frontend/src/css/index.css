@@ -461,6 +461,12 @@ main::after {
   line-height: 50px;
 }
 
+@media screen and (max-width: 700px) {
+  .container-fluid {
+    line-height: 30px;
+  }
+}
+
 .container-fluid__img-box {
   background-color: #002C5E;
   text-align: center;
@@ -502,6 +508,13 @@ main::after {
   text-align: center;
 }
 
+@media screen and (max-width: 700px) {
+  .container-fluid__car-info th {
+    width: 30%;
+    font-size: 1.8rem;
+  }
+}
+
 .container-fluid__car-info td {
   width: 50%;
   text-align: center;
@@ -511,8 +524,14 @@ main::after {
   display: inline-block;
   margin-left: 30px;
   color: black;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 2rem;
+}
+
+@media screen and (max-width: 700px) {
+  .container-fluid__car-info td > span {
+    font-size: 1.8rem;
+  }
 }
 
 .box {
