@@ -57,7 +57,7 @@ export default Vue.extend({
       //   }
       // ]
       newsList: Array,
-      isShowButton: true,
+      isShowButton: true
     };
   },
   methods: {
@@ -69,9 +69,9 @@ export default Vue.extend({
     //   console.log("this is news list : ", list)
     //   this.newsList = list;
     // },
-    addNews(){
+    addNews() {
       this.isShowButton = false;
     }
-  },
+  }
 });
 </script>

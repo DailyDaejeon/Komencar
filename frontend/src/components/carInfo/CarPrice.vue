@@ -29,13 +29,13 @@ export default Vue.extend({
       modelName: "the new grandeur",
       carPrice: [33550000, 34300000, 37500000, 41850000],
       lowPrice: 0,
-      highPrice: 0,
+      highPrice: 0
     };
   },
   filters: {
     comma(value) {
       const num = new Number(value);
-      return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
+      return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,");
     }
   },
   created() {

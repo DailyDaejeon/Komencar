@@ -1,12 +1,12 @@
 <template>
   <button
-    :zz-button-progress="this.progress"
+    :img-button-progress="this.progress"
     :class="[
-      'zz-button',
+      'img-button',
       {
         active: active,
-        'zz-button-progress-done': done,
-        'zz-button-progress-done-active': check
+        'img-button-progress-done': done,
+        'img-button-progress-done-active': check
       }
     ]"
     @transitionend="progressTransitionEndEvent"
@@ -56,7 +56,6 @@ export default Vue.extend({
       // console.log("2 progressTransitionEndEvent 시작");
       if (this.progress === null && this.active === true) {
         this.progress = 0;
-
         this.$emit("progress");
       } else if (this.done === true) {
         this.check = true;

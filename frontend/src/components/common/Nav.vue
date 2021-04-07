@@ -54,7 +54,6 @@ import Vue from "vue";
 export default Vue.extend({
   methods: {
     goId(idName) {
-      console.log(window.sessionStorage["model-info"]);
       if (this.$router.name != "Main" && window.sessionStorage["model-info"]) {
         this.$router.push({
           name: "Main",

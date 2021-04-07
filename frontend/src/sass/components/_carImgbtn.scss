@@ -29,7 +29,7 @@
   margin-top: 5vh;
 }
 
-.zz-button {
+.img-button {
   color: $base-color;
   font-family: inherit;
   font-size: $default-font-size-label;
@@ -51,8 +51,8 @@
     height $animation-time $animation-style,
     border-radius $animation-time $animation-style;
   &:after {
-  content: '0%';
-  // content: 'SUCCESS';
+  // content: '0%';
+  content: 'Loading';
   font-size: 0;
   display: block;
   transition: font-size $animation-time ease-in-out;
@@ -86,17 +86,20 @@
 
 
 @for $i from 0 through 100 {
-  .zz-button[zz-button-progress='#{$i}'] {
+  .img-button[img-button-progress='#{$i}'] {
     background-image: linear-gradient(to top, $bg-full $i * 1%, $bg-empty $i * 1%);
   }
   
-  .zz-button[zz-button-progress='#{$i}']:after {
+  .img-button[img-button-progress='#{$i}']:after {
     content: '#{$i}%';
   }
 }
 
-.zz-button[zz-button-progress='finish'] {
+.img-button[img-button-progress='finish'] {
   animation: progress-done-pre $animation-time ease-out;
+  &:after {
+    content: 'Success';
+  }
 }
 
 @keyframes progress-done-pre {
@@ -107,7 +110,7 @@
   100% { transform: scale(1); }
 }
 
-.zz-button-progress-done.zz-button-progress-done-active:before {
+.img-button-progress-done.img-button-progress-done-active:before {
   width: $done-check-width;
   height: $done-check-height;
   border: solid $done-check-thickness $base-color;

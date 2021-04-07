@@ -16,7 +16,7 @@
         />
         <CarImageBtn
           text="Camera"
-          ref="zzUpload"
+          ref="imgUpload"
           @progress="moveProgress"
           @progress-finished="endProgress"
         />
@@ -59,22 +59,22 @@ export default Vue.extend({
 
       this.imagefile = file;
       this.imageUrl = URL.createObjectURL(file); // Create File URL
-      console.log("이미지 URL : ", this.imageUrl);
+      // console.log("이미지 URL : ", this.imageUrl);
       this.sendImages();
     },
     sendImages() {
       if (this.imagefile) {
         this.$emit("unactive");
-        this.$refs.zzUpload.progressClickEvent();
+        this.$refs.imgUpload.progressClickEvent();
         const imagePic = new FormData();
         imagePic.append("file", this.imagefile, String(".jpg"));
         searchModelImg(imagePic)
           .then(res => {
-            console.log("너는 무슨 자동차니 ? ", res.data);
+            // console.log("너는 무슨 자동차니 ? ", res.data);
             findModelId(res.data)
               .then(res => {
                 this.endLoading = true;
-                console.log("제 정보는용", res.data);
+                // console.log("제 정보는용", res.data);
                 this.$store.commit("MODEL_INFO", res.data);
                 this.$store.commit("MODEL_NAME", res.data.name);
                 this.$store.dispatch("FETCH_LATEST", res.data.id);
@@ -128,10 +128,10 @@ export default Vue.extend({
         // if (progress < 100) {
         if (!this.endLoading) {
           const newProgress = progress + 1;
-          this.$refs.zzUpload.moveProgress(newProgress);
+          this.$refs.imgUpload.moveProgress(newProgress);
           this.moveProgress(newProgress);
         } else {
-          this.$refs.zzUpload.moveProgress("finish");
+          this.$refs.imgUpload.moveProgress("finish");
         }
       }, 150);
     },
@@ -139,7 +139,7 @@ export default Vue.extend({
       const endProgressTimeout = setTimeout(() => {
         clearTimeout(endProgressTimeout);
 
-        this.$refs.zzUpload.resetProgress();
+        this.$refs.imgUpload.resetProgress();
       }, 500);
       // this.$router.push({
       //   name: "Main",
