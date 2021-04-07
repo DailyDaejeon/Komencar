@@ -1666,7 +1666,7 @@ main::after {
 .img-button {
   color: white;
   font-family: inherit;
-  font-size: 3rem;
+  font-size: 30px;
   font-weight: bold;
   background-color: #002C5E;
   width: 250px;
@@ -1698,12 +1698,12 @@ main::after {
 }
 
 .img-button.active:after {
-  font-size: 48px;
+  font-size: 30px;
 }
 
 .img-button-progress-done {
   color: transparent;
-  background-color: #1f9cfd;
+  background-color: #002C5E;
   position: relative;
 }
 
