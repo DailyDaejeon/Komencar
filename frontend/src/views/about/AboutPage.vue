@@ -1,23 +1,26 @@
 <template>
   <section class="wrap-3d">
     <div class="item-3d">
-      <span class="ground"></span>
       <figure class="item-content">
         <figcaption class="item-caption">
-          <p>
-            내 손안의<strong> AI KOMENCAR</strong>가 알려주는
-            <strong> 가격정보</strong><br />
+          <div class="item-caption-main">
+            <span class="item-caption-strong"> AI 코멘카 </span>가 알려주는
+            <span class="item-caption-strong"> 가격정보</span><br />
+          </div>
+          <div class="item-caption-sub">
             눈 앞에 있는 차를
-            <strong>카메라로</strong> 찍고,<br />
-          </p>
-          <p>
+            <strong>카메라로</strong> 찍고,
             <strong>가격까지</strong>
             한번에 확인할 수 있어요
-          </p>
-          <p>
-            <!-- <a href="#">View 38mm in the store</a><br />
-            <a href="#">View 42mm in the store</a> -->
-          </p>
+          </div>
+          <div class="arrow_box">
+            <div class="arrow_box_left">
+              이거 얼마야?
+            </div>
+            <div class="arrow_box_right">
+              4,791~5,724만원입니다.
+            </div>
+          </div>
         </figcaption>
         <div class="item-img">
           <img src="../../assets/images/the_new_grandeur.png" alt="" />

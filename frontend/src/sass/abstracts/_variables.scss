@@ -39,3 +39,15 @@ $done-check-width: 50px;
 $done-check-height: 20px;
 $animation-time: 750ms;
 $animation-style: cubic-bezier(0.7, -0.55, 0.3, 1.55);
+
+$master-grey: #f0f0f0;
+
+// 3 shades of grey
+$master-l-10: mix(white, $master-grey, 10%);
+$master-d-10: mix(black, $master-grey, 10%);
+$master-d-15: mix(black, $master-grey, 15%);
+
+// font colors
+$font-base: mix(black, $master-grey, 50%);
+$font-dark: mix(black, $master-grey, 80%);
+$font-spot: #08c;
