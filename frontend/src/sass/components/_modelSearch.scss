@@ -23,6 +23,7 @@
   bottom: 0px;
   background-repeat: no-repeat;
   }
+  
   &__text {
     // color: white;
     text-align: center;
@@ -32,6 +33,7 @@
     font-family: emoji;
     top: 3vh;
   }
+  
   &__div {
     // border-style: solid;
     // border-color: red;
@@ -42,6 +44,7 @@
     min-height: 30vh;
     position: relative;
   }
+  
   &__container {
   // border-style: solid;
   // border-color: blue;
@@ -56,6 +59,7 @@
   align-items: center;
   flex-direction: column;
   }
+
   &__form {
     transition: all 0.5s;
     width: 75vw;
@@ -90,6 +94,7 @@
       height: calc(100% + 3rem);
     }
     &__input {
+      width:100%;
       height: calc(100% + 3rem);
       border: none;
       background-color: transparent;
@@ -167,16 +172,68 @@
     // background-color: #f6f5f2;
     // padding: 4rem 1rem 0;
     &__typo {
-      font-size: 4vw;
+      font-size: 4rem;
       line-height: 2rem;
       display: block;
+      text-align: center;
+      margin: 2.5rem 0 4.5rem 0;
+
       &-blue {
         color: $color-blue-1;
       }
+      & p {
+        margin: 7vh;
+
+        @include mq('small-screen-1') {
+          margin: 7vh;
+        }
+        
+        @include mq('small-screen-2') {
+          margin: 5vh;
+        }
+  
+        @include mq('small-screen-3') {
+          margin: 7vh;
+        }
+      }
+
       &-small {
-        font-size: 1vw;
+        display: block;
+        font-size: 2vw;
+        margin-top: 2vh;
+
+        @include mq('small-screen-1') {
+          font-size: 2.1vw;
+          margin-top: 1.8vh;
+        }
+        
+        @include mq('small-screen-2') {
+          font-size: 2.3vw;
+          margin-top: 1.6vh;
+        }
+  
+        @include mq('small-screen-3') {
+          font-size: 2.8vw;
+          margin-top: 1.6vh;
+        }
+      }
+      
+      @include mq('small-screen-1') {
+        font-size: 3vw;
+        margin: 2.5rem 0 4.5rem 0;
+      }
+      
+      @include mq('small-screen-2') {
+        font-size: 2.8vw;
+        margin: 2rem 0 3.8rem 0;
+      }
+
+      @include mq('small-screen-3') {
+        font-size: 2.6vw;
+        margin: 1rem 0 3.2rem 0;
       }
     }
+
     &__model {
       font-weight: 900;
       font-size: 6vw;
@@ -186,12 +243,161 @@
       display: block;
       margin-top: 3vh;
       padding-top: 2rem;
+
       &__img {
-        width: 50vh;
+        width: 40vh;
+        display: inline-block;
+
+        @include mq('small-screen-1') {
+          width: 30vh;
+        }
+        
+        @include mq('small-screen-2') {
+          width: 20vh;
+        }
+  
+        @include mq('small-screen-3') {
+          width: 50vh;
+          display: block;
+        }
+      }
+
+      &__item {
+        display: inline-block;
+        position: relative;
+        bottom: 8rem;
+        margin: 0 0 0 3.5rem;
+
+        @include mq('small-screen-1') {
+          bottom: 9vh;
+        }
+        
+        @include mq('small-screen-2') {
+          bottom: 4vh;
+        }
+  
+        @include mq('small-screen-3') {
+          bottom: 3vh;
+          margin: 0;
+        }
+      }
+
+      &__title {
+        display: inline-block;
+        font-size: 2.8vw;
+        font-weight: 700;
+
+        @include mq('small-screen-1') {
+          font-size: 3rem;
+        }
+        
+        @include mq('small-screen-2') {
+          font-size: 3vw;
+        }
+  
+        @include mq('small-screen-3') {
+          font-size: 4rem;
+          // display: block;
+        }
+      }
+
+      &__detail {
+        display: inline-block;
+        margin: 1.5vw 1vw 0 0;
+        font-size: 1.3vw;
+
+        @include mq('small-screen-1') {
+          margin: 1.4vw 0.9vw 0 0;
+          font-size: 1.3rem;
+        }
+        
+        @include mq('small-screen-2') {
+          margin: 1.4vw 0.4vw 0 0;
+          font-size: 1.4vw;
+          font-weight: 600;
+        }
+  
+        @include mq('small-screen-3') {
+          display: none;
+        }
+      }
+
+      &__button {
+        // display: inline-block;
+        // position: absolute;
+        // bottom: 5rem;
+        // left: 28vw;
+        background: $color-primary;
+        width: 25rem;
+        margin-top: 2rem;
+        text-align: center;
+        padding: 0.7rem 0;
+        cursor: pointer;
+
+        @include mq('small-screen-1') {
+          width: 20vw;
+          // bottom: 3.4rem;
+          // left:30vw;
+          padding: 0.5rem 0;
+        }
+        
+        @include mq('small-screen-2') {
+          width: 18vw;
+          padding: 0.3rem 0;
+          // bottom: 5.6rem;
+          // left: 77rem;
+        }
+  
+        @include mq('small-screen-3') {
+          margin-right: auto;
+          margin-left: auto;
+          // bottom: 5.6rem;
+          // left: 77rem;
+        }
+        
+        & button {
+          border: none;
+          background: none;
+          font-size: 2.4rem;
+          color: $color-white;
+
+          @include mq('small-screen-1') {
+            font-size: 2rem;
+          }
+          
+          @include mq('small-screen-2') {
+            font-size: 1.7rem;
+          }
+    
+          @include mq('small-screen-3') {
+            font-size: 2.4rem;
+          }
+        }
       }
     }
+
     &__div {
       background-color: white;
+
+      &__item {
+        width: 70vw;
+        margin: auto;
+        // margin-left: 8vw;
+
+        @include mq('small-screen-1') {
+          width: 75vw;
+        }
+        
+        @include mq('small-screen-2') {
+          width: 70vw;
+        }
+  
+        @include mq('small-screen-3') {
+          width: 38rem;
+          margin: auto;
+          text-align: center;
+        }
+      }
     }
   }
 }

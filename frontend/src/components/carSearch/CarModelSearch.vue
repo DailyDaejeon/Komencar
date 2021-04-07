@@ -53,39 +53,51 @@
               class="search__result__model__img"
               @click="goDetail(search.name)"
             />
-            <div>
+            <div class="search__result__model__item">
               <p class="search__result__model__title">
-                모델 : {{ search.name }}
+                {{ search.name.toUpperCase() }}
               </p>
-              <p class="search__result__model__detail">
-                가격 :
-                {{ (search.optionList[0].price / 10000) | comma }}만원~
-                {{
-                  (search.optionList[search.optionList.length - 1].price /
-                    10000)
-                    | comma
-                }}만원
-              </p>
-              <p class="search__result__model__detail" v-if="search.effciency">
-                연비 : {{ search.effciency }}
-              </p>
-              <p class="search__result__model__detail">
-                엔진 : {{ search.fuel.name }}
-                <span v-if="search.exhaust"> {{ search.exhaust }}cc</span>
-              </p>
+              <div>
+                <p class="search__result__model__detail">
+                  가격 :
+                  {{ (search.optionList[0].price / 10000) | comma }} ~
+                  {{
+                    (search.optionList[search.optionList.length - 1].price /
+                      10000)
+                      | comma
+                  }}만원 
+                </p>
+                <p class="search__result__model__detail"> | </p>
+                <p class="search__result__model__detail" v-if="search.effciency">
+                  연비 : {{ search.effciency }} km/ℓ
+                </p>
+                <p class="search__result__model__detail" v-if="search.effciency"> | </p>
+                <p class="search__result__model__detail">
+                  엔진 : {{ search.fuel.name }}
+                  <span v-if="search.exhaust"> {{ search.exhaust }}cc</span>
+                </p>
+              </div>
+              <div class="search__result__model__button">
+                <button @click="goDetail(search.name)">바로가기</button>
+              </div>
             </div>
+            <!-- <hr /> -->
           </div>
-          <hr />
         </div>
       </template>
       <template v-else>
-        <span class="search__result__typo"
-          ><strong>입력하신 '{{ keyword }}'에 대한 검색결과가 없습니다.</strong>
-          <br />
-          <span class="search__result__typo-small">
-            입력하신 검색어의 철자가 정확한지 확인해 주세요. <br />
-            검색어의 단어 수를 줄이거나, 보다 일반적인 검색어로 검색해 보세요.
+        <span class="search__result__typo">
+          <span>
+            <strong>입력하신 '{{ keyword }}'에 대한 검색결과가 없습니다.</strong>
           </span>
+          <p>
+            <span class="search__result__typo-small">
+              입력하신 검색어의 철자가 정확한지 확인해 주세요.
+            </span>
+            <span class="search__result__typo-small">
+              검색어의 단어 수를 줄이거나, 보다 일반적인 검색어로 검색해 보세요.
+            </span>
+          </p>
         </span>
       </template>
     </div>
