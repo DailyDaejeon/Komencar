@@ -56,7 +56,7 @@ import bus from "@/utils/bus";
 export default Vue.extend({
   props: {
     modelInfo: {
-      type: Object || Function,
+      type: Object,
       default:
         // JSON.parse(window.sessionStorage.getItem("model-info")) ||
         store.state.modelInfo || null

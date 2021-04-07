@@ -1663,10 +1663,10 @@ main::after {
   margin-top: 5vh;
 }
 
-.zz-button {
+.img-button {
   color: white;
   font-family: inherit;
-  font-size: 32px;
+  font-size: 3rem;
   font-weight: bold;
   background-color: #002C5E;
   width: 250px;
@@ -1681,15 +1681,15 @@ main::after {
   transition: color 750ms ease-in-out, font-size 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55), background-color 750ms ease-in-out, width 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55), height 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55), border-radius 750ms cubic-bezier(0.7, -0.55, 0.3, 1.55);
 }
 
-.zz-button:after {
-  content: '0%';
+.img-button:after {
+  content: 'Loading';
   font-size: 0;
   display: block;
   -webkit-transition: font-size 750ms ease-in-out;
   transition: font-size 750ms ease-in-out;
 }
 
-.zz-button.active {
+.img-button.active {
   font-size: 18px;
   background-color: #1f9cfd;
   width: 175px;
@@ -1697,941 +1697,945 @@ main::after {
   border-radius: 50%;
 }
 
-.zz-button.active:after {
+.img-button.active:after {
   font-size: 48px;
 }
 
-.zz-button-progress-done {
+.img-button-progress-done {
   color: transparent;
   background-color: #1f9cfd;
   position: relative;
 }
 
-.zz-button-progress-done:before {
+.img-button-progress-done:before {
   content: '';
   width: 0px;
   height: 0px;
   display: block;
 }
 
-.zz-button:hover {
+.img-button:hover {
   background: #002C5E;
   background: -webkit-gradient(linear, left bottom, left top, from(#002C5E), to(#1f9cfd));
   background: linear-gradient(0deg, #002C5E 0%, #1f9cfd 100%);
 }
 
-.zz-button[zz-button-progress='0'] {
+.img-button[img-button-progress='0'] {
   background-image: -webkit-gradient(linear, left bottom, left top, from(#002C5E), color-stop(0%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 0%, #1f9cfd 0%);
 }
 
-.zz-button[zz-button-progress='0']:after {
+.img-button[img-button-progress='0']:after {
   content: "0%";
 }
 
-.zz-button[zz-button-progress='1'] {
+.img-button[img-button-progress='1'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(1%, #002C5E), color-stop(1%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 1%, #1f9cfd 1%);
 }
 
-.zz-button[zz-button-progress='1']:after {
+.img-button[img-button-progress='1']:after {
   content: "1%";
 }
 
-.zz-button[zz-button-progress='2'] {
+.img-button[img-button-progress='2'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(2%, #002C5E), color-stop(2%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 2%, #1f9cfd 2%);
 }
 
-.zz-button[zz-button-progress='2']:after {
+.img-button[img-button-progress='2']:after {
   content: "2%";
 }
 
-.zz-button[zz-button-progress='3'] {
+.img-button[img-button-progress='3'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(3%, #002C5E), color-stop(3%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 3%, #1f9cfd 3%);
 }
 
-.zz-button[zz-button-progress='3']:after {
+.img-button[img-button-progress='3']:after {
   content: "3%";
 }
 
-.zz-button[zz-button-progress='4'] {
+.img-button[img-button-progress='4'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(4%, #002C5E), color-stop(4%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 4%, #1f9cfd 4%);
 }
 
-.zz-button[zz-button-progress='4']:after {
+.img-button[img-button-progress='4']:after {
   content: "4%";
 }
 
-.zz-button[zz-button-progress='5'] {
+.img-button[img-button-progress='5'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(5%, #002C5E), color-stop(5%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 5%, #1f9cfd 5%);
 }
 
-.zz-button[zz-button-progress='5']:after {
+.img-button[img-button-progress='5']:after {
   content: "5%";
 }
 
-.zz-button[zz-button-progress='6'] {
+.img-button[img-button-progress='6'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(6%, #002C5E), color-stop(6%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 6%, #1f9cfd 6%);
 }
 
-.zz-button[zz-button-progress='6']:after {
+.img-button[img-button-progress='6']:after {
   content: "6%";
 }
 
-.zz-button[zz-button-progress='7'] {
+.img-button[img-button-progress='7'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(7%, #002C5E), color-stop(7%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 7%, #1f9cfd 7%);
 }
 
-.zz-button[zz-button-progress='7']:after {
+.img-button[img-button-progress='7']:after {
   content: "7%";
 }
 
-.zz-button[zz-button-progress='8'] {
+.img-button[img-button-progress='8'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(8%, #002C5E), color-stop(8%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 8%, #1f9cfd 8%);
 }
 
-.zz-button[zz-button-progress='8']:after {
+.img-button[img-button-progress='8']:after {
   content: "8%";
 }
 
-.zz-button[zz-button-progress='9'] {
+.img-button[img-button-progress='9'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(9%, #002C5E), color-stop(9%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 9%, #1f9cfd 9%);
 }
 
-.zz-button[zz-button-progress='9']:after {
+.img-button[img-button-progress='9']:after {
   content: "9%";
 }
 
-.zz-button[zz-button-progress='10'] {
+.img-button[img-button-progress='10'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(10%, #002C5E), color-stop(10%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 10%, #1f9cfd 10%);
 }
 
-.zz-button[zz-button-progress='10']:after {
+.img-button[img-button-progress='10']:after {
   content: "10%";
 }
 
-.zz-button[zz-button-progress='11'] {
+.img-button[img-button-progress='11'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(11%, #002C5E), color-stop(11%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 11%, #1f9cfd 11%);
 }
 
-.zz-button[zz-button-progress='11']:after {
+.img-button[img-button-progress='11']:after {
   content: "11%";
 }
 
-.zz-button[zz-button-progress='12'] {
+.img-button[img-button-progress='12'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(12%, #002C5E), color-stop(12%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 12%, #1f9cfd 12%);
 }
 
-.zz-button[zz-button-progress='12']:after {
+.img-button[img-button-progress='12']:after {
   content: "12%";
 }
 
-.zz-button[zz-button-progress='13'] {
+.img-button[img-button-progress='13'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(13%, #002C5E), color-stop(13%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 13%, #1f9cfd 13%);
 }
 
-.zz-button[zz-button-progress='13']:after {
+.img-button[img-button-progress='13']:after {
   content: "13%";
 }
 
-.zz-button[zz-button-progress='14'] {
+.img-button[img-button-progress='14'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(14%, #002C5E), color-stop(14%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 14%, #1f9cfd 14%);
 }
 
-.zz-button[zz-button-progress='14']:after {
+.img-button[img-button-progress='14']:after {
   content: "14%";
 }
 
-.zz-button[zz-button-progress='15'] {
+.img-button[img-button-progress='15'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(15%, #002C5E), color-stop(15%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 15%, #1f9cfd 15%);
 }
 
-.zz-button[zz-button-progress='15']:after {
+.img-button[img-button-progress='15']:after {
   content: "15%";
 }
 
-.zz-button[zz-button-progress='16'] {
+.img-button[img-button-progress='16'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(16%, #002C5E), color-stop(16%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 16%, #1f9cfd 16%);
 }
 
-.zz-button[zz-button-progress='16']:after {
+.img-button[img-button-progress='16']:after {
   content: "16%";
 }
 
-.zz-button[zz-button-progress='17'] {
+.img-button[img-button-progress='17'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(17%, #002C5E), color-stop(17%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 17%, #1f9cfd 17%);
 }
 
-.zz-button[zz-button-progress='17']:after {
+.img-button[img-button-progress='17']:after {
   content: "17%";
 }
 
-.zz-button[zz-button-progress='18'] {
+.img-button[img-button-progress='18'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(18%, #002C5E), color-stop(18%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 18%, #1f9cfd 18%);
 }
 
-.zz-button[zz-button-progress='18']:after {
+.img-button[img-button-progress='18']:after {
   content: "18%";
 }
 
-.zz-button[zz-button-progress='19'] {
+.img-button[img-button-progress='19'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(19%, #002C5E), color-stop(19%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 19%, #1f9cfd 19%);
 }
 
-.zz-button[zz-button-progress='19']:after {
+.img-button[img-button-progress='19']:after {
   content: "19%";
 }
 
-.zz-button[zz-button-progress='20'] {
+.img-button[img-button-progress='20'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(20%, #002C5E), color-stop(20%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 20%, #1f9cfd 20%);
 }
 
-.zz-button[zz-button-progress='20']:after {
+.img-button[img-button-progress='20']:after {
   content: "20%";
 }
 
-.zz-button[zz-button-progress='21'] {
+.img-button[img-button-progress='21'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(21%, #002C5E), color-stop(21%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 21%, #1f9cfd 21%);
 }
 
-.zz-button[zz-button-progress='21']:after {
+.img-button[img-button-progress='21']:after {
   content: "21%";
 }
 
-.zz-button[zz-button-progress='22'] {
+.img-button[img-button-progress='22'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(22%, #002C5E), color-stop(22%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 22%, #1f9cfd 22%);
 }
 
-.zz-button[zz-button-progress='22']:after {
+.img-button[img-button-progress='22']:after {
   content: "22%";
 }
 
-.zz-button[zz-button-progress='23'] {
+.img-button[img-button-progress='23'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(23%, #002C5E), color-stop(23%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 23%, #1f9cfd 23%);
 }
 
-.zz-button[zz-button-progress='23']:after {
+.img-button[img-button-progress='23']:after {
   content: "23%";
 }
 
-.zz-button[zz-button-progress='24'] {
+.img-button[img-button-progress='24'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(24%, #002C5E), color-stop(24%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 24%, #1f9cfd 24%);
 }
 
-.zz-button[zz-button-progress='24']:after {
+.img-button[img-button-progress='24']:after {
   content: "24%";
 }
 
-.zz-button[zz-button-progress='25'] {
+.img-button[img-button-progress='25'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(25%, #002C5E), color-stop(25%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 25%, #1f9cfd 25%);
 }
 
-.zz-button[zz-button-progress='25']:after {
+.img-button[img-button-progress='25']:after {
   content: "25%";
 }
 
-.zz-button[zz-button-progress='26'] {
+.img-button[img-button-progress='26'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(26%, #002C5E), color-stop(26%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 26%, #1f9cfd 26%);
 }
 
-.zz-button[zz-button-progress='26']:after {
+.img-button[img-button-progress='26']:after {
   content: "26%";
 }
 
-.zz-button[zz-button-progress='27'] {
+.img-button[img-button-progress='27'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(27%, #002C5E), color-stop(27%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 27%, #1f9cfd 27%);
 }
 
-.zz-button[zz-button-progress='27']:after {
+.img-button[img-button-progress='27']:after {
   content: "27%";
 }
 
-.zz-button[zz-button-progress='28'] {
+.img-button[img-button-progress='28'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(28%, #002C5E), color-stop(28%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 28%, #1f9cfd 28%);
 }
 
-.zz-button[zz-button-progress='28']:after {
+.img-button[img-button-progress='28']:after {
   content: "28%";
 }
 
-.zz-button[zz-button-progress='29'] {
+.img-button[img-button-progress='29'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(29%, #002C5E), color-stop(29%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 29%, #1f9cfd 29%);
 }
 
-.zz-button[zz-button-progress='29']:after {
+.img-button[img-button-progress='29']:after {
   content: "29%";
 }
 
-.zz-button[zz-button-progress='30'] {
+.img-button[img-button-progress='30'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(30%, #002C5E), color-stop(30%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 30%, #1f9cfd 30%);
 }
 
-.zz-button[zz-button-progress='30']:after {
+.img-button[img-button-progress='30']:after {
   content: "30%";
 }
 
-.zz-button[zz-button-progress='31'] {
+.img-button[img-button-progress='31'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(31%, #002C5E), color-stop(31%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 31%, #1f9cfd 31%);
 }
 
-.zz-button[zz-button-progress='31']:after {
+.img-button[img-button-progress='31']:after {
   content: "31%";
 }
 
-.zz-button[zz-button-progress='32'] {
+.img-button[img-button-progress='32'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(32%, #002C5E), color-stop(32%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 32%, #1f9cfd 32%);
 }
 
-.zz-button[zz-button-progress='32']:after {
+.img-button[img-button-progress='32']:after {
   content: "32%";
 }
 
-.zz-button[zz-button-progress='33'] {
+.img-button[img-button-progress='33'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(33%, #002C5E), color-stop(33%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 33%, #1f9cfd 33%);
 }
 
-.zz-button[zz-button-progress='33']:after {
+.img-button[img-button-progress='33']:after {
   content: "33%";
 }
 
-.zz-button[zz-button-progress='34'] {
+.img-button[img-button-progress='34'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(34%, #002C5E), color-stop(34%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 34%, #1f9cfd 34%);
 }
 
-.zz-button[zz-button-progress='34']:after {
+.img-button[img-button-progress='34']:after {
   content: "34%";
 }
 
-.zz-button[zz-button-progress='35'] {
+.img-button[img-button-progress='35'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(35%, #002C5E), color-stop(35%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 35%, #1f9cfd 35%);
 }
 
-.zz-button[zz-button-progress='35']:after {
+.img-button[img-button-progress='35']:after {
   content: "35%";
 }
 
-.zz-button[zz-button-progress='36'] {
+.img-button[img-button-progress='36'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(36%, #002C5E), color-stop(36%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 36%, #1f9cfd 36%);
 }
 
-.zz-button[zz-button-progress='36']:after {
+.img-button[img-button-progress='36']:after {
   content: "36%";
 }
 
-.zz-button[zz-button-progress='37'] {
+.img-button[img-button-progress='37'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(37%, #002C5E), color-stop(37%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 37%, #1f9cfd 37%);
 }
 
-.zz-button[zz-button-progress='37']:after {
+.img-button[img-button-progress='37']:after {
   content: "37%";
 }
 
-.zz-button[zz-button-progress='38'] {
+.img-button[img-button-progress='38'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(38%, #002C5E), color-stop(38%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 38%, #1f9cfd 38%);
 }
 
-.zz-button[zz-button-progress='38']:after {
+.img-button[img-button-progress='38']:after {
   content: "38%";
 }
 
-.zz-button[zz-button-progress='39'] {
+.img-button[img-button-progress='39'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(39%, #002C5E), color-stop(39%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 39%, #1f9cfd 39%);
 }
 
-.zz-button[zz-button-progress='39']:after {
+.img-button[img-button-progress='39']:after {
   content: "39%";
 }
 
-.zz-button[zz-button-progress='40'] {
+.img-button[img-button-progress='40'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(40%, #002C5E), color-stop(40%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 40%, #1f9cfd 40%);
 }
 
-.zz-button[zz-button-progress='40']:after {
+.img-button[img-button-progress='40']:after {
   content: "40%";
 }
 
-.zz-button[zz-button-progress='41'] {
+.img-button[img-button-progress='41'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(41%, #002C5E), color-stop(41%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 41%, #1f9cfd 41%);
 }
 
-.zz-button[zz-button-progress='41']:after {
+.img-button[img-button-progress='41']:after {
   content: "41%";
 }
 
-.zz-button[zz-button-progress='42'] {
+.img-button[img-button-progress='42'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(42%, #002C5E), color-stop(42%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 42%, #1f9cfd 42%);
 }
 
-.zz-button[zz-button-progress='42']:after {
+.img-button[img-button-progress='42']:after {
   content: "42%";
 }
 
-.zz-button[zz-button-progress='43'] {
+.img-button[img-button-progress='43'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(43%, #002C5E), color-stop(43%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 43%, #1f9cfd 43%);
 }
 
-.zz-button[zz-button-progress='43']:after {
+.img-button[img-button-progress='43']:after {
   content: "43%";
 }
 
-.zz-button[zz-button-progress='44'] {
+.img-button[img-button-progress='44'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(44%, #002C5E), color-stop(44%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 44%, #1f9cfd 44%);
 }
 
-.zz-button[zz-button-progress='44']:after {
+.img-button[img-button-progress='44']:after {
   content: "44%";
 }
 
-.zz-button[zz-button-progress='45'] {
+.img-button[img-button-progress='45'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(45%, #002C5E), color-stop(45%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 45%, #1f9cfd 45%);
 }
 
-.zz-button[zz-button-progress='45']:after {
+.img-button[img-button-progress='45']:after {
   content: "45%";
 }
 
-.zz-button[zz-button-progress='46'] {
+.img-button[img-button-progress='46'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(46%, #002C5E), color-stop(46%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 46%, #1f9cfd 46%);
 }
 
-.zz-button[zz-button-progress='46']:after {
+.img-button[img-button-progress='46']:after {
   content: "46%";
 }
 
-.zz-button[zz-button-progress='47'] {
+.img-button[img-button-progress='47'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(47%, #002C5E), color-stop(47%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 47%, #1f9cfd 47%);
 }
 
-.zz-button[zz-button-progress='47']:after {
+.img-button[img-button-progress='47']:after {
   content: "47%";
 }
 
-.zz-button[zz-button-progress='48'] {
+.img-button[img-button-progress='48'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(48%, #002C5E), color-stop(48%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 48%, #1f9cfd 48%);
 }
 
-.zz-button[zz-button-progress='48']:after {
+.img-button[img-button-progress='48']:after {
   content: "48%";
 }
 
-.zz-button[zz-button-progress='49'] {
+.img-button[img-button-progress='49'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(49%, #002C5E), color-stop(49%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 49%, #1f9cfd 49%);
 }
 
-.zz-button[zz-button-progress='49']:after {
+.img-button[img-button-progress='49']:after {
   content: "49%";
 }
 
-.zz-button[zz-button-progress='50'] {
+.img-button[img-button-progress='50'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #002C5E), color-stop(50%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 50%, #1f9cfd 50%);
 }
 
-.zz-button[zz-button-progress='50']:after {
+.img-button[img-button-progress='50']:after {
   content: "50%";
 }
 
-.zz-button[zz-button-progress='51'] {
+.img-button[img-button-progress='51'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(51%, #002C5E), color-stop(51%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 51%, #1f9cfd 51%);
 }
 
-.zz-button[zz-button-progress='51']:after {
+.img-button[img-button-progress='51']:after {
   content: "51%";
 }
 
-.zz-button[zz-button-progress='52'] {
+.img-button[img-button-progress='52'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(52%, #002C5E), color-stop(52%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 52%, #1f9cfd 52%);
 }
 
-.zz-button[zz-button-progress='52']:after {
+.img-button[img-button-progress='52']:after {
   content: "52%";
 }
 
-.zz-button[zz-button-progress='53'] {
+.img-button[img-button-progress='53'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(53%, #002C5E), color-stop(53%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 53%, #1f9cfd 53%);
 }
 
-.zz-button[zz-button-progress='53']:after {
+.img-button[img-button-progress='53']:after {
   content: "53%";
 }
 
-.zz-button[zz-button-progress='54'] {
+.img-button[img-button-progress='54'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(54%, #002C5E), color-stop(54%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 54%, #1f9cfd 54%);
 }
 
-.zz-button[zz-button-progress='54']:after {
+.img-button[img-button-progress='54']:after {
   content: "54%";
 }
 
-.zz-button[zz-button-progress='55'] {
+.img-button[img-button-progress='55'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(55%, #002C5E), color-stop(55%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 55%, #1f9cfd 55%);
 }
 
-.zz-button[zz-button-progress='55']:after {
+.img-button[img-button-progress='55']:after {
   content: "55%";
 }
 
-.zz-button[zz-button-progress='56'] {
+.img-button[img-button-progress='56'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(56%, #002C5E), color-stop(56%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 56%, #1f9cfd 56%);
 }
 
-.zz-button[zz-button-progress='56']:after {
+.img-button[img-button-progress='56']:after {
   content: "56%";
 }
 
-.zz-button[zz-button-progress='57'] {
+.img-button[img-button-progress='57'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(57%, #002C5E), color-stop(57%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 57%, #1f9cfd 57%);
 }
 
-.zz-button[zz-button-progress='57']:after {
+.img-button[img-button-progress='57']:after {
   content: "57%";
 }
 
-.zz-button[zz-button-progress='58'] {
+.img-button[img-button-progress='58'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(58%, #002C5E), color-stop(58%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 58%, #1f9cfd 58%);
 }
 
-.zz-button[zz-button-progress='58']:after {
+.img-button[img-button-progress='58']:after {
   content: "58%";
 }
 
-.zz-button[zz-button-progress='59'] {
+.img-button[img-button-progress='59'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(59%, #002C5E), color-stop(59%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 59%, #1f9cfd 59%);
 }
 
-.zz-button[zz-button-progress='59']:after {
+.img-button[img-button-progress='59']:after {
   content: "59%";
 }
 
-.zz-button[zz-button-progress='60'] {
+.img-button[img-button-progress='60'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(60%, #002C5E), color-stop(60%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 60%, #1f9cfd 60%);
 }
 
-.zz-button[zz-button-progress='60']:after {
+.img-button[img-button-progress='60']:after {
   content: "60%";
 }
 
-.zz-button[zz-button-progress='61'] {
+.img-button[img-button-progress='61'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(61%, #002C5E), color-stop(61%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 61%, #1f9cfd 61%);
 }
 
-.zz-button[zz-button-progress='61']:after {
+.img-button[img-button-progress='61']:after {
   content: "61%";
 }
 
-.zz-button[zz-button-progress='62'] {
+.img-button[img-button-progress='62'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(62%, #002C5E), color-stop(62%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 62%, #1f9cfd 62%);
 }
 
-.zz-button[zz-button-progress='62']:after {
+.img-button[img-button-progress='62']:after {
   content: "62%";
 }
 
-.zz-button[zz-button-progress='63'] {
+.img-button[img-button-progress='63'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(63%, #002C5E), color-stop(63%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 63%, #1f9cfd 63%);
 }
 
-.zz-button[zz-button-progress='63']:after {
+.img-button[img-button-progress='63']:after {
   content: "63%";
 }
 
-.zz-button[zz-button-progress='64'] {
+.img-button[img-button-progress='64'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(64%, #002C5E), color-stop(64%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 64%, #1f9cfd 64%);
 }
 
-.zz-button[zz-button-progress='64']:after {
+.img-button[img-button-progress='64']:after {
   content: "64%";
 }
 
-.zz-button[zz-button-progress='65'] {
+.img-button[img-button-progress='65'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(65%, #002C5E), color-stop(65%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 65%, #1f9cfd 65%);
 }
 
-.zz-button[zz-button-progress='65']:after {
+.img-button[img-button-progress='65']:after {
   content: "65%";
 }
 
-.zz-button[zz-button-progress='66'] {
+.img-button[img-button-progress='66'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(66%, #002C5E), color-stop(66%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 66%, #1f9cfd 66%);
 }
 
-.zz-button[zz-button-progress='66']:after {
+.img-button[img-button-progress='66']:after {
   content: "66%";
 }
 
-.zz-button[zz-button-progress='67'] {
+.img-button[img-button-progress='67'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(67%, #002C5E), color-stop(67%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 67%, #1f9cfd 67%);
 }
 
-.zz-button[zz-button-progress='67']:after {
+.img-button[img-button-progress='67']:after {
   content: "67%";
 }
 
-.zz-button[zz-button-progress='68'] {
+.img-button[img-button-progress='68'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(68%, #002C5E), color-stop(68%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 68%, #1f9cfd 68%);
 }
 
-.zz-button[zz-button-progress='68']:after {
+.img-button[img-button-progress='68']:after {
   content: "68%";
 }
 
-.zz-button[zz-button-progress='69'] {
+.img-button[img-button-progress='69'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(69%, #002C5E), color-stop(69%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 69%, #1f9cfd 69%);
 }
 
-.zz-button[zz-button-progress='69']:after {
+.img-button[img-button-progress='69']:after {
   content: "69%";
 }
 
-.zz-button[zz-button-progress='70'] {
+.img-button[img-button-progress='70'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(70%, #002C5E), color-stop(70%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 70%, #1f9cfd 70%);
 }
 
-.zz-button[zz-button-progress='70']:after {
+.img-button[img-button-progress='70']:after {
   content: "70%";
 }
 
-.zz-button[zz-button-progress='71'] {
+.img-button[img-button-progress='71'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(71%, #002C5E), color-stop(71%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 71%, #1f9cfd 71%);
 }
 
-.zz-button[zz-button-progress='71']:after {
+.img-button[img-button-progress='71']:after {
   content: "71%";
 }
 
-.zz-button[zz-button-progress='72'] {
+.img-button[img-button-progress='72'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(72%, #002C5E), color-stop(72%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 72%, #1f9cfd 72%);
 }
 
-.zz-button[zz-button-progress='72']:after {
+.img-button[img-button-progress='72']:after {
   content: "72%";
 }
 
-.zz-button[zz-button-progress='73'] {
+.img-button[img-button-progress='73'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(73%, #002C5E), color-stop(73%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 73%, #1f9cfd 73%);
 }
 
-.zz-button[zz-button-progress='73']:after {
+.img-button[img-button-progress='73']:after {
   content: "73%";
 }
 
-.zz-button[zz-button-progress='74'] {
+.img-button[img-button-progress='74'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(74%, #002C5E), color-stop(74%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 74%, #1f9cfd 74%);
 }
 
-.zz-button[zz-button-progress='74']:after {
+.img-button[img-button-progress='74']:after {
   content: "74%";
 }
 
-.zz-button[zz-button-progress='75'] {
+.img-button[img-button-progress='75'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(75%, #002C5E), color-stop(75%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 75%, #1f9cfd 75%);
 }
 
-.zz-button[zz-button-progress='75']:after {
+.img-button[img-button-progress='75']:after {
   content: "75%";
 }
 
-.zz-button[zz-button-progress='76'] {
+.img-button[img-button-progress='76'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(76%, #002C5E), color-stop(76%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 76%, #1f9cfd 76%);
 }
 
-.zz-button[zz-button-progress='76']:after {
+.img-button[img-button-progress='76']:after {
   content: "76%";
 }
 
-.zz-button[zz-button-progress='77'] {
+.img-button[img-button-progress='77'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(77%, #002C5E), color-stop(77%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 77%, #1f9cfd 77%);
 }
 
-.zz-button[zz-button-progress='77']:after {
+.img-button[img-button-progress='77']:after {
   content: "77%";
 }
 
-.zz-button[zz-button-progress='78'] {
+.img-button[img-button-progress='78'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(78%, #002C5E), color-stop(78%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 78%, #1f9cfd 78%);
 }
 
-.zz-button[zz-button-progress='78']:after {
+.img-button[img-button-progress='78']:after {
   content: "78%";
 }
 
-.zz-button[zz-button-progress='79'] {
+.img-button[img-button-progress='79'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(79%, #002C5E), color-stop(79%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 79%, #1f9cfd 79%);
 }
 
-.zz-button[zz-button-progress='79']:after {
+.img-button[img-button-progress='79']:after {
   content: "79%";
 }
 
-.zz-button[zz-button-progress='80'] {
+.img-button[img-button-progress='80'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(80%, #002C5E), color-stop(80%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 80%, #1f9cfd 80%);
 }
 
-.zz-button[zz-button-progress='80']:after {
+.img-button[img-button-progress='80']:after {
   content: "80%";
 }
 
-.zz-button[zz-button-progress='81'] {
+.img-button[img-button-progress='81'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(81%, #002C5E), color-stop(81%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 81%, #1f9cfd 81%);
 }
 
-.zz-button[zz-button-progress='81']:after {
+.img-button[img-button-progress='81']:after {
   content: "81%";
 }
 
-.zz-button[zz-button-progress='82'] {
+.img-button[img-button-progress='82'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(82%, #002C5E), color-stop(82%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 82%, #1f9cfd 82%);
 }
 
-.zz-button[zz-button-progress='82']:after {
+.img-button[img-button-progress='82']:after {
   content: "82%";
 }
 
-.zz-button[zz-button-progress='83'] {
+.img-button[img-button-progress='83'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(83%, #002C5E), color-stop(83%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 83%, #1f9cfd 83%);
 }
 
-.zz-button[zz-button-progress='83']:after {
+.img-button[img-button-progress='83']:after {
   content: "83%";
 }
 
-.zz-button[zz-button-progress='84'] {
+.img-button[img-button-progress='84'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(84%, #002C5E), color-stop(84%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 84%, #1f9cfd 84%);
 }
 
-.zz-button[zz-button-progress='84']:after {
+.img-button[img-button-progress='84']:after {
   content: "84%";
 }
 
-.zz-button[zz-button-progress='85'] {
+.img-button[img-button-progress='85'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(85%, #002C5E), color-stop(85%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 85%, #1f9cfd 85%);
 }
 
-.zz-button[zz-button-progress='85']:after {
+.img-button[img-button-progress='85']:after {
   content: "85%";
 }
 
-.zz-button[zz-button-progress='86'] {
+.img-button[img-button-progress='86'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(86%, #002C5E), color-stop(86%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 86%, #1f9cfd 86%);
 }
 
-.zz-button[zz-button-progress='86']:after {
+.img-button[img-button-progress='86']:after {
   content: "86%";
 }
 
-.zz-button[zz-button-progress='87'] {
+.img-button[img-button-progress='87'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(87%, #002C5E), color-stop(87%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 87%, #1f9cfd 87%);
 }
 
-.zz-button[zz-button-progress='87']:after {
+.img-button[img-button-progress='87']:after {
   content: "87%";
 }
 
-.zz-button[zz-button-progress='88'] {
+.img-button[img-button-progress='88'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(88%, #002C5E), color-stop(88%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 88%, #1f9cfd 88%);
 }
 
-.zz-button[zz-button-progress='88']:after {
+.img-button[img-button-progress='88']:after {
   content: "88%";
 }
 
-.zz-button[zz-button-progress='89'] {
+.img-button[img-button-progress='89'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(89%, #002C5E), color-stop(89%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 89%, #1f9cfd 89%);
 }
 
-.zz-button[zz-button-progress='89']:after {
+.img-button[img-button-progress='89']:after {
   content: "89%";
 }
 
-.zz-button[zz-button-progress='90'] {
+.img-button[img-button-progress='90'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(90%, #002C5E), color-stop(90%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 90%, #1f9cfd 90%);
 }
 
-.zz-button[zz-button-progress='90']:after {
+.img-button[img-button-progress='90']:after {
   content: "90%";
 }
 
-.zz-button[zz-button-progress='91'] {
+.img-button[img-button-progress='91'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(91%, #002C5E), color-stop(91%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 91%, #1f9cfd 91%);
 }
 
-.zz-button[zz-button-progress='91']:after {
+.img-button[img-button-progress='91']:after {
   content: "91%";
 }
 
-.zz-button[zz-button-progress='92'] {
+.img-button[img-button-progress='92'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(92%, #002C5E), color-stop(92%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 92%, #1f9cfd 92%);
 }
 
-.zz-button[zz-button-progress='92']:after {
+.img-button[img-button-progress='92']:after {
   content: "92%";
 }
 
-.zz-button[zz-button-progress='93'] {
+.img-button[img-button-progress='93'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(93%, #002C5E), color-stop(93%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 93%, #1f9cfd 93%);
 }
 
-.zz-button[zz-button-progress='93']:after {
+.img-button[img-button-progress='93']:after {
   content: "93%";
 }
 
-.zz-button[zz-button-progress='94'] {
+.img-button[img-button-progress='94'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(94%, #002C5E), color-stop(94%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 94%, #1f9cfd 94%);
 }
 
-.zz-button[zz-button-progress='94']:after {
+.img-button[img-button-progress='94']:after {
   content: "94%";
 }
 
-.zz-button[zz-button-progress='95'] {
+.img-button[img-button-progress='95'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(95%, #002C5E), color-stop(95%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 95%, #1f9cfd 95%);
 }
 
-.zz-button[zz-button-progress='95']:after {
+.img-button[img-button-progress='95']:after {
   content: "95%";
 }
 
-.zz-button[zz-button-progress='96'] {
+.img-button[img-button-progress='96'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(96%, #002C5E), color-stop(96%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 96%, #1f9cfd 96%);
 }
 
-.zz-button[zz-button-progress='96']:after {
+.img-button[img-button-progress='96']:after {
   content: "96%";
 }
 
-.zz-button[zz-button-progress='97'] {
+.img-button[img-button-progress='97'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(97%, #002C5E), color-stop(97%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 97%, #1f9cfd 97%);
 }
 
-.zz-button[zz-button-progress='97']:after {
+.img-button[img-button-progress='97']:after {
   content: "97%";
 }
 
-.zz-button[zz-button-progress='98'] {
+.img-button[img-button-progress='98'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(98%, #002C5E), color-stop(98%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 98%, #1f9cfd 98%);
 }
 
-.zz-button[zz-button-progress='98']:after {
+.img-button[img-button-progress='98']:after {
   content: "98%";
 }
 
-.zz-button[zz-button-progress='99'] {
+.img-button[img-button-progress='99'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(99%, #002C5E), color-stop(99%, #1f9cfd));
   background-image: linear-gradient(to top, #002C5E 99%, #1f9cfd 99%);
 }
 
-.zz-button[zz-button-progress='99']:after {
+.img-button[img-button-progress='99']:after {
   content: "99%";
 }
 
-.zz-button[zz-button-progress='100'] {
+.img-button[img-button-progress='100'] {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(100%, #002C5E), to(#1f9cfd));
   background-image: linear-gradient(to top, #002C5E 100%, #1f9cfd 100%);
 }
 
-.zz-button[zz-button-progress='100']:after {
+.img-button[img-button-progress='100']:after {
   content: "100%";
 }
 
-.zz-button[zz-button-progress='finish'] {
+.img-button[img-button-progress='finish'] {
   -webkit-animation: progress-done-pre 750ms ease-out;
           animation: progress-done-pre 750ms ease-out;
+}
+
+.img-button[img-button-progress='finish']:after {
+  content: 'Success';
 }
 
 @-webkit-keyframes progress-done-pre {
@@ -2680,7 +2684,7 @@ main::after {
   }
 }
 
-.zz-button-progress-done.zz-button-progress-done-active:before {
+.img-button-progress-done.img-button-progress-done-active:before {
   width: 50px;
   height: 20px;
   border: solid 10px white;
