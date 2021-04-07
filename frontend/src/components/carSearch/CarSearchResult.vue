@@ -23,7 +23,7 @@
       <tr>
         <th>연비</th>
         <td>
-          <span>{{ modelInfo.effciency }}</span>
+          <span>{{ modelInfo.effciency }}km/L</span>
         </td>
       </tr>
       <tr>
