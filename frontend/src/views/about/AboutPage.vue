@@ -4,7 +4,7 @@
       <figure class="item-content">
         <figcaption class="item-caption">
           <div class="item-caption-main">
-            <span class="item-caption-strong"> AI 코멘카 </span>가 알려주는
+            <span class="item-caption-strong">AI 코멘카</span>가 알려주는
             <span class="item-caption-strong"> 가격정보</span><br />
           </div>
           <div class="item-caption-sub">
@@ -27,13 +27,22 @@
         </div>
       </figure>
     </div>
+    <div class="about-button" @click="gotoHome()">
+      <span class="about-button__detail">코멘카 바로가기</span>
+    </div>
   </section>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 
-export default Vue.extend({});
+export default Vue.extend({
+  methods: {
+    gotoHome() {
+      this.$router.push({ name: "Home" });
+    }
+  }
+});
 </script>
 
 <style></style>

@@ -489,3 +489,59 @@ $mx-width: 50rem;
     margin-top: -16px;
   }
 }
+
+// 어바웃 페이지 - 홈버튼
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+.about-button {
+  bottom: 32rem;
+  width: 180vh;
+  height: 100px;
+  background: #f3f0f1;
+  position: relative;
+  background: #f3f0f1;
+  margin-bottom: 25px;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+  6px 6px 10px rgba(0, 0, 0, 0.2);
+  color: $color-main-navy;
+  margin: auto;
+
+  @include mq('small-screen-3') {
+    bottom: 15rem;
+    width: 32rem;
+    margin: auto;
+    height: 7rem;
+  }
+
+  &__detail {
+    line-height: 100px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+
+    @include mq('small-screen-3') {
+      line-height: 70px;
+      font-size: 30px;
+
+
+    }
+  
+  }
+
+  &:hover {
+    opacity: 0.3;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+      6px 6px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    opacity: 1;
+    box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+      inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+    color: #79e3b6;
+  }
+}

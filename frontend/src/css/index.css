@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:100,300|Nanum+Gothic:400,700,800&subset=korean");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css?family=Titan+One");
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
 * {
   margin: 0;
@@ -608,6 +609,7 @@ main::after {
   background-color: #fff;
   padding: 1rem;
   margin: 0.8rem;
+  border: 0.1rem solid #002C5E;
   border-radius: 1rem;
 }
 
@@ -1537,6 +1539,61 @@ main::after {
   border-left-color: #787878;
   border-width: 16px;
   margin-top: -16px;
+}
+
+.about-button {
+  bottom: 32rem;
+  width: 180vh;
+  height: 100px;
+  background: #f3f0f1;
+  position: relative;
+  background: #f3f0f1;
+  margin-bottom: 25px;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  -webkit-box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+  color: #002C5E;
+  margin: auto;
+}
+
+@media screen and (max-width: 700px) {
+  .about-button {
+    bottom: 15rem;
+    width: 32rem;
+    margin: auto;
+    height: 7rem;
+  }
+}
+
+.about-button__detail {
+  line-height: 100px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+@media screen and (max-width: 700px) {
+  .about-button__detail {
+    line-height: 70px;
+    font-size: 30px;
+  }
+}
+
+.about-button:hover {
+  opacity: 0.3;
+  -webkit-box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-button:active {
+  opacity: 1;
+  -webkit-box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+          box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+  color: #79e3b6;
 }
 
 .carSearch {

@@ -14,7 +14,7 @@ export default new VueRouter({
     },
     {
       path: "/home",
-      name: "CarSearch",
+      name: "Home",
       component: () => import("@/views/carSearch/CarSearch.vue")
     },
     {
