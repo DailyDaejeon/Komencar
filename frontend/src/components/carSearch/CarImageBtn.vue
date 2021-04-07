@@ -36,7 +36,7 @@ export default Vue.extend({
   methods: {
     moveProgress(progress) {
       this.progress = progress;
-      console.log("4 자식 moveProgress", progress);
+      // console.log("4 자식 moveProgress", progress);
     },
     resetProgress() {
       this.progress = null;
@@ -45,7 +45,7 @@ export default Vue.extend({
       this.check = false;
     },
     progressClickEvent() {
-      console.log("1 progressClickEvent 시작");
+      // console.log("1 progressClickEvent 시작");
 
       if (this.active === false && this.done === false) {
         this.active = true;
@@ -53,7 +53,7 @@ export default Vue.extend({
       // this.progressTransitionEndEvent()
     },
     progressTransitionEndEvent() {
-      console.log("2 progressTransitionEndEvent 시작");
+      // console.log("2 progressTransitionEndEvent 시작");
       if (this.progress === null && this.active === true) {
         this.progress = 0;
 

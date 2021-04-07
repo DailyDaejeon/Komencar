@@ -48,6 +48,7 @@
     border-radius $animation-time $animation-style;
   &:after {
   content: '0%';
+  // content: 'SUCCESS';
   font-size: 0;
   display: block;
   transition: font-size $animation-time ease-in-out;
@@ -90,7 +91,7 @@
   }
 }
 
-.zz-button[zz-button-progress='100'] {
+.zz-button[zz-button-progress='finish'] {
   animation: progress-done-pre $animation-time ease-out;
 }
 
