@@ -217,6 +217,7 @@ $mx-width: 50rem;
   @include mq('small-screen-2') {
     top: 10vh;
     width: 80vw;
+    margin-left: 20%;
   }
   @include mq('small-screen-3') {
     top: 5vh;
@@ -404,6 +405,13 @@ $mx-width: 50rem;
     margin: 2rem 0;
   }
 
+  &__icon {
+    position: relative;
+    top: 0.9rem;
+    left: 0.5rem;
+    width: 40px;
+  }
+
 }
 
 // 말풍선 왼쪽
@@ -458,10 +466,13 @@ $mx-width: 50rem;
   font-size: 1.9rem;
   font-weight: 600;
   color: $color-white;
+  width: 50%;
+  margin-left: 50rem;
 
   @include mq('small-screen-3') {
-    width: 27rem;
-    margin-left: 3rem;
+    width: 20rem;
+    margin-left: 8rem;
+    margin-bottom: -2rem;
   }
 
   &:after, &:before {
@@ -494,7 +505,6 @@ $mx-width: 50rem;
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 .about-button {
-  bottom: 32rem;
   width: 180vh;
   height: 100px;
   background: #f3f0f1;
@@ -509,13 +519,35 @@ $mx-width: 50rem;
   6px 6px 10px rgba(0, 0, 0, 0.2);
   color: $color-main-navy;
   margin: auto;
+  bottom: 50vh;
+
+  //가장 큼
+  @include mq('small-screen-1') {
+    bottom: -20vh;
+  }
+
+  @include mq('small-screen-2') {
+
+    margin: auto;
+    bottom: -37rem;
+  }
 
   @include mq('small-screen-3') {
-    bottom: 15rem;
+    // bottom: 0;
+    // width: 32rem;
+    // margin: auto;
+    // height: 7rem;
+
+    bottom: 2rem;
     width: 32rem;
     margin: auto;
     height: 7rem;
-  }
+}
+  
+
+
+
+
 
   &__detail {
     line-height: 100px;
@@ -544,4 +576,5 @@ $mx-width: 50rem;
       inset 8px 8px 16px rgba(0, 0, 0, 0.1);
     color: #79e3b6;
   }
+
 }

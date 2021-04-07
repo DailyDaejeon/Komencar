@@ -1247,6 +1247,7 @@ main::after {
   .item-img {
     top: 10vh;
     width: 80vw;
+    margin-left: 20%;
   }
 }
 
@@ -1482,6 +1483,13 @@ main::after {
   }
 }
 
+.arrow_box__icon {
+  position: relative;
+  top: 0.9rem;
+  left: 0.5rem;
+  width: 40px;
+}
+
 .arrow_box_left {
   position: relative;
   background: #f0f0f0;
@@ -1534,12 +1542,15 @@ main::after {
   font-size: 1.9rem;
   font-weight: 600;
   color: #fff;
+  width: 50%;
+  margin-left: 50rem;
 }
 
 @media screen and (max-width: 700px) {
   .arrow_box_right {
-    width: 27rem;
-    margin-left: 3rem;
+    width: 20rem;
+    margin-left: 8rem;
+    margin-bottom: -2rem;
   }
 }
 
@@ -1569,7 +1580,6 @@ main::after {
 }
 
 .about-button {
-  bottom: 32rem;
   width: 180vh;
   height: 100px;
   background: #f3f0f1;
@@ -1585,11 +1595,25 @@ main::after {
           box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
   color: #002C5E;
   margin: auto;
+  bottom: 50vh;
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  .about-button {
+    bottom: -20vh;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 899px) {
+  .about-button {
+    margin: auto;
+    bottom: -37rem;
+  }
 }
 
 @media screen and (max-width: 700px) {
   .about-button {
-    bottom: 15rem;
+    bottom: 2rem;
     width: 32rem;
     margin: auto;
     height: 7rem;

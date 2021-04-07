@@ -15,10 +15,18 @@
           </div>
           <div class="arrow_box">
             <div class="arrow_box_left">
-              이거 얼마야?
+              이거 얼마야?<img
+                src="../../assets/images/thinking.png"
+                alt=""
+                class="arrow_box__icon"
+              />
             </div>
             <div class="arrow_box_right">
-              4,791~5,724만원입니다.
+              4,791~5,724만원입니다.<img
+                src="../../assets/images/blowkiss.png"
+                alt=""
+                class="arrow_box__icon"
+              />
             </div>
           </div>
         </figcaption>
