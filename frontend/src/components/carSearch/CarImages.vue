@@ -30,6 +30,7 @@
 import Vue from "vue";
 import CarImageBtn from "@/components/carSearch/CarImageBtn.vue";
 import { searchModelImg, findModelId } from "@/api/index";
+import bus from "@/utils/bus";
 
 export default Vue.extend({
   components: {
@@ -78,6 +79,7 @@ export default Vue.extend({
                 this.$store.dispatch("SIMILAR_PRICE", res.data.id);
                 this.$store.dispatch("SAME_SEGMENT", res.data.id);
                 setTimeout(() => {
+                  bus.$emit("on:progress");
                   this.$router.push({
                     name: "Main",
                     params: { modelInfo: res.data }
@@ -110,8 +112,6 @@ export default Vue.extend({
               showConfirmButton: false
             });
             window.location.reload();
-
-            return false;
           });
       }
     },
@@ -129,7 +129,7 @@ export default Vue.extend({
         } else {
           this.$refs.zzUpload.moveProgress("finish");
         }
-      }, 100);
+      }, 150);
     },
     endProgress() {
       const endProgressTimeout = setTimeout(() => {

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter, { NavigationGuardNext, Route } from "vue-router";
-import store from "@/store/index";
+import bus from "@/utils/bus";
 
 Vue.use(VueRouter);
 
@@ -21,6 +21,14 @@ export default new VueRouter({
       path: "/main",
       name: "Main",
       component: () => import("@/views/main/MainPage.vue"),
+      async beforeEnter(
+        routeTo: Route,
+        routeFrom: Route,
+        next: NavigationGuardNext<Vue>
+      ) {
+        bus.$emit("on:progress");
+        next();
+      },
       props: true
     },
     {
