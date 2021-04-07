@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <!-- 차량 분석 컴포넌트 -->
     <CarSearchResult
       id="carSearchResult"
