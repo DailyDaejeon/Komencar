@@ -21,7 +21,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      chartLabel: ["연비", "배기량", "가격"],
+      chartLabel: ["연비(m/l)", "배기량(cc)", "가격(만원)"],
       modelName: "the new grandeur",
       carPrice: [33550000, 34300000, 37500000, 41850000]
     };
@@ -45,13 +45,13 @@ export default Vue.extend({
         // datasets를 props로 받기
         datasets: [
           {
-            label: this.latestModel.name,
+            label: `${this.latestModel.name} ${this.latestModel.optionList[0].name}`,
             data: [
-              this.latestModel.efficiency,
+              this.latestModel.effciency * 1000,
               this.latestModel.exhaust,
               this.latestModel.optionList[
                 this.latestModel.optionList.length - 1
-              ].price
+              ].price / 10000
             ],
             fill: true,
             backgroundColor: "rgba(255, 99, 132, 0.2)",
@@ -62,11 +62,14 @@ export default Vue.extend({
             pointHoverBorderColor: "rgb(255, 99, 132)"
           },
           {
-            label: this.modelInfo.name,
+            label: `${this.modelInfo.name} ${
+              this.modelInfo.optionList[this.modelInfo.optionList.length - 1]
+                .name
+            }`,
             data: [
-              this.modelInfo.efficiency,
+              this.modelInfo.effciency * 1000,
               this.modelInfo.exhaust,
-              this.modelInfo.optionList[0].price
+              this.modelInfo.optionList[0].price / 10000
             ],
             fill: true,
             backgroundColor: "rgba(54, 162, 235, 0.2)",
@@ -87,6 +90,8 @@ export default Vue.extend({
         },
         tooltips: {
           mode: "index",
+          titleFont: { style: "bold" },
+          titleAlign: "center",
           intersect: false
         },
         hover: {
