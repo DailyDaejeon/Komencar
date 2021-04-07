@@ -15,10 +15,10 @@
     />
     <!-- 차량 모델비교(가격) -->
     <a class="pushme" id="carCompare"> <span class="inner">모델비교</span></a>
-    <div class="model-title">#가격대가 비슷한 모델</div>
+    <div class="model-title">1.가격대가 비슷한 모델</div>
     <CarModel :CompareCars="similarPriceCar" />
     <!-- 차량 모델비교(차체크기) -->
-    <div class="model-title">#차종이 비슷한 모델</div>
+    <div class="model-title">2.차종이 비슷한 모델</div>
     <CarModel :CompareCars="sameSegmentCar" />
     <!-- 차량 뉴스 -->
     <CarNews
