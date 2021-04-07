@@ -104,11 +104,13 @@ export default Vue.extend({
       } else if (this.$route.params.goid) {
         bus.$emit("on:progress");
         window.location.reload();
-        document.getElementById(this.$route.params.goid).scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "start"
-        });
+        setTimeout(() => {
+          const element = document.getElementById(this.$route.params.goid);
+          const x = element.scrollLeft;
+          const y = element.scrollTop;
+          console.log("x,y", x, y);
+          window.scrollTo(x, y);
+        }, 500);
       }
     },
     getModelInfo() {
