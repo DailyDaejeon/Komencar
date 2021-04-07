@@ -56,6 +56,7 @@ export default Vue.extend({
     onChangeImages(e) {
       console.log(e.target.files);
       const file = e.target.files[0]; // Get first index in files
+
       this.imagefile = file;
       this.imageUrl = URL.createObjectURL(file); // Create File URL
       console.log("이미지 URL : ", this.imageUrl);
@@ -63,6 +64,7 @@ export default Vue.extend({
     },
     sendImages() {
       if (this.imagefile) {
+        this.$emit("unactive");
         this.$refs.zzUpload.progressClickEvent();
         const imagePic = new FormData();
         imagePic.append("file", this.imagefile, String(".jpg"));

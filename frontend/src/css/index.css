@@ -1649,6 +1649,10 @@ main::after {
   }
 }
 
+.descrip-active {
+  display: none;
+}
+
 .camera-button-div {
   display: -webkit-box;
   display: -ms-flexbox;
