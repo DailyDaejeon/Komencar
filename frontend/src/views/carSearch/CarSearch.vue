@@ -13,7 +13,7 @@ export default Vue.extend({
   components: {
     CarImages
   },
-  created() {
+  mounted() {
     this.toggleActive(true);
   },
   methods: {
