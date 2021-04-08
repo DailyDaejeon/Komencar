@@ -2,7 +2,8 @@
   <div id="app">
     <spinner :loading="loading"></spinner>
     <Nav v-if="isShow" />
-    <h1 v-if="isShow" class="LOGO" @click="goImgSearch">KOMENCAR</h1>
+    <img :src="getLogoImg()" class="LOGO" v-if="isShow" @click="goImgSearch">
+    <!-- <h1 v-if="isShow" class="LOGO" @click="goImgSearch">KOMENCAR</h1> -->
     <!-- <div class="Logo__sign">
       <span class="Logo__fast-flicker">KO</span>MEN<span class="Logo__flicker"
         >C</span
@@ -45,6 +46,9 @@ export default Vue.extend({
           throw error;
         }
       });
+    },
+    getLogoImg() {
+      return require(`@/assets/komencar_logo.png`);
     },
     onProgress() {
       this.loading = true;
