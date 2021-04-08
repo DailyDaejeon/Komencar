@@ -40,7 +40,7 @@ const actions = {
     }
     return data;
   },
-  async [ActionTypes.FETCH_LATEST](context: MyActionContext, payload?: any) {
+  async [ActionTypes.FETCH_LATEST](context: MyActionContext, payload?: number) {
     const { data } = await fetchLatest(payload);
     if (data) {
       context.commit(MutationTypes.LATEST_MODEL, data);
@@ -49,7 +49,10 @@ const actions = {
     }
     return data;
   },
-  async [ActionTypes.SIMILAR_PRICE](context: MyActionContext, payload?: any) {
+  async [ActionTypes.SIMILAR_PRICE](
+    context: MyActionContext,
+    payload?: number
+  ) {
     const { data } = await fetchPriceCompare(payload);
     if (data) {
       context.commit(MutationTypes.SIMILAR_MODEL, data);
@@ -58,7 +61,7 @@ const actions = {
     }
     return data;
   },
-  async [ActionTypes.SAME_SEGMENT](context: MyActionContext, payload?: any) {
+  async [ActionTypes.SAME_SEGMENT](context: MyActionContext, payload?: number) {
     const { data } = await fetchSizeCompare(payload);
     if (data) {
       context.commit(MutationTypes.SAME_SEGMENT_MODEL, data);
