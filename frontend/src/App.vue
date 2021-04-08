@@ -40,7 +40,7 @@ export default Vue.extend({
   },
   methods: {
     goImgSearch() {
-      this.$router.push({ name: "Home" });
+      this.$router.push({ name: "Home" }).catch(()=>{});
     },
     onProgress() {
       this.loading = true;
