@@ -17,20 +17,24 @@
             <span><i class="fas fa-car"></i></span>차 세부정보
           </a>
         </li>
-        <li class="nav-item">
-          <span @click="goId('carCompare')" href="" class="nav-link">
+        <li class="nav-item" v-show="isShow">
+          <span @click="goId('carCompare')" href="#carCompare" class="nav-link">
             <span><i class="fas fa-share-alt"></i></span>
             차 모델 비교
           </span>
         </li>
-        <li class="nav-item">
-          <a @click="goId('carNewsInfo')" href="" class="nav-link">
+        <li class="nav-item" v-show="isShow">
+          <a @click="goId('carNewsInfo')" href="#carNewsInfo" class="nav-link">
             <span><i class="far fa-newspaper"></i></span>
             뉴스/정보 보기
           </a>
         </li>
-        <li class="nav-item">
-          <a @click="goId('carGoodsInfo')" href="" class="nav-link">
+        <li class="nav-item" v-show="isShow">
+          <a
+            @click="goId('carGoodsInfo')"
+            href="#carGoodsInfo"
+            class="nav-link"
+          >
             <span><i class="fas fa-shopping-cart"></i></span>
             추천 굿즈
           </a>
@@ -44,6 +48,14 @@
 import Vue from "vue";
 
 export default Vue.extend({
+  computed: {
+    isShow(): boolean {
+      if (this.$router.name !== "Main") {
+        return false;
+      }
+      return true;
+    }
+  },
   methods: {
     goId(idName) {
       if (this.$router.name !== "Main" && window.sessionStorage["model-info"]) {
