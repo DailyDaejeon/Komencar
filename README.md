@@ -23,19 +23,6 @@
     [ 학습할 차량은 현대 자동차의 5종(그랜저, 아반떼, 쏘나타, 코나, 팰리세이드)으로 제한한다. ]
   - 검색된 차량 정보에 맞는 부가 서비스(관련 뉴스, 리뷰 등)를 제공한다.
 
-## **제작 시** **사용된 기술**
-
-- AI
-
-  - Object-Detection (API 사용)
-  - ssd_inception_v2_coco (오픈 모델)
-
-- Back-end
-
-  -
-
-- Front-end
-
 ---
 
 ## 주요기능
@@ -51,6 +38,38 @@
 - 차량 세대(ex. 1세대, 2세대)의 가장 최신 모델과 성능 비교 차트 제공
 - 검색 차량과 비슷한 모델(가격대, 차체 크기로 구분)과 비교하여 분석한 정보 제공
 - 검색 차량의 관련 뉴스 제공
+
+---
+
+## **제작 시** **사용된 기술**
+
+- AI
+
+  - Object-Detection (API 사용)
+  - ssd_inception_v2_coco (오픈 모델)
+
+- Back-end
+
+  - SpringBoot, JPA, MariaDB, Docker
+
+- Front-end
+  - HTML, vue.js, TypeScript, CSS, SCSS
+
+<img src="https://img.shields.io/badge/Spring-success?style=flat-square&logo=Spring&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/IntelliJ-9cf?style=flat-square&logo=intelliJ IDEA&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/Gradle-inactive?style=flat-square&logo=Gradle&logoColor=white"/></a>
+
+<img src="https://img.shields.io/badge/Vue.js-green?style=flat-square&logo=Vue.js&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/VSCode-informational?style=flat-square&logo=Visual Studio Code&logoColor=white"/></a>
+
+<img src="https://img.shields.io/badge/MariaDB-informational?style=flat-square&logo=MariaDB&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/Docker-informational?style=flat-square&logo=Docker&logoColor=white"/></a>
+
+---
+
+## 프로토타입 & 화면 정의서
+
+[komencar_prototype](https://lab.ssafy.com/s04-ai-image-sub3/s04p23b101/blob/master/Prototype/Komencar_%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85.md)
 
 ---
 
