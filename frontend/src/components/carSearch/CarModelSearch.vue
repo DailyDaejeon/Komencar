@@ -51,7 +51,7 @@
               :src="getImg(search.name)"
               alt=""
               class="search__result__model__img"
-              @click="goDetail(search.name)"
+              @click="goDetail(search)"
             />
             <div class="search__result__model__item">
               <p class="search__result__model__title">
@@ -85,8 +85,8 @@
                   <span v-if="search.exhaust"> {{ search.exhaust }}cc</span>
                 </p>
               </div>
-              <div class="search__result__model__button">
-                <button @click="goDetail(search)">바로가기</button>
+              <div @click="goDetail(search)" class="search__result__model__button">
+                <button>바로가기</button>
               </div>
             </div>
             <!-- <hr /> -->

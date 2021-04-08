@@ -319,6 +319,7 @@
       &__img {
         width: 17vw;
         display: inline-block;
+        cursor: pointer;
 
         @include mq('small-screen-1') {
           width: 23vh;
