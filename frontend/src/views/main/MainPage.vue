@@ -15,12 +15,12 @@
     />
     <!-- 차량 모델비교(가격) -->
     <a class="pushme" id="carCompare"> <span class="inner">모델비교</span></a>
-    <div class="model-title" v-if="similarPriceCar.length > 1">
+    <div class="model-title" v-show="similarPriceCar.length > 1">
       가격대가 비슷한 모델
     </div>
     <CarModel :CompareCars="similarPriceCar" />
     <!-- 차량 모델비교(차체크기) -->
-    <div class="model-title" v-if="sameSegmentCar.length > 1">
+    <div class="model-title" v-show="sameSegmentCar.length > 1">
       차종이 비슷한 모델
     </div>
     <CarModel :CompareCars="sameSegmentCar" />

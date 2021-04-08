@@ -12,34 +12,44 @@ export interface SubListItem {
 }
 
 export interface ModelItem {
-  m_id: number;
-  m_manufacturer: string;
-  m_name: string;
-  m_price: string;
-  m_effciency: number;
+  id: number;
+  manufacturer: string;
+  modelDetailList: ModelDetail[];
+  name: string;
+  segment: any;
+}
+
+export interface ModelDetail {
+  effciency: number;
+  exhaust: number;
+  fuel: object;
+  id: number;
+  max_person: number;
+  name: string;
+  optionList: ModelOptionItem[];
 }
 
 export interface ModelOptionItem {
-  o_id: number;
-  o_name: string;
-  o_price: number;
+  id: number;
+  name: string;
+  price: number;
 }
 
 export interface NewsItem {
-  title: string;
-  originallink: string;
-  link: string;
   description: string;
+  link: string;
+  originallink: string;
   pubDate: string;
+  title: string;
 }
 
 export interface ShopItem {
-  title: string;
-  link: string;
-  image: string;
-  lprice: string;
   hprice: string;
+  image: string;
+  link: string;
+  lprice: string;
   mallName: string;
+  title: string;
 }
 
 const instance = setInterceptors();
@@ -80,20 +90,16 @@ function fetchCars(): AxiosPromise<any[]> {
 }
 
 // model api
-function searchModelImg(imagePic: any): AxiosPromise<any> {
-  return axios.post(
-    `https://j4b101.p.ssafy.io/predict/picture`,
-    imagePic,
-    {
-      headers: {
-        "Content-Type": "multipart/form-data"
-        // "Access-Control-Allow-Origin": "*"
-      }
+function searchModelImg(imagePic: any): AxiosPromise<string> {
+  return axios.post(`https://j4b101.p.ssafy.io/predict/picture`, imagePic, {
+    headers: {
+      "Content-Type": "multipart/form-data"
+      // "Access-Control-Allow-Origin": "*"
     }
-  );
+  });
 }
 
-function findModelId(modelName: string): AxiosPromise<any> {
+function findModelId(modelName: string): AxiosPromise<ModelItem> {
   return instance.get(`model/search/${modelName}`);
 }
 
@@ -101,7 +107,9 @@ function fetchAllCars(): AxiosPromise<any[]> {
   return instance.get(`model/all_list`);
 }
 
-function fetchAllOptions(modelDetailId: number): AxiosPromise<any[]> {
+function fetchAllOptions(
+  modelDetailId: number
+): AxiosPromise<ModelOptionItem[]> {
   return instance.get(`model/option_list`, {
     params: {
       md_id: modelDetailId
@@ -109,7 +117,7 @@ function fetchAllOptions(modelDetailId: number): AxiosPromise<any[]> {
   });
 }
 
-function fetchLatest(modelId: number): AxiosPromise<any> {
+function fetchLatest(modelId: number): AxiosPromise<ModelDetail> {
   return instance.get(`model/latest_model`, {
     params: {
       m_id: modelId
@@ -117,7 +125,7 @@ function fetchLatest(modelId: number): AxiosPromise<any> {
   });
 }
 
-function searchCar(keyWord: string): AxiosPromise<any[]> {
+function searchCar(keyWord: string): AxiosPromise<ModelItem[]> {
   return instance.get(`model/search_list`, {
     params: {
       keyword: keyWord
@@ -130,21 +138,21 @@ function fetchModel(modelDetailId: number): AxiosPromise<any> {
 }
 
 //가격 비교 api
-function fetchPriceCompare(modelId: number): AxiosPromise<any[]> {
+function fetchPriceCompare(modelId: number): AxiosPromise<ModelItem[]> {
   return instance.get(`model/similar_price/${modelId}`);
 }
 
 //사이즈 비교 api
-function fetchSizeCompare(modelId: number): AxiosPromise<any[]> {
+function fetchSizeCompare(modelId: number): AxiosPromise<ModelItem[]> {
   return instance.get(`model/same_segment/${modelId}`);
 }
 
 // etc
-function fetchNews(words: string): AxiosPromise<any[]> {
+function fetchNews(words: string): AxiosPromise<NewsItem[]> {
   return instance.get(`news/${words}`);
 }
 
-function fetchShops(words: string): AxiosPromise<any[]> {
+function fetchShops(words: string): AxiosPromise<ShopItem[]> {
   return instance.get(`shop/${words}`);
 }
 
