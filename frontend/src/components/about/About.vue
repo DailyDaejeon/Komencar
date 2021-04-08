@@ -1,5 +1,4 @@
 <template>
-  <!-- Please typing your favorite word!-->
   <div class="about-second">
     <div id="ui">
       <div class="text">WELCOME TO KOMENCAR</div>

@@ -13,7 +13,7 @@
 }
 
 // 반응형 페이지
-@mixin mq($screen-width) {
+@mixin mq($screen-width) {    
     @if $screen-width == 'small-screen-1' {
         // 900~1200px 사이 (노트북)
         @media screen and (min-width: 900px) and (max-width: 1200px) {
@@ -32,5 +32,12 @@
             @content;
         }
     }
+    // desktop 추가 
+    @else if $screen-width == 'small-screen-4' {
+        @media screen and (min-width: 1201px) {
+            @content;
+        }
+    }
+
 
 }
