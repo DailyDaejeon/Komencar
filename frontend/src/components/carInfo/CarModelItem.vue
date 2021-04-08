@@ -1,5 +1,5 @@
 <template>
-  <div class="item-box">
+  <div class="item-box" v-if="isNotSame">
     <div class="img-wrap">
       <img :src="getImg(compareCar.modelDetailList[0].name)" alt="" />
     </div>
@@ -45,6 +45,18 @@ export default Vue.extend({
   props: {
     compareCar: {
       type: Object
+    }
+  },
+  computed: {
+    isNotSame(): boolean {
+      if (
+        this.$store.state.modelInfo.modelDetailList[0].id !==
+        this.compareCar.modelDetailList[0].id
+      ) {
+        return true;
+      } else {
+        return false;
+      }
     }
   },
   methods: {
