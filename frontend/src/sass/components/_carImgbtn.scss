@@ -1,19 +1,38 @@
 .carSearch {
   position: relative;
-  top:20vh;
- &__descrip {
-  @include mq('small-screen-1') {
   text-align: center;
-  font-size: 4.5rem;
-  }
-  @include mq('small-screen-2') {
-    text-align: center;
-    font-size: 4rem;
-  }
-  @include mq('small-screen-3') {
-    text-align: justify;
-    font-size: 3.5rem;
-  }
+  top:20vh;
+
+ &__descrip {
+   font-size: 7.4rem;
+   font-weight: 700;
+
+    & p {
+      margin-bottom: 1.3rem;
+    }
+
+    @include mq('small-screen-1') {
+      text-align: center;
+      font-size: 7.4vw;
+      & p {
+        margin-bottom: 1.3rem;
+      }
+    }
+    @include mq('small-screen-2') {
+      text-align: center;
+      font-size: 5.4vw;
+      & p {
+        margin-bottom: 1.3rem;
+      }
+    }
+    @include mq('small-screen-3') {
+      // text-align: justify;
+      text-align: center;
+      font-size: 6.4vw;
+      & p {
+        margin-bottom: 0.8rem;
+      }
+    }
   }
 }
 
@@ -32,11 +51,13 @@
 .img-button {
   color: $base-color;
   font-family: inherit;
-  font-size: $default-font-size-label;
+  font-size: 52px;
   font-weight: bold;
   background-color: $bg-full;
-  width: $default-width;
-  height: $default-height;
+  // width: $default-width;
+  // height: $default-height;
+  width: 40rem;
+  height: 15rem;
   border: none;
   cursor: pointer;
   outline: none;
@@ -50,6 +71,21 @@
     width $animation-time $animation-style,
     height $animation-time $animation-style,
     border-radius $animation-time $animation-style;
+
+    @include mq('small-screen-1') {
+      font-size: 50px;
+    }
+    @include mq('small-screen-2') {
+      width: 33rem;
+      height: 13rem;
+      font-size: 40px;
+    }
+    @include mq('small-screen-3') {
+      width: 25rem;
+      height: 9rem;
+      font-size: $default-font-size-label;
+    }
+
   &:after {
   // content: '0%';
   content: 'Loading';
