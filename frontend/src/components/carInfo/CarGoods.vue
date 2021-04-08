@@ -53,6 +53,15 @@ export default Vue.extend({
           //반응형
           breakpoints: {
             // when window width is >= 480px
+            280: {
+              slidesPerView: 1,
+              spaceBetween: 10
+            },
+
+            370: {
+              slidesPerView: 1,
+              spaceBetween: 30
+            },
             480: {
               slidesPerView: 2,
               spaceBetween: 10
