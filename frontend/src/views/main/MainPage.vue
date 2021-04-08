@@ -47,8 +47,6 @@ import CarModel from "@/components/carInfo/CarModel.vue";
 import store from "@/store/index";
 import CarCompare from "@/components/carInfo/CarCompare.vue";
 import {
-  // fetchModel,
-  fetchAllOptions,
   fetchLatest,
   fetchPriceCompare,
   fetchSizeCompare,

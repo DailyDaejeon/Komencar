@@ -18,7 +18,9 @@
         <tr>
           <th>출고가격</th>
           <td>
-            <span> {{ lowPrice | comma }} ~ {{ highPrice | comma }}(만원) </span>
+            <span>
+              {{ lowPrice | comma }} ~ {{ highPrice | comma }}(만원)
+            </span>
           </td>
         </tr>
         <tr>
@@ -96,7 +98,6 @@ export default Vue.extend({
           );
         }
       } catch (error) {
-        // console.log(error);
         window.alert(error);
         window.alert(
           "관심 목록에 저장하던 중 오류가 발생했습니다.\n 잠시후 다시 시도해주세요."

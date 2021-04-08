@@ -2,13 +2,8 @@
   <div id="app">
     <spinner :loading="loading"></spinner>
     <Nav v-if="isShow" />
-    <img :src="getLogoImg()" class="LOGO" v-if="isShow" @click="goImgSearch">
-    <!-- <h1 v-if="isShow" class="LOGO" @click="goImgSearch">KOMENCAR</h1> -->
-    <!-- <div class="Logo__sign">
-      <span class="Logo__fast-flicker">KO</span>MEN<span class="Logo__flicker"
-        >C</span
-      >AR
-    </div> -->
+    <img :src="getLogoImg()" class="LOGO" v-if="isShow" @click="goImgSearch" />
+
     <main>
       <router-view></router-view>
     </main>
@@ -42,7 +37,7 @@ export default Vue.extend({
   methods: {
     goImgSearch() {
       this.$router.push({ name: "Home" }).catch(error => {
-        if(error.name != "NavigationDuplicated" ){
+        if (error.name != "NavigationDuplicated") {
           throw error;
         }
       });

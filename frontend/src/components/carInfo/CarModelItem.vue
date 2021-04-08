@@ -70,7 +70,6 @@ export default Vue.extend({
       window.scrollTo(0, 0);
       findModelId(mName).then(res => {
         sessionStorage.clear();
-        // console.log("제 정보는용", res.data);
         this.$store.commit("MODEL_INFO", res.data);
         this.$store.commit("MODEL_NAME", res.data.name);
         this.$store.dispatch("FETCH_LATEST", res.data.id);
