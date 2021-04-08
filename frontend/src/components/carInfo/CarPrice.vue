@@ -25,9 +25,9 @@ export default Vue.extend({
   },
   data() {
     return {
-      chartLabel: ["Premium", "Premium Choice", "Exclusive", "Calligraphy"],
+      chartLabel: [],
       modelName: "the new grandeur",
-      carPrice: [33550000, 34300000, 37500000, 41850000],
+      carPrice: [],
       lowPrice: 0,
       highPrice: 0
     };
@@ -134,12 +134,12 @@ export default Vue.extend({
   },
   methods: {
     getDataSet() {
-      if (!this.chartLabel && !this.carPrice) {
-        this.allOptions.forEach(option => {
-          this.chartLabel.push(option.name);
-          this.carPrice.push(option.price);
-        });
-      }
+      // if (!this.chartLabel && !this.carPrice) {
+      this.allOptions.forEach(option => {
+        this.chartLabel.push(option.name);
+        this.carPrice.push(option.price);
+      });
+      // }
     },
     setPrice() {
       const low = this.allOptions[0].price;

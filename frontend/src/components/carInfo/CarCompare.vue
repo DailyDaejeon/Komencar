@@ -22,8 +22,8 @@ export default Vue.extend({
   data() {
     return {
       chartLabel: ["연비(m/l)", "배기량(cc)", "가격(만원)"],
-      modelName: "the new grandeur",
-      carPrice: [33550000, 34300000, 37500000, 41850000]
+      modelName: "",
+      carPrice: []
     };
   },
   mounted() {
