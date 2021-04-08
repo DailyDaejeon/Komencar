@@ -43,8 +43,6 @@
 .camera-button-div {
   display: flex;
   justify-content: center;
-  // align-items: center;
-  // height: 50vh;
   margin-top: 5vh;
 }
 
@@ -54,8 +52,6 @@
   font-size: 52px;
   font-weight: bold;
   background-color: $bg-full;
-  // width: $default-width;
-  // height: $default-height;
   width: 40rem;
   height: 15rem;
   border: none;
@@ -87,7 +83,6 @@
     }
 
   &:after {
-  // content: '0%';
   content: 'Loading';
   font-size: 0;
   display: block;
