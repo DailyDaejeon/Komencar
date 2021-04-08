@@ -61,9 +61,7 @@ export default Vue.extend({
   props: {
     modelInfo: {
       type: Object,
-      default:
-        // JSON.parse(window.sessionStorage.getItem("model-info")) ||
-        store.state.modelInfo || null
+      default: store.state.modelInfo || null
     },
     reload: {
       type: Boolean,
@@ -80,7 +78,6 @@ export default Vue.extend({
       latestModel: this.$store.state.latestModel || null,
       similarPriceCar: this.$store.state.similarModel || {},
       sameSegmentCar: this.$store.state.sameSegment || {},
-      // carNews: Array,
       carDefaultNews: Array,
       carAddNews: Array,
       carGoods: Array
@@ -97,30 +94,16 @@ export default Vue.extend({
   created() {
     this.goReload();
     this.getModelInfo();
-    // this.getCarAllOptions();
   },
   methods: {
     goReload() {
       if (this.$route.params.reload) {
+        window.scrollTo(0, 0);
         bus.$emit("on:progress");
         window.location.reload();
-        window.scrollTo(0, 0);
       }
-      // else if (this.$route.params.goid) {
-      //   bus.$emit("on:progress");
-      //   window.location.reload();
-      //   setTimeout(() => {
-      //     const element = document.getElementById(this.$route.params.goid);
-      //     const x = element.scrollLeft;
-      //     const y = element.scrollTop;
-      //     console.log("x,y", x, y);
-      //     window.scrollTo(x, y);
-      //   }, 500);
-      // }
     },
     getModelInfo() {
-      // const { data } = await fetchModel(this.m_id);
-      console.log("this.modelInfo : ", this.modelInfo);
       this.m_id = this.modelInfo.id;
       this.md_id = this.modelInfo.modelDetailList[0].id;
       this.m_name = this.modelInfo.name;
@@ -132,30 +115,21 @@ export default Vue.extend({
       this.getCarNews();
       this.getCarGoods();
     },
-    async getCarAllOptions() {
-      const { data } = await fetchAllOptions(
-        this.modelInfo.modelDetailList[0].id
-      );
-      this.allOptions = data;
-    },
     async getLatestModel() {
       const { data } = await fetchLatest(this.modelInfo.id);
       this.latestModel = data;
-      console.log(this.modelInfo, "latestModel : ", this.latestModel);
     },
     async getSimilarPriceModel() {
       const { data } = await fetchPriceCompare(
         this.modelInfo.modelDetailList[0].id
       );
       this.similarPriceCar = data;
-      console.log("similarPriceCar : ", this.similarPriceCar);
     },
     async getSameSegmentModel() {
       const { data } = await fetchSizeCompare(
         this.modelInfo.modelDetailList[0].id
       );
       this.sameSegmentCar = data;
-      console.log("sameSegmentCar : ", this.sameSegmentCar);
     },
     async getCarNews() {
       const { data } = await fetchNews(this.modelInfo.name);
@@ -168,15 +142,12 @@ export default Vue.extend({
           aList.push(data[i]);
         }
       }
-      // this.carNews = data;
-      // console.log("carNews : ", this.carNews);
       this.carDefaultNews = dList;
       this.carAddNews = aList;
     },
     async getCarGoods() {
       const { data } = await fetchShops(this.modelInfo.name);
       this.carGoods = data;
-      console.log("carGoods : ", this.carGoods);
       bus.$emit("off:progress");
     }
   }
