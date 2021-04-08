@@ -155,8 +155,8 @@ export default Vue.extend({
   methods: {
     goDetail(modelInfo) {
       bus.$emit("on:progress");
+      sessionStorage.clear();
       findModelId(modelInfo.name).then(res => {
-        sessionStorage.clear();
         // console.log("제 정보는용", res.data);
         this.$store.commit("MODEL_INFO", res.data);
         this.$store.commit("MODEL_NAME", res.data.name);

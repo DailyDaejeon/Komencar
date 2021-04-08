@@ -1,6 +1,6 @@
 import { RootState } from "./state";
 import jwtDecode from "jwt-decode";
-import { logoutUser } from "@/api/index";
+import { logoutUser, ModelDetail, ModelItem } from "@/api/index";
 
 enum MutationTypes {
   SET_TOKEN = "SET_TOKEN",
@@ -25,11 +25,11 @@ const mutations = {
     state.isLogin = false;
     sessionStorage.clear();
   },
-  async [MutationTypes.MODEL_INFO](state: RootState, modelInfo: any) {
+  async [MutationTypes.MODEL_INFO](state: RootState, modelInfo: ModelItem) {
     state.modelInfo = modelInfo;
     sessionStorage.setItem("model-info", JSON.stringify(modelInfo));
   },
-  async [MutationTypes.LATEST_MODEL](state: RootState, modelInfo: any) {
+  async [MutationTypes.LATEST_MODEL](state: RootState, modelInfo: ModelDetail) {
     state.latestModel = modelInfo;
     sessionStorage.setItem("latest-model", JSON.stringify(modelInfo));
   },
@@ -37,11 +37,17 @@ const mutations = {
     state.modelName = modelname;
     sessionStorage.setItem("model_name", JSON.stringify(modelname));
   },
-  async [MutationTypes.SIMILAR_MODEL](state: RootState, modelInfo: any) {
+  async [MutationTypes.SIMILAR_MODEL](
+    state: RootState,
+    modelInfo: ModelItem[]
+  ) {
     state.modelName = modelInfo;
     sessionStorage.setItem("similar_model", JSON.stringify(modelInfo));
   },
-  async [MutationTypes.SAME_SEGMENT_MODEL](state: RootState, modelInfo: any) {
+  async [MutationTypes.SAME_SEGMENT_MODEL](
+    state: RootState,
+    modelInfo: ModelItem[]
+  ) {
     state.modelName = modelInfo;
     sessionStorage.setItem("same_segment", JSON.stringify(modelInfo));
   }
