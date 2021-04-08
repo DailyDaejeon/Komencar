@@ -8,7 +8,7 @@
         <div class="search__finder">
           <div class="search__finder__outer">
             <div class="search__finder__inner">
-              <div class="search__finder__icon" ref="icon"></div>
+              <div class="search__finder__icon" ref="icon" @click="goSearch"></div>
               <input
                 class="search__finder__input"
                 placeholder="검색어를 입력해주세요."
@@ -155,21 +155,23 @@ export default Vue.extend({
   methods: {
     goDetail(modelInfo) {
       bus.$emit("on:progress");
+      window.scrollTo(0, 0);
       sessionStorage.clear();
-      findModelId(modelInfo.name).then(res => {
-        // console.log("제 정보는용", res.data);
+      findModelId(modelInfo.name)
+      .then(res => {
         this.$store.commit("MODEL_INFO", res.data);
         this.$store.commit("MODEL_NAME", res.data.name);
         this.$store.dispatch("FETCH_LATEST", res.data.id);
         this.$store.dispatch("SIMILAR_PRICE", res.data.modelDetailList[0].id);
         this.$store.dispatch("SAME_SEGMENT", res.data.modelDetailList[0].id);
         setTimeout(() => {
+
           bus.$emit("on:progress");
           this.$router.push({
             name: "Main",
-            params: { modelInfo: res.data }
+            params: { reload:true }
           });
-        }, 3000);
+        }, 100);
       });
     },
     getImg(mName) {
@@ -191,9 +193,7 @@ export default Vue.extend({
       finder.classList.remove("active");
       input.disabled = true;
       this.keyword = input.value;
-      console.log("KEYWORD : ", this.keyword);
       await searchCar(this.keyword).then(res => {
-        console.log(res);
         this.searchResult = res.data;
         this.isValid = true;
         finder.classList.remove("processing");
@@ -202,8 +202,10 @@ export default Vue.extend({
           finder.classList.add("active");
         }
         this.isGetKeyword = true;
-        bus.$emit("off:progress");
       });
+      setTimeout(() => {
+        bus.$emit("off:progress");
+      }, 100);
     },
     addActiveClass() {
       const finder = document.querySelector(
