@@ -13,10 +13,6 @@
       </div>
       <div class="swiper-pagination" v-if="slides.length > 1"></div>
     </div>
-
-    <!-- <div v-for="(goods, index) in goodsData" :key="index" class="box__goodsBox">
-      <CarGoodsItem :goods="goods" />
-    </div> -->
   </div>
 </template>
 
@@ -50,9 +46,8 @@ export default Vue.extend({
             dynamicBullets: true,
             dynamicMainBullets : 2
           },
-          //반응형
+          //반응형(화면 크기에 맞게 표출할 상품 수 정하기)
           breakpoints: {
-            // when window width is >= 480px
             280: {
               slidesPerView: 1,
               spaceBetween: 10
@@ -66,7 +61,6 @@ export default Vue.extend({
               slidesPerView: 2,
               spaceBetween: 10
             },
-            // when window width is >= 640px
             640: {
               slidesPerView: 2,
               spaceBetween: 20

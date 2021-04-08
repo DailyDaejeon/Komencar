@@ -5,7 +5,6 @@
     </div>
     <div class="card__title" v-html="setGoodsTitle()"></div>
     <div class="card__details">최저 {{ goods.lprice | comma }}원</div>
-    <!-- </ul> -->
     <div class="card__buy-button">
       <a :href="this.goods.link">
         <span class="card__buy-button__text">
@@ -35,8 +34,8 @@ export default Vue.extend({
   },
   methods: {
     setGoodsTitle(){
-      if(this.goods.title.length > 28) {
-        return this.goods.title.substr(0,27)+"...";
+      if(this.goods.title.length > 26) {
+        return this.goods.title.substr(0,26)+"...";
       }else {
         return this.goods.title;
       }
