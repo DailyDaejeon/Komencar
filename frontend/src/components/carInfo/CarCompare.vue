@@ -35,7 +35,11 @@ export default Vue.extend({
     if (!ctx) {
       return;
     }
-    console.log("여긴차트 latestModel : ", this.latestModel);
+    console.log(
+      "여긴차트 latestModel : ",
+      this.latestModel,
+      this.$store.state.latestModel
+    );
     console.log("여긴 차트 modelInfo : ", this.modelInfo);
     const chart = new this.$_Chart(ctx, {
       type: "radar",
@@ -73,11 +77,11 @@ export default Vue.extend({
             ],
             fill: true,
             backgroundColor: "rgba(54, 162, 235, 0.2)",
-            borderColor: "rgb(31, 156, 253)",
-            pointBackgroundColor: "rgb(31, 156, 253)",
+            borderColor: "rgb(0, 44, 94)",
+            pointBackgroundColor: "rgb(0, 44, 94)",
             pointBorderColor: "#fff",
             pointHoverBackgroundColor: "#fff",
-            pointHoverBorderColor: "rgb(31, 156, 253)"
+            pointHoverBorderColor: "rgb(0, 44, 94)"
           }
         ]
       },

@@ -12,8 +12,7 @@
           가격 :
           {{
             compareCar.modelDetailList[0].optionList[0].price / 10000
-          }}만원<br />연비 :
-          {{ compareCar.modelDetailList[0].effciency }}
+          }}만원<br />연비 : {{ compareCar.modelDetailList[0].effciency }}km/L
         </div>
       </div>
 
@@ -67,22 +66,22 @@ export default Vue.extend({
       return require(`@/assets/images/cars/${name}.jpg`);
     },
     goDetail(mName) {
-      setTimeout(() => {
-        bus.$emit("on:progress");
-        findModelId(mName)
-          .then(res => {
-            console.log("제 정보는용", res.data);
-            this.$store.commit("MODEL_INFO", res.data);
-            this.$store.commit("MODEL_NAME", res.data.name);
-            this.$store.dispatch("FETCH_LATEST", res.data.id);
-            this.$store.dispatch("SIMILAR_PRICE", res.data.id);
-            this.$store.dispatch("SAME_SEGMENT", res.data.id);
-          })
-          .then(() => {
-            window.location.reload();
-            window.scrollTo(0, 0);
-          });
-      }, 500);
+      bus.$emit("on:progress");
+      window.scrollTo(0, 0);
+      findModelId(mName).then(res => {
+        sessionStorage.clear();
+        // console.log("제 정보는용", res.data);
+        this.$store.commit("MODEL_INFO", res.data);
+        this.$store.commit("MODEL_NAME", res.data.name);
+        this.$store.dispatch("FETCH_LATEST", res.data.id);
+        this.$store.dispatch("SIMILAR_PRICE", res.data.modelDetailList[0].id);
+        this.$store.dispatch("SAME_SEGMENT", res.data.modelDetailList[0].id);
+        setTimeout(() => {
+          bus.$emit("on:progress");
+          window.location.reload();
+          window.scrollTo(0, 0);
+        }, 3000);
+      });
     }
     // gotoDetail() {
     //   this.$router.push({ name: "Home" });
