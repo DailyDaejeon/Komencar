@@ -85,7 +85,10 @@
                   <span v-if="search.exhaust"> {{ search.exhaust }}cc</span>
                 </p>
               </div>
-              <div @click="goDetail(search)" class="search__result__model__button">
+              <div
+                @click="goDetail(search)"
+                class="search__result__model__button"
+              >
                 <button>바로가기</button>
               </div>
             </div>
@@ -152,25 +155,22 @@ export default Vue.extend({
   methods: {
     goDetail(modelInfo) {
       bus.$emit("on:progress");
-      findModelId(modelInfo.name)
-        .then(res => {
-          console.log("제 정보는용", res.data);
-          this.$store.commit("MODEL_INFO", res.data);
-          this.$store.commit("MODEL_NAME", res.data.name);
-          this.$store.dispatch("FETCH_LATEST", res.data.id);
-          this.$store.dispatch("SIMILAR_PRICE", res.data.id);
-          this.$store.dispatch("SAME_SEGMENT", res.data.id);
-        })
-        .then(() => {
+      findModelId(modelInfo.name).then(res => {
+        sessionStorage.clear();
+        // console.log("제 정보는용", res.data);
+        this.$store.commit("MODEL_INFO", res.data);
+        this.$store.commit("MODEL_NAME", res.data.name);
+        this.$store.dispatch("FETCH_LATEST", res.data.id);
+        this.$store.dispatch("SIMILAR_PRICE", res.data.modelDetailList[0].id);
+        this.$store.dispatch("SAME_SEGMENT", res.data.modelDetailList[0].id);
+        setTimeout(() => {
           bus.$emit("on:progress");
           this.$router.push({
             name: "Main",
-            params: {
-              reload: true,
-              params: { modelInfo: modelInfo }
-            }
+            params: { modelInfo: res.data }
           });
-        });
+        }, 3000);
+      });
     },
     getImg(mName) {
       //내가 찍은 차 이미지 받아오는 메소드

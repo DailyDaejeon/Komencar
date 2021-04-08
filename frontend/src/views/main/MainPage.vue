@@ -15,10 +15,14 @@
     />
     <!-- 차량 모델비교(가격) -->
     <a class="pushme" id="carCompare"> <span class="inner">모델비교</span></a>
-    <div class="model-title">1.가격대가 비슷한 모델</div>
+    <div class="model-title" v-if="similarPriceCar.length > 1">
+      가격대가 비슷한 모델
+    </div>
     <CarModel :CompareCars="similarPriceCar" />
     <!-- 차량 모델비교(차체크기) -->
-    <div class="model-title">2.차종이 비슷한 모델</div>
+    <div class="model-title" v-if="sameSegmentCar.length > 1">
+      차종이 비슷한 모델
+    </div>
     <CarModel :CompareCars="sameSegmentCar" />
     <!-- 차량 뉴스 -->
     <CarNews
@@ -122,8 +126,7 @@ export default Vue.extend({
       this.m_name = this.modelInfo.name;
       this.md_name = this.modelInfo.modelDetailList[0].name;
       this.allOptions = this.modelInfo.modelDetailList[0].optionList;
-      console.log(this.m_id, this.md_id);
-      // this.getLatestModel();
+      this.getLatestModel();
       this.getSimilarPriceModel();
       this.getSameSegmentModel();
       this.getCarNews();
@@ -138,15 +141,19 @@ export default Vue.extend({
     async getLatestModel() {
       const { data } = await fetchLatest(this.modelInfo.id);
       this.latestModel = data;
-      console.log("latestModel : ", this.latestModel);
+      console.log(this.modelInfo, "latestModel : ", this.latestModel);
     },
     async getSimilarPriceModel() {
-      const { data } = await fetchPriceCompare(this.modelInfo.id);
+      const { data } = await fetchPriceCompare(
+        this.modelInfo.modelDetailList[0].id
+      );
       this.similarPriceCar = data;
       console.log("similarPriceCar : ", this.similarPriceCar);
     },
     async getSameSegmentModel() {
-      const { data } = await fetchSizeCompare(this.modelInfo.id);
+      const { data } = await fetchSizeCompare(
+        this.modelInfo.modelDetailList[0].id
+      );
       this.sameSegmentCar = data;
       console.log("sameSegmentCar : ", this.sameSegmentCar);
     },

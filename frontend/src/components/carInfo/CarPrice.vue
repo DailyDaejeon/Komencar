@@ -63,9 +63,9 @@ export default Vue.extend({
             showLine: true,
             label: this.mdName,
             backgroundColor: "rgba(255, 99, 132, 0)",
-            borderColor: "rgb(31, 156, 253)",
+            borderColor: "rgb(0, 44, 94)",
             data: this.carPrice,
-            pointBackgroundColor: "rgb(31, 156, 253)"
+            pointBackgroundColor: "rgb(0, 44, 94)"
           }
         ]
       },

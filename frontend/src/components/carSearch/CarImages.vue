@@ -102,19 +102,28 @@ export default Vue.extend({
               });
             } else {
               findModelId(res.data)
-                .then(res => {
+                .then(response => {
                   this.endLoading = true;
-                  // console.log("제 정보는용", res.data);
-                  this.$store.commit("MODEL_INFO", res.data);
-                  this.$store.commit("MODEL_NAME", res.data.name);
-                  this.$store.dispatch("FETCH_LATEST", res.data.id);
-                  this.$store.dispatch("SIMILAR_PRICE", res.data.id);
-                  this.$store.dispatch("SAME_SEGMENT", res.data.id);
+                  // console.log(
+                  //   "제 정보는용",
+                  // response.data
+                  // );
+                  this.$store.commit("MODEL_INFO", response.data);
+                  this.$store.commit("MODEL_NAME", response.data.name);
+                  this.$store.dispatch("FETCH_LATEST", response.data.id);
+                  this.$store.dispatch(
+                    "SIMILAR_PRICE",
+                    response.data.modelDetailList[0].id
+                  );
+                  this.$store.dispatch(
+                    "SAME_SEGMENT",
+                    response.data.modelDetailList[0].id
+                  );
                   setTimeout(() => {
                     bus.$emit("on:progress");
                     this.$router.push({
                       name: "Main",
-                      params: { modelInfo: res.data }
+                      params: { modelInfo: response.data }
                     });
                   }, 3000);
                 })
