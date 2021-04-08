@@ -1,10 +1,6 @@
 <template>
   <div>
     <div>
-      <!-- <button type="button" @click="onClickImageUpload" class="imageupload">
-        <i class="fas fa-camera-retro"></i>
-        Camera
-      </button> -->
       <div class="camera-button-div" @click="onClickImageUpload">
         <input
           ref="imageInput"
@@ -22,7 +18,6 @@
         />
       </div>
     </div>
-    <!-- <img v-if="imageUrl" :src="imageUrl" width="100%" alt="이미지" /> -->
   </div>
 </template>
 
@@ -54,12 +49,10 @@ export default Vue.extend({
       this.$refs.imageInput.click();
     },
     onChangeImages(e) {
-      console.log(e.target.files);
-      const file = e.target.files[0]; // Get first index in files
+      const file = e.target.files[0];
 
       this.imagefile = file;
-      this.imageUrl = URL.createObjectURL(file); // Create File URL
-      // console.log("이미지 URL : ", this.imageUrl);
+      this.imageUrl = URL.createObjectURL(file);
       this.sendImages();
     },
     sendImages() {
@@ -70,9 +63,7 @@ export default Vue.extend({
         imagePic.append("file", this.imagefile, String(".jpg"));
         searchModelImg(imagePic)
           .then(res => {
-            // console.log("너는 무슨 자동차니 ? ", res.data);
             if (res.data.trim() == "unknown") {
-              // console.log("난 언논", res.data);
               this.endLoading = true;
               this.$swal({
                 text:
@@ -87,7 +78,6 @@ export default Vue.extend({
                 window.location.reload();
               });
             } else if (res.data.trim() == "not front") {
-              // console.log("나는 앞이아니다", res.data, res);
               this.endLoading = true;
               this.$swal({
                 text: "앞모습이 아닙니다. 다시 촬영 부탁드립니다.",
@@ -104,10 +94,7 @@ export default Vue.extend({
               findModelId(res.data)
                 .then(response => {
                   this.endLoading = true;
-                  // console.log(
-                  //   "제 정보는용",
-                  // response.data
-                  // );
+
                   this.$store.commit("MODEL_INFO", response.data);
                   this.$store.commit("MODEL_NAME", response.data.name);
                   this.$store.dispatch("FETCH_LATEST", response.data.id);
@@ -160,12 +147,9 @@ export default Vue.extend({
       }
     },
     moveProgress(progress = 0) {
-      // console.log("3 moveProgress시작", progress);
-      // 업로드 api로 바꾸기 그만큼 시간흐름
       const progressTimeout = setTimeout(() => {
         clearTimeout(progressTimeout);
 
-        // if (progress < 100) {
         if (!this.endLoading) {
           const newProgress = progress + 1;
           this.$refs.imgUpload.moveProgress(newProgress);

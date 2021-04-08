@@ -1,14 +1,15 @@
 <template>
   <div>
-    <!-- <div class="search">
-      <div class="search__div">
-        <h1 class="search__text">Search</h1> -->
     <div class="search__container">
       <form autocomplete="off" @submit.prevent="goSearch" class="search__form">
         <div class="search__finder">
           <div class="search__finder__outer">
             <div class="search__finder__inner">
-              <div class="search__finder__icon" ref="icon" @click="goSearch"></div>
+              <div
+                class="search__finder__icon"
+                ref="icon"
+                @click="goSearch"
+              ></div>
               <input
                 class="search__finder__input"
                 placeholder="검색어를 입력해주세요."
@@ -21,8 +22,6 @@
           </div>
         </div>
       </form>
-      <!-- </div>
-      </div> -->
     </div>
     <!-- 검색한 결과가 v-for로 돌려 보이게 만듦 -->
     <div class="search__result" v-if="isGetKeyword">
@@ -157,19 +156,17 @@ export default Vue.extend({
       bus.$emit("on:progress");
       window.scrollTo(0, 0);
       sessionStorage.clear();
-      findModelId(modelInfo.name)
-      .then(res => {
+      findModelId(modelInfo.name).then(res => {
         this.$store.commit("MODEL_INFO", res.data);
         this.$store.commit("MODEL_NAME", res.data.name);
         this.$store.dispatch("FETCH_LATEST", res.data.id);
         this.$store.dispatch("SIMILAR_PRICE", res.data.modelDetailList[0].id);
         this.$store.dispatch("SAME_SEGMENT", res.data.modelDetailList[0].id);
         setTimeout(() => {
-
           bus.$emit("on:progress");
           this.$router.push({
             name: "Main",
-            params: { reload:true }
+            params: { reload: true }
           });
         }, 100);
       });
@@ -178,7 +175,6 @@ export default Vue.extend({
       //내가 찍은 차 이미지 받아오는 메소드
       let name = mName.split(" ");
       name = name.join("_");
-      console.log(name, "이미지");
       return require(`@/assets/images/cars/${name}.jpg`);
     },
     async goSearch() {

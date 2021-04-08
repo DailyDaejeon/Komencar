@@ -96,28 +96,6 @@ export default Vue.extend({
       this.$router.push({ name: "ModelSearchPage" });
       const bg = document.querySelector(".nav-checkbox") as HTMLInputElement;
       bg.checked = false;
-    },
-    alertExample() {
-      this.$swal({
-        // https://sweetalert2.github.io/#usage 여기서 사용법 참고
-        customClass: {
-          container: "swal2-container" // class 적음 -> utilities에 적어둠, 커스텀 가능
-        },
-        title: "alert 제목을 적으세요",
-        text: "로그인하러 가시겠습니까?",
-        // icon warning, error, success, info, and question 중 고름
-        icon: "info",
-        // iconColor:'#ffffff',
-        // timer: 1300,
-        showConfirmButton: true,
-        confirmButtonText: "OK",
-        showCancelButton: true,
-        cancelButtonText: "Cancel"
-      }).then(() => {
-        // 확인을 누른다면 로그인페이지로 이동
-        this.$router.push({ name: "Login" });
-        // window.location.reload();
-      });
     }
   }
 });
