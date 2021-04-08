@@ -65,20 +65,28 @@
                     (search.optionList[search.optionList.length - 1].price /
                       10000)
                       | comma
-                  }}만원 
+                  }}만원
                 </p>
-                <p class="search__result__model__detail divLine"> | </p>
-                <p class="search__result__model__detail" v-if="search.effciency">
+                <p class="search__result__model__detail divLine">|</p>
+                <p
+                  class="search__result__model__detail"
+                  v-if="search.effciency"
+                >
                   연비 : {{ search.effciency }} km/ℓ
                 </p>
-                <p class="search__result__model__detail divLine" v-if="search.effciency"> | </p>
+                <p
+                  class="search__result__model__detail divLine"
+                  v-if="search.effciency"
+                >
+                  |
+                </p>
                 <p class="search__result__model__detail">
                   엔진 : {{ search.fuel.name }}
                   <span v-if="search.exhaust"> {{ search.exhaust }}cc</span>
                 </p>
               </div>
               <div class="search__result__model__button">
-                <button @click="goDetail(search.name)">바로가기</button>
+                <button @click="goDetail(search)">바로가기</button>
               </div>
             </div>
             <!-- <hr /> -->
@@ -88,7 +96,9 @@
       <template v-else>
         <span class="search__result__typo">
           <span>
-            <strong>입력하신 '{{ keyword }}'에 대한 검색결과가 없습니다.</strong>
+            <strong
+              >입력하신 '{{ keyword }}'에 대한 검색결과가 없습니다.</strong
+            >
           </span>
           <p>
             <span class="search__result__typo-small">
@@ -140,9 +150,9 @@ export default Vue.extend({
     }
   },
   methods: {
-    goDetail(mName) {
+    goDetail(modelInfo) {
       bus.$emit("on:progress");
-      findModelId(mName)
+      findModelId(modelInfo.name)
         .then(res => {
           console.log("제 정보는용", res.data);
           this.$store.commit("MODEL_INFO", res.data);
@@ -156,7 +166,8 @@ export default Vue.extend({
           this.$router.push({
             name: "Main",
             params: {
-              reload: true
+              reload: true,
+              params: { modelInfo: modelInfo }
             }
           });
         });
