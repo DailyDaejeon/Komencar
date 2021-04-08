@@ -147,17 +147,36 @@
 }
 
 .img-button-progress-done.img-button-progress-done-active:before {
-  width: $done-check-width;
-  height: $done-check-height;
-  border: solid $done-check-thickness $base-color;
+  width: 80px;
+  height: 30px;
+  border: solid 15px $base-color;
   border-top: none;
   border-right: none;
   position: absolute;
-  top: ($default-height / 2);
-  left: ($default-width / 2) - ($done-check-width / 2);
+  top: ($default-height + 5px);
+  left: ($default-width/1.68);
   transform: rotate(-45deg);
   transform-origin: top left;
   animation: progress-done-post $animation-time $animation-style;
+
+  @include mq('small-screen-1') {
+    width: 70px;
+    height: 27px;
+    top: ($default-height + 8px);
+    left: ($default-width/1.6);
+  }
+  @include mq('small-screen-2') {
+    width: 63px;
+    height: 24px;
+    top: $default-height;
+    left: ($default-width / 1.95);
+  }
+  @include mq('small-screen-3') {
+    width: 58px;
+    height: 20px;
+    top: ($default-height - 21px);
+    left: ($default-width / 2.7);
+  }
 }
 
 @keyframes progress-done-post {
