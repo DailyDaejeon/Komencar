@@ -38,10 +38,10 @@
             </div>
           </figure>
         </div>
-        <div class="about-button" @click="gotoHome()">
-          <span class="about-button__detail">코멘카 바로가기</span>
-        </div>
       </section>
+      <div class="about-button" @click="gotoHome()">
+        <span class="about-button__detail">코멘카 바로가기</span>
+      </div>
     </template>
   </div>
 </template>

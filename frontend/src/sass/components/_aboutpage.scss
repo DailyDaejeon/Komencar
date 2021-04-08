@@ -471,7 +471,7 @@ $mx-width: 50rem;
 
   @include mq('small-screen-3') {
     width: 20rem;
-    margin-left: 8rem;
+    margin-left: 12rem;
     margin-bottom: -2rem;
   }
 
@@ -505,11 +505,8 @@ $mx-width: 50rem;
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 .about-button {
-  width: 180vh;
-  height: 100px;
   background: #f3f0f1;
   position: relative;
-  background: #f3f0f1;
   margin-bottom: 25px;
   border-radius: 32px;
   text-align: center;
@@ -518,30 +515,32 @@ $mx-width: 50rem;
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
   6px 6px 10px rgba(0, 0, 0, 0.2);
   color: $color-main-navy;
-  margin: auto;
-  bottom: 50vh;
+  bottom: 40rem;
 
   //가장 큼
   @include mq('small-screen-1') {
-    bottom: -20vh;
+    width: 90%;
+    margin-right: 2rem;
+    height: 7rem;
+    position: absolute;
+    // /* bottom: 8em; */
+    margin-bottom: -10em;
+    margin-left: -1rem;
   }
 
   @include mq('small-screen-2') {
-
-    margin: auto;
-    bottom: -37rem;
+    position: relative;
+    border-radius: 32px;
+    bottom: -15rem;
+    left: 10rem;  
   }
 
   @include mq('small-screen-3') {
-    // bottom: 0;
-    // width: 32rem;
-    // margin: auto;
-    // height: 7rem;
-
-    bottom: 2rem;
-    width: 32rem;
-    margin: auto;
+    width: 100%;
     height: 7rem;
+    position: absolute;
+    bottom: 3em;
+    left: 0rem;  
 }
   
 
@@ -633,7 +632,7 @@ $fontSize: 20rem;
       font-size: 5rem;
       font-weight: 1000;
       line-height: 11rem;
-      margin-left: 6em;
+      margin-left: 7em;
       margin-top: -6em;
       text-align: center;
     }
