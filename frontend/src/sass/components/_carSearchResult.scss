@@ -3,15 +3,17 @@
   margin: auto;
 
   @include mq('small-screen-1') {
-    width: 43vw;
+    width: 65rem;
   }
   
   @include mq('small-screen-2') {
-    width: 43vw;
+    width: 55rem;
   }
 
   @include mq('small-screen-3') {
-    width: 43vw;
+    width: 90vw;
+    position: relative;
+    right: 12px;
   }
 }
 
@@ -22,15 +24,15 @@
   line-height: 50px;
 
   @include mq('small-screen-1') {
-    text-align: center;
+    // text-align: center;
   }
 
   @include mq('small-screen-2') {
-    text-align: center;
+    // text-align: center;
   }
 
   @include mq('small-screen-3') {
-    text-align: center;
+    // text-align: center;
     line-height: 30px;
   }
   
@@ -42,15 +44,15 @@
       display: inline-block;
 
       @include mq('small-screen-1') {
-        width: 43vw;
+        width: 65rem;
       }
       
       @include mq('small-screen-2') {
-        width: 43vw;
+        width: 55rem;
       }
     
       @include mq('small-screen-3') {
-        width: 43vw;
+        width: 90vw;
         line-height: 30px;
       }
     
@@ -113,20 +115,30 @@
     
       @include mq('small-screen-3') {
         width: 100%;
-        padding: 1rem;
+        padding: 1.3rem;
       }
 
       th {
-        width: 50%;
+        width: 45%;
         color: $color-main-navy;
         font-weight: 200;
         padding: 0.5rem;
         font-size: 2rem;
         text-align: center;
 
+        @include mq('small-screen-1') {
+          width: 30%;
+          font-size: 2rem;
+        }
+
+        @include mq('small-screen-2') {
+          width: 30%;
+          font-size: 2rem;
+        }
+
         @include mq('small-screen-3') {
           width: 30%;
-          font-size: 1.8rem;
+          font-size: 1.6rem;
         }
       }
       td {
@@ -140,9 +152,17 @@
         font-weight: 600;
         font-size: 2rem;
 
+        @include mq('small-screen-1') {
+          width: 43vw;
+        }
+  
+        @include mq('small-screen-2') {
+          width: 45vw;
+        }
+
         @include mq('small-screen-3') {
-          font-size: 1.8rem;
-          
+          width: 50vw;
+          font-size: 1.5rem;
         }
       }
     }
