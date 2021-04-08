@@ -101,17 +101,18 @@ export default Vue.extend({
         bus.$emit("on:progress");
         window.location.reload();
         window.scrollTo(0, 0);
-      } else if (this.$route.params.goid) {
-        bus.$emit("on:progress");
-        window.location.reload();
-        setTimeout(() => {
-          const element = document.getElementById(this.$route.params.goid);
-          const x = element.scrollLeft;
-          const y = element.scrollTop;
-          console.log("x,y", x, y);
-          window.scrollTo(x, y);
-        }, 500);
       }
+      // else if (this.$route.params.goid) {
+      //   bus.$emit("on:progress");
+      //   window.location.reload();
+      //   setTimeout(() => {
+      //     const element = document.getElementById(this.$route.params.goid);
+      //     const x = element.scrollLeft;
+      //     const y = element.scrollTop;
+      //     console.log("x,y", x, y);
+      //     window.scrollTo(x, y);
+      //   }, 500);
+      // }
     },
     getModelInfo() {
       // const { data } = await fetchModel(this.m_id);
