@@ -57,11 +57,11 @@ export default Vue.extend({
       isShow: true
     };
   },
-  created() {
-    setTimeout(() => {
-      this.isShow = false;
-    }, 4500);
-  },
+  // created() {
+  //   setTimeout(() => {
+  //     this.isShow = false;
+  //   }, 4500);
+  // },
   methods: {
     gotoHome() {
       this.$router.push({ name: "Home" });
