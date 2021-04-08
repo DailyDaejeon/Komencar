@@ -1,8 +1,9 @@
 <template>
   <div class="carSearch">
-    <h2 class="carSearch__descrip " id="typo">
-      눈 앞의 차를 카메라로 찍어보고, 시세를 확인해보세요.
-    </h2>
+    <div class="carSearch__descrip " id="typo">
+      <p>눈 앞의 차를 카메라로 찍고,</p>
+      <p>시세를 확인해보세요.</p>
+    </div>
     <CarImages @active="toggleActive(true)" @unactive="toggleActive(false)" />
   </div>
 </template>
