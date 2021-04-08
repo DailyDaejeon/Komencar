@@ -32,5 +32,10 @@
             @content;
         }
     }
+    @else if $screen-width == 'small-screen-4' {
+        @media screen and (min-width:1201px) {
+            @content;            
+        }
+    }
 
 }
