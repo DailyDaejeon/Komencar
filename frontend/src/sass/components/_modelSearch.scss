@@ -1,0 +1,448 @@
+.search {
+  height: 35vh;
+  width: 100%;
+  padding: 0;
+  position: relative;
+  &:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 35vh;
+  opacity: 0.5;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-repeat: no-repeat;
+  }
+  
+  &__text {
+    text-align: center;
+    font-size: 7vw;
+    font-weight: bold;
+    position: relative;
+    font-family: emoji;
+    top: 3vh;
+  }
+  
+  &__div {
+    width: 90%;
+    margin: auto;
+    top: 2.5vh;
+    background-color: #FFFFFFB3;
+    min-height: 30vh;
+    position: relative;
+  }
+  
+  &__container {
+    text-align: center;
+    position: relative;
+    color: #2c3e50;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-top: 5vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__form {
+    transition: all 0.5s;
+    width: 75vw;
+  }
+  &__finder {
+    top:5vh;
+    border: 1px solid #fff;
+    background-color: #f6f5f0;
+    border-radius: 15px;
+    padding: 8px;
+    box-shadow: 9px 9px 16px rgba(189, 189, 189, 0.6),
+      -9px -9px 16px rgba(255, 255, 255, 0.5);
+    
+    &__outer {
+      display: flex;
+      width: 100%;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      box-shadow: inset 10px 10px 15px -10px #c3c3c3,
+        inset -10px -10px 15px -10px #ffffff;
+
+      @include mq('small-screen-1') {
+        padding: 1.5rem 2rem;
+      }
+      
+      @include mq('small-screen-2') {
+        padding: 1.5rem 2rem;
+      }
+
+      @include mq('small-screen-3') {
+        padding: 1rem 2rem;
+      }
+    }
+
+    &__inner {
+      display: flex;
+      align-items: center;
+      position: relative;
+      flex: 1;
+    }
+
+    &__form {
+      flex: 1;
+      height: calc(100% + 3rem);
+    }
+
+    &__input {
+      width:100%;
+      height: calc(100% + 3rem);
+      border: none;
+      background-color: transparent;
+      outline: none;
+      font-size: 2.3rem;
+      letter-spacing: 0.75px;
+      
+      @include mq('small-screen-2') {
+        font-size: 1.9rem;
+      }
+
+      @include mq('small-screen-3') {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__icon {
+      width: 40px;
+      height: 40px;
+      margin-right: 2rem;
+      transition: all 0.2s;
+      box-shadow: inset 0 0 0 20px #292929;
+      border-radius: 50%;
+      position: relative;
+
+
+      @include mq('small-screen-3') {
+        width: 30px;
+        height: 30px;
+      }
+
+      &:after,
+      &:before {
+        display: block;
+        content: "";
+        position: absolute;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      &:after {
+        width: 10px;
+        height: 10px;
+        background-color: #292929;
+        border: 3px solid #f6f5f0;
+        top: 50%;
+        position: absolute;
+        transform: translateY(-50%);
+        left: 0px;
+        right: 0;
+        margin: auto;
+        border-radius: 50%;
+
+        @at-root .active & {
+          border-width: 10px;
+          background-color: #f6f5f0;
+
+          @include mq('small-screen-3') {
+            border-width: 5px;
+          }
+        }
+
+        @include mq('small-screen-3') {
+          width: 10px;
+          height: 10px;
+        }
+      }
+
+      &:before {
+        width: 4px;
+        height: 13px;
+        background-color: #f6f5f0;
+        top: 50%;
+        left: 20px;
+        transform: rotateZ(45deg) translate(-50%, 0);
+        transform-origin: 0 0;
+        border-radius: 4px;
+
+        @at-root .active & {
+          background-color: #292929;
+          width: 6px;
+          transform: rotateZ(45deg) translate(-50%, 25px);
+
+          @include mq('small-screen-3') {
+            transform: rotateZ(45deg) translate(-50%, 17px)
+          }
+        }
+
+        @include mq('small-screen-3') {
+          top: 49%;
+          left: 13px;
+        }
+      }
+
+      @at-root .processing & {
+        transform-origin: 50%;
+        animation: spinner 0.3s linear infinite;
+        animation-delay: 0.5s;
+      }
+
+      @at-root .active & {
+        transform: translateY(-5px);
+
+        @include mq('small-screen-3') {
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+  &__result {
+    position: relative;
+    top: 5vh;
+    &__typo {
+      font-size: 4rem;
+      line-height: 2rem;
+      display: block;
+      text-align: center;
+      margin: 2.5rem 0 4.5rem 0;
+
+      &-blue {
+        color: $color-blue-1;
+      }
+      & p {
+        margin: 7vh;
+
+        @include mq('small-screen-1') {
+          margin: 7vh;
+        }
+        
+        @include mq('small-screen-2') {
+          margin: 5vh;
+        }
+  
+        @include mq('small-screen-3') {
+          margin: 7vh;
+        }
+      }
+
+      &-small {
+        display: block;
+        font-size: 2vw;
+        margin-top: 2vh;
+
+        @include mq('small-screen-1') {
+          font-size: 2.1vw;
+          margin-top: 1.8vh;
+        }
+        
+        @include mq('small-screen-2') {
+          font-size: 2.3vw;
+          margin-top: 1.6vh;
+        }
+  
+        @include mq('small-screen-3') {
+          font-size: 2.8vw;
+          margin-top: 1.6vh;
+        }
+      }
+      
+      @include mq('small-screen-1') {
+        font-size: 3vw;
+        margin: 2.5rem 0 4.5rem 0;
+      }
+      
+      @include mq('small-screen-2') {
+        font-size: 2.8vw;
+        margin: 2rem 0 3.8rem 0;
+      }
+
+      @include mq('small-screen-3') {
+        font-size: 2.6vw;
+        margin: 1rem 0 3.2rem 0;
+      }
+    }
+
+    &__model {
+      font-weight: 900;
+      font-size: 6vw;
+      height: 8vh;
+      text-align: center;
+      line-height: 2rem;
+      display: block;
+      margin-top: 3vh;
+      padding-top: 2rem;
+
+      &__img {
+        width: 17vw;
+        display: inline-block;
+        cursor: pointer;
+
+        @include mq('small-screen-1') {
+          width: 23vh;
+        }
+        
+        @include mq('small-screen-2') {
+          width: 25vh;
+        }
+  
+        @include mq('small-screen-3') {
+          width: 40vh;
+          margin: auto;
+          display: block;
+        }
+      }
+
+      &__item {
+        display: inline-block;
+        position: relative;
+        bottom: 5vw;
+        margin: 0 0 0 3.5rem;
+
+        @include mq('small-screen-1') {
+          bottom: 9vh;
+        }
+        
+        @include mq('small-screen-2') {
+          bottom: 8vh;
+        }
+  
+        @include mq('small-screen-3') {
+          bottom: 3vh;
+          margin: 0;
+        }
+ 
+        & .divLine {
+          @include mq('small-screen-2') {
+            display: none;
+          }
+        }
+      }
+
+      &__title {
+        display: inline-block;
+        font-size: 2.8vw;
+        font-weight: 700;
+
+        @include mq('small-screen-1') {
+          font-size: 3rem;
+        }
+        
+        @include mq('small-screen-2') {
+          font-size: 2vw;
+        }
+  
+        @include mq('small-screen-3') {
+          font-size: 4rem;
+        }
+      }
+
+      &__detail {
+        display: inline-block;
+        margin: 1.5vw 1vw 0 0;
+        font-size: 1.3vw;
+
+        @include mq('small-screen-1') {
+          margin: 1.4vw 0.9vw 0 0;
+          font-size: 1.3rem;
+        }
+        
+        @include mq('small-screen-2') {
+          margin: 0.4vw 0.4vw 0 0;
+          font-size: 1.4vw;
+          font-weight: 600;
+          display: block;
+        }
+  
+        @include mq('small-screen-3') {
+          display: none;
+        }
+      }
+
+      &__button {
+        background: $color-primary;
+        width: 25rem;
+        margin-top: 2rem;
+        text-align: center;
+        padding: 0.7rem 0;
+        cursor: pointer;
+
+        @include mq('small-screen-1') {
+          width: 20vw;
+          padding: 0.5rem 0;
+        }
+        
+        @include mq('small-screen-2') {
+          width: 18vw;
+          padding: 0.3rem 0;
+        }
+  
+        @include mq('small-screen-3') {
+          margin-right: auto;
+          margin-left: auto;
+        }
+        
+        & button {
+          border: none;
+          background: none;
+          font-size: 2.4rem;
+          color: $color-white;
+          cursor: pointer;
+
+          @include mq('small-screen-1') {
+            font-size: 2rem;
+          }
+          
+          @include mq('small-screen-2') {
+            font-size: 1.7rem;
+          }
+    
+          @include mq('small-screen-3') {
+            font-size: 2.4rem;
+          }
+        }
+      }
+    }
+
+    &__div {
+      background-color: white;
+
+      &__item {
+        width: 70vw;
+        margin: auto;
+        // margin-left: 8vw;
+
+        @include mq('small-screen-1') {
+          width: 75vw;
+        }
+        
+        @include mq('small-screen-2') {
+          width: 70vw;
+        }
+  
+        @include mq('small-screen-3') {
+          width: 79vw;
+          margin: auto;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+
+
+@keyframes spinner {
+  0% {
+    transform: rotateZ(45deg);
+  }
+  100% {
+    transform: rotateZ(405deg);
+  }
+}

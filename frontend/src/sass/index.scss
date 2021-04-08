@@ -1,17 +1,24 @@
-@import 'base/base';
-@import 'base/typo';
-@import 'base/utilities';
-
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 
+@import 'base/base';
+@import 'base/typo';
+@import 'base/utilities';
+@import 'base/animations';
 
-@import 'layout/header';
 @import 'layout/main';
-@import 'layout/footer';
 
+@import 'components/logo';
+@import 'components/carSearchResult';
+@import 'components/carNews';
+@import 'components/carGoods';
 @import 'components/button';
-@import 'components/form';
-@import 'components/input';
-@import 'components/user';
+@import 'components/nav';
 @import 'components/aboutpage';
+@import 'components/carImgbtn';
+@import 'components/chart';
+@import 'components/carPrice';
+@import 'components/modelSearch';
+@import 'components/carModel';
+@import 'components/spinner';
+

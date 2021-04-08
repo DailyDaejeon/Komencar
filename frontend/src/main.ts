@@ -2,10 +2,16 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./routes/index";
 import store from "./store/index";
-// import '@/css/index.css'
-import GAuth from 'vue-google-oauth2'
+import "@/css/index.css";
+import ChartPlugin from "@/plugins/ChartPlugin";
+import VueSweetalert2 from "vue-sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/swiper-bundle.css'
 
-Vue.use(GAuth, {clientId: '239626612902-num4kon1amg6h3bkgart12e1q18hqprq.apps.googleusercontent.com', scope: 'profile email https://www.googleapis.com/auth/plus.login'})
+Vue.use(VueAwesomeSwiper)
+Vue.use(VueSweetalert2);
+Vue.use(ChartPlugin);
 
 Vue.config.productionTip = false;
 

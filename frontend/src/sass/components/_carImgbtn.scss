@@ -1,0 +1,181 @@
+.carSearch {
+  position: relative;
+  text-align: center;
+  top:20vh;
+
+ &__descrip {
+   font-size: 7.4rem;
+   font-weight: 700;
+
+    & p {
+      margin-bottom: 1.3rem;
+    }
+
+    @include mq('small-screen-1') {
+      text-align: center;
+      font-size: 7.4vw;
+      & p {
+        margin-bottom: 1.3rem;
+      }
+    }
+    @include mq('small-screen-2') {
+      text-align: center;
+      font-size: 5.4vw;
+      & p {
+        margin-bottom: 1.3rem;
+      }
+    }
+    @include mq('small-screen-3') {
+      // text-align: justify;
+      text-align: center;
+      font-size: 6.4vw;
+      & p {
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+}
+
+.descrip-active {
+  display: none;
+}
+
+.camera-button-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+.img-button {
+  color: $base-color;
+  font-family: inherit;
+  font-size: 52px;
+  font-weight: bold;
+  background-color: $bg-full;
+  width: 40rem;
+  height: 15rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 20% / 50%;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  transition: color $animation-time ease-in-out,
+    font-size $animation-time $animation-style,
+    background-color $animation-time ease-in-out,
+    width $animation-time $animation-style,
+    height $animation-time $animation-style,
+    border-radius $animation-time $animation-style;
+
+    @include mq('small-screen-1') {
+      font-size: 50px;
+    }
+    @include mq('small-screen-2') {
+      width: 33rem;
+      height: 13rem;
+      font-size: 40px;
+    }
+    @include mq('small-screen-3') {
+      width: 25rem;
+      height: 9rem;
+      font-size: $default-font-size-label;
+    }
+
+  &:after {
+  content: 'Loading';
+  font-size: 0;
+  display: block;
+  transition: font-size $animation-time ease-in-out;
+}
+  &.active {
+    font-size: $active-font-size-label;
+    background-color: $bg-empty;
+    width: $active-width-height;
+    height: $active-width-height;
+    border-radius: 50%;
+    &:after {
+    font-size: $active-font-size-progress;
+    }
+  }
+    &-progress-done {
+      color: transparent;
+      background-color: $bg-done;
+      position: relative;
+      &:before {
+      content: '';
+      width: 0px;
+      height: 0px;
+      display: block;
+    }
+  }
+  &:hover {
+  background: $color-main-navy;
+  background: linear-gradient(0deg,  $color-main-navy 0%, $color-secondary 100%);
+  }
+}
+
+
+@for $i from 0 through 100 {
+  .img-button[img-button-progress='#{$i}'] {
+    background-image: linear-gradient(to top, $bg-full $i * 1%, $bg-empty $i * 1%);
+  }
+  
+  .img-button[img-button-progress='#{$i}']:after {
+    content: '#{$i}%';
+  }
+}
+
+.img-button[img-button-progress='finish'] {
+  animation: progress-done-pre $animation-time ease-out;
+  &:after {
+    content: 'Success';
+  }
+}
+
+@keyframes progress-done-pre {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.15); }
+  75%  { transform: scale(0.9); }
+  90%  { transform: scale(1.05) }
+  100% { transform: scale(1); }
+}
+
+.img-button-progress-done.img-button-progress-done-active:before {
+  width: 80px;
+  height: 30px;
+  border: solid 15px $base-color;
+  border-top: none;
+  border-right: none;
+  position: absolute;
+  top: ($default-height + 5px);
+  left: ($default-width/1.68);
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  animation: progress-done-post $animation-time $animation-style;
+
+  @include mq('small-screen-1') {
+    width: 70px;
+    height: 27px;
+    top: ($default-height + 8px);
+    left: ($default-width/1.6);
+  }
+  @include mq('small-screen-2') {
+    width: 63px;
+    height: 24px;
+    top: $default-height;
+    left: ($default-width / 1.95);
+  }
+  @include mq('small-screen-3') {
+    width: 58px;
+    height: 20px;
+    top: ($default-height - 21px);
+    left: ($default-width / 2.7);
+  }
+}
+
+@keyframes progress-done-post {
+  0%   { width: 0px; height: 0px; }
+  50%  { width: 0px; height: $done-check-height; }
+  100% { width: $done-check-width; height: $done-check-height; }
+}

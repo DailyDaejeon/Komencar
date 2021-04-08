@@ -1,0 +1,50 @@
+.spinner__container {
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1000;
+  height: 100vmax;
+  justify-content: space-around;
+  position: sticky;
+  align-items: center;
+  margin: 0 auto;
+  // max-width: 650px;
+  // min-width: 200px;
+  background-color: white;
+  overflow:hidden !important; touch-action:none;
+  -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  &:-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+  &__canvas {
+  align-items: center;
+  background: #eeeeee;
+  border-radius: 50%;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  height: 10em;
+  justify-content: center;
+  margin: 1em 1em 2em 1em;
+  width: 10em;
+  &__spinner {
+  animation: spinnerFour 1s linear infinite;
+  border: solid 7px transparent;
+  border-top: solid 7px $color-main-navy;
+  border-radius: 100%;
+  width: 3em;
+  height: 3em;
+}
+}
+
+}
+
+
+@keyframes spinnerFour {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Spinner 4 ends here */

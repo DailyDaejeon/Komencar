@@ -18,12 +18,39 @@
 - 프로젝트명 : 코멘카(Komencar)
 
 - 목표
+  - Object-Detection을 이용한 AI 모델링 학습을 통해 이미지 캡셔닝 서비스를 개발한다.
+  - 사용자가 촬영한 차량 이미지를 받아 해당 차량의 모델을 예측하고, 이에 대한 세부 정보를 제공한다.
+    [ 학습할 차량은 현대 자동차의 5종(그랜저, 아반떼, 쏘나타, 코나, 팰리세이드)으로 제한한다. ]
+  - 검색된 차량 정보에 맞는 부가 서비스(관련 뉴스, 리뷰 등)를 제공한다.
 
 ## **제작 시** **사용된 기술**
+
+- AI
+
+  - Object-Detection (API 사용)
+  - ssd_inception_v2_coco (오픈 모델)
+
+- Back-end
+
+  -
+
+- Front-end
 
 ---
 
 ## 주요기능
+
+1.  차량 모델 검색 서비스
+
+- 차량의 사진을 찍어서 서버에 전송하면 모델 종류 및 상세 정보를 제공
+- 차량 모델을 직접 검색하면 해당 차량의 상세 정보를 제공
+
+2.  모델 정보 분석 서비스
+
+- 검색한 차량의 상세 정보와 옵션별 차트 제공
+- 차량 세대(ex. 1세대, 2세대)의 가장 최신 모델과 성능 비교 차트 제공
+- 검색 차량과 비슷한 모델(가격대, 차체 크기로 구분)과 비교하여 분석한 정보 제공
+- 검색 차량의 관련 뉴스 제공
 
 ---
 
@@ -59,6 +86,45 @@ gantt
 
 
     %%section 기타
+```
+
+## ERD
+
+![komencar-erd](README.assets/komencar-erd.png)
+
+## 프로젝트 설정
+
+### Frontend
+
+- `settings.json`
+
+```json
+{
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.suggest.insertMode": "replace",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "eslint.validate": ["javascript", "typescript"],
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "~/../css"
+    }
+  ],
+  "liveSassCompile.settings.generateMap": false,
+  "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"]
+}
 ```
 
 ## Git Rule
@@ -232,9 +298,7 @@ git push origin hotfix-1.2.1
 5. **비반응적 속성(Non-Reactive Properties)** (시스템의 반응성과 관계 없는 인스턴스 속성을 지정하는 옵션)
    - `methods`
 
-
-
-### View와 Components 폴더 
+### View와 Components 폴더
 
 1. View폴더에는 기능별 컴포넌트들을 담을 메인 페이지만 넣기
    - 싱글페이지 앞에는 `The`붙이기
@@ -252,7 +316,7 @@ views/
 ```
 
 2. Components 폴더안에는 해당 기능 페이지의 컴포넌트들 모두 적기
-   - 한 페이지 안에 들어가는 기능은 `prefix(접두어)`를 같게 만들어라(또는 접두어 폴더안에 담아라) 
+   - 한 페이지 안에 들어가는 기능은 `prefix(접두어)`를 같게 만들어라(또는 접두어 폴더안에 담아라)
 
 ```sh
 Components/
@@ -265,23 +329,17 @@ Components/
 	|- CarImageGallery.vue(자동차 앨범에서 이미지 업로드)
 ```
 
-
-
-###  컴포넌트 이름
+### 컴포넌트 이름
 
 1. 파스칼 케이스로 이름 설정한다. ex) `TodoItem`
 2. 첫 글자 대문자, 단어가 바뀌면 대문자
-
-
 
 ### 컴포넌트 import
 
 ```html
 <!-- In single-file components, string templates, and JSX -->
-<MyComponent/>
+<MyComponent />
 ```
-
-
 
 ### props 규정
 
@@ -309,38 +367,23 @@ props: {
 },
 ```
 
-
-
 ### 다중 속성 엘리먼트
 
 ```html
-<img
-  src="https://vuejs.org/images/logo.png"
-  alt="Vue Logo"
->
+<img src="https://vuejs.org/images/logo.png" alt="Vue Logo" />
 
-<MyComponent
-  foo="a"
-  bar="b"
-  baz="c"
-/>
+<MyComponent foo="a" bar="b" baz="c" />
 ```
-
-
 
 ### computed
 
 - 가독성 좋게! 단순한 계산된 값은 한줄로 표현
 
-
-
 ### methods
 
 - 동사형, 기능을 명확하게 알 수 있도록 변수명을 정함
 
-
-
-### css/scss 
+### css/scss
 
 - `index.scss` 파일로 `index.css`로 변환해서 관리
 
@@ -364,8 +407,6 @@ props: {
 		|- footer.scss
 ```
 
-
-
 #### class명
 
 - 위에 큰 부모 밑에 아래 요소를 `__`(속성), `--`(수정)에 사용
@@ -376,82 +417,43 @@ props: {
 - block : 재사용 가능한 영역(header, footer, navigation…), 하나의 단어를 사용하되 길어질 경우 (-)를 사용
 
 ```css
-.header { ... }
-.block { ... }
+.header {
+  ...;
+}
+.block {
+  ...;
+}
 ```
 
-- element : 블록의 내부 구성을 표현, 두개의 underscores( _ )로 표기
+- element : 블록의 내부 구성을 표현, 두개의 underscores( \_ )로 표기
 
 ```css
-.header { ... }
-.header__link { ... }
-.header__tap { ... }
-.header__tap__item { ... }
+.header {
+  ...;
+}
+.header__link {
+  ...;
+}
+.header__tap {
+  ...;
+}
+.header__tap__item {
+  ...;
+}
 ```
 
 - modifier : 요소의 상태를 표현, 두개의 hyphen(-)로 표기
 
 ```css
-.header--hide { ... }
-.header__tap--big { ... }
-.header__tap--big { ... }
+.header--hide {
+  ...;
+}
+.header__tap--big {
+  ...;
+}
+.header__tap--big {
+  ...;
+}
 ```
 
 코드를 직관적으로 파악할수 있지만 이름이 길고 복잡해 질수 있다.
-
-
-
-
-
-
-
-## ERD
-
-
-
-## 프로젝트 설정
-
-### Frontend
-
-- `settings.json`
-
-```json
-{
-
-  "editor.quickSuggestions": {
-    "strings": true
-  },
-  "editor.suggest.insertMode": "replace",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.alwaysShowStatus": true,
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ],
-  "eslint.validate": [
-    "javascript",
-    "typescript"
-  ],
-  "liveSassCompile.settings.formats": [
-    {
-      "format": "expanded",
-      "extensionName": ".css",
-      "savePath": "~/../css"
-    },
-  ],
-  "liveSassCompile.settings.generateMap":false,
-  "liveSassCompile.settings.excludeList": [
-    "**/node_modules/**",
-    ".vscode/**"
-  ],
-  "liveSassCompile.settings.autoprefix": [
-    "> 1%",
-    "last 2 versions"
-  ]
-}
-
-```
-

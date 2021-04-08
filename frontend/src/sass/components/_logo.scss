@@ -1,0 +1,9 @@
+.LOGO {
+  cursor: pointer;
+  width: 300px;
+  margin-top: 1rem;
+
+  @include mq('small-screen-3') {
+    width: 130px;
+  }
+}

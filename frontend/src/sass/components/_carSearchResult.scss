@@ -1,0 +1,162 @@
+.main {
+  width: 86.5rem;
+  margin: auto;
+
+  @include mq('small-screen-1') {
+    width: 65rem;
+  }
+  
+  @include mq('small-screen-2') {
+    width: 55rem;
+  }
+
+  @include mq('small-screen-3') {
+    width: 90vw;
+    position: relative;
+    right: 12px;
+  }
+}
+
+// 전체 페이지 설정
+.container-fluid {
+  margin: 5rem 0;
+  background-color: $color-main-grey-2;
+  line-height: 50px;
+
+  @include mq('small-screen-3') {
+    line-height: 30px;
+  }
+  
+  // img div box
+    &__img-box {
+      width: 40rem;
+      background-color:	$color-main-navy;
+      text-align: center;
+      display: inline-block;
+
+      @include mq('small-screen-1') {
+        width: 65rem;
+      }
+      
+      @include mq('small-screen-2') {
+        width: 55rem;
+      }
+    
+      @include mq('small-screen-3') {
+        width: 90vw;
+        line-height: 30px;
+      }
+    
+      img {
+        width: 90%;
+        margin: 1.5rem;
+      }
+    }
+
+    &__add-box {
+      height: 55px;
+      font-style: italic;
+
+      &-desc {
+        font-size: 10px;
+        margin: 1rem;
+      }
+
+      &-login {
+        font-weight: 800;
+        margin: 1rem;
+      }
+    }
+
+    &__car-info-box {
+      display: inline-block;
+      margin-left: 1rem;
+      
+      @include mq('small-screen-1') {
+        width: 100%;
+        margin-top: 1.8rem;
+      }
+
+      @include mq('small-screen-2') {
+      }
+    
+      @include mq('small-screen-3') {
+      }
+    }
+
+    &__car-info {
+      width: 100%;
+      padding: 2rem 1.3rem;
+      display: contents;
+      background-color: $color-main-grey-1;
+
+      @include mq('small-screen-1') {
+        width: 100%;
+        padding: 2rem;
+      }
+
+      @include mq('small-screen-2') {
+        width: 100%;
+        padding: 2rem;
+      }
+    
+      @include mq('small-screen-3') {
+        width: 100%;
+        padding: 1.3rem;
+      }
+
+      th {
+        width: 30%;
+        color: $color-main-navy;
+        font-weight: 200;
+        padding: 0.5rem;
+        font-size: 2rem;
+        text-align: center;
+
+        @include mq('small-screen-1') {
+          width: 30%;
+          font-size: 2rem;
+        }
+
+        @include mq('small-screen-2') {
+          width: 30%;
+          font-size: 2rem;
+        }
+
+        @include mq('small-screen-3') {
+          width: 30%;
+          font-size: 1.6rem;
+        }
+      }
+      td {
+        text-align: center;
+      }
+      td > span {
+        display: inline-block;
+        margin-left: 30px;
+        color: black;
+        font-weight: 600;
+        font-size: 2rem;
+        width: 26rem;
+
+        @include mq('small-screen-1') {
+          width: 43vw;
+        }
+  
+        @include mq('small-screen-2') {
+          width: 45vw;
+        }
+
+        @include mq('small-screen-3') {
+          width: 50vw;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+
+
+
+
+  

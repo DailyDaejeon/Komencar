@@ -1,0 +1,147 @@
+// nav bar 스타일
+.nav {
+    &-checkbox {
+        display: none;
+    }
+
+    &-button {
+        background-color: $color-white;
+        width: 5rem;
+        height: 4rem;
+        position: fixed;
+        right: 4rem;
+        z-index: 2000;
+        cursor: pointer;
+        border-radius: 2px;
+        box-shadow: 0 1rem 1rem rgba(#000, 0.1);
+        text-align: center;
+    }
+
+    &-bg {
+        background-image: radial-gradient($color-primary, $color-secondary);
+        width: 5rem;
+        height: 4rem;
+        position: fixed;
+        right: 4rem;
+        z-index: 1000;
+        border-radius: 2px;
+        transition: all .8s;
+    }
+
+    &-checkbox:checked ~ &-bg {
+        transform: scale(80);
+    }
+
+    // ICON(3선 메뉴)
+    &-icon {
+        position: relative;
+        margin-top: 2rem;
+        cursor: pointer;
+
+        &::before {
+            top: -0.8rem;
+        }
+
+        &::after {
+            top: 0.8rem;
+        }
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+
+        &, &::before, &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-primary;
+            display: inline-block;
+        }
+    }
+
+    &-button:hover &-icon::before {
+        top: -1rem;
+    }
+
+    &-button:hover &-icon::after {
+        top: 1rem;
+    }
+
+    &-checkbox:checked ~ &-button &-icon {
+        background-color: transparent;
+    }
+
+    // 메뉴가 눌려지면 3선이 X표시가 됨
+    &-checkbox:checked ~ &-button &-icon::before {
+        top: 0; 
+        transform: rotate(135deg); 
+    }
+
+    &-checkbox:checked ~ &-button &-icon::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+
+    // .nav-body
+    &-body {
+        position: fixed;
+        top: 0;
+        left: -120%;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1500;
+        opacity: 0;
+        transition: all .8s; 
+    }
+
+    &-list {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        list-style: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    &-item {
+
+    }
+
+    &-link {
+        cursor: pointer;
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: 300;
+        padding: 1rem 2rem;
+        color: $color-white;
+        text-decoration: none;
+        text-transform: uppercase; 
+        transition: all .4s;
+        background-image: linear-gradient(
+            120deg,
+            transparent 0%,
+            transparent 50%,
+            $color-white 50%
+        );
+        background-size: 220%;
+
+        &:hover {
+            color: $color-primary;
+            background-position: 100%;
+            transform: translateX(1rem);
+        }
+
+        span {
+            display: inline-block;
+            margin-right: 1.5rem;
+        }
+    }
+
+    &-checkbox:checked ~ &-body {
+        opacity: 1;
+        left: 0;
+    }
+}
