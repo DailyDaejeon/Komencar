@@ -40,7 +40,11 @@ export default Vue.extend({
   },
   methods: {
     goImgSearch() {
-      this.$router.push({ name: "Home" }).catch(()=>{});
+      this.$router.push({ name: "Home" }).catch(error => {
+        if(error.name != "NavigationDuplicated" ){
+          throw error;
+        }
+      });
     },
     onProgress() {
       this.loading = true;
