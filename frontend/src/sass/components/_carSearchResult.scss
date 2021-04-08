@@ -23,16 +23,7 @@
   background-color: $color-main-grey-2;
   line-height: 50px;
 
-  @include mq('small-screen-1') {
-    // text-align: center;
-  }
-
-  @include mq('small-screen-2') {
-    // text-align: center;
-  }
-
   @include mq('small-screen-3') {
-    // text-align: center;
     line-height: 30px;
   }
   
@@ -56,13 +47,10 @@
         line-height: 30px;
       }
     
-    img {
-      width: 90%;
-      margin: 1.5rem;
-    }
-    
-    // @media (width: 360px) {
-    // }
+      img {
+        width: 90%;
+        margin: 1.5rem;
+      }
     }
 
     &__add-box {
@@ -101,7 +89,6 @@
       padding: 2rem 1.3rem;
       display: contents;
       background-color: $color-main-grey-1;
-      // height: 15rem;
 
       @include mq('small-screen-1') {
         width: 100%;
@@ -142,7 +129,6 @@
         }
       }
       td {
-        // width: 70%;
         text-align: center;
       }
       td > span {

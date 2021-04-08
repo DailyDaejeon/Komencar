@@ -11,13 +11,10 @@
         display: inline-block;
 
         @include mq('small-screen-1') {
-            // margin-right: 0rem;
             font-size: 4rem;
         }
         
         @include mq('small-screen-2') {
-            // margin-right: 0rem;
-            // display: inline-block;
             font-size: 3.5rem;
         }
 
@@ -83,7 +80,6 @@
 }
 
 .newsItem {
-    // background-color: $color-main-grey-1;
     background-color: $color-white;
     padding: 1rem;
     margin: 0.8rem;

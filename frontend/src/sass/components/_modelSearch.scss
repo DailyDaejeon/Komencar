@@ -1,6 +1,4 @@
 .search {
-  // border-style: solid;
-  // border-color: #292929;
   height: 35vh;
   width: 100%;
   padding: 0;
@@ -8,15 +6,9 @@
   &:before {
   content: "";
   position: absolute;
-  // background-color: $color-main-navy;
-  // background-image: url("../../assets/images/bg_visual_cloud.jpg");
-  // background-image: url("https://deepsense.ai/wp-content/uploads/2019/04/With-your-head-in-the-clouds-%E2%80%93-how-to-harness-the-power-of-artificial-intelligence.jpg");
-  // background-size: 100vh;
   width: 100%;
   height: 35vh;
-  // min-height: 10vh;
   opacity: 0.5;
-  // background-position:50%;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -25,7 +17,6 @@
   }
   
   &__text {
-    // color: white;
     text-align: center;
     font-size: 7vw;
     font-weight: bold;
@@ -35,8 +26,6 @@
   }
   
   &__div {
-    // border-style: solid;
-    // border-color: red;
     width: 90%;
     margin: auto;
     top: 2.5vh;
@@ -46,26 +35,21 @@
   }
   
   &__container {
-  // border-style: solid;
-  // border-color: blue;
-  text-align: center;
-  position: relative;
-  color: #2c3e50;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  margin-top: 5vh;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    text-align: center;
+    position: relative;
+    color: #2c3e50;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-top: 5vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
   &__form {
     transition: all 0.5s;
     width: 75vw;
-    // position: absolute;
-    // top: 20%;
-    // transform: translateY(-20%);
   }
   &__finder {
     top:5vh;
@@ -136,15 +120,6 @@
       border-radius: 50%;
       position: relative;
 
-      // @include mq('small-screen-1') {
-      //   width: 40px;
-      //   height: 40px;
-      // }
-      
-      // @include mq('small-screen-2') {
-      //   width: 40px;
-      //   height: 40px;
-      // }
 
       @include mq('small-screen-3') {
         width: 30px;
@@ -181,16 +156,6 @@
           }
         }
 
-        // @include mq('small-screen-1') {
-        //   width: 40px;
-        //   height: 40px;
-        // }
-        
-        // @include mq('small-screen-2') {
-        //   width: 40px;
-        //   height: 40px;
-        // }
-  
         @include mq('small-screen-3') {
           width: 10px;
           height: 10px;
@@ -241,8 +206,6 @@
   &__result {
     position: relative;
     top: 5vh;
-    // background-color: #f6f5f2;
-    // padding: 4rem 1rem 0;
     &__typo {
       font-size: 4rem;
       line-height: 2rem;
@@ -377,7 +340,6 @@
   
         @include mq('small-screen-3') {
           font-size: 4rem;
-          // display: block;
         }
       }
 
@@ -404,10 +366,6 @@
       }
 
       &__button {
-        // display: inline-block;
-        // position: absolute;
-        // bottom: 5rem;
-        // left: 28vw;
         background: $color-primary;
         width: 25rem;
         margin-top: 2rem;
@@ -417,23 +375,17 @@
 
         @include mq('small-screen-1') {
           width: 20vw;
-          // bottom: 3.4rem;
-          // left:30vw;
           padding: 0.5rem 0;
         }
         
         @include mq('small-screen-2') {
           width: 18vw;
           padding: 0.3rem 0;
-          // bottom: 5.6rem;
-          // left: 77rem;
         }
   
         @include mq('small-screen-3') {
           margin-right: auto;
           margin-left: auto;
-          // bottom: 5.6rem;
-          // left: 77rem;
         }
         
         & button {
