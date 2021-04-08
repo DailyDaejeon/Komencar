@@ -79,7 +79,7 @@ export default Vue.extend({
           inline: "start"
         });
       } else {
-        this.this.$swal({
+        this.$swal({
           text: "차량에 대한 정보가 없습니다. 사진을 업로드해주세요",
           customClass: {
             container: "swal2-container"
