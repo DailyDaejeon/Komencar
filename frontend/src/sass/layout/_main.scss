@@ -1,30 +1,4 @@
 main {
   @include clearfix();
-  // 반응형 예시
-  /*
-  #section-about {
-    background-color: #ededed;
-    padding: 7rem 0 6.5rem 6rem;
-    width: 66.66666%; // section-etc와 함께 100% 중 분배해서 가짐(그래야 width가 더 커서 아래로 내려가거나 하지 않고 계속 옆으로 보임)
-    min-height: 42rem; // min-height는 최소 높이가 42rem이고, 더 커질 수 있다
-    float: left;
-
-    @include clearfix(); // float:left 자식 두개(words,photo)의 영역을 확보하기 위해
-    // 화면 900~1200px
-    @include mq('small-screen-1') {
-        // @content;안의 자리에 "{}" 안의 코드가 들어옴
-        width: 100%; // 하나하나가 100%를 다 차지해서 아래로 쌓이게 됨
-    }
-    @include mq('small-screen-2') {
-        width: 100%;
-        height: 54rem; // section 높이를 보기좋게 높임
-        padding: 7rem 6rem 6.5rem 6rem;
-    }
-    @include mq('small-screen-3') {
-        width: 100%;
-        height: 60rem;
-        padding: 7rem 6rem 6.5rem 6rem;
-    }
-  }
-  */
+  
 }

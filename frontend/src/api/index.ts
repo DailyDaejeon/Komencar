@@ -1,16 +1,6 @@
 import axios, { AxiosPromise } from "axios";
 import { setInterceptors } from "@/api/instance/intercepter.js";
 
-export interface UserInfo {
-  u_email: string;
-  u_name: string;
-}
-
-export interface SubListItem {
-  m_id: number;
-  m_name: string;
-}
-
 export interface ModelItem {
   id: number;
   manufacturer: string;
@@ -53,41 +43,6 @@ export interface ShopItem {
 }
 
 const instance = setInterceptors();
-// member api
-function loginUser(): AxiosPromise<any> {
-  return instance.get(`user/login`);
-}
-
-function logoutUser(): AxiosPromise<any> {
-  return instance.post(`user/logout`);
-}
-
-function deleteUser(): AxiosPromise<any> {
-  return instance.delete(`user/delete`);
-}
-
-function fetchUser(): AxiosPromise<any> {
-  return instance.get(`user/info`);
-}
-
-// subscribe api
-function addCar(modelId: number): AxiosPromise<any> {
-  return instance.post(`mycar/add`, {
-    m_id: modelId
-  });
-}
-
-function deleteCar(modelId: number): AxiosPromise<any> {
-  return instance.delete(`mycar/delte`, {
-    params: {
-      m_id: modelId
-    }
-  });
-}
-
-function fetchCars(): AxiosPromise<any[]> {
-  return instance.get(`mycar/list`);
-}
 
 // model api
 function searchModelImg(imagePic: any): AxiosPromise<string> {
@@ -157,13 +112,6 @@ function fetchShops(words: string): AxiosPromise<ShopItem[]> {
 }
 
 export {
-  loginUser,
-  logoutUser,
-  deleteUser,
-  fetchUser,
-  addCar,
-  deleteCar,
-  fetchCars,
   findModelId,
   fetchAllCars,
   fetchAllOptions,
