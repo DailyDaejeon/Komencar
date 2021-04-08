@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter, { NavigationGuardNext, Route } from "vue-router";
 import bus from "@/utils/bus";
+import store from "@/store";
 
 Vue.use(VueRouter);
 

@@ -71,37 +71,68 @@ export default Vue.extend({
         searchModelImg(imagePic)
           .then(res => {
             // console.log("너는 무슨 자동차니 ? ", res.data);
-            findModelId(res.data)
-              .then(res => {
-                this.endLoading = true;
-                // console.log("제 정보는용", res.data);
-                this.$store.commit("MODEL_INFO", res.data);
-                this.$store.commit("MODEL_NAME", res.data.name);
-                this.$store.dispatch("FETCH_LATEST", res.data.id);
-                this.$store.dispatch("SIMILAR_PRICE", res.data.id);
-                this.$store.dispatch("SAME_SEGMENT", res.data.id);
-                setTimeout(() => {
-                  bus.$emit("on:progress");
-                  this.$router.push({
-                    name: "Main",
-                    params: { modelInfo: res.data }
-                  });
-                }, 3000);
-              })
-              .catch(() => {
-                this.endLoading = true;
-                this.$swal({
-                  text: "사진을 업로드 하던 중 오류가 발생했습니다.",
-                  customClass: {
-                    container: "swal2-container"
-                  },
-                  icon: "warning",
-                  timer: 1300,
-                  showConfirmButton: false
-                }).then(() => {
-                  window.location.reload();
-                });
+            if (res.data.trim() == "unknown") {
+              // console.log("난 언논", res.data);
+              this.endLoading = true;
+              this.$swal({
+                text:
+                  "죄송합니다. 학습되지 않은 데이터입니다. 더 학습하고 돌아오겠습니다.",
+                customClass: {
+                  container: "swal2-container"
+                },
+                icon: "warning",
+                timer: 1300,
+                showConfirmButton: false
+              }).then(() => {
+                window.location.reload();
               });
+            } else if (res.data.trim() == "not front") {
+              // console.log("나는 앞이아니다", res.data, res);
+              this.endLoading = true;
+              this.$swal({
+                text: "앞모습이 아닙니다. 다시 촬영 부탁드립니다.",
+                customClass: {
+                  container: "swal2-container"
+                },
+                icon: "warning",
+                timer: 1300,
+                showConfirmButton: false
+              }).then(() => {
+                window.location.reload();
+              });
+            } else {
+              findModelId(res.data)
+                .then(res => {
+                  this.endLoading = true;
+                  // console.log("제 정보는용", res.data);
+                  this.$store.commit("MODEL_INFO", res.data);
+                  this.$store.commit("MODEL_NAME", res.data.name);
+                  this.$store.dispatch("FETCH_LATEST", res.data.id);
+                  this.$store.dispatch("SIMILAR_PRICE", res.data.id);
+                  this.$store.dispatch("SAME_SEGMENT", res.data.id);
+                  setTimeout(() => {
+                    bus.$emit("on:progress");
+                    this.$router.push({
+                      name: "Main",
+                      params: { modelInfo: res.data }
+                    });
+                  }, 3000);
+                })
+                .catch(() => {
+                  this.endLoading = true;
+                  this.$swal({
+                    text: "사진을 업로드 하던 중 오류가 발생했습니다.",
+                    customClass: {
+                      container: "swal2-container"
+                    },
+                    icon: "warning",
+                    timer: 1300,
+                    showConfirmButton: false
+                  }).then(() => {
+                    window.location.reload();
+                  });
+                });
+            }
           })
           .catch(() => {
             this.endLoading = true;
