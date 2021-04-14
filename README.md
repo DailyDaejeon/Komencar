@@ -69,25 +69,25 @@
 
 ## 프로토타입 & 화면 정의서
 
-**초기 프로토타입 문서**
+**초기 프로토타입 문서**  
 [komencar_prototype](https://lab.ssafy.com/s04-ai-image-sub3/s04p23b101/blob/master/Prototype/Komencar_%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85.md)
 
-**어바웃 페이지**
+**어바웃 페이지**  
 ![komencar_about.gif](README.assets/komencar_about.gif)
 
-**이미지 검색 페이지 - 카메라**
+**이미지 검색 페이지 - 카메라**  
 ![komencar_about.gif](README.assets/komencar_imgSearch_camera.GIF)
 
-**이미지 검색 페이지 - 앨범**
+**이미지 검색 페이지 - 앨범**  
 ![komencar_about.gif](README.assets/komencar_imgSearch.GIF)
 
-**코멘카 navi바 이동**
+**코멘카 navi바 이동**  
 ![komencar_about.gif](README.assets/komencar_navi_bar.GIF)
 
-**코멘카 반응형**
+**코멘카 반응형**  
 ![komencar_about.gif](README.assets/komencar_responsive.GIF)
 
-**코멘카 전체 시연**
+**코멘카 전체 시연**  
 ![komencar_about.gif](README.assets/komencar_total.GIF)
 
 ---
