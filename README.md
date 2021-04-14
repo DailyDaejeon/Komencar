@@ -76,19 +76,19 @@
 ![komencar_about.gif](README.assets/komencar_about.gif)
 
 **이미지 검색 페이지 - 카메라**  
-![komencar_about.gif](README.assets/komencar_imgSearch_camera.GIF)
+![komencar_imgSearch_camera.gif](README.assets/komencar_imgSearch_camera.GIF)
 
 **이미지 검색 페이지 - 앨범**  
-![komencar_about.gif](README.assets/komencar_imgSearch.GIF)
+![komencar_imgSearch.gif](README.assets/komencar_imgSearch.GIF)
 
 **코멘카 navi바 이동**  
-![komencar_about.gif](README.assets/komencar_navi_bar.GIF)
+![komencar_navi_bar.gif](README.assets/komencar_navi_bar.GIF)
 
 **코멘카 반응형**  
-![komencar_about.gif](README.assets/komencar_responsive.GIF)
+![komencar_responsive.gif](README.assets/komencar_responsive.GIF)
 
 **코멘카 전체 시연**  
-![komencar_about.gif](README.assets/komencar_total.GIF)
+![komencar_total.gif](README.assets/komencar_total.GIF)
 
 ---
 
